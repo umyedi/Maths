@@ -1,0 +1,190 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[fleqn]{amsmath}
+\setlength{\mathindent}{0pt}
+
+% Défini les couleurs pour les graphiques
+\definecolor{dark_green}{HTML}{008000}
+
+% Extensions
+\RequirePackage{geometry} 
+\geometry{tmargin=1cm,bmargin=1.9cm,lmargin=1.9cm,rmargin=1.9cm}
+
+% Paramètres du titre
+\def\classe{$1^{\text{re}}$ Spécialité mathématiques}
+\def\titre{Le second degré}
+\def\theme{Algèbre - Démonstrations}
+
+% Paramètres de numérotation des pages
+\fancypagestyle{custom}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \lfoot{Algèbre - Démonstrations}
+  \cfoot{Le second degré}
+  \rfoot{\thepage/\pageref{LastPage}}
+}
+
+\usepackage{titlesec} % Pour personnaliser les titres
+\usepackage{xcolor} % Pour définir des couleurs
+
+\title{\titre}
+\author{\classe \\ \theme}
+\date{}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Styles pour les mdframed
+\mdfdefinestyle{definitionStyle}{
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linewidth=2pt,
+    linecolor=black,
+    innertopmargin=0pt,
+    innerbottommargin=0pt,
+    innerrightmargin=0pt,
+    innerleftmargin=5pt,
+}
+
+\mdfdefinestyle{proprieteStyle}{
+    linewidth=1pt,
+    linecolor=black,
+    innertopmargin=5pt,
+    innerbottommargin=5pt,
+    innerrightmargin=5pt,
+    innerleftmargin=5pt,
+}
+
+% Supprime l'indentation des paragraphes
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+\pagestyle{custom}
+\thispagestyle{custom}
+
+\section*{I. Les fonctions polynômes du second degré}
+\subsection*{1. Forme canonique}
+
+\underline{Démonstration :}
+\begin{alignat*}{2}
+     & \text{Soit } & f(x) & = ax^2+bx+c                                                                                     \\
+     &              &      & = a\left[x^2+\frac{b}{a}x\right]+c                                                              \\
+     &              &      & = a\left[x^2+\frac{2b}{2a}x + \left(\frac{b}{2a}\right)^2- \left(\frac{b}{2a}\right)^2\right]+c \\
+     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a^2}\right]+c                                \\
+     &              &      & = a\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a}+c                                               \\
+     &              &      & = a(x-\alpha)+\beta \text{ avec $\alpha=\frac{-b}{2a}$ et $\beta=\frac{-b^2}{4a}+c=f(\alpha)$}
+\end{alignat*}
+
+\subsection*{2. Sens de variation}
+
+\underline{Démonstration de la propriété sur le sens de variation :}
+
+\begin{itemize}
+    \item 1$^{\text{er}}$ cas : $a>0$ ~\\
+        Soient $x_1$ et $x_2$ deux réels de l'intervalle $]-\infty;\alpha[$ tels que $x_1<x_2<\alpha$.
+        \begin{align*}
+            x_1-\alpha            & <  x_2-\alpha < 0                                                                    \\
+            (x_1-\alpha)^2        & >  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont négatifs} \\
+            a(x_1-\alpha)^2       & > a(x_2-\alpha)^2 \text{ car } a>0                                                   \\
+            a(x_1-\alpha)^2+\beta & > a(x_2-\alpha)^2+\beta                                                              \\
+            f(x_1)                & > f(x_2)
+        \end{align*}
+        Donc $f$ est strictement décroissante sur $]-\infty;\alpha[$.
+
+        Soient $x_1$ et $x_2$ deux réels de l'intervalle $[\alpha;\infty[$ tels que $\alpha<x_1<x_2$.
+        \begin{align*}
+            0\leq x_1-\alpha      & <  x_2-\alpha                                                                        \\
+            (x_1-\alpha)^2        & <  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont positifs} \\
+            a(x_1-\alpha)^2       & < a(x_2-\alpha)^2 \text{ car } a>0                                                   \\
+            a(x_1-\alpha)^2+\beta & < a(x_2-\alpha)^2+\beta                                                              \\
+            f(x_1)                & < f(x_2)
+        \end{align*}
+        Donc $f$ est strictement croissante sur $[\alpha;\infty[$.
+
+    \item 2$^{\text{ème}}$ cas : $a<0$ ~\\
+        Soient $x_1$ et $x_2$ deux réels de l'intervalle $]-\infty;\alpha[$ tels que $x_1<x_2<\alpha$.
+        \begin{align*}
+            x_1-\alpha            & <  x_2-\alpha < 0                                                                    \\
+            (x_1-\alpha)^2        & >  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont positifs} \\
+            a(x_1-\alpha)^2       & < a(x_2-\alpha)^2 \text{ car } a<0                                                   \\
+            a(x_1-\alpha)^2+\beta & < a(x_2-\alpha)^2+\beta                                                              \\
+            f(x_1)                & < f(x_2)
+        \end{align*}
+        Donc $f$ est strictement croissante sur $]-\infty;\alpha[$.
+
+        Soient $x_1$ et $x_2$ deux réels de l'intervalle $[\alpha;\infty[$ tels que $\alpha<x_1<x_2$.
+        \begin{align*}
+            0\leq x_1-\alpha          & <  x_2-\alpha                                                                        \\
+            (x_1-\alpha)^2        & <  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont positifs} \\
+            a(x_1-\alpha)^2       & > a(x_2-\alpha)^2 \text{ car } a<0                                                   \\
+            a(x_1-\alpha)^2+\beta & > a(x_2-\alpha)^2+\beta                                                              \\
+            f(x_1)                & > f(x_2)
+        \end{align*}
+        Donc $f$ est strictement décroissante sur $[\alpha;\infty[$.
+
+
+\end{itemize}
+
+\section*{II. Factorisation d'une fonction du second degré et équation du second degré}
+\subsection*{1-2. Factorisation - Résolution des équation du second degré}
+
+\underline{Démonstration :} \\
+
+Pour $f(x)=ax^2+bx+c$, on a vu que $f(x)$ peut s'écrire sous la forme $f(x)=a(x+\frac{b}{2a})+\frac{-b}{4a}+c$.
+\begin{alignat*}{2}
+     & \text{Donc } & f(x) & = a\left(x+\frac{b}{2a}\right)+\frac{-b}{4a}+\frac{4ac}{4a}                                         \\
+     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2+\frac{-b^2}{4a^2}+\frac{4ac}{4a^2}\right]                    \\
+     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2-4ac}{4a^2}\right] \text{On pose $\Delta=-b^2-4ac$} \\
+     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{\Delta}{4a^2}\right]
+\end{alignat*}
+
+\begin{itemize}
+    \item 1$^{\text{er}}$ cas : $\Delta<0$ ~\\
+          Si $\Delta<0$ alors $f(x)>0$ pour tout $x\in\mathbb{R}$ (si $a>0$) ou $f(x)<0$ pour tout $x\in\mathbb{R}$ (si $a<0$). \\
+          Donc $f(x)=0$ n'admet pas de solution et $f(x)$ n'est pas factorisable.
+
+    \item 2$^{\text{ème}}$ cas : $\Delta=0$ \\
+          Si $\Delta=0$ alors $f(x)=a( x+\frac{b}{2a})^2$ ou $f(x)=a(x-\alpha)^2$ avec $\alpha=\frac{-b}{2a}$. \\
+          Donc l'équation $f(x)=0$ admet une solution (double) $\alpha$ et $f(x)$ est factorisable ou $f(x)=a(x-\alpha)^2$.
+
+    \item 3$^{\text{ème}}$ cas : $\Delta>0$
+          \begin{alignat*}{2}
+               & \text{Si $\Delta>0$ alors } & f(x) & = a\left[\left(x+\frac{b}{2a}\right)^2-\left(\frac{\sqrt{\Delta}}{2a}\right)^2\right]                      \\
+               &                                   &      & =a\left(x+\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a}\right)\left(x+\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}\right) \\
+               &                                   &      & =a\left(x-\frac{-b-\sqrt{\Delta}}{2a}\right)\left(x-\frac{-b+\sqrt{\Delta}}{2a}\right)                     \\
+          \end{alignat*}
+          Donc $f(x)$ est factorisable en $f(x)=a(x-x_1)(x-x_2)$ avec $x_1=\frac{-b-\sqrt{\Delta}}{2a}$ et $x_2=\frac{-b+\sqrt{\Delta}}{2a}$. \\
+          L'équation $f(x)=0$ admet deux solutions $x_1$ et $x_2$.
+\end{itemize}
+
+\subsection*{3. Somme et produit des racines}
+\underline{Démonstration :}
+\begin{alignat*}{2}
+     & \text{Calculons } & x_1+x_2 & = \frac{-b-\sqrt{\Delta}}{2a} + \frac{-b+\sqrt{\Delta}}{2a} \\
+     &                   &         & = \frac{-b-\sqrt{\Delta}-b+\sqrt{\Delta}}{2a}               \\
+     &                   &         & = \frac{-2b}{2a}=\frac{-b}{a}
+\end{alignat*}
+\begin{alignat*}{2}
+     & \text{Calculons } & x_1\times x_2 & = \frac{-b-\sqrt{\Delta}}{2a} \times \frac{-b+\sqrt{\Delta}}{2a} \\
+     &                   &               & = \frac{(-b-\sqrt{\Delta})(-b+\sqrt{\Delta})}{4a^2}              \\
+     &                   &               & = \frac{(-b)^2-(\sqrt{\Delta})^2}{4a}                            \\
+     &                   &               & = \frac{b^2-\Delta}{4a^2}                                        \\
+     &                   &               & = \frac{b^2-(b^2-4ac)}{4a^2}                                     \\
+     &                   &               & = \frac{b^2-b^2+4ac}{4a^2}                                       \\
+     &                   &               & = \frac{c}{a}
+\end{alignat*}
+
+\end{document}

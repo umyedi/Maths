@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.25)  25 MAR 2023 21:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.25)  26 MAR 2023 00:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/bob/Documents/GitHub/math/le_second_degree/le_second_degre.tex
-(/home/bob/Documents/GitHub/math/le_second_degree/le_second_degre.tex
+**/home/bob/Documents/GitHub/math/le_second_degree/demo_second_degre.tex
+(/home/bob/Documents/GitHub/math/le_second_degree/demo_second_degre.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -570,8 +570,8 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 72.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) (./le_second_degre.aux)
-\openout1 = `le_second_degre.aux'.
+) (./demo_second_degre.aux)
+\openout1 = `demo_second_degre.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
@@ -655,57 +655,32 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 74.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 90.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 96.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
-
- []
-
-[1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (2.08104pt too wide) in paragraph at lines 141--154
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--258
-
- []
-
-[3] 
+[2] 
 AED: lastpage setting LastPage
-[4] (./le_second_degre.aux) ) 
+[3] (./demo_second_degre.aux) ) 
 Here is how much of TeX's memory you used:
- 28425 strings out of 480171
- 708054 string characters out of 5894489
- 1177986 words of memory out of 5000000
- 45888 multiletter control sequences out of 15000+600000
- 489016 words of font info for 78 fonts, out of 8000000 for 9000
+ 27343 strings out of 480171
+ 684327 string characters out of 5894489
+ 1104795 words of memory out of 5000000
+ 44809 multiletter control sequences out of 15000+600000
+ 483366 words of font info for 65 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 100i,20n,104p,779b,2105s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecso1095.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1095.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1095.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0800.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on le_second_degre.pdf (4 pages, 154586 bytes).
+ 100i,13n,104p,781b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0800.600pk> </home/bob/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on demo_second_degre.pdf (3 pages, 121794 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 219 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

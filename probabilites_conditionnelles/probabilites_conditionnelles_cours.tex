@@ -1,0 +1,286 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usetikzlibrary{shapes,backgrounds}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{forest}
+\usepackage[fleqn]{amsmath}
+\setlength{\mathindent}{0pt}
+
+% Spécifications du document
+\newcommand{\doctitre}{Probabilités conditionnelles et indépendance} % Ex: Le second degré
+\newcommand{\docniveau}{$1^{\text{re}}$ Spécialité mathématiques} % Ex: $1^{\text{re}}$ Spécialité mathématiques
+\newcommand{\doctheme}{Probabilités et Statistiques} %Ex: Algèbre
+\newcommand{\doctype}{Cours} % Ex: Démonstrations
+\newcommand{\docshorttype}{Cours} % Démo
+
+% Couleurs pour les graphiques
+\definecolor{dark_green}{HTML}{008000}
+
+% Paramètres du document
+\RequirePackage{geometry}
+\geometry{tmargin=1cm,bmargin=1.9cm,lmargin=1.9cm,rmargin=1.9cm}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\title{\doctitre}
+\author{\doctheme\text{ - }\doctype}
+\date{}
+\fancypagestyle{custom}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \lfoot{Probas et Stats - \docshorttype}
+  \cfoot{\doctitre} % Change \titre to \doctitre
+  \rfoot{\thepage/\pageref{LastPage}}
+}
+
+% Styles pour les mdframed
+\mdfdefinestyle{definitionStyle}{
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linewidth=2pt,
+    linecolor=black,
+    innertopmargin=0pt,
+    innerbottommargin=0pt,
+    innerrightmargin=0pt,
+    innerleftmargin=5pt,
+}
+
+\mdfdefinestyle{proprieteStyle}{
+    linewidth=1pt,
+    linecolor=black,
+    innertopmargin=5pt,
+    innerbottommargin=5pt,
+    innerrightmargin=5pt,
+    innerleftmargin=5pt,
+}
+% ----- DEBUT DU DOCUMENT -----
+\begin{document}
+
+% Style et numérotation
+\maketitle
+\pagestyle{custom}
+\thispagestyle{custom}
+
+\section*{I. Notion de probabilité conditionnelle}
+
+\subsection*{1. Définition}
+
+\begin{mdframed}[style=definitionStyle]
+  \textbf{Définition :} ~\\
+  Soit $A$ et $B$ deux évènements d'un univers $\Omega$ tels que $p(A)\not= 0$.
+  La probabilité de $B$ sachant que $A$ est réalisé (ou de $B$ sachant $A$) est le nombre, noté $p_A(B)$ défini par $\displaystyle{}p_A(B)=\frac{p(A\cap B)}{p(A)}$.
+\end{mdframed}
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Propriété :} ~\\
+  La probabilité $p_A(B)$ vérifie bien $0\leq p_A(B)\leq1$ et $p_A(B)+p_A(\bar B)=1$.
+\end{mdframed}
+
+\subsection*{2. Probabilité de l'intersection}
+
+On en déduit une formule de calcul de la probabilité de l'intersection.
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Propriété :} ~\\
+  Si $A$ et $B$ sont deux évènements avec $p(A)\not=0$ alors $p(A\cap B)=p_A(B)\times p(A)$.
+\end{mdframed}
+
+\textbf{Remarque :} Si $p(B)\not=0$ alors on a aussi $p(A\cap B)=p_B(A)\times p(B)$. Dans toutes les formules, les roles de $A$ et $B$ peuvent être inversés.
+
+\subsection*{3. Représentation à l'aide d'un arbre pondéré}
+
+Pour modéliser une situation de probabilité conditionnelle, on utilise souvent un arbe pondéré : \\
+
+
+\begin{forest}
+  for tree={
+  grow'=east,
+  align=center,
+  edge={thick},
+  l sep+=2cm,
+  s sep+=0.2cm
+  }
+  [
+  [$A$, edge label={node[midway,left]{$p(A)$}}
+        [$B$, edge label={node[midway,above]{$p(B)$}}]
+        [$\bar B$, edge label={node[midway,below]{$p(\bar B)$}}]
+    ]
+    [$\bar A$, edge label={node[midway,left]{$p(\bar A)$}}
+        [$B$, edge label={node[midway,above]{$p(B)$}}]
+        [$\bar B$, edge label={node[midway,below]{$p(\bar B)$}}]
+    ]
+  ]
+\end{forest}
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Propriétés de fonctionnement d'un arbre pondéré n°1 et n°2:}
+  \begin{itemize}
+    \item La somme des probabilités inscrites sur les branches partant d'un même nœud est égale à $1$.
+    \item La probabilité d'un chemin est le produit des probabilités inscrites sur ses branches.
+  \end{itemize}
+\end{mdframed}
+
+\textbf{Justifications :}
+
+\begin{minipage}[t]{0.4\textwidth}
+  \begin{itemize}
+    \item $p(A)+p(\bar A)=1$
+    \item $p_A(B)+p_A(\bar B)=1$
+    \item $p_{\bar A}(B)+p_{\bar A}(\bar B)=1$
+  \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.6\textwidth}
+  \begin{itemize}
+    \item $p(A\cap B)=p_A(B)\times p(A)$
+    \item $p(A\cap \bar B)=p_A(\bar B)\times p(A)$
+    \item et ainsi de suite avec les autres chemins
+  \end{itemize}
+\end{minipage} ~\\
+
+\textbf{Exemple :} ~\\
+Dans un groupe de jeunes, $40\%$ sont des filles. Parmi les filles, il y a $30\%$ de skieuses. Parmi les garçons, il y a $50\%$ de skieurs.
+Soit $F$ l'évènement « la personne est une fille » et $S$ l'évènement « la personne est fait du ski ».
+\begin{equation*}
+  \begin{split}
+    \text{On a }&p(F)=40\%=0,4\\
+    &p_F(S)=30\%=0,3 \\
+    &p_{\bar{F}}(S)=50\%=0,5
+  \end{split}
+\end{equation*}
+
+On calcule $p(F\cap S)=p(F)\times p_F(S)=0,4\times0,3=0,12$ \\
+La probabilité de rencontrer une fille skieuse est de $0,12$. \\
+
+On calcule $p(\bar F\cap S)=p(\bar F)\times p_{\bar{F}}(S)=0,6\times0,5=0,3$ \\
+La probabilité de rencontrer un garçon skieur est de $0,3$.
+
+\section*{II. Formule des probabilité totales}
+
+\subsection*{1. Système complet d'évènements}
+
+\begin{mdframed}[style=definitionStyle]
+  \textbf{Définition :} ~\\
+  Dans un univers $\Omega$, on appelle système complet d'évènements (ou partition de $\Omega$) un ensemble d'évènements de probabilités non nulles, deux à deux disjoints \emph{(ils n'ont pas d'intersection)}, dont la réunion est égale à $\Omega$.
+\end{mdframed}
+
+\subsection*{2. Théorème}
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Théorème \emph{(formule des probabilités totales)} :} ~\\
+  Soit $A_1,A_2,\dots,A_n$ un système complet d'évènements de l'univers $\Omega$.
+  Alors la probabilité d'un évènement quelconque de $B$ est donné par :
+  \begin{equation*}
+    \begin{split}
+      p(B)&=p(B)=p(B\cap A_1)+p(B\cap A_2)+\dots+p(B\cap A_n)\\
+      &= p(A_1)\times p_{A_1}(B)+p(A_2)\times p_{A_2}(B)+...+p(A_n)\times p_{A_n}(B)
+    \end{split}
+  \end{equation*}
+\end{mdframed}
+
+\textbf{Illustration du théorème avec un arbre pondéré :} ~\\
+
+\begin{forest}
+  for tree={
+  grow'=east,
+  align=center,
+  edge={thick},
+  l sep+=2cm,
+  s sep+=0.1cm
+  }
+  [, coordinate % Transformer le nœud racine en un point de coordonnée
+  [$A_1$, edge, name=A1
+  [$B \quad \color{dark_green} p(A_1 \cap B)$, edge ]
+  [$\bar B \quad \quad \quad \quad \quad$, edge ]
+  ]
+  [$A_2$, edge
+    [$B \quad \color{dark_green} p(A_2 \cap B)$, edge ]
+    [$\bar B\quad \quad \quad \quad \quad$, edge ]
+  ]
+  [$A_3$, edge
+    [$B \quad \color{dark_green}p(A_3 \cap B)$, edge ]
+    [$\bar B\quad \quad \quad \quad \quad$, edge ]
+  ]
+  [$A_4$, edge, name=A4
+  [$B \quad \color{dark_green} p(A_4 \cap B)$, edge ]
+  [$\bar B\quad \quad \quad \quad \quad$, edge ]
+  ]
+  ]
+  \begin{scope}[overlay]
+    \draw[decorate, decoration={brace, amplitude=12pt, raise=4pt}, thick, dark_green] ([xshift=5cm, yshift=1.1cm]A1-| A4.east) -- ([xshift=5cm, yshift=+0.3cm]A4.east) node[midway, right=20pt] {$\color{dark_green}=p(B)$};
+  \end{scope}
+\end{forest}
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Propriété de fonctionnement d'un arbre pondéré n°3 :} ~\\
+  La probabilité d'un évènement correspondant à plusieurs chemins est la sommes des probabilités de ces chemins.
+\end{mdframed}
+
+\textbf{Exemple \emph{(suite)} :} ~\\
+On cherche $p(S)=p(F\cap S)+p(\bar F\cap S)$ d'après la formule des probabilités totales et car $\{ F; \bar F \}$ forment un système complet d'évènements. On calcule $p(S)=0,12+0,3=0,42$.\\
+
+On cherche $\displaystyle{}p_S(F)=\frac{p(S\cap F)}{p(S)}=\frac{0,12}{0,42}=\frac{12}{42}=\frac{2}{7}.$
+
+\section*{III. Indépendance de deux évènements}
+
+\begin{mdframed}[style=definitionStyle]
+  \textbf{Définition :} ~\\
+  On dit que deux évènements $A$ et $B$ sont indépendants lorsque $p(A\cap B)=p(A)\times p(B)$.
+\end{mdframed}
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Propriété :} ~\\
+  On suppose que $p(A)\not=0$. $A$ et $B$ sont indépendants si et seulement si $p_A(B)=p(B)$.
+\end{mdframed}
+
+\textbf{Exemple :} ~\\
+-> Ajouter exemple
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Propriété :} ~\\
+  Si $A$ et $B$ sont deux évènements indépendants, alors $\bar A$ et $B$ le sont aussi.
+\end{mdframed}
+
+\section*{IV. Succession de deux épreuves indépendantes}
+
+\begin{mdframed}[style=definitionStyle]
+  \textbf{Définition :} ~\\
+  Lorsque deux expériences aléatoires se succèdent et que les résultats de la première n'ont aucune influence sur les résultats de la seconde, ont dit qu'il s'agit d'une succession de deux épreuves indépendantes.
+\end{mdframed}
+
+\textbf{Exemple :} ~\\
+On tire successivement deux cartes dans un jeu et on note les cartes obtenues.
+\begin{itemize}
+  \item Si on remet la carte dans le paquet après le premier tirage, les deux tirages sont indépendants.
+  \item Si on ne remet pas la carte dans le paquet après le premier tirage, le contenu du paquet après le premier tirage dépend de la carte tirée en premier, donc les tirages ne sont pas indépendants.
+\end{itemize}
+
+\begin{mdframed}[style=proprieteStyle]
+  \textbf{Propriété \emph(admise) :} ~\\
+  Lorsque deux épreuves sont indépendantes, la probabilité d'un couple de résultat est égal au produit des probabilités de chacun d'entre eux.
+\end{mdframed}
+
+\textbf{Exemple :} ~\\
+Un automobiliste rencontre deux feux tricolores. Ces deux feux fonctionnent de façon indépendante.
+\begin{itemize}
+  \item Le cycle du premier feu est : vert → 35s, orange → 5s et rouge → 20s.
+  \item Le cycle du deuxième feu est : vert → 25s, orange → 5s et rouge → 30s.
+\end{itemize}
+Quelle est la probabilité que l'automobiliste croise un feu vert et un feu orange ? ~\\
+
+On calcule $\displaystyle{}p(V\cap O)=\frac{35}{60}\times\frac{5}{60}+\frac{35}{60}\times\frac{25}{60}=\frac{1}{12}$.\\
+La probabilité que l'automobiliste croise un feu vert et un feux orange est $\displaystyle{}\frac{1}{12}$.
+
+\end{document}
+% ----- FIN DU DOCUMENT -----

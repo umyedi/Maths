@@ -27,7 +27,7 @@
 % Paramètres du titre
 \def\classe{$1^{\text{re}}$ Spécialité mathématiques}
 \def\titre{Fonctions dérivées et applications}
-\def\theme{Analyse - Cours}
+\def\theme{Analyse - Démonstrations}
 
 % Paramètres de numérotation des pages
 \fancypagestyle{custom}{
@@ -106,7 +106,7 @@ Lorsque $h$ tend vers $0$, $2x+h$ tend vers $2x$. Donc $\displaystyle{\lim_{h\to
 
 La fonction carrée est dérivable sur $\mathbb{R}$ et sa fonction dérivée est $f'(x)=2x$. ~\\
 
-\underline {Démonstration de la propriété de la fonction carrée :} \\
+\underline {Démonstration de la propriété de la fonction inverse :} \\
 
 Soit $f:x\mapsto \frac{1}{x}$. \\
 Soit $x\in]-\infty;0[\cup]0;+\infty[$. \\
@@ -126,15 +126,15 @@ Soit $x\in]-\infty;0[\cup]0;+\infty[$. \\
 
             \begin{equation*}
                 \begin{split}
-                    \text{Lorsque $h$ tend vers $0$,}&\text{ $x+h$ tend vers $x$}\\
-                    &\text{ $(x+h)x$ tend vers $x^2$}\\
-                    &\text{ $\frac{-1}{(x+h)x}$ tend vers $\frac{-1}{x^2}$}
+                    \text{Lorsque $h$ tend vers $0$,}&\text{ $x+h$ tend vers $x$,}\\
+                    &\text{ $(x+h)x$ tend vers $x^2$,}\\
+                    &\text{ et $\frac{-1}{(x+h)x}$ tend vers $\frac{-1}{x^2}$.}
                 \end{split}
             \end{equation*}
 
             Donc $\displaystyle{\lim_{h\to0}\frac{f(x+h)-f(x)}{h}}=\frac{-1}{x^2}$. ~\\
 
-            La fonction inverse est dérivable sur $]-\infty;0[\cup]0;+\infty[$ et sa fonction dérivée à pour équation $f'(x)=\frac{-1}{x^2}$.
+            La fonction inverse est dérivable sur $]-\infty;0[\cup]0;+\infty[$ et sa fonction dérivée est $f'(x)=\frac{-1}{x^2}$.
 
 \section*{II. Opérations sur les fonctions dérivables}
 
@@ -145,7 +145,7 @@ Soit $f(x)=uv$. Soit $x\in I$
 \begin{alignat*}{2}
      & \text{Calculons } & f'(x) & = \frac{f(x+h)-f(x)}{h}                                                                     \\
      &                   &       & = \frac{u(x+h)\times v(x+h) - u(x) \times v(x)}{h}                                          \\
-     &                   &       & = \frac{u(x+h)\times v(x+h)  -u(x)\times v(x+h) +u(x)\times v(x+h)   - u(x) \times v(x)}{h} \\
+     &                   &       & = \frac{u(x+h)\times v(x+h) \color{dark_green} -u(x)\times v(x+h) +u(x)\times v(x+h) \color{black}  - u(x) \times v(x)}{h} \\
      &                   &       & = v(x+h)\times \frac{u(x+h)-u(x)}{h} + u(x+h)\times \frac{v(x+h)-v(x)}{h}
 \end{alignat*}
 

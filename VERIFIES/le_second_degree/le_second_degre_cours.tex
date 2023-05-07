@@ -86,6 +86,7 @@
 \end{mdframed}
 
 \textbf{Exemple :}
+\vspace{-6pt}
 \begin{itemize}
 	\item $f$ définie sur $\mathbb{R}$ tel que $f(x)=2x^2-4x+1$
 	\item $g$ définie sur $\mathbb{R}$ tel que $g(x)=-x^2+9x-12$
@@ -111,17 +112,16 @@ Donner sa forme canonique.
 	\item En utilisant le théorème :
 	      On a $a=1$, $b=-4$ et $c=17$
 
-	      Calculons $\alpha=-\frac{b}{2a}=-\frac{-4}{2\times1}=\frac{4}{2}=1$ et $\beta=f(\alpha)=f(2)=2^2-4\times2+17=13$
+	      Calculons $\alpha=-\frac{b}{2a}=-\frac{-4}{2\times1}=\frac{4}{2}=2$ et $\beta=f(\alpha)=f(2)=2^2-4\times2+17=13$
 
 	      Donc la forme canonique de $f$ est $f(x)=1(x-2)^2+13$ pour tout $x\in\mathbb{R}$.
 
 	\item En utilisant une identité remarquable :
 	      \begin{flalign*}
 		      f(x) & = x^2-4x+17     & \\
-		           & = x^2-4x+4-4+17 & \\
+		           & = x^2-4x\color{dark_green}+4-4\color{black}+17 & \\
 		           & = (x-2)^2+13    &
 	      \end{flalign*}
-
 	      Donc la forme canonique de $f$ est $f(x)=(x-2)^2+13$ pour tout $x\in\mathbb{R}$.
 \end{enumerate}
 
@@ -132,6 +132,7 @@ Donner sa forme canonique.
 \begin{mdframed}[style=proprieteStyle]
 	\textbf{Propriété :} ~\\
 	Soit $f$ une fonction définie sur $\mathbb{R}$ par $f(x)=a(x-\alpha)^2+\beta$.
+	\vspace{-6pt}
 	\begin{itemize}
 		\item Cas où $a>0$ : la fonction $f$ est strictement décroissante sur $]-\infty;\alpha]$ puis strictement croissante sur $[\alpha;+\infty[$. $f$ admet un minimum égal à $\beta$ atteint en $x=\alpha$.
 		\item Cas où $a<0$ : la fonction $f$ est strictement croissante sur $]-\infty;\alpha]$ puis strictement décroissante sur $[\alpha;+\infty[$. $f$ admet un maximum égal à $\beta$ atteint en $x=\alpha$.
@@ -178,7 +179,7 @@ Donner sa forme canonique.
 			\draw[dashed, thin, blue] (axis cs:-2,-1.083) -- (axis cs:4,-1.083);
 			\addplot[smooth, thick, red, domain=-2:4] {3*x^2 - 11*x + 9};
 			\addplot[mark=x, mark size=3, only marks] coordinates {(1.833,-1.083)};
-			\node[label={-30:$(\color{dark_green}\alpha\color{black},\color{blue}\beta\color{black})$}] at (axis cs:1.833,-1.083) {};
+			\node[label={-30:$(\color{dark_green}\alpha\color{black};\color{blue}\beta\color{black})$}] at (axis cs:1.833,-1.083) {};
 		\end{axis}
 	\end{tikzpicture} &
 	\begin{tikzpicture}
@@ -195,7 +196,7 @@ Donner sa forme canonique.
 			\draw[dashed, thin, blue] (axis cs:-2,3.125) -- (axis cs:4,3.125);
 			\addplot[smooth, thick, red, domain=-2:4] {-2*x^2 + 5*x + 0};
 			\addplot[mark=x, mark size=3, only marks] coordinates {(1.25,3.125)};
-			\node[label={30:$(\color{dark_green}\alpha\color{black},\color{blue}\beta\color{black})$}] at (axis cs:1.25,3.125) {};
+			\node[label={30:$(\color{dark_green}\alpha\color{black};\color{blue}\beta\color{black})$}] at (axis cs:1.25,3.125) {};
 		\end{axis}
 	\end{tikzpicture}   \\
 	car $a > 0$               &
@@ -214,10 +215,10 @@ Donner sa forme canonique.
 	par $\Delta=b^2-4ac$.
 \end{mdframed}
 
-
-\textbf{Exemple :} Calculer le discriminant de l'équation $-3x^2+6x-3=0$. \\
-
-On a $a=-3$, $b=6$ et $c=3$.
+\textbf{Exemple :} ~\\
+Soit l'équation $-3x^2+6x-3=0$. \\
+On a $a=-3$, $b=6$ et $c=-3$.
+\vspace{-6pt}
 \begin{alignat*}{2}
 	 & \text{Calculons } & \Delta & = b^2-4ac                     \\
 	 &                   &        & = 6^2 - 4\times(-3)\times(-3) \\
@@ -226,8 +227,9 @@ On a $a=-3$, $b=6$ et $c=3$.
 
 % Théorème
 \begin{mdframed}[style=proprieteStyle]
-	\textbf{Théorème :} ~\\
-	Soit $f$ sur $\mathbb{R}$ par $f(x)=ax^2+bx+c$.
+	\textbf{Théorème \emph{(factorisation d'un trinôme du second degré)} :} ~\\
+	Soit $f$ définie sur $\mathbb{R}$ par $f(x)=ax^2+bx+c$.
+	\vspace{-6pt}
 	\begin{itemize}
 		\item Si $\Delta<0$, alors $f(x)=ax^2+bx+c$ n'est pas factorisable.
 		\item Si $\Delta=0$, alors $f(x)=a(x-\alpha)^2$ où $\alpha=-\frac{b}{2a}$.
@@ -239,7 +241,8 @@ On a $a=-3$, $b=6$ et $c=3$.
 
 \begin{mdframed}[style=proprieteStyle]
 	\textbf{Théorème :} ~\\
-	Soit l'équation $ax^2+bx+c=0$ avec $a\not=0$:.
+	Soit l'équation $ax^2+bx+c=0$ avec $a\not=0$.
+	\vspace{-6pt}
 	\begin{itemize}
 		\item Si $\Delta<0$, l'équation $ax^2+bx+c=0$ n'admet aucune solution.
 		\item Si $\Delta=0$, l'équation $ax^2+bx+c=0$ admet une unique solution $\alpha=\frac{-b}{2a}$.
@@ -247,14 +250,19 @@ On a $a=-3$, $b=6$ et $c=3$.
 	\end{itemize}
 \end{mdframed}
 
-\textbf{Exemple :} Résoudre l'équation suivante $2x^2+19x+42=0$. \\
+\textbf{Exemple :} \\
+Soit l'équation $2x^2+19x+42=0$. \\
 
 On a $a=2$, $b=19$ et $c=42$. \\
 On calcule $\Delta=b^2-4ac=25$. \\
-$\Delta>0$ donc l'équation admet deux solutions. \\
-$x_1=\frac{-b-\sqrt{\Delta}}{2a}=\frac{-19-\sqrt{25}}{2\times2}=-6$ \\
-$x_2=\frac{-b+\sqrt{\Delta}}{2a}=\frac{-19+\sqrt{25}}{2\times2}=-\frac{7}{2}$ \\
-L'ensemble solution est $S=\{-6;-\frac{7}{2}\}$. \\
+$\Delta>0$ donc l'équation admet deux solutions $x_1$ et $x_2$ telles que :
+\vspace{-6pt}
+\begin{itemize}
+	\item $x_1=\frac{-b-\sqrt{\Delta}}{2a}=\frac{-19-\sqrt{25}}{2\times2}=-6$ 
+	\item $x_2=\frac{-b+\sqrt{\Delta}}{2a}=\frac{-19+\sqrt{25}}{2\times2}=-\frac{7}{2}$ 
+\end{itemize}
+
+L'ensemble solution est $S=\left\{-\frac{7}{2}-6\right\}$. 
 
 \subsection*{3. Somme et produit des racines}
 
@@ -434,11 +442,12 @@ L'ensemble solution est $S=\{-6;-\frac{7}{2}\}$. \\
 \end{tabular}
 
 \begin{mdframed}[style=proprieteStyle]
-	\textbf{Propriété :} ~\\
+	\textbf{Propriété \emph{(signe d'une fonction trinôme du second degré)} :} ~\\
 	Soit $f$ définie sur $\mathbb{R}$ par $f(x)=ax^2+bx+c$.
+	\vspace{-6pt}
 	\begin{itemize}
 		\item Si $\Delta<0$, alors pour tout réel $x$, $f(x)$ est du signe de $a$.
-		\item Si $\Delta=0$, alors pour tout réel $x$, $f(x)$ est du signe de $a$ sauf en $\alpha$ où $x$ vaut $0$.
+		\item Si $\Delta=0$, alors pour tout réel $x$, $f(x)$ est du signe de $a$ sauf en $\alpha$ où $f(x)=0$.
 		\item Si $\Delta>0$, alors pour tout réel $x$, $f(x)$ s'annule en $x_1$ et $x_2$ et est du signe de $a$ pour
 		      tout $x\in]-\infty;x_1[\cup]x_2;+\infty[$ (avec $x_1<x_2$) et du signe opposé à celui de $a$ pour tout $x\in]x_1;x_2[$.
 	\end{itemize}

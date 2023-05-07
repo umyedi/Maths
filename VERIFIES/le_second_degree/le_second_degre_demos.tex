@@ -82,8 +82,8 @@
 \begin{alignat*}{2}
      & \text{Soit } & f(x) & = ax^2+bx+c                                                                                     \\
      &              &      & = a\left[x^2+\frac{b}{a}x\right]+c                                                              \\
-     &              &      & = a\left[x^2+\frac{2b}{2a}x + \left(\frac{b}{2a}\right)^2- \left(\frac{b}{2a}\right)^2\right]+c \\
-     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a^2}\right]+c                                \\
+     &              &      & = a\left[x^2+\frac{2b}{2a}x \color{dark_green}+ \left(\frac{b}{2a}\right)^2- \left(\frac{b}{2a}\right)^2\color{black}\right]+c \text{\quad\emph{(identité remarquable)}}\\
+     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a^2}\right]+c                               \\
      &              &      & = a\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a}+c                                               \\
      &              &      & = a(x-\alpha)+\beta \text{ avec $\alpha=\frac{-b}{2a}$ et $\beta=\frac{-b^2}{4a}+c=f(\alpha)$}
 \end{alignat*}
@@ -147,7 +147,8 @@ Pour $f(x)=ax^2+bx+c$, on a vu que $f(x)$ peut s'écrire sous la forme $f(x)=a(x
 \begin{alignat*}{2}
      & \text{Donc } & f(x) & = a\left(x+\frac{b}{2a}\right)+\frac{-b}{4a}+\frac{4ac}{4a}                                         \\
      &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2+\frac{-b^2}{4a^2}+\frac{4ac}{4a^2}\right]                    \\
-     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2-4ac}{4a^2}\right] \text{On pose $\Delta=-b^2-4ac$} \\
+     &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2-4ac}{4a^2}\right] \\
+     &              &      & \quad \text{On pose $\Delta=-b^2-4ac$} \\
      &              &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{\Delta}{4a^2}\right]
 \end{alignat*}
 
@@ -175,7 +176,8 @@ Pour $f(x)=ax^2+bx+c$, on a vu que $f(x)$ peut s'écrire sous la forme $f(x)=a(x
 \begin{alignat*}{2}
      & \text{Calculons } & x_1+x_2 & = \frac{-b-\sqrt{\Delta}}{2a} + \frac{-b+\sqrt{\Delta}}{2a} \\
      &                   &         & = \frac{-b-\sqrt{\Delta}-b+\sqrt{\Delta}}{2a}               \\
-     &                   &         & = \frac{-2b}{2a}=\frac{-b}{a}
+     &                   &         & = \frac{-2b}{2a} \\
+     &                   &         & = \frac{-b}{a}
 \end{alignat*}
 \begin{alignat*}{2}
      & \text{Calculons } & x_1\times x_2 & = \frac{-b-\sqrt{\Delta}}{2a} \times \frac{-b+\sqrt{\Delta}}{2a} \\

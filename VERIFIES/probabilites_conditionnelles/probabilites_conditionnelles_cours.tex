@@ -32,7 +32,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 \setlength{\parindent}{0pt}
 \title{\doctitre}
-\author{\doctheme\text{ - }\doctype}
+\author{\docniveau \\ \doctheme\text{ - }\doctype}
 \date{}
 \fancypagestyle{custom}{
   \fancyhf{}
@@ -78,7 +78,7 @@
 
 \begin{mdframed}[style=definitionStyle]
   \textbf{Définition :} ~\\
-  Soit $A$ et $B$ deux évènements d'un univers $\Omega$ tels que $p(A)\not= 0$.
+  Soient $A$ et $B$ deux évènements d'un univers $\Omega$ tels que $p(A)\not= 0$.
   La probabilité de $B$ sachant que $A$ est réalisé (ou de $B$ sachant $A$) est le nombre, noté $p_A(B)$ défini par $\displaystyle{}p_A(B)=\frac{p(A\cap B)}{p(A)}$.
 \end{mdframed}
 
@@ -96,7 +96,7 @@ On en déduit une formule de calcul de la probabilité de l'intersection.
   Si $A$ et $B$ sont deux évènements avec $p(A)\not=0$ alors $p(A\cap B)=p_A(B)\times p(A)$.
 \end{mdframed}
 
-\textbf{Remarque :} Si $p(B)\not=0$ alors on a aussi $p(A\cap B)=p_B(A)\times p(B)$. Dans toutes les formules, les roles de $A$ et $B$ peuvent être inversés.
+\textbf{Remarques :} Si $p(B)\not=0$ alors on a aussi $p(A\cap B)=p_B(A)\times p(B)$. Dans toutes les formules, les rôles de $A$ et $B$ peuvent être inversés.
 
 \subsection*{3. Représentation à l'aide d'un arbre pondéré}
 
@@ -112,19 +112,19 @@ Pour modéliser une situation de probabilité conditionnelle, on utilise souvent
   s sep+=0.2cm
   }
   [
-  [$A$, edge label={node[midway,left]{$p(A)$}}
-        [$B$, edge label={node[midway,above]{$p(B)$}}]
-        [$\bar B$, edge label={node[midway,below]{$p(\bar B)$}}]
+  [$A$, edge label={node[midway,above left]{$p(A)$}}
+        [$B$, edge label={node[midway,above]{$p_A(B)$}}]
+        [$\bar B$, edge label={node[midway,below]{$p_A(\bar B)$}}]
     ]
-    [$\bar A$, edge label={node[midway,left]{$p(\bar A)$}}
-        [$B$, edge label={node[midway,above]{$p(B)$}}]
-        [$\bar B$, edge label={node[midway,below]{$p(\bar B)$}}]
+    [$\bar A$, edge label={node[midway,below left]{$p(\bar A)$}}
+        [$B$, edge label={node[midway,above]{$p_{\bar A}(B)$}}]
+        [$\bar B$, edge label={node[midway,below]{$p_{\bar A}(\bar B)$}}]
     ]
   ]
 \end{forest}
 
 \begin{mdframed}[style=proprieteStyle]
-  \textbf{Propriétés de fonctionnement d'un arbre pondéré n°1 et n°2:}
+  \textbf{Propriétés \emph{(fonctionnement d'un arbre pondéré)} :}
   \begin{itemize}
     \item La somme des probabilités inscrites sur les branches partant d'un même nœud est égale à $1$.
     \item La probabilité d'un chemin est le produit des probabilités inscrites sur ses branches.
@@ -151,7 +151,7 @@ Pour modéliser une situation de probabilité conditionnelle, on utilise souvent
 
 \textbf{Exemple :} ~\\
 Dans un groupe de jeunes, $40\%$ sont des filles. Parmi les filles, il y a $30\%$ de skieuses. Parmi les garçons, il y a $50\%$ de skieurs.
-Soit $F$ l'évènement « la personne est une fille » et $S$ l'évènement « la personne est fait du ski ».
+Soit $F$ l'évènement « la personne est une fille » et soit $S$ l'évènement « la personne est fait du ski ».
 \begin{equation*}
   \begin{split}
     \text{On a }&p(F)=40\%=0,4\\
@@ -179,11 +179,12 @@ La probabilité de rencontrer un garçon skieur est de $0,3$.
 
 \begin{mdframed}[style=proprieteStyle]
   \textbf{Théorème \emph{(formule des probabilités totales)} :} ~\\
-  Soit $A_1,A_2,\dots,A_n$ un système complet d'évènements de l'univers $\Omega$.
+  Soit $A_1,A_2,\dots,A_n$ un système complet d'évènements de l'univers $\Omega$. \\
   Alors la probabilité d'un évènement quelconque de $B$ est donné par :
+  \vspace{-8pt}
   \begin{equation*}
     \begin{split}
-      p(B)&=p(B)=p(B\cap A_1)+p(B\cap A_2)+\dots+p(B\cap A_n)\\
+      p(B)&=p(B\cap A_1)+p(B\cap A_2)+\dots+p(B\cap A_n)\\
       &= p(A_1)\times p_{A_1}(B)+p(A_2)\times p_{A_2}(B)+...+p(A_n)\times p_{A_n}(B)
     \end{split}
   \end{equation*}
@@ -218,12 +219,12 @@ La probabilité de rencontrer un garçon skieur est de $0,3$.
   ]
   ]
   \begin{scope}[overlay]
-    \draw[decorate, decoration={brace, amplitude=12pt, raise=4pt}, thick, dark_green] ([xshift=5cm, yshift=1.1cm]A1-| A4.east) -- ([xshift=5cm, yshift=+0.3cm]A4.east) node[midway, right=20pt] {$\color{dark_green}=p(B)$};
+    \draw[decorate, decoration={brace, amplitude=12pt, raise=4pt}, thick, dark_green] ([xshift=5cm, yshift=0.8cm]A1-| A4.east) -- ([xshift=5cm, yshift=+0.3cm]A4.east) node[midway, right=20pt] {$\color{dark_green}=p(B)$};
   \end{scope}
 \end{forest}
 
 \begin{mdframed}[style=proprieteStyle]
-  \textbf{Propriété de fonctionnement d'un arbre pondéré n°3 :} ~\\
+  \textbf{Propriété \emph{(fonctionnement d'un arbre pondéré)} :} ~\\
   La probabilité d'un évènement correspondant à plusieurs chemins est la sommes des probabilités de ces chemins.
 \end{mdframed}
 
@@ -245,7 +246,26 @@ On cherche $\displaystyle{}p_S(F)=\frac{p(S\cap F)}{p(S)}=\frac{0,12}{0,42}=\fra
 \end{mdframed}
 
 \textbf{Exemple :} ~\\
--> Ajouter exemple
+Une urne contient $3$ boules rouges numérotées $1$, $2$ et $3$ et $6$ boules noires numérotés $1$, $1$, $1$, $2$, $2$ et $3$. Les boules sont indiscernables au toucher. \\
+
+On tire une boule au hasard et on note :
+\vspace{-6pt}
+\begin{itemize}
+  \item $R$ « tirer une boule rouge »
+  \item $P$ « tirer une boule dont le numéro est pair »
+  \item $U$ « tirer une boule dont le numéro est $1$ »
+\end{itemize}
+
+\begin{enumerate}
+  \item Avec la première méthode : \\
+  Calculons $p(R\cap P)=\frac{1}{9}$.\\
+  D'autre part $p(R)=\frac{3}{9}=\frac{1}{3}$ et $p(P)=\frac{3}{9}=\frac{1}{3}$. \\
+  On a $p(R\cap P)=p(R)\times p(P)$ donc les évènements $R$ et $P$ sont indépendants.
+  \item Avec la deuxième méthode : \\
+  Calculons $p_R(P)=\frac{1}{3}$.\\
+  Or $p(P)=\frac{1}{3}$. \\
+  On a $p_R(P)=p(P)$ donc les évènements $R$ et $P$ sont indépendants.
+\end{enumerate}
 
 \begin{mdframed}[style=proprieteStyle]
   \textbf{Propriété :} ~\\
@@ -266,8 +286,10 @@ On tire successivement deux cartes dans un jeu et on note les cartes obtenues.
   \item Si on ne remet pas la carte dans le paquet après le premier tirage, le contenu du paquet après le premier tirage dépend de la carte tirée en premier, donc les tirages ne sont pas indépendants.
 \end{itemize}
 
+\newpage
+
 \begin{mdframed}[style=proprieteStyle]
-  \textbf{Propriété \emph(admise) :} ~\\
+  \textbf{Propriété admise :} ~\\
   Lorsque deux épreuves sont indépendantes, la probabilité d'un couple de résultat est égal au produit des probabilités de chacun d'entre eux.
 \end{mdframed}
 
@@ -279,8 +301,8 @@ Un automobiliste rencontre deux feux tricolores. Ces deux feux fonctionnent de f
 \end{itemize}
 Quelle est la probabilité que l'automobiliste croise un feu vert et un feu orange ? ~\\
 
-On calcule $\displaystyle{}p(V\cap O)=\frac{35}{60}\times\frac{5}{60}+\frac{35}{60}\times\frac{25}{60}=\frac{1}{12}$.\\
-La probabilité que l'automobiliste croise un feu vert et un feux orange est $\displaystyle{}\frac{1}{12}$.
+On calcule $p(V\cap O)=\frac{35}{60}\times\frac{5}{60}+\frac{35}{60}\times\frac{25}{60}=\frac{1}{12}$.\\
+La probabilité que l'automobiliste croise un feu vert et un feux orange est $\frac{1}{12}$.
 
 \end{document}
 % ----- FIN DU DOCUMENT -----

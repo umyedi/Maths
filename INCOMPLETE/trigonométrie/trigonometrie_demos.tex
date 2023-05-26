@@ -1,0 +1,136 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[fleqn]{amsmath}
+\usepackage{yhmath}
+\usepackage{array}
+\setlength{\mathindent}{0pt}
+
+% Spécifications du document
+\newcommand{\doctitre}{Trigonométrie} % Ex: Le second degré
+\newcommand{\docniveau}{$1^{\text{re}}$ Spécialité mathématiques} % Ex: $1^{\text{re}}$ Spécialité mathématiques
+\newcommand{\doctheme}{Analyse} %Ex: Algèbre
+\newcommand{\doctype}{Démonstrations} % Ex: Démonstrations
+\newcommand{\docshorttype}{Démo} % Démo
+
+% Couleurs pour les graphiques
+\definecolor{dark_green}{HTML}{008000}
+
+% Paramètres du document
+\RequirePackage{geometry}
+\geometry{tmargin=1cm,bmargin=1.9cm,lmargin=1.9cm,rmargin=1.9cm}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\title{\doctitre}
+\author{\docniveau \\ \doctheme\text{ - }\doctype}
+\date{}
+\fancypagestyle{custom}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \lfoot{\doctheme\text{ - }\docshorttype}
+  \cfoot{\doctitre} % Change \titre to \doctitre
+  \rfoot{\thepage/\pageref{LastPage}}
+}
+
+% Styles pour les mdframed
+\mdfdefinestyle{definitionStyle}{
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linewidth=2pt,
+    linecolor=black,
+    innertopmargin=0pt,
+    innerbottommargin=0pt,
+    innerrightmargin=0pt,
+    innerleftmargin=5pt,
+}
+
+\mdfdefinestyle{proprieteStyle}{
+    linewidth=1pt,
+    linecolor=black,
+    innertopmargin=5pt,
+    innerbottommargin=5pt,
+    innerrightmargin=5pt,
+    innerleftmargin=5pt,
+}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}m{1.2cm}}
+
+
+% ----- DEBUT DU DOCUMENT -----
+\begin{document}
+
+% Style et numérotation
+\maketitle
+\pagestyle{custom}
+\thispagestyle{custom}
+
+\section*{I. Lecture sur le cercle trigonométrique}
+
+\subsection*{1. Le cercle trigonométrique}
+
+\subsection*{2. Longueur d'un arc et radian}
+
+
+\section*{II. Enroulement de la droite des réels sur le cercle trigonométrique}
+
+\section*{III. Cosinus et sinus d'un nombre réel}
+
+\subsection*{1. Définitions}
+
+\subsection*{2. Valeurs remarquables du cosinus et du sinus}
+
+\underline{Démonstration \emph{(valeurs remarquables)} :}
+
+\begin{itemize}
+  \item Pour $\frac{\pi}{3}$ : \\ 
+  -> Ajouter schéma \\
+  Le triangle $IOM$ est isocèle (car $IO=OM$) avec un angle de $60^\circ$. Il est donc équilatéral. \\
+  Donc la hauteur $(HM)$ est aussi la médiatrice du segment $[OI]$. \\
+  Donc $OH=\frac{1}{2}$, soit $\cos{\left(\frac{\pi}{3}\right)}=\frac{1}{2}$.
+  \begin{align*}
+    \text{De plus, } &\cos^2{(\frac{\pi}{3})}+\sin^2{(\frac{\pi}{3})}=1\\
+    \Leftrightarrow\,\,\,&\sin^2{(\frac{\pi}{3})}=1-\frac{1}{4} \\
+    \Leftrightarrow\,\,\,&\sin{(\frac{\pi}{3})}=\sqrt{\frac{3}{4}}
+  \end{align*}
+  Comme $\sin{(\frac{\pi}{3})}>0$, on a $\sin{(\frac{\pi}{3})}=\sqrt{\frac{3}{4}}=\frac{\sqrt{3}}{\sqrt{4}}=\frac{\sqrt{3}}{2}$
+  \item Pour $\frac{\pi}{6}$ : \\
+  -> Ajouter schéma
+  \begin{align*}
+    \text{Par des calculs analogues dans le triangle $OMJ$, on obtient } &OH=\cos{(\frac{\pi}{6})}=\frac{\sqrt{3}}{2} \\
+    \text{et } &OH'=\sin{(\frac{\pi}{6})}=\frac{1}{2}.
+  \end{align*}
+  \item Pour $\frac{\pi}{4}$ : \\
+  -> Ajouter schéma \\
+  Le triangle $OMH$ est rectangle avec un angle de $45^\circ$ donc il est rectangle isocèle. \\
+  Donc $OH=HM$ \\
+  D'après le théorème de Pythagore :
+  \begin{align*}
+    &OH^2+HM^2=OM^2 \\
+    \Leftrightarrow \, \, \,&2OH^2=OM^2 \\
+    \Leftrightarrow \, \, \,&OH^2=\frac{1}{2} \\
+    \Leftrightarrow \, \, \,&OH=\sqrt{\frac{1}{2}}=\frac{\sqrt{1}}{\sqrt{2}} = \frac{1}{\sqrt{2}}\color{dark_green}\times\frac{\sqrt{2}}{\sqrt{2}}\color{black}=\frac{\sqrt{2}}{2}
+  \end{align*}
+  \begin{align*}
+    \text{Donc } &OH=\cos{(\frac{\pi}{4})}=\frac{\sqrt{2}}{2} \\
+    \text{et } &HM=\sin{(\frac{\pi}{4})}=\frac{\sqrt{2}}{2}
+  \end{align*}
+\end{itemize}
+
+\subsection*{3. Lien avec le cosinus et sinus dans un triangle rectangle}
+
+\section*{IV. Fonctions cosinus et sinus}
+
+
+\end{document}
+% ----- FIN DU DOCUMENT -----

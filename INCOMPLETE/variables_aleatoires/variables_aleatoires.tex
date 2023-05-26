@@ -1,0 +1,197 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[fleqn]{amsmath}
+\usepackage{tabularx}
+\setlength{\mathindent}{0pt}
+
+% Définition d'un type de colonne centré
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% Spécifications du document
+\newcommand{\doctitre}{Variables aléatoires réelles} % Ex: Le second degré
+\newcommand{\docniveau}{$1^{\text{re}}$ Spécialité mathématiques} % Ex: $1^{\text{re}}$ Spécialité mathématiques
+\newcommand{\doctheme}{Probabilités et Statistiques} %Ex: Algèbre
+\newcommand{\doctype}{Cours} % Ex: Démonstrations
+\newcommand{\docshorttype}{Cours} % Démo
+
+% Couleurs pour les graphiques
+\definecolor{dark_green}{HTML}{008000}
+
+% Paramètres du document
+\RequirePackage{geometry}
+\geometry{tmargin=1cm,bmargin=1.9cm,lmargin=1.9cm,rmargin=1.9cm}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\title{\doctitre}
+\author{\docniveau \\ \doctheme\text{ - }\doctype}
+\date{}
+\fancypagestyle{custom}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \lfoot{\text{Probas et Stats - }\docshorttype}
+  \cfoot{\doctitre} % Change \titre to \doctitre
+  \rfoot{\thepage/\pageref{LastPage}}
+}
+
+% Styles pour les mdframed
+\mdfdefinestyle{definitionStyle}{
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linewidth=2pt,
+    linecolor=black,
+    innertopmargin=0pt,
+    innerbottommargin=0pt,
+    innerrightmargin=0pt,
+    innerleftmargin=5pt,
+}
+
+\mdfdefinestyle{proprieteStyle}{
+    linewidth=1pt,
+    linecolor=black,
+    innertopmargin=5pt,
+    innerbottommargin=5pt,
+    innerrightmargin=5pt,
+    innerleftmargin=5pt,
+}
+% ----- DEBUT DU DOCUMENT -----
+\begin{document}
+
+% Style et numérotation
+\maketitle
+\pagestyle{custom}
+\thispagestyle{custom}
+
+\section*{I. Variable aléatoire et loi de probabilité}
+
+\subsection*{1. Définition d'une variable aléatoire discrète}
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition :} ~\\
+    Soit $\Omega=\{\omega_1;\omega_2;\dots;\omega_k\}$ l'univers associé à une expérience aléatoire. \\
+    Une variable aléatoire $X$ sur l'univers $\Omega$ est une fonction définie sur $\Omega$ et à valeurs dans $\mathbb{R}$.
+    Définir une variable aléatoire consiste donc à associer, à chaque issue $\omega_i$ de l'expérience aléatoire, un nombre réel $x_i$. \\
+    On note alors $\left(X=x_i\right)$ l'évènement formé des issues qui ont pour image $x_i$ par $X$.
+\end{mdframed}
+
+\textbf{Exemple :} ~\\
+On lance un dé équilibré à 6 faces. \\
+On gagne 2€ si le « 2 » sort, 1€ si le « 1 » sort et on perd 1€ dans tous les autres cas.
+On appelle $X$ la variable aléatoire qui à chaque issue associe le gain obtenu.
+
+On a $\Omega=\{1;2;3;4;5;6\}$ et $\Omega(X)=\{2;1;-1\}$. \\
+On précise les évènements de $X$ :
+\begin{itemize}
+    \item $(X=2)=\{2\}$
+    \item $(X=1)=\{1\}$
+    \item $(X=-1)=\{3;4;5;6\}$
+\end{itemize}
+
+\subsection*{Loi de probabilité d'une variable aléatoire discrète}
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition :} ~\\
+    Soit $X$ une variable aléatoire qui prend les valeurs $\{x_1;x_2;\dots;x_k\}$. \\
+    Donner la loi de probabilité de $X$, c'est donner la valeur $p(X=x_i)$, pour tout $i$ avec $1\leq i\leq k$.
+    \vspace*{4pt}
+
+    Les résultats sont généralement présentés sous forme d'un tableau : \\
+    \vspace*{-8pt}
+
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        Valeurs de $X$ & $x_1$      & $x_2$      & \quad\text{ }\dots\quad\text{ } & $x_k$      \\
+        \hline
+        Probabilité      & $p(X=x_1)$ & $p(X=x_2)$ & \quad\text{ }\dots\quad\text{ } & $p(X=x_k)$ \\
+        \hline
+    \end{tabular}
+\end{mdframed}
+
+\textbf{Remarque :} La somme des probabilités $p(X=x_i)$, pour $i$ allant de $1$ à $k$, est égal à $1$. \\
+
+\textbf{Exemple \emph{(suite)} :} ~\\
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|c|c|c|c|}
+    \hline
+    Valeurs de $X$      & $2$                        & $1$                        & $-1$                                   \\
+    \hline
+    Probabilité  $p(X=x_i)$ & $\displaystyle\frac{1}{6}$ & $\displaystyle\frac{1}{6}$ & $\displaystyle\frac{4}{6}=\frac{2}{3}$ \\
+    \hline
+\end{tabular}
+
+\newpage
+
+\section*{II. Espérance, variance et écart-type d'une variable aléatoire}
+
+Soit $X$ une variable aléatoire qui prend en valeurs ${x_1;x_2;\dots;x_k}$ et dont la loi de probabilité est donnée par le tableau suivant :
+\vspace{-12pt}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        Valeurs $x_i$ de $X$ & $x_1$      & $x_2$      & \quad\text{ }\dots\quad\text{ } & $x_k$      \\
+        \hline
+        Probabilité      & $p_1$ & $p_2$ & \quad\text{ }\dots\quad\text{ } & $p_k$ \\
+        \hline
+    \end{tabular}
+\end{center}
+\vspace*{8pt}
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition \emph{(espérance)} :} ~\\
+    L'espérance de la variable aléatoire $X$ est le réel noté $E(X)$ définie par : \\
+    $\displaystyle E(x)=\sum_{i=1}^{k}x_ip_i$          
+\end{mdframed}
+
+\textbf{Remarques :} L'espérance d'une variable aléatoire représente la valeur moyenne prise par $X$. \\
+
+Lorsque les valeurs prises par $X$ représentent les gains ou les pertes à un jeu, alors $E(X)$ représente le gain moyen par partie :
+\vspace*{-4pt}
+\begin{itemize}
+    \item Si $E(X)>0$ alors le jeu est favorable au joueur.
+    \item Si $E(X)<0$ alors le jeu est défavorable au joueur.
+    \item Si $E(X)=0$ alors le jeu est équitable.
+\end{itemize}
+
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition \emph{(variance)} :} ~\\
+    La variance de la variable aléatoire $X$ est le réel noté $V(X)$ définie par : \\
+    $\displaystyle V(x)=\sum_{i=1}^{k}\left[x_i-E(X)\right]^2\times p_i$
+\end{mdframed}
+
+\textbf{Remarque :} La variance d'une variable aléatoire $X$ se calcule aussi avec la formule $\displaystyle V(X)=\sum_{i=1}^{k} p_i x_i^2-E(X)^2$
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition \emph{(l'écart-type)} :} ~\\
+    L'écart-type $\sigma(X)$ est défini comme la racine carrée de la variance $\sigma(X)=\sqrt{V(X)}$.
+\end{mdframed}
+
+\textbf{Remarque :} Par analogie avec les statistiques, de la même façon que $E(X)$ représente une moyenne, $V(X)$ et $\sigma(X)$ sont des indicateurs de dispersion des valeurs de $X$ autour de $E(X)$. \\
+Plus la variance et l'écart-type sont grands, plus les valeurs sont dispersés autour de la moyenne (espérance). \\
+
+\textbf{Exemple :} ~\\
+On calcule l'espérance de $X$ :
+$\displaystyle E(X)=2\times\frac{1}{6}+1\times\frac{1}{6}-1\times\frac{2}{3}=-\frac{1}{6}\simeq-0,17$. \\
+Sur un grand nombre de parties, le gain moyen par partie pour le joueur est $-0,17$. Donc le jeu n'est pas favorable au joueur. \\
+
+On calcule la variance et l'écart-type :
+\begin{itemize}
+    \item $\displaystyle V(X)=\left[2-\left(-\frac{1}{6}\right)\right]^2\times \frac{1}{6}+\left[1-\left(-\frac{1}{6}\right)\right]^2\times \frac{1}{6}+\left[-1-\left(-\frac{1}{6}\right)\right]^2\times \frac{2}{3}=\frac{53}{36}\simeq1,47$
+    \item $\displaystyle \sigma(X)=\sqrt{\frac{53}{36}}\simeq1,21$
+\end{itemize}
+\end{document}
+% ----- FIN DU DOCUMENT -----

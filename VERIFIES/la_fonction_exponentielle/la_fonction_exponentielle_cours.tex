@@ -76,7 +76,7 @@
 \begin{mdframed}[style=definitionStyle]
     \textbf{Définition et propriété admise :} ~\\
     Il existe une unique fonction $f$ dérivable sur $\mathbb{R}$ telle que $f'=f$ et $f(0)=1$. \\
-    Cette fonction est appelé fonction exponentielle et se note $\exp$. \\
+    Cette fonction est appelée fonction exponentielle et se note $\exp$. \\
     Ainsi, pour tout réel $x$, on a $\exp'(x)=\exp(x)$ et $\exp(0)=1$.
 \end{mdframed}
 
@@ -90,7 +90,7 @@
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriétés :}
     \begin{enumerate}
-        \item Pour tous réels $x$ et $y$, on a $\exp(x+y)=\exp(x)+\exp(y)$. \\
+        \item Pour tous réels $x$ et $y$, on a $\exp(x+y)=\exp(x)\times\exp(y)$. \\
         Cette relation s'appelle relation fonctionnelle.
         \item Pour tous réels $x$ et $y$, on a :
         \begin{itemize}
@@ -111,6 +111,27 @@
 
 \textbf{Remarque :} La fonction $\exp$ possède les mêmes propriété algébriques que les fonctions puissances. On notera donc $\exp(x)=e^x$ ($e\approx2,7182\dots$).
 
+\begin{mdframed}[style=proprieteStyle]
+    \textbf{Propriété :} ~\\
+    Pour tous réels $x$ et $y$, on a : \\
+
+    \begin{minipage}{0.25\textwidth}
+        \begin{itemize}
+            \item $\displaystyle e^{x+y}=e^x\times e^y \color{white}\frac{e^x}{e^y}$ 
+            \item $\displaystyle e^{-x}=\frac{1}{e^x}$
+        \end{itemize}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.8\textwidth}
+        \begin{itemize}
+            \item $\displaystyle e^{x-y}=\frac{e^x}{e^y}$ 
+            \item $\displaystyle (e^x)^n=e^{nx}\color{white}\frac{e^x}{e^y}$ 
+        \end{itemize}
+    \end{minipage}
+\end{mdframed}
+
+\newpage
+
 \subsection*{4. Lien avec les suites géométriques}
 
 \begin{mdframed}[style=proprieteStyle]
@@ -119,7 +140,6 @@
     Alors la suite $u$ est une suite géométrique.
 \end{mdframed}
 
-\newpage
 
 \section*{II. Étude et applications de la fonction exponentielle}
 
@@ -163,7 +183,7 @@ On résume dans le tableau de variation suivant : ~\\
     \hline
     $0$ &  $1$ \\
     \hline
-    $0,5$ &  $\approx1,64$ \\
+    $0,5$ &  $\approx1,65$ \\
     \hline
     $1$ &  $\approx2,72$ \\
     \hline
@@ -204,6 +224,8 @@ On résume dans le tableau de variation suivant : ~\\
     Pour $k<0$, la fonction $f$ définie par $f(t)=e^{kt}$ est strictement décroissante sur $\mathbb{R}.$ 
 \end{mdframed}
 
+\newpage
+
 \subsection*{5. Fonctions du type $f:x\mapsto e^{ax+b}$}
 
 \begin{mdframed}[style=proprieteStyle]
@@ -211,7 +233,6 @@ On résume dans le tableau de variation suivant : ~\\
     Pour $a$ et $b$ fixés, la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=e^{ax+b}$ est dérivable sur $\mathbb{R}$ et pour tout réel $x$, $f'(x)=a\times e^{ax+b}$.
 \end{mdframed}
 
-\newpage
 
 \subsection*{6. Équations et inéquations}
 
@@ -229,7 +250,7 @@ On résume dans le tableau de variation suivant : ~\\
 
 \begin{minipage}{0.5\textwidth}
     \begin{itemize}
-        \item On résout dans $\mathbb{R}$ l'équation $e^{2x+1}=e^{x-3}$
+        \item On résout dans $\mathbb{R}$ l'équation $e^{2x+1}=e^{x-3}$ :
         \begin{align*}
             &e^{2x+1}=e^{x-3} \\
             \Leftrightarrow\text{ }&2x+1=x-3 \\
@@ -242,12 +263,12 @@ On résume dans le tableau de variation suivant : ~\\
 \hfill
 \begin{minipage}{0.5\textwidth}
     \begin{itemize}
-        \item On résout dans $\mathbb{R}$ l'inéquation $e^{x-3}<1$
+        \item On résout dans $\mathbb{R}$ l'inéquation $e^{x-3}<1$ :
         \begin{align*}
             &e^{x-3}<1 \\
             \Leftrightarrow\text{ }&e^{x-3}<e^0 \\
             \Leftrightarrow\text{ }&x-3<0 \\
-            \Leftrightarrow\text{ }&x<-3 \\
+            \Leftrightarrow\text{ }&x<3 \\
             \Leftrightarrow\text{ }&S=]-\infty;3[
         \end{align*}
     \end{itemize}

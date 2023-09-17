@@ -153,18 +153,24 @@
 
 \subsection*{2. Variations de la fonction exponentielle}
 
-\begin{mdframed}[style=proprieteStyle]
-    \textbf{Propriété :} ~\\
-    La fonction $\exp$ est strictement croissante sur $\mathbb{R}$.
-\end{mdframed}
+\begin{minipage}[t]{0.35\textwidth} % Adjust the width of the first minipage
+    $\displaystyle{\color{white}1}$
+    \begin{mdframed}[style=proprieteStyle]
+        \textbf{Propriété :} ~\\
+        La fonction $\exp$ est strictement croissante sur $\mathbb{R}$.
+    \end{mdframed}
+\end{minipage}
+\hspace{0.06\textwidth} % Add horizontal space here
+\begin{minipage}[t]{0.6\textwidth} % Adjust the width of the second minipage
+    On résume dans le tableau de variation suivant : $\displaystyle{\color{white}\frac{1}{1}}$ ~\\
+    \begin{tikzpicture}
+        \tkzTabInit[lgt=3,espcl=6]{$x$ / 0.8 , Signe de $f'(x)$ / 1, Variations de $f(x)=e^x$ / 1.2}{$-\infty$, $+\infty$}
+        \tkzTabLine{,+,}
+        \tkzTabVar{-/ , +/ }
+    \end{tikzpicture}
+\end{minipage}
 
-On résume dans le tableau de variation suivant : ~\\
 
-\begin{tikzpicture}
-    \tkzTabInit[lgt=3,espcl=5]{$x$ / 1 , Signe de $f'(x)$ / 1, Variations de $f(x)=e^x$ / 2}{$-\infty$, $+\infty$}
-    \tkzTabLine{,+,}
-    \tkzTabVar{-/ , +/ }
-\end{tikzpicture}
 
 \subsection*{3. Courbe de la fonction exponentielle}
 

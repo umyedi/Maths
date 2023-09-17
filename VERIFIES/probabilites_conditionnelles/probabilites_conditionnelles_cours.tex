@@ -96,7 +96,12 @@ On en déduit une formule de calcul de la probabilité de l'intersection.
   Si $A$ et $B$ sont deux évènements avec $p(A)\not=0$ alors $p(A\cap B)=p_A(B)\times p(A)$.
 \end{mdframed}
 
-\textbf{Remarques :} Si $p(B)\not=0$ alors on a aussi $p(A\cap B)=p_B(A)\times p(B)$. Dans toutes les formules, les rôles de $A$ et $B$ peuvent être inversés.
+\textbf{Remarques :} 
+\vspace{-3pt}
+\begin{itemize}
+  \item Si $p(B)\not=0$ alors on a aussi $p(A\cap B)=p_B(A)\times p(B)$.
+  \item Dans toutes les formules, les rôles de $A$ et $B$ peuvent être inversés.
+\end{itemize}
 
 \subsection*{3. Représentation à l'aide d'un arbre pondéré}
 
@@ -172,7 +177,7 @@ La probabilité de rencontrer un garçon skieur est de $0,3$.
 
 \begin{mdframed}[style=definitionStyle]
   \textbf{Définition :} ~\\
-  Dans un univers $\Omega$, on appelle système complet d'évènements (ou partition de $\Omega$) un ensemble d'évènements de probabilités non nulles, deux à deux disjoints \emph{(ils n'ont pas d'intersection)}, dont la réunion est égale à $\Omega$.
+  Dans un univers $\Omega$, on appelle système complet d'évènements (ou partition de $\Omega$) un ensemble d'évènements de probabilités non nulles, deux à deux disjoints \emph{(sans intersections)}, dont la réunion est égale à $\Omega$.
 \end{mdframed}
 
 \subsection*{2. Théorème}
@@ -180,7 +185,7 @@ La probabilité de rencontrer un garçon skieur est de $0,3$.
 \begin{mdframed}[style=proprieteStyle]
   \textbf{Théorème \emph{(formule des probabilités totales)} :} ~\\
   Soit $A_1,A_2,\dots,A_n$ un système complet d'évènements de l'univers $\Omega$. \\
-  Alors la probabilité d'un évènement quelconque de $B$ est donné par :
+  Alors la probabilité d'un évènement quelconque $B$ est donné par :
   \vspace{-8pt}
   \begin{equation*}
     \begin{split}
@@ -246,7 +251,8 @@ On cherche $\displaystyle{}p_S(F)=\frac{p(S\cap F)}{p(S)}=\frac{0,12}{0,42}=\fra
 \end{mdframed}
 
 \textbf{Exemple :} ~\\
-Une urne contient $3$ boules rouges numérotées $1$, $2$ et $3$ et $6$ boules noires numérotés $1$, $1$, $1$, $2$, $2$ et $3$. Les boules sont indiscernables au toucher. \\
+Une urne contient $3$ boules rouges numérotées $1$, $2$ et $3$ et $6$ boules noires numérotés $1$, $1$, $1$, $2$, $2$ et $3$. \\
+Les boules sont indiscernables au toucher. \\
 
 On tire une boule au hasard et on note :
 \vspace{-6pt}
@@ -289,7 +295,7 @@ On tire successivement deux cartes dans un jeu et on note les cartes obtenues.
 \newpage
 
 \begin{mdframed}[style=proprieteStyle]
-  \textbf{Propriété admise :} ~\\
+  \textbf{Propriété \emph{(admise)} :} ~\\
   Lorsque deux épreuves sont indépendantes, la probabilité d'un couple de résultat est égal au produit des probabilités de chacun d'entre eux.
 \end{mdframed}
 

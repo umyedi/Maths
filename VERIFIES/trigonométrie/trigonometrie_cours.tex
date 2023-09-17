@@ -168,8 +168,8 @@
         On définit un radian, noté $1\,\mathrm{rad}$, comme étant la mesure de l'angle $\widehat{IOU}$.
     \end{mdframed}
 \end{minipage}
-\text{ } ~\\
-\textbf{Exemples :} ~\\
+\text{ } ~\\~\\
+\textbf{Exemples :$\color{white}\displaystyle{\frac{1}{x}}$} ~\\
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
     \hline
@@ -195,14 +195,18 @@ Sur le cercle trigonométrique, on choisit un point comme origine et on enroule 
         \draw [thick] (0,0) node[below left] {$O$} -- (1,0) node[below right] {$I$} node[midway,below] {$1$};
         \draw [thick] (0,0) -- (0,1) node[above left] {$J$};
         % Point M
-        \node[left] at (0.707,0.707) {\scriptsize{$M$}};
-        \draw[mark size=1.5pt,mark=+] plot coordinates {(0.707,0.707)};
+        \node[below left] at (0.5,0.865) {\scriptsize{$M$}};
+        \draw[mark size=1.5pt,mark=+] plot coordinates {(0.5,0.865)};
+        % Curved arrow
+        \draw[thick, red, dashed, ->] (1,1) to[out=170,in=50] (0.5,0.865);
         % Droite
         \draw[red, thick] (1,1.4) -- (1,-1.2);
-        \draw[red, thick, dashed] (0.707,0.707) -- (1,0.707) node[right] {$k=1$};
-        \draw[red, mark size=1.5pt,mark=x] plot coordinates {(1,0.707)};
+        \node[right, red] at (1,1) {$k=1$};
+        \draw[red, mark size=1.5pt, mark=x] plot coordinates {(1,1)};
+        
     \end{tikzpicture}
 \end{center}
+
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriétés :}
@@ -215,8 +219,7 @@ Sur le cercle trigonométrique, on choisit un point comme origine et on enroule 
     \end{itemize}
 \end{mdframed}
 
-\textbf{Schéma d'un cercle trigonométrique avec des valeurs remarquables :}
-
+\textbf{\\Schéma d'un cercle trigonométrique avec des valeurs remarquables :}
 \begin{center}
     \begin{tikzpicture}[scale=5]
         % Axes
@@ -238,7 +241,7 @@ Sur le cercle trigonométrique, on choisit un point comme origine et on enroule 
         \node[left] at (-1,0) {\LARGE{$\pi$}};
         \draw[mark size=0.4pt,mark=*] plot coordinates {(-1,0)};
         % Points -pi/2
-        \node[below] at (0,-1) {\LARGE{$-\frac{\pi}{2}$}};
+        \node[below] at (0,-1) {\LARGE{$\frac{3\pi}{2}$}};
         \draw[mark size=0.4pt,mark=*] plot coordinates {(0,-1)};
 
         % Points pi/3
@@ -329,8 +332,10 @@ Sur le cercle trigonométrique, on choisit un point comme origine et on enroule 
 \begin{mdframed}[style=definitionStyle]
     \textbf{Définitions :} ~\\
     $C$ est le cercle trigonométrique de centre $O$ et $(O,I,J)$ un repère orhonormé direct. $x$ est un nombre réel et $M$ est le points image du réel $x$ sur le cercle trigonométrique.
-    \item Le cosinus de $x$, noté $\cos{x}$, est l'abscisse de $M$ dans le repère $(O,I,J)$.
-    \item Le sinus de $x$, noté $\sin{x}$, est l'ordonnée de $M$ dans le repère $(O,I,J)$.
+    \begin{itemize}
+        \item Le cosinus de $x$, noté $\cos{x}$, est l'abscisse de $M$ dans le repère $(O,I,J)$.
+        \item Le sinus de $x$, noté $\sin{x}$, est l'ordonnée de $M$ dans le repère $(O,I,J)$.
+    \end{itemize}
 \end{mdframed}
 
 \begin{minipage}{0.6\textwidth}
@@ -340,8 +345,8 @@ Sur le cercle trigonométrique, on choisit un point comme origine et on enroule 
         \begin{itemize}
             \item $\cos^2{x}+\sin^2{x}=1$
             \item $\cos(x+2k\pi)=\cos{x}$
-            \item $-1<\cos{x}<1$
-            \item $-1<\sin{x}<1$
+            \item $-1\leq\cos{x}\leq1$
+            \item $-1\leq\sin{x}\leq1$
         \end{itemize}
     \end{mdframed}
 \end{minipage}
@@ -439,15 +444,18 @@ Sur le cercle trigonométrique, on choisit un point comme origine et on enroule 
 \section*{IV. Fonctions cosinus et sinus}
 
 \begin{mdframed}[style=definitionStyle]
-    \textbf{Définitions :} ~\\
-    On appelle fonction cosinus la fonction notée $\cos$ définie sur $\mathbb{R}$ par $\cos:x\mapsto\cos x$. \\
-    On appelle fonction sinus la fonction notée $\sin$ définie sur $\mathbb{R}$ par $\sin:x\mapsto\sin x$.
+    \textbf{Définitions :}
+    \vspace{-4pt}
+    \begin{itemize}
+        \item On appelle fonction cosinus la fonction notée $\cos$ définie sur $\mathbb{R}$ par $\cos:x\mapsto\cos x$.
+        \item On appelle fonction sinus la fonction notée $\sin$ définie sur $\mathbb{R}$ par $\sin:x\mapsto\sin x$.
+    \end{itemize}
 \end{mdframed}
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété :} ~\\
-    Pour tout réel $x$, $\cos(-x)=\cos{x}$. Ainsi, la fonction cosinus est paire. \\
-    Pour tout réel $x$, $\sin(-x)=-\sin{x}$. Ainsi, la fonction cosinus est impaire.
+    Pour tout réel $x$, $\cos(-x)=\cos{x}$ et $\sin(-x)=-\sin{x}$. \\
+    Ainsi, la fonction cosinus est paire et la fonction sinus est impaire.
 \end{mdframed}
 
 \textbf{Conséquences graphique :}
@@ -459,13 +467,12 @@ Sur le cercle trigonométrique, on choisit un point comme origine et on enroule 
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété :} ~\\
-    Pour tout réel $x$, $\cos{x}=\cos(x+2\pi)$.\\
-    Pour tout réel $x$, $\sin{x}=\sin(x+2\pi)$.\\
+    Pour tout réel $x$, $\cos{x}=\cos(x+2\pi)$ et $\sin{x}=\sin(x+2\pi)$.\\
     On dit que les fonctions cosinus et sinus sont des fonction périodiques de période $2\pi$.
 \end{mdframed}
 
 \textbf{Conséquence graphique :} ~\\
-La courbe représentative de la fonction cosinus et sinus se reproduisent identiques à elles-mêmes sur un intervalle de longueur $2\pi$.
+Les courbes représentatives de la fonction cosinus et sinus se reproduisent identiques à elles-mêmes sur un intervalle de longueur $2\pi$.
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété \emph{(variations des fonctions cosinus et sinus)}:} ~\\

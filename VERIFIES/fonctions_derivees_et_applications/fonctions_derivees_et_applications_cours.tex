@@ -33,7 +33,7 @@
 \fancypagestyle{custom}{
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
-  \lfoot{Analyse - Cours et démos}
+  \lfoot{Analyse - Cours}
   \cfoot{Fonctions dérivées et applications}
   \rfoot{\thepage/\pageref{LastPage}}
 }
@@ -83,8 +83,6 @@
 \thispagestyle{custom}
 
 \section*{I. Fonctions dérivées}
-\subsection*{1. Définition}
-
 \begin{mdframed}[style=definitionStyle]
     \textbf{Définition :} ~\\
     Soit $f$ une fonction définie sur un intervalle $I$. \\
@@ -93,43 +91,38 @@
     On la note $f'$.
 \end{mdframed}
 
-\subsection*{2. Dérivées des fonctions usuelles}
-
-\begin{mdframed}[style=proprieteStyle]
-    \textbf{Propriétés :} ~\\
-
-    \renewcommand{\arraystretch}{1.5}
-    \begin{tabularx}{\linewidth}{|X|Y|Y|X|}
-        \hline
-        La fonction $f$ est définie par\dots                                       & $f$ est définie sur\dots     & $f$ est dérivable sur\dots   & La fonction dérivable $f'$ est définie par\dots \\
-        \hline
-        \multirow{2}{*}{}$f(x)=k$ ($k\in\mathbb{R}$)                               & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=0$                                       \\
-        Fonction constante                                                         &                              &                              &                                                 \\
-        \hline
-        \multirow{3}{*}{}$f(x)=ax+b$                                               &                              &                              &                                                 \\
-        ($a$ et $b$ réels)                                                         & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=a$                                       \\
-        Fonction affine                                                            &                              &                              &                                                 \\
-        \hline
-        \multirow{2}{*}{}$f(x)=x^2$                                                & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=2x$                                      \\
-        Fonction carrée                                                            &                              &                              &                                                 \\
-        \hline
-        \multirow{2}{*}{}$f(x)=x^3$                                                & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=3x^2$                                    \\
-        Fonction cube                                                              &                              &                              &                                                 \\
-        \hline
-        \multirow{2}{*}{}$f(x)=x^n$ ($x\in \mathbb{N^*}$)                          & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=nx^{n-1}$                                \\
-        Fonction puissance                                                         &                              &                              &                                                 \\
-        \hline
-        \multirow{2}{*}{}$\displaystyle{}f(x)=\frac{1}{x}$                         & $]-\infty;0[\cup]0;+\infty[$ & $]-\infty;0[\cup]0;+\infty[$ & $\displaystyle{}f'(x)=\frac{-1}{x^2}$           \\
-        Fonction inverse                                                           &                              &                              &                                                 \\
-                    \hline
-        \multirow{2}{*}{}$\displaystyle{}f(x)=\frac{1}{x^n}$ ($x\in \mathbb{N^*}$) & $]-\infty;0[\cup]0;+\infty[$ & $]-\infty;0[\cup]0;+\infty[$ & $\displaystyle{}f'(x)=\frac{-n}{x^{n+1}}$       \\
-        Fonction inverse d'une puissance                                           &                              &                              &                                                 \\
-        \hline
-        \multirow{2}{*}{}$f(x)=\sqrt{x}$                                           & $[0;+\infty[$                & $]0;+\infty[$                & $\displaystyle{}f'(x)=\frac{1}{2\sqrt{x}}$      \\
-        Fonction racine carrée                                                     &                              &                              &                                                 \\
-        \hline
-    \end{tabularx}
-\end{mdframed}
+\subsection*{Dérivées des fonctions usuelles}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{|X|Y|Y|X|}
+    \hline
+    La fonction $f$ est définie par\dots                                       & $f$ est définie sur\dots     & $f$ est dérivable sur\dots   & La fonction dérivée $f'$ est définie par\dots \\
+    \hline
+    \multirow{2}{*}{}$f(x)=k$ ($k\in\mathbb{R}$)                               & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=0$                                       \\
+    Fonction constante                                                         &                              &                              &                                                 \\
+    \hline
+    \multirow{3}{*}{}$f(x)=ax+b$                                               &                              &                              &                                                 \\
+    ($a$ et $b$ réels)                                                         & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=a$                                       \\
+    Fonction affine                                                            &                              &                              &                                                 \\
+    \hline
+    \multirow{2}{*}{}$f(x)=x^n$ ($x\in \mathbb{N^*}$)                          & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=nx^{n-1}$                                \\
+    Fonction puissance                                                         &                              &                              &                                                 \\
+    \hline
+    \multirow{2}{*}{}$\displaystyle{}f(x)=\frac{1}{x}\color{white}\frac{1^\frac{-}{-}}{1}$                         & $]-\infty;0[\cup]0;+\infty[$ & $]-\infty;0[\cup]0;+\infty[$ & $\displaystyle{}f'(x)=\frac{-1}{x^2}$           \\
+    Fonction inverse                                                           &                              &                              &                                                 \\
+    \hline
+    \multirow{2}{*}{}$\displaystyle{}f(x)=\frac{1}{x^n}\color{white}\frac{-}{-}^\frac{-}{-}\color{black}$ & $]-\infty;0[\cup]0;+\infty[$ & $]-\infty;0[\cup]0;+\infty[$ & $\displaystyle{}f'(x)=\frac{-n}{x^{n+1}}$       \\
+    Fonction inverse d'une puissance (avec $x\in \mathbb{N^*}$)                                          &                              &                              &                                                 \\
+    \hline
+    \multirow{2}{*}{}$f(x)=\sqrt{x}$                                           & $[0;+\infty[$                & $]0;+\infty[$                & $\displaystyle{}f'(x)=\frac{1}{2\sqrt{x}}\color{white}\frac{-}{-}^\frac{-}{-}\color{black}$      \\
+    Fonction racine carrée                                                     &                              &                              &                                                 \\
+    \hline
+    \multirow{2}{*}{}$f(x)=\cos{x}$                          & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=-\sin{x}$                                \\
+    Fonction cosinus                                                         &                              &                              &                                                 \\
+    \hline
+    \multirow{2}{*}{}$f(x)=\sin{x}$                          & $\mathbb{R}$                 & $\mathbb{R}$                 & $f'(x)=\cos{x}$                                \\
+    Fonction sinus                                                         &                              &                              &                                                 \\
+    \hline
+\end{tabularx}
 
 \newpage
 
@@ -151,7 +144,9 @@
         \hline
         Produit $uv$                          & $(uv)'=u'v+uv'$                                                \\
         \hline
-        Quotient $\displaystyle{}\frac{u}{v}$ & $\displaystyle{}\left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2}$ \\
+        Quotient $\displaystyle\frac{u}{v}\color{white}\frac{-}{\frac{-}{-}}$ (avec $v\not=0$)& $\displaystyle{}\left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2}$ \\
+        \hline
+        Inverse $\displaystyle\frac{1}{u}\color{white}\frac{-}{\frac{-}{-}}$ (avec $u\not=0$)& $\displaystyle\left(\frac{1}{u}\right)'=\frac{-u'}{u^2}$ \\
         \hline
     \end{tabularx}
 \end{mdframed}
@@ -180,7 +175,7 @@
     On a $u(x)'=2$ et $v(x)'=1$. \\
     On a $\displaystyle\left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2}$.
     \begin{alignat*}{2}
-         & \text{Donc } & g'(x) & =\frac{u'(x)v(x)-u(x)v'(x)}{[v(x)]^2} \\
+         & \text{Donc } & g'(x) & =\frac{u'(x)v(x)-u(x)v'(x)}{(v(x))^2} \\
          &              &       & =\frac{2(x-5)-(2x-1)\times1}{(x-5)^2} \\
          &              &       & =\frac{2x-10-2x+1}{(x-5)^2}           \\
          &              &       & =\frac{-9}{(x-5)^2}
@@ -203,8 +198,7 @@ On a $f:x \longrightarrow 5x+2 \longrightarrow  \sqrt{5x+2}$
 La fonction $f$ est de la forme $f(x)=g(ax+b)$ avec $a=5$, $b=2$ et $g:x\mapsto\sqrt{x}$
 \begin{alignat*}{2}
      & \text{Donc } & f'(x) & =ag'(ax+b) \text{ avec } g':x\mapsto\frac{1}{2\sqrt{x}} \\
-     &              &       & =5\times \frac{1}{\sqrt{5x+2}}                          \\
-     &              &       & =\frac{5}{\sqrt{5x+2}}
+     &              &       & =5\times \frac{1}{\sqrt{5x+2}} =\frac{5}{\sqrt{5x+2}}
 \end{alignat*}
 
 Pour tout $x\in[\frac{-2}{5};+\infty[$, $5x+2\in[0;+\infty[$.
@@ -213,7 +207,7 @@ Pour tout $x\in[\frac{-2}{5};+\infty[$, $5x+2\in[0;+\infty[$.
 
 Donc $f$ est dérivable sur $[\frac{-2}{5};+\infty[$.
 
-\section*{III. Application de la dérivation}
+\section*{III. Applications de la dérivation}
 
 \subsection*{1. Étude des variations d'une fonction}
 
@@ -240,14 +234,17 @@ Donc $f$ est dérivable sur $[\frac{-2}{5};+\infty[$.
 \subsection*{2. Étude des extrema d'une fonction}
 
 \begin{mdframed}[style=definitionStyle]
-    \textbf{Définition :} ~\\
+    \textbf{Définitions :} ~\\
     Soit $f$ une fonction définie sur un intervalle $I$ et $c$ un réel de $I$ et qui n'est pas une borne de $I$.
+    \vspace{-4pt}
+    \begin{itemize}
+        \item Dire que $f(c)$ est un maximum local de $f$ signifie qu'il existe deux réels $a$ et $b$ dans $I$ tels que $c\in]a;b[$ et que pour tout réel $x\in]a;b[$, $f(x) \leq f(c)$.
+        \item Dire que $f(c)$ est un minimum local de $f$ signifie qu'il existe deux réels $a$ et $b$ dans $I$ tels que $c\in]a;b[$ et que pour tout réel $x\in]a;b[$, $f(x) \geq f(c)$.
+        \item Un extremum local est un minimum ou un maximum local.
+    \end{itemize}
 
-    Dire que $f(c)$ est un maximum local de $f$ signifie qu'il existe deux réels $a$ et $b$ dans $I$ tels que $c\in]a;b[$ et que pour tout réel $x\in]a;b[$, $f(x) \leq f(c)$.
 
-    Dire que $f(c)$ est un minimum local de $f$ signifie qu'il existe deux réels $a$ et $b$ dans $I$ tels que $c\in]a;b[$ et que pour tout réel $x\in]a;b[$, $f(x) \geq f(c)$.
 
-    Un extremum local est un minimum ou un maximum local.
 \end{mdframed}
 
 \begin{minipage}{0.4\textwidth}
@@ -284,7 +281,7 @@ Donc $f$ est dérivable sur $[\frac{-2}{5};+\infty[$.
 \hspace{0.05\textwidth}
 \begin{minipage}{0.55\textwidth}
     \begin{mdframed}[style=proprieteStyle]
-        \textbf{Théorème admis \emph{(condition nécessaire d'un extremum local)} :} ~\\
+        \textbf{Théorème de la condition nécessaire sur l'existence d'un extremum local \emph{(admis)} :} ~\\
         Soit $f$ une fonction dérivable sur un intervalle ouvert $I$ et $a$ un réel de $I$. \\
         Si $f$ présente un extremum local en $a$ alors $f'(a)=0$.
     \end{mdframed}
@@ -293,7 +290,7 @@ Donc $f$ est dérivable sur $[\frac{-2}{5};+\infty[$.
 \end{minipage}
 
 \begin{mdframed}[style=proprieteStyle]
-    \textbf{Théorème \emph{(condition suffisante sur l'existence d'un extremum local)} :} ~\\
+    \textbf{Théorème de la condition suffisante sur l'existence d'un extremum local :} ~\\
     Soit $f$ une fonction dérivable sur un intervalle ouvert $I$, de dérivée $f'$ et $a\in I$.
     Si la dérivée $f'$ s'annule en $a$ en changeant de signe en $a$, alors la fonction $f$ admet un extremum local en $a$.
 \end{mdframed}

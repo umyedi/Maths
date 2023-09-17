@@ -6,12 +6,13 @@
 \usepackage{mdframed}
 \usepackage{tikz}
 \usepackage{tkz-tab}
-\usepackage{pgfplots}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage[fleqn]{amsmath}
 \usepackage{siunitx}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
 \setlength{\mathindent}{0pt}
 
 % Spécifications du document
@@ -81,12 +82,12 @@
   (ou tout entier naturel $n \geq k$, $k$ étant un entier naturel).
   \vspace{-4pt}
   \begin{itemize}
-    \item  $u(n)$ ou $u_n$ s'appelle le terme de rang $n$ ou le terme général de la suite.
+    \item  $u(n)$ ou $u_n$ s'appelle le terme de rang $n$ (ou le terme général de la suite).
     \item  $u$ désigne la suite elle-même, elle peut être noté aussi $(u_n)$.
-    \item  $n$ est l'indice ou le rang.
+    \item  $n$ est l'indice (ou le rang).
     \item  $u_{n-1}$ est le terme précédant $u_n$.
     \item  $u_{n+1}$ est le terme suivant $u_n$.
-    \item  $u_0$ (ou parfois $u_1$) est le terme initial ou le premier terme.
+    \item  $u_0$ (ou parfois $u_1$) est le terme initial (ou le premier terme).
   \end{itemize}
 
 \end{mdframed}
@@ -120,7 +121,7 @@ On calcule ses premiers termes :
 \begin{mdframed}[style=definitionStyle]
   \textbf{Définition :} ~\\
   Lorsqu'une suite est définie par la donnée de son premier terme et d'une relation qui permet de calculer chaque
-  terme en fonction du terme précédent, on dit que la suite est définie par récurrence. \\
+  terme en fonction du terme précédent, on dit que la suite est définie par récurrence.
   On donne l'expression de $u_{n+1}$ en fonction de $u_n$. \\ Cette relation s'appelle relation (ou formule) de récurrence.
 \end{mdframed}
 
@@ -149,12 +150,12 @@ que chaque terme de la suite est la somme des deux termes qui le précèdent.
   \qquad\qquad\qquad
   \begin{split}
     &F_6=5+3=8\\
-    &F_7=7+5=13
+    &F_7=8+5=13
   \end{split}
   \qquad\qquad\qquad
   \begin{split}
-    &F_6=5+3=8\\
-    &F_7=7+5=13
+    &F_8=13+8=21\\
+    &F_9=21+13=34
   \end{split}
 \end{equation*}
 
@@ -163,7 +164,7 @@ que chaque terme de la suite est la somme des deux termes qui le précèdent.
 \subsection*{3. Représentation graphique d'un suite}
 
 
-Une suite $u$ peut être représenté :
+Une suite $u$ peut être représentée :
 \vspace{-4pt}
 \begin{itemize}
   \item en plaçant les points de coordonnées $(n, u_n)$ dans un repère (on appelle cet ensemble nuage de points).
@@ -458,6 +459,98 @@ On représente la suite géométrique de premier terme $u_0=1$ et de raison $q=1
 
 \section*{III. Comportement d'une suite à l'infini}
 
+S'intéresser à la limite d'une suite, c'est étudier le comportement des termes $u_n$ quand on donne des valeurs à $n$ aussi grandes que l'on veut, ce qui se dit aussi : « quand $n$ tend vers l'infini ».  \\
 
+On s'intéresse aux suite $\color{red}u$, $\color{blue}v$, $\color{dark_green}w$, $\color{orange}x$ et $t$ définies pour tout entier naturel $n$ par : 
+$$
+\color{red}u_n=\frac{1}{n} \quad\quad\quad \color{blue}v_n=\frac{4n-5}{2n+3} \quad\quad\quad \color{dark_green}w_n = n^2 \quad\quad\quad \color{orange}x_n=16-2n^2 \quad\quad\quad \color{black}t_n= (-1)^n
+$$
+
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=0, xmax=25,
+      ymin=0, ymax=2,
+      width=7cm, height=5cm,
+      grid=major,
+      xticklabels={},  % Remove x-axis tick labels
+      yticklabels={}
+  ]
+    
+  \foreach \x in {1,2,...,24} {
+      \addplot[red, only marks, mark=*, mark size=1pt] coordinates {(\x, 1/\x)};
+  }
+  \foreach \x in {1,2,...,24} {
+    \edef\y{((4*\x - 5) / (2*\x + 3))}
+    \addplot[blue, only marks, mark=*, mark size=1pt] coordinates {(\x, \y)};
+  }
+  \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=0, xmax=25,
+      width=7cm, height=5cm,
+      grid=major,
+      xticklabels={},  % Remove x-axis tick labels
+      yticklabels={}
+  ]
+    
+  \foreach \x in {1,2,...,24} {
+      \addplot[dark_green, only marks, mark=*, mark size=1pt] coordinates {(\x, \x^2)};
+  }
+  \foreach \x in {1,2,...,24} {
+    \edef\y{(16-2*\x^2)}
+    \addplot[orange, only marks, mark=*, mark size=1pt] coordinates {(\x, \y)};
+  }
+
+  \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=0, xmax=25,
+      ymin=-10, ymax=10,
+      width=7cm, height=5cm,
+      grid=major,
+      xticklabels={},  % Remove x-axis tick labels
+      yticklabels={} % Remove y-axis tick labels
+  ]
+    
+  \foreach \x in {1,2,...,24} {
+    \edef\y{((-1)^\x)}
+    \addplot[only marks, mark=*, mark size=1pt] coordinates {(\x, \y)};
+  }
+
+  \end{axis}
+\end{tikzpicture}
+
+
+\subsection*{Limite finie}
+
+\begin{itemize}
+  \item On écrit $\displaystyle \lim_{n\to+\infty}u_n=0$ ce qui signifie que $u_n$ peut être aussi proche de $0$ que l'on veut, pourvue que $n$ soit assez grand. \\
+  On le note : $\forall\epsilon>0,\exists n_0\in\mathbb{N} \quad \forall n>n_0,\left\lvert u_n\right\rvert<\epsilon $
+  \item On écrit $\displaystyle \lim_{n\to+\infty}v_n=2$ ce qui signifie que $v_n$ peut être aussi proche de $2$ que l'on veut, pourvue que $n$ soit assez grand. \\
+  On le note : $\forall\epsilon>0,\exists n_0\in\mathbb{N} \quad \forall n>n_0,\left\lvert v_n-2\right\rvert<\epsilon $
+\end{itemize}
+
+\subsection*{Limite infinie}
+
+\begin{itemize}
+  \item On écrit $\displaystyle \lim_{n\to+\infty}w_n=+\infty$ ce qui signifie que $w_n$ peut être aussi grand que l'on veut, pourvue que $n$ soit assez grand. \\
+  On le note : $\forall A>0,\exists n_0\in\mathbb{N} \quad \forall n>n_0, w_n>A $
+  \item On écrit $\displaystyle \lim_{n\to+\infty}x_n=-\infty$ ce qui signifie que $w_n$ peut être aussi petit que l'on veut, pourvue que $n$ soit assez grand. \\
+  On le note : $\forall A>0,\exists n_0\in\mathbb{N} \quad \forall n>n_0, x_n<A $
+\end{itemize}
+
+
+\subsection*{Pas de limite}
+
+\begin{itemize}
+  \item La suite $(t_n)$ n'a pas de limite car $t_n=(-1)^n=\left\{
+    \begin{array}{l}
+      1 \text{ si $n$ est pair} \\
+      -1 \text{ si $n$ est impair}
+    \end{array}
+    \right.$.
+\end{itemize}
 
 \end{document}

@@ -109,12 +109,12 @@ Soit $f$ définie sur $\mathbb{R}$ par $f(x)=x^2-4x+17$. \\
 Donner sa forme canonique.
 
 \begin{enumerate}
-	\item En utilisant le théorème :
-	      On a $a=1$, $b=-4$ et $c=17$
+	\item En utilisant le théorème :\\
+	On a $a=1$, $b=-4$ et $c=17$
 
-	      Calculons $\alpha=-\frac{b}{2a}=-\frac{-4}{2\times1}=\frac{4}{2}=2$ et $\beta=f(\alpha)=f(2)=2^2-4\times2+17=13$
+	Calculons $\alpha=-\frac{b}{2a}=-\frac{-4}{2\times1}=\frac{4}{2}=2$ et $\beta=f(\alpha)=f(2)=2^2-4\times2+17=13$
 
-	      Donc la forme canonique de $f$ est $f(x)=1(x-2)^2+13$ pour tout $x\in\mathbb{R}$.
+	Donc la forme canonique de $f$ est $f(x)=1(x-2)^2+13$ pour tout $x\in\mathbb{R}$.
 
 	\item En utilisant une identité remarquable :
 	      \begin{flalign*}
@@ -134,8 +134,8 @@ Donner sa forme canonique.
 	Soit $f$ une fonction définie sur $\mathbb{R}$ par $f(x)=a(x-\alpha)^2+\beta$.
 	\vspace{-6pt}
 	\begin{itemize}
-		\item Cas où $a>0$ : la fonction $f$ est strictement décroissante sur $]-\infty;\alpha]$ puis strictement croissante sur $[\alpha;+\infty[$. $f$ admet un minimum égal à $\beta$ atteint en $x=\alpha$.
-		\item Cas où $a<0$ : la fonction $f$ est strictement croissante sur $]-\infty;\alpha]$ puis strictement décroissante sur $[\alpha;+\infty[$. $f$ admet un maximum égal à $\beta$ atteint en $x=\alpha$.
+		\item Cas où $a>0$ : la fonction $f$ est strictement décroissante sur $]-\infty;\alpha]$ puis strictement croissante sur $[\alpha;+\infty[$. La fonction $f$ admet un minimum égal à $\beta$ atteint en $x=\alpha$.
+		\item Cas où $a<0$ : la fonction $f$ est strictement croissante sur $]-\infty;\alpha]$ puis strictement décroissante sur $[\alpha;+\infty[$. La fonction $f$ admet un maximum égal à $\beta$ atteint en $x=\alpha$.
 	\end{itemize}
 \end{mdframed}
 
@@ -157,7 +157,7 @@ Donner sa forme canonique.
 
 \begin{mdframed}[style=proprieteStyle]
 	\textbf{Propriété \emph{(conséquence)} :} ~\\
-	Soit $f$ une  fonction définie par $f(x)=a(x-\alpha)+\beta$. \\
+	Soit $f$ une  fonction définie par $f(x)=a(x-\alpha)^2+\beta$. \\
 	Dans un repère orthogonal d'origine $O$, la représentation graphique de la fonction $f$ est une parabole de sommet
 	$S(\alpha;\beta)$ qui admet pour axe de symétrie la droite d'équation $x=\alpha$.
 \end{mdframed}
@@ -175,6 +175,7 @@ Donner sa forme canonique.
 				xtick=\empty,
 				ytick=\empty
 			]
+			\node[anchor=west] at (axis cs:1.9,3.8) {$\color{dark_green}x=\alpha$};
 			\draw[dashed, thin, dark_green] (axis cs:1.833,-2) -- (axis cs:1.833,4);
 			\draw[dashed, thin, blue] (axis cs:-2,-1.083) -- (axis cs:4,-1.083);
 			\addplot[smooth, thick, red, domain=-2:4] {3*x^2 - 11*x + 9};
@@ -192,6 +193,7 @@ Donner sa forme canonique.
 				xtick=\empty,
 				ytick=\empty
 			]
+			\node[anchor=west] at (axis cs:1.4,-0.9) {$\color{dark_green}x=\alpha$};
 			\draw[dashed, thin, dark_green] (axis cs:1.25,-2) -- (axis cs:1.25,4);
 			\draw[dashed, thin, blue] (axis cs:-2,3.125) -- (axis cs:4,3.125);
 			\addplot[smooth, thick, red, domain=-2:4] {-2*x^2 + 5*x + 0};
@@ -205,7 +207,7 @@ Donner sa forme canonique.
 
 \newpage
 
-\section*{II. Factorisation d'une fonction du second degré et équation du second degré}
+\section*{II. Factorisation d'une fonction du second degré et résolution d'équation du second degré}
 
 \subsection*{1. Factorisation}
 
@@ -262,13 +264,13 @@ $\Delta>0$ donc l'équation admet deux solutions $x_1$ et $x_2$ telles que :
 	\item $x_2=\frac{-b+\sqrt{\Delta}}{2a}=\frac{-19+\sqrt{25}}{2\times2}=-\frac{7}{2}$ 
 \end{itemize}
 
-L'ensemble solution est $S=\left\{-\frac{7}{2}-6\right\}$. 
+L'ensemble solution est $S=\left\{-\frac{7}{2};-6\right\}$. 
 
 \subsection*{3. Somme et produit des racines}
 
 \begin{mdframed}[style=proprieteStyle]
 	\textbf{Propriété :} ~\\
-	Soit $x_1$ et $x_2$ les racines d'une fonction polynôme du second degré $ax^2+bx+c$, avec $a\not=0$. \\
+	Soit $x_1$ et $x_2$ les racines d'une fonction polynôme du second degré $f(x)=ax^2+bx+c$, avec $a\not=0$. \\
 	On a alors $x_1+x_2=-\frac{b}{a}$ et $x_1\times x_2=\frac{c}{a}$
 \end{mdframed}
 
@@ -301,7 +303,7 @@ L'ensemble solution est $S=\left\{-\frac{7}{2}-6\right\}$.
 				\tkzTabInit[lgt=2.4,espcl=4]{$x$ / 1 , Signe de $f(x)$ / 1.5}{$-\infty$, $+\infty$}
 				\tkzTabLine{, +, }
 			\end{tikzpicture}
-		      \end{minipage}} &
+		      \end{minipage}}&
 	\fbox{\begin{minipage}{0.45\textwidth}
 			      \centering
 			      $a < 0$ et $\Delta<0$\\

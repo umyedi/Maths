@@ -4,7 +4,7 @@ Ce projet contient des cours de mathématiques destinés aux élèves de premiè
 
 ## Contributions
 
-Les contributions sont les bienvenues ! Si vous souhaitez ajouter des chapitres, corriger des erreurs ou améliorer les cours existants, suivez ces étapes :
+Les contributions sont les bienvenues ! Si vous souhaitez ajouter des chapitres, corriger des erreurs ou améliorer les cours existants n'hésitez pas.
 
 ## Licence
 

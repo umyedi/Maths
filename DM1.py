@@ -1,3 +1,7 @@
+# ----------------
+# | EXERCICE 1.d |
+# ----------------
+
 def multiple_7(x: str):
     table_7 = [7*i for i in range(1, 11)]
     while int(x) not in table_7:
@@ -9,3 +13,9 @@ def multiple_7(x: str):
         if len(x) < 2:
             return False
     return True
+
+# Résultat de mutiple_7("225533") :
+# >> 22553 + 5 x 3 = 22568
+# >> 2256 + 5 x 8 = 2296
+# >> 229 + 5 x 6 = 259
+# >> 25 + 5 x 9 = 70

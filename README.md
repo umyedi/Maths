@@ -1,6 +1,6 @@
 # Maths
 
-Ce projet contient des cours de mathématiques destinés aux élèves de première spé math. Les cours sont rédigés en LaTeX (.tex) et sont disponibles au format PDF (.pdf) pour une utilisation facile.
+Ce projet contient des cours de mathématiques destinés aux élèves de première et terminale. Les cours sont rédigés en LaTeX (.tex) et sont disponibles au format PDF (.pdf) pour une utilisation facile.
 
 ## Contributions
 

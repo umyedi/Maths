@@ -8,4 +8,4 @@ Les contributions sont les bienvenues ! Si vous souhaitez ajouter des chapitres,
 
 ## Licence
 
-Ce projet est sous licence [MIT](LICENSE) - cela signifie que vous pouvez le réutiliser et le redistribuer librement, tant que vous mentionnez l'auteur d'origine et que vous ne le vendez pas.
+Ce projet est sous licence [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

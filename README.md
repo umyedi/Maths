@@ -8,4 +8,4 @@ Les contributions sont les bienvenues ! Si vous souhaitez ajouter des chapitres,
 
 ## Licence
 
-Ce projet est sous licence [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+[This work](https://github.com/umyedi/Maths) by [umyebi](https://github.com/umyedi) is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)

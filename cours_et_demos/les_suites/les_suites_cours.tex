@@ -457,7 +457,111 @@ On représente la suite géométrique de premier terme $u_0=1$ et de raison $q=1
 
 \newpage
 
-\section*{III. Comportement d'une suite à l'infini}
+\section*{III. Suites minorées et majorées}
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition :} ~\\
+    Soit $u$ une suite.
+    \vspace*{-4pt}
+    \begin{itemize}
+      \item On dit que $u$ est minorée s'il existe un réel $m$ tel que pour tout $n\in\mathbb{N}, u_n\geq m$.
+      On dit que $m$ est un minorante de la suite.
+      \item On dit que $u$ est majorée s'il existe un réel $M$ tel que pour tout $n\in\mathbb{N}, u_n\leq m$.
+      On dit que $M$ est un majorant de la suite.
+    \end{itemize} 
+\end{mdframed}
+
+\textbf{Remarques :}
+\begin{itemize}
+  \item Une suite croissante est nécesairement minorée par son terme initial : $\forall n\in\mathbb{N}, u_n\geq u_0$.
+  \item Une suite décroissante est nécesairement majorée par son terme initial : $\forall n\in\mathbb{N}, u_n\leq u_0$.
+\end{itemize} 
+
+\textbf{Exemple :}
+\begin{itemize}
+  \item On pose $\forall n\in\mathbb{N}^*, u_n=\frac{-1}{n}$. \\
+  La suite $(u)$ est strictement croissante car $\forall n\in\mathbb{N}^*, n<n+1 \Rightarrow \frac{1}{n}>\frac{1}{n+1}\Rightarrow\frac{-1}{n}<\frac{-1}{n+1}$. \\
+  Donc $(u)$ est majorée par $0$ : $\forall n\in\mathbb{N}^*, \frac{-1}{n}\leq0$.
+  \item On pose 
+  $u_n=\left\{
+  \begin{array}{l}
+    -n \text{ si $n$ pair} \\
+    n \text{ si $n$ impair}
+  \end{array}
+  \right.$ pour tout $n\in\mathbb{N}$. La suite$(u)$ n'est ni minorée ni majorée.
+\end{itemize}
+
+
+\section*{IV. Propositions héréditaires et démonstrations par récurrence}
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition :} ~\\
+    Soit $P(n)$ un prédicat de $n$. \\
+    On dit que $P$ est héréditaires si la proposition « $\forall n\in\mathbb{N}, \text{ } P(n)\Rightarrow P(n+1)$ » est vérifiée.	
+\end{mdframed}
+
+\textbf{Exemple :}
+\begin{itemize}
+  \item Soit $P(n)$ : « $n^2>10$ » pour tout $n\in\mathbb{N}$. $P(0)$, $P(1)$, $P(2)$ et $P(3)$ sont fausses. \\
+  Ensuite, $P(4)$, $P(5)$, etc sont vraies et ceci pour tout $n\geq4$ (preuve : $f(x)=x^2$ est croissante sur $[0;+\infty[$ et $f(4)=16$).\\
+  Donc $P$ est héréditaires.	
+  \item Soit $P(n)$ : « $\frac{6}{n+1}>1,1$ » pour tout $n\in\mathbb{N}$. $P(0)$, $P(1)$, $P(2)$ $P(3)$ et $P(4)$ sont vraies.\\
+  Ensuite, $P(5)$, $P(6)$, etc sont fausses et ceci pour tout $n\geq5$ (preuve : si $n\geq5$, alors $n+1\geq6$ donc $\frac{6}{n+1}\leq\frac{6}{6}=1$).\\
+  Donc $P$ n'est pas héréditaires car $P(4)$ est vraie mais $P(5)$ est fausse ce qui contredit « $P(n)\Rightarrow P(n+1)$ ».
+\end{itemize}
+
+\begin{mdframed}[style=proprieteStyle]
+    \textbf{Théorème :} ~\\
+    Soit $P(n)$ un prédicat de $n$. On suppose que $P(n)$ est héréditaire.\\
+    Deux cas sont alors possibles :
+    \vspace{-4pt}
+    \begin{itemize}
+      \item $P(n)$ est fausse pour tout $n\in\mathbb{N}$.
+      \item il existe un entier $n_0$ tel que $P(n)$ soit vraie pour tout entier $n\geq n_0$.
+    \end{itemize}
+\end{mdframed}
+
+\textbf{Remarque :} Faire une « démonstration par récurrence » consiste à prouver qu'une proposition $P$ est héréditaire 
+et trouver un entier $n_0$ pour lequelle $P(n_0)$ est vraie.\\
+Le principe de récurrence permet alors de conclure que pour tout entier naturel $n\geq n_0$, $P(n)$ est vraie.	
+
+\newpage
+
+\textbf{Exemple d'une démonstration par récurrence :} ~\\
+
+Soit la suite 
+$\left\{
+  \begin{array}{l}
+    u_0 = 3 \\
+    u_n+1 = \frac{u_n}{2} + 1
+  \end{array}
+  \right. \text{.}$\\
+  
+  Nommons $P(n)$ : « $u_n\leq3$ ».
+  \begin{itemize}
+    \item \underline{Initialisation :}\\
+    $P(0)$ est vraie car $u_0=3$.
+    \item \underline{Hérédité :}\\
+    Montrons que $P$ est héréditaire.\\
+    Soit $n$ un entier naturel. Supposons $P(n)$ :
+    \vspace{-4pt}
+  \begin{flalign*}
+    &\text{On a } u_n \leq 3 \\
+    &\text{donc } \frac{u_n}{2} \leq 1,5 \\
+    &\text{donc } \frac{u_n}{2}+1 \leq 2,5 \\
+    &\text{donc } \frac{u_n}{2}+1 \leq 2,5 \leq 3 \\
+    &\text{donc } u_{n+1} \leq 3 \text{ donc $P(n+1)$}
+  \end{flalign*}
+  \item \underline{Conclusion :}\\
+  Par principe de récurrence, comme $P$ est héréditaire et vraie au rang $0$, on déduit que pour tout $n\geq0$, $P(n)$ est vraie.\\
+  Autrement dit, pour tout $n\geq0$, $u_n\leq3$. 
+  \end{itemize}
+\vspace{4pt}
+\textbf{Remarque :} En math, supposer $\not=$ admettre. Lorsqu'on suppose, on attribut temporairement la valeur de vérité « vrai »
+à une proposition (on suppose souvent lors de démonstrations) tandis que lorsqu'on admet, on suppose de manière définitive 
+(ex : on admet des théorèmes lorsqu'ils sont trop complexes pour être démontrés).
+
+\section*{V. Comportement d'une suite à l'infini}
 
 S'intéresser à la limite d'une suite, c'est étudier le comportement des termes $u_n$ quand on donne des valeurs à $n$ aussi grandes que l'on veut, ce qui se dit aussi : « quand $n$ tend vers l'infini ».  \\
 

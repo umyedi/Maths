@@ -15,7 +15,7 @@
 \setlength{\mathindent}{0pt}
 
 % Spécifications du document
-\newcommand{\doctitre}{La fonction exponentielle} % Ex: Le second degré
+\newcommand{\doctitre}{Fonction exponentielle et logarithme népérien} % Ex: Le second degré
 \newcommand{\docniveau}{$1^{\text{re}}$ Spécialité mathématiques} % Ex: $1^{\text{re}}$ Spécialité mathématiques
 \newcommand{\doctheme}{Analyse} %Ex: Algèbre
 \newcommand{\doctype}{Cours} % Ex: Démonstrations
@@ -27,7 +27,7 @@
 % Paramètres du document
 \RequirePackage{geometry}
 \geometry{tmargin=1cm,bmargin=1.9cm,lmargin=1.9cm,rmargin=1.9cm}
-\renewcommand{\familydefault}{\sfdefault}
+% \renewcommand{\familydefault}{\sfdefault}
 \setlength{\parindent}{0pt}
 \title{\doctitre}
 \author{\docniveau \\ \doctheme\text{ - }\doctype}
@@ -70,8 +70,7 @@
 \pagestyle{custom}
 \thispagestyle{custom}
 
-\section*{I. Généralités sur la fonction exponentielle}
-\subsection*{1. Introduction}
+\section{Généralités sur la fonction exponentielle}
 
 \begin{mdframed}[style=definitionStyle]
     \textbf{Définition et propriété admise :} ~\\
@@ -80,7 +79,7 @@
     Ainsi, pour tout réel $x$, on a $\exp'(x)=\exp(x)$ et $\exp(0)=1$.
 \end{mdframed}
 
-\subsection*{2. Propriétés algébriques}
+\subsection{Propriétés algébriques}
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Lemme :} ~\\
@@ -90,8 +89,7 @@
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriétés :}
     \begin{enumerate}
-        \item Pour tous réels $x$ et $y$, on a $\exp(x+y)=\exp(x)\times\exp(y)$. \\
-        Cette relation s'appelle relation fonctionnelle.
+        \item Pour tous réels $x$ et $y$, on a $\exp(x+y)=\exp(x)\times\exp(y)$ qu'on appelle relation fonctionnelle.
         \item Pour tous réels $x$ et $y$, on a :
         \begin{itemize}
             \item $\displaystyle\exp(-x)=\frac{1}{\exp(x)}$
@@ -101,12 +99,11 @@
     \end{enumerate}
 \end{mdframed}
 
-\subsection*{3. La notation $e^x$}
+\subsection{La notation de l'exponentielle}
 
 \begin{mdframed}[style=definitionStyle]
     \textbf{Définition :} ~\\
-    L'image de $1$ par la fonction $\exp$ est le nombre noté $e$, appelé constante d'Euler. \\
-    Ainsi, $\exp(1)=e$.
+    L'image de $1$ par la fonction $\exp$ est le nombre noté $e$, appelé constante d'Euler. Ainsi, $\exp(1)=e$.
 \end{mdframed}
 
 \textbf{Remarque :} La fonction $\exp$ possède les mêmes propriété algébriques que les fonctions puissances. On notera donc $\exp(x)=e^x$ ($e\approx2,7182\dots$).
@@ -130,9 +127,7 @@
     \end{minipage}
 \end{mdframed}
 
-\newpage
-
-\subsection*{4. Lien avec les suites géométriques}
+\subsection{Lien avec les suites géométriques}
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété :} ~\\
@@ -140,10 +135,9 @@
     Alors la suite $u$ est une suite géométrique.
 \end{mdframed}
 
+\section{Étude et applications de la fonction exponentielle}
 
-\section*{II. Étude et applications de la fonction exponentielle}
-
-\subsection*{1. Signe de la fonction exponentielle}
+\subsection{Signe de la fonction exponentielle}
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété :} ~\\
@@ -151,7 +145,7 @@
     Autrement dit : pour tout nombre réel $x$, $e^x>0$.
 \end{mdframed}
 
-\subsection*{2. Variations de la fonction exponentielle}
+\subsection{Variations de la fonction exponentielle}
 
 \begin{minipage}[t]{0.35\textwidth} % Adjust the width of the first minipage
     $\displaystyle{\color{white}1}$
@@ -172,7 +166,7 @@
 
 
 
-\subsection*{3. Courbe de la fonction exponentielle}
+\subsection{Courbe de la fonction exponentielle}
 
 \begin{minipage}{0.2\textwidth}
 \begin{tabular}{|c|c|}
@@ -222,7 +216,7 @@
 \end{tikzpicture}
 \end{minipage}
 
-\subsection*{4. Fonctions définies par $f(t)=e^{kt}$ avec $k\in\mathbb{R}$}
+\subsection{Fonctions définies par $f(t)=e^{kt}$ avec $k\in\mathbb{R}$}
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété :} ~\\
@@ -230,9 +224,7 @@
     Pour $k<0$, la fonction $f$ définie par $f(t)=e^{kt}$ est strictement décroissante sur $\mathbb{R}.$ 
 \end{mdframed}
 
-\newpage
-
-\subsection*{5. Fonctions du type $f:x\mapsto e^{ax+b}$}
+\subsection{Fonctions du type $f:x\mapsto e^{ax+b}$}
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété :} ~\\
@@ -240,7 +232,7 @@
 \end{mdframed}
 
 
-\subsection*{6. Équations et inéquations}
+\subsection{Équations et inéquations}
 
 \begin{mdframed}[style=proprieteStyle]
     \textbf{Propriété :} ~\\
@@ -251,6 +243,8 @@
         \item $e^a<e^b \Leftrightarrow a<b$
     \end{itemize}
 \end{mdframed}
+
+\newpage
 
 \textbf{Exemples :} ~\\
 
@@ -279,6 +273,110 @@
         \end{align*}
     \end{itemize}
 \end{minipage}
+
+\section{Généralités sur la fonction logarithme}
+
+\subsection{Introduction}
+
+\begin{mdframed}[style=proprieteStyle]
+    \textbf{Théorème :} ~\\
+    Pour tout réel $a>0$, il existe un unique réel $b$ tel que $a=e^b$.
+\end{mdframed}
+
+\subsection{Définition et notation}
+
+\begin{mdframed}[style=definitionStyle]
+    \textbf{Définition :} ~\\
+    On appelle logarithme népérien d'un réel $a>0$, le nombre réel $b$ tel que $e^b=a$.\\
+    On le note $\ln(a)=b$. 
+\end{mdframed}
+
+\textbf{Exemple :}
+\vspace{-4pt}
+\begin{itemize}
+    \item $\ln(1) = 0$ (car $e^0=1$)
+    \item $\ln(e) = 1$ (car $e^1=e$)
+\end{itemize}
+
+\textbf{Remarques :}
+\vspace{-4pt}
+\begin{itemize}
+    \item $\ln(0)$ n'existe pas. En effet, $e^x\not=0$ pour tout $x\in\mathbb{R}$
+    \item Pour tout entier $n\geq 2$, $\ln(n)$ n'est pas rationel.
+\end{itemize} 
+
+\subsection{Propriétés algébriques}
+
+\begin{mdframed}[style=proprieteStyle]
+    \textbf{Théorème :} ~\\
+    Pour tout réel $x>0$, $y>0$ et pour tout entier relatif $n$,
+    \vspace{-4pt}
+    \begin{itemize}
+        \item $e^{\ln(x)}=x$
+        \item $\ln(e^x)=x$
+        \item $\ln(xy) = \ln(x) + \ln(y)$
+        \item $\ln(\frac{x}{y}) = \ln(x) - \ln(y)$
+        \item $\ln(x^n)=n\ln(x)$
+    \end{itemize}
+\end{mdframed}
+
+\section{Propriétés graphiques}
+
+\subsection{Symétrie des courbes représentatives de l'exponentielle et du logarithme}
+
+\begin{minipage}{0.5\textwidth}
+    Dans un repère orthonormé, on note $d$ la droite d'équation $x=y$.\\
+La symétrie axiale par rapport à la droite $d$ a pour effet d'échanger les abscisses et les ordonnées, c'est à dire
+qu'elle transforme tout point de coordonnées $(x;y)$ en un point de coordonnées $(x;y)$. \\
+
+\begin{mdframed}[style=proprieteStyle]
+    \textbf{Théorème :} ~\\
+    Les courbes représentatives de la fonction $\exp$ et $\ln$ sont symétriques l'une de l'autre par rapport à la droite $d$.
+\end{mdframed}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            axis equal,
+            samples=200,
+            xlabel = $x$,
+            ylabel = {$y$},
+            xmin=-3.5, xmax=5.5,
+            ymin=-2, ymax=4,
+            xtick = {-3, -2,...,5},
+            ytick = {-3, -2,...,5},
+            grid = both,
+            minor tick num = 1,
+            major grid style = {lightgray},
+            minor grid style = {lightgray!25}
+        ]
+        \addplot[red, thick] {exp(x)};
+        \addplot[blue, thick] {ln(x)};
+        \addplot[dark_green, thick] {x};
+    \end{axis}
+    \node at (1,2.6) {$\color{red}\exp(x)$};
+    \node at (4.6,4.8) {$\color{dark_green}y=x$};
+    \node at (3.5,1) {$\color{blue}\ln(x)$};
+    \end{tikzpicture}
+\end{minipage}
+
+\subsection{Dérivation de la fonction logarithme}
+
+\begin{mdframed}[style=proprieteStyle]
+    \textbf{Théorème :} ~\\
+    Si pour tout réel $x>0$, $f(x)=\ln(x)$ alors $f$ est dérivable, et pour tout $x>0$ : $\displaystyle f'(x)=\frac{1}{x}$
+\end{mdframed}
+
+\begin{mdframed}[style=proprieteStyle]
+    \textbf{Corrolaire :}
+    \begin{itemize}
+        \vspace{-4pt}
+        \item La fonction $\ln(x)$ est strictement croissante sur $]0;+\infty[$.
+        \item Pour tous réels $a$ et $b$ strictements positifs, $\ln(a)<\ln(b)\Leftrightarrow a<b$.
+    \end{itemize}
+\end{mdframed}
 
 \end{document}
 % ----- FIN DU DOCUMENT -----

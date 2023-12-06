@@ -8,7 +8,7 @@ from math import sqrt
 #   - iterations = 100 000 000
 #   - minimum = -100
 #   - maximum = 100
-# et aucune matrice ne remplissant pas les conditions n'a été trouvée
+# et aucun contre-exemple n'a été trouvé.
 
 def generate_matrix(
     n: int, p: int, min: int = None, max: int = None) -> List[List[int]]:

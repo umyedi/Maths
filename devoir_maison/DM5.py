@@ -69,25 +69,12 @@ def conditions(matrix: List[List[int]]) -> bool:
         bool: Vrai si au moins une contidion est remplie. False sinon.
     """
     a, b, c, d = matrix[0][0], matrix[0][1], matrix[1][0], matrix[1][1]
-    # CONDITIONS 1
-    if (
-        b * c <= 1
-        and a + d == 0
-        and (
-            a == -sqrt(1 - b * c)
-            and d == sqrt(1 - b * c)
-            or a == sqrt(1 - b * c)
-            and d == -sqrt(1 - b * c)
-        )
-    ):
-        return True
-    # CONDITIONS 2
-    if matrix == [[1, 0], [0, 1]] or matrix == [[-1, 0], [0, -1]]:
-        return True
-    # CONDITIONS 3
-    if matrix == [[0, 1], [1, 0]] or matrix == [[0, -1], [-1, 0]]:
-        return True
-    return False
+
+    condition_1 = c == (1 - a**2) / b and d == -a
+    conditions_2 = matrix in [[[1, 0], [c, -1]], [[-1, 0], [c, 1]]]
+    conditions_3 = matrix in [[[1, 0], [0, 1]], [[-1, 0], [0, -1]]]
+
+    return condition_1 or conditions_2 or conditions_3
 
 
 def check_result(iterations: int) -> None:
@@ -103,7 +90,7 @@ def check_result(iterations: int) -> None:
 
     for i in range(iterations):
         matrix = generate_matrix(2, 2, minimum, maximum)
-        print(f"Working: {round(i/iterations*100, 1)}% : {matrix}", end="\r")
+        print(f"Working: {round(i/iterations*100, 1)}%", end="\r")
 
         if square_matrix(matrix) == [[1, 0], [0, 1]] and conditions(matrix) == False:
             print("--------------")

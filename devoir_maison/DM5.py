@@ -2,8 +2,6 @@ from random import randint
 from typing import List
 from math import sqrt
 
-# Lien de la démonstration (PDF) : https://bit.ly/download_demo_DM5
-
 # La fontion 'check_result' à été testé avec les valeures suivantes :
 #   - iterations = 100 000 000
 #   - minimum = -100

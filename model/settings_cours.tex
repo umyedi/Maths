@@ -1,0 +1,209 @@
+% Preamble Section
+\usepackage[a4paper, margin=1in]{geometry} % Sets the paper size to A4 and all margins to 1 inch
+\usepackage[utf8]{inputenc}   % Allows for input of international characters
+\usepackage[T1]{fontenc}      % Utilisation de l'encodage T1
+\usepackage{lmodern}          % Support des polices avec le module 'french'
+\usepackage[french]{babel}    % Ajout du support pour le français
+\usepackage[fleqn]{amsmath}   % Imports the AMS math package for advanced math formatting ([fleqn] -> align alignat to the left)
+\usepackage{amsfonts}         % Imports AMS fonts for math fonts
+\usepackage{amssymb}          % Imports AMS symbols for math symbols
+\usepackage{amsthm}           % Imports AMS theorems
+\usepackage{fancyhdr}         % Import to custom the page footer
+\usepackage{mdframed}         % Imports styles
+\usepackage{enumerate}        % Imports styles for enumerate
+\usepackage{multicol}         
+\usepackage{xcolor}           % Couleurs
+\usepackage{tikz}             % Package général pour les graphiques
+\usepackage{pgfplots}         % Compléments pour les graphiques
+\usepackage{tkz-tab}          % Tableaux de variations
+\usepackage{lastpage}         % Pour avoir le total de page dans le footer
+
+\pgfplotsset{compat=newest}   % Active les dernières fonctionnalités de pgfplots
+
+% Enlève l'indentation des bloc de paragraphes et d'équation
+\setlength{\parindent}{0pt}
+\setlength{\mathindent}{0pt}
+
+% ========== Title Section ==========
+
+\title{\DocumentTitle} % Title of the document
+\author{\DocumentTheme\space-\space\DocumentType} % Author's name
+\date{} % Date
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+
+% ========== Footer Section ==========
+
+\newcommand{\customfooter}{
+    \fancyfoot[L]{\DocumentTheme\space-\space\DocumentType}
+    \fancyfoot[C]{\DocumentTitle}
+    \fancyfoot[R]{\thepage/\pageref{LastPage}}
+    % Remove the line below the header and above the footer
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% Apply the custom footer to the fancy style
+\customfooter
+
+% Apply the custom footer to the plain style (used on the first page)
+\fancypagestyle{plain}{\customfooter}
+
+% ========== Sections ==========
+
+% Sections : I. / II. / III. ...
+\renewcommand{\thesection}{\Roman{section}}
+% Subsection : I.1 / I.2 / I.3 ...
+\renewcommand{\thesubsection}{\thesection. \arabic{subsection}}
+% Subsubsection : I.1.a / I.1.b / I.1.c ...
+\renewcommand{\thesubsubsection}{\thesubsection. \alph{subsubsection}}
+
+% ========== Colors (from Geogebra) ==========
+
+\definecolor{green}{HTML}{006400}
+\definecolor{red}{HTML}{CC0000}
+\definecolor{blue}{HTML}{0000FF}
+\definecolor{orange}{HTML}{FF5500}
+\definecolor{purple}{HTML}{9933FF}
+\definecolor{gray}{HTML}{666666}
+\definecolor{brown}{HTML}{993300}
+
+\newcommand{\green}[1]{\color{green}{#1}\color{black}}
+\newcommand{\red}[1]{\color{red}{#1}\color{black}}
+\newcommand{\blue}[1]{\color{blue}{#1}\color{black}}
+\newcommand{\orange}[1]{\color{orange}{#1}\color{black}}
+\newcommand{\purple}[1]{\color{purple}{#1}\color{black}}
+\newcommand{\gray}[1]{\color{gray}{#1}\color{black}}
+\newcommand{\brown}[1]{\color{brown}{#1}\color{black}}
+
+
+% ========== Définition(s) ==========
+
+% Style de la boîte de définition(s)
+\mdfdefinestyle{DefinitionStyle}{
+    leftmargin=0cm,
+    rightmargin=0cm,
+    linecolor=black,
+    linewidth=2pt,
+    topline=false,
+    bottomline=false,
+    rightline=false
+}
+
+% Définition de la commande '\definition'
+\newcommand{\definition}[2]{
+    \begin{mdframed}[style=DefinitionStyle]
+        \textbf{Définition : #1}\\
+        #2
+    \end{mdframed}
+}
+
+% Définition de la commande '\definitions'
+\newcommand{\definitions}[2]{
+    \begin{mdframed}[style=DefinitionStyle]
+        \textbf{Définitions : #1}\\
+        #2
+    \end{mdframed}
+}
+
+% ========== Propriété(s) et Théorème(s) ==========
+
+% Style de la boîte de propriété(s) / théorème(s)
+\mdfdefinestyle{ProprieteStyle}{
+    leftmargin=0cm,
+    rightmargin=0cm,
+    linecolor=black,
+    linewidth=1pt
+}
+
+% Création d'un compteur pour les propriétés
+\newcounter{propriete}
+
+% Définition de la commande '\propriete'
+\newcommand{\propriete}[2]{
+    \refstepcounter{propriete}
+    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
+        \textbf{Propriété \thepropriete\ :\space#1}\\
+        #2
+    \end{mdframed}
+}
+
+% Définition de la commande 'proprietes'
+\newcommand{\proprietes}[2]{
+    \refstepcounter{propriete}
+    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
+        \textbf{Propriétés \thepropriete\ :\space#1}\\
+        #2
+    \end{mdframed}
+}
+
+% Création d'un compteur pour les théorèmes
+\newcounter{theoreme}
+
+% Définition de la commande '\theoreme'
+\newcommand{\theoreme}[2]{
+    \refstepcounter{theoreme}
+    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
+        \textbf{Théorème \thetheoreme\ :\space#1}\\
+        #2
+    \end{mdframed}
+}
+
+% Définition de la commande '\theoremes'
+\newcommand{\theoremes}[2]{
+    \refstepcounter{theoreme}
+    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
+        \textbf{Théorèmes \thetheoreme\ :\space#1}\\
+        #2
+    \end{mdframed}
+}
+
+% ========== Exemple(s) ==========
+
+% Définition de la commande 'exemple'
+\newcommand{\exemple}[2]{
+    \textbf{Exemple :} #1
+    \begin{quote}
+        #2
+    \end{quote}
+}
+
+% Définition de la commande 'exemples'
+\newcommand{\exemples}[2]{
+    \textbf{Exemples :} #1
+    \begin{quote}
+        #2
+    \end{quote}
+}
+
+% ========== Remarques ==========
+
+% Définition de la commande 'remarque'
+\newcommand{\remarque}[1]{
+    \textbf{Remarque :} #1
+}
+
+% Définition de la commande 'remarques'
+\newcommand{\remarques}[1]{
+    \textbf{Remarques :} #1
+}
+
+% ========== Démonstration ==========
+
+\newcommand{\demonstration}[2]{
+    \textbf{Démonstration :} #1
+    \begin{quote}
+        #2
+    \end{quote}
+}
+
+% ========== Notations ==========
+
+% Ensembles
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}

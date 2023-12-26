@@ -26,7 +26,7 @@ def decode(list_x: List, list_y: List) -> List:
     Décrypte une liste de valeurs encodées en utilisant le chiffrement affine et retourne les coefficients de décodage.
 
     Args:
-        list_x (List): Liste des 26 indices des caractères avant encodage (liste d'entiers relatifs).
+        list_x (List): Liste des indices des caractères avant encodage (liste d'entiers relatifs).
         list_y (List): Liste des indices des caractères après encodage (liste d'entiers relatifs).
 
     Returns:

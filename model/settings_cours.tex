@@ -17,6 +17,8 @@
 \usepackage{pgfplots}         % Compléments pour les graphiques
 \usepackage{tkz-tab}          % Tableaux de variations
 \usepackage{lastpage}         % Pour avoir le total de page dans le footer
+\usepackage{makecell}         % Retour à la ligne dans une case d'un tabular
+\usepackage{stmaryrd}         % Intervalles entières : \llbracket et \rrbracket
 
 \pgfplotsset{compat=newest}   % Active les dernières fonctionnalités de pgfplots
 
@@ -102,7 +104,7 @@
 % Définition de la commande '\definitions'
 \newcommand{\definitions}[2]{
     \begin{mdframed}[style=DefinitionStyle]
-        \textbf{Définitions : #1}\\
+        \textbf{Définitions : #1}
         #2
     \end{mdframed}
 }
@@ -145,7 +147,7 @@
 \newcommand{\theoreme}[2]{
     \refstepcounter{theoreme}
     \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
-        \textbf{Théorème \thetheoreme\ :\space#1}\\
+        \textbf{\thetheoreme.\space Théorème #1 :}\\
         #2
     \end{mdframed}
 }
@@ -154,7 +156,7 @@
 \newcommand{\theoremes}[2]{
     \refstepcounter{theoreme}
     \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
-        \textbf{Théorèmes \thetheoreme\ :\space#1}\\
+        \textbf{\thetheoreme.\space Théorème #1 :}\\
         #2
     \end{mdframed}
 }
@@ -207,3 +209,15 @@
 \newcommand{\D}{\mathbb{D}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
+
+% Limites
+\let\oldlim\lim
+\renewcommand{\lim}[1]{\mathop{\displaystyle\oldlim}\limits_{#1}}
+
+% Opérateurs
+\newcommand{\x}{\times}
+\newcommand{\equival}{\Leftrightarrow}
+
+% Vecteurs
+\newcommand*{\norme}[1]{\left\lVert\vv{#1}\right\rVert}
+\newcommand{\ps}[2]{\ensuremath{\vv{#1}.\vv{#2}}}

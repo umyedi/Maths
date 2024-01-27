@@ -1,0 +1,404 @@
+\documentclass[10pt]{article} % Sets the document class to 'article' with a font size of 12pt
+
+\newcommand{\DocumentTitle}{Les limites}
+\newcommand{\DocumentTheme}{Analyse}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../model/settings_cours.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Limites finies d'une fonction en $+\infty$}
+
+\definition{}{
+    Soit $f$ une fonction et $l$ un réel.\\
+    Dire que \guillemotleft $f(x)$ tend vers $l$ quand $x$ tend vers $+\infty$ \guillemotright\text{ }signifie
+    $\forall \varepsilon > 0\text{, } \exists A\in\mathbb{R}\text{, } \forall x>A\text{ : } l-\varepsilon < f(x) < l+\varepsilon$.
+    On note $\lim{x\to+\infty} f(x) = l$.
+}
+
+\theoreme{}{
+    Pour toutes fonctions $f$ et $g$ et pour tous réel $l$ et $l'$ : \\
+    Si $\lim{x\to+\infty} f(x) = l$ et $\lim{x\to+\infty} g(x) = l'$ et $l<l'$ alors
+    $\exists A\in\R, \forall x>A : f(x)<g(x)$.}
+
+\remarque{Une conséquence de ce théorème est que la limite d'une fonction est unique si elle existe. En effet,
+    si on applique ce théorème à une fonction $f$ avec elle-même, on obtient $f(x)<f(x)$ ce qui n'a pas de sens.
+}
+
+\theoreme{de comparaison des limites}{
+    Soient $f$ et $g$ deux fonctions et $l$ et $l'$ deux réel. \\
+    Si $\lim{x\to+\infty} f(x) = l$ et $\lim{x\to+\infty} g(x) = l'$ et $\exists A\in\R, \forall x>A$ : $f(x)\leq g(x)$ alors $l\leq l'$.
+}
+
+\remarque{Attention, même si $f(x)<g(x)$, leur limites peuvent quand même être égales
+    (ex : $g(x)=\frac{1}{x}$ et $f(x)=\frac{-1}{x}$ tendent toutes les deux vers $0$.)
+}
+
+\theoreme{des gendarmes (admis)}{
+    Soient $f$, $g$ et $h$ trois fonctions et $l$ un réel. \\
+    Si $\lim{x\to+\infty} f(x) = l$ et $\lim{x\to+\infty} h(x) = l$ et $\exists A\in\R, \forall x>A$, $f(x)\leq g(x)\leq h(x)$ alors $\lim{x\to+\infty} g(x) = l$.
+}
+
+\theoreme{des limites de référence}{
+    \begin{enumerate}[(i)]
+        \item $\lim{x\to+\infty} \dfrac{1}{x} = 0$
+        \item $\lim{x\to+\infty} \dfrac{1}{\sqrt{x}} = 0$
+        \item $\forall n\in\N^*, \lim{x\to+\infty} \dfrac{1}{x^n} = 0$
+    \end{enumerate}
+}
+
+\newpage
+
+\theoreme{de linéarité}{
+    Soient $f$ et $g$ deux fonctions et $l$, $l'$ deux réels.
+    Si $\lim{x\to+\infty}f(x)=l$ et $\lim{x\to+\infty} g(x)=l'$ alors :
+    \begin{enumerate}[(i)]
+        \item $\lim{x\to+\infty}f(x)+g(x)=l+l'$
+        \item $\forall k\in\R \lim{x\to+\infty}f(x)\x k = k\x l$
+        \item $\lim{x\to+\infty} f(x)\x g(x) = l \x l'$
+        \item Si $l'\not=0$ et $\exists A\in\R, \forall x>A : g(x)\not= 0$ alors $\lim{x\to+\infty} \dfrac{f(x)}{g(x)} = \dfrac{l}{l'}$
+    \end{enumerate}
+}
+
+
+
+\section{Limites de suites}
+
+\subsection{Limites finies (suites convergentes)}
+
+\definition{}{
+    Soient $u$ une suite et $l$ un réel.\\
+    On dit que la suite $u$ tend vers $l$ (quand $n$ tend vers $+\infty$) lorsque la proposition $(P)$ suivante est vérifiée :
+    $(P)$: \frquote{$\forall\varepsilon\in\R, \exists N\in\Z, \forall n\geq N : l-\varepsilon<u_n<l+\varepsilon$}\\
+    On dit que la suite $u$ converge vers $l$ et on note : $\lim{n\to+\infty}u_n=l$
+}
+
+\theoreme{}{
+    Soient $u$ et $v$ deux suites. Soient $l$ et $l'$ deux réels.\\
+    Si $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ et $l<l'$ alors $\exists N\in\Z, \forall n\leq N : u_n\leq v_n$
+}
+
+\remarque{Ce théorème a pour corollaire que la limite d'une suite est unique si elle existe.}
+
+\theoreme{de comparaison des limites}{
+    Soient $u$ et $v$ deux suites. Soient $l$ et $l'$ deux réels.\\
+    Si $\exists N\in\Z, \forall n\geq N : u_n\geq v_n$ et $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ alors $l\leq l'$.
+}
+
+\theoreme{des gendarmes}{
+    Soient $u$; $v$ et $w$ trois suites. Soient $l$ un nombre réel.\\
+    Si $\exists N\in\Z, \forall n \geq N : u_n\leq v_n \leq w_n$ et $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}w_n=l$
+    alors $\lim{n\to+\infty}v_n=l$
+}
+
+\remarque{Comme pour les fonctions, les deux théorèmes précédents permettent de comparer les limites de fonctions simples,
+    appelées \frquote{limites de référence}, avec des limites de fonctions plus élaborées.}
+
+\theoreme{des limites de référence}{
+    \begin{enumerate}[(i)]
+        \item $\lim{n\to+\infty}\dfrac{1}{\sqrt{n}}=0$
+        \item $\forall p\in\N, p\geq1 : \lim{n\to+\infty}\dfrac{1}{n^p}=0$
+    \end{enumerate}
+}
+
+\theoreme{de linéarité}{
+    Soient $u$ et $v$ deux suites. Soient $l$ et $l'$ deux réel.\\
+    Si $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ alors:
+    \begin{enumerate}[(i)]
+        \item $\lim{n\to+\infty}u_n+ v_n=l+l'$
+        \item $\forall k\in\R : \lim{n\to+\infty}k\x u_n = k\x l$
+    \end{enumerate}
+}
+
+\theoreme{produit et quotient}{
+    Soient $u$ et $v$ deux suites. Soient $l$ et $l'$ deux réel.\\
+    Si $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ alors:
+    \begin{enumerate}[(i)]
+        \item $\lim{n\to+\infty}u_n\x v_n=l\x l'$
+        \item Si $l\not=0$ et $\exists N\in\Z, \forall n\geq N :v_n\not=0$ alors $\lim{n\to+\infty}\dfrac{u_n}{v_n} = \dfrac{l}{l'}$
+    \end{enumerate}
+}
+
+\theoreme{}{
+    Pour toute suite $u$ :
+    \begin{enumerate}[(i)]
+        \item Si $u$ est croissante et majorée alors $u$ converge.
+        \item Si $u$ est décroissante et minorée alors $u$ converge.
+    \end{enumerate}
+}
+
+\subsection{Limites infinies}
+
+\definition{}{
+    On dit que la suite $u$ tend vers $+\infty$ (quand $n$ tend vers $+\infty$) lorsque la propostion $(P)$ suivante est vérifiée :
+    $(P)$ : \frquote{$\forall A\in\R, \exists N\in\Z,\forall n\geq N : u_n>A$}.\\
+    On dit que la suite $u$ diverge vers $+\infty$ et on note $\lim{n\to+\infty}=+\infty$.
+}
+
+\theoreme{de comparaison}{
+    Soient $u$ et $v$ deux suites.\\
+    Si $\exists N\in\Z, \forall n\geq N : u_n\geq v_n$ et $\lim{n\to+\infty}v_n=+\infty$ alors $\lim{n\to+\infty}u_n=+\infty$.
+}
+
+\theoreme{des suites croissantes}{
+    Soit $u$ une suite. Si $u$ est croissante et non majorée, alors $\lim{n\to+\infty}u_n=+\infty$.
+}
+
+\remarque{Une suite non majorée ne diverge pas forcément vers $+\infty$ (ex: $\forall n\in\N:u_n=(-1)^n$}).
+
+\theoreme{des limites de référence}{
+    \begin{enumerate}[(i)]
+        \item $\lim{n\to+\infty}\sqrt{n}=+\infty$
+        \item $\forall p\in\N, p\geq1 : \lim{n\to+\infty}n^p=+\infty$
+    \end{enumerate}
+}
+
+\theoreme{somme et produit}{
+    Soient $u$ et $v$ deux suites. Si $\lim{n\to+\infty}u_n=+\infty$ et $\lim{n\to+\infty}v_n=+\infty$ alors:
+    \begin{enumerate}[(i)]
+        \item $\lim{n\to+\infty}u_n+v_n=+\infty$
+        \item $\forall k\in\R^{*+} : \lim{n\to+\infty}k\x u_n = +\infty$
+        \item $\lim{n\to+\infty}u_n\x v_n = +\infty$
+    \end{enumerate}
+}
+
+\remarque{Si $\lim{n\to+\infty}u_n=+\infty$ et $\lim{n\to+\infty}v_n=+\infty$, on ne peut rien déduire de la limite du quotient $\dfrac{u_n}{u_v}$} !
+
+\newpage
+
+\theoreme{des limites de référence}{
+    Soit $u$ une suite à termes strictement positifs.
+    \begin{enumerate}[(i)]
+        \item Si $\lim{n\to+\infty}u_n=+\infty$ alors $\lim{n\to+\infty}\dfrac{1}{u_n}=0$
+        \item Si $\lim{n\to+\infty}u_n=0$ alors $\lim{n\to+\infty}\dfrac{1}{u_n}=+\infty$
+    \end{enumerate}
+}
+
+
+
+\theoreme{}{
+    Soit $u$ une suite. Soient $r$ et $q$ deux réel.
+    \begin{enumerate}[(i)]
+        \item Si $u$ est arithmétique de raison $r$ :
+              \begin{enumerate}[\scriptsize1.]
+                  \item Si $r>0$ alors $\lim{n\to+\infty}u_n=+\infty$
+                  \item Si $r<0$ alors $\lim{n\to+\infty}u_n=-\infty$
+              \end{enumerate}
+        \item Si $u$ est géométrique de raison $q$ et $u_0\not>0$:
+              \begin{enumerate}[\scriptsize1.]
+                  \item Si $q>1$ alors $\lim{n\to+\infty}u_n=+\infty$
+                  \item Si $-1<q<1$ alors $\lim{n\to+\infty}u_n=0$
+                  \item Si $q\leq-1$ alors $u$ diverge sans limite
+              \end{enumerate}
+    \end{enumerate}
+}
+
+\subsection{Complément sur les suites divergeant vers $-\infty$}
+
+\definition{}{
+    On dit que la suite $u$ tend vers $-\infty$ (quand $n$ tend vers $+\infty$) lorsque la propostion $(P)$ suivante est vérifiée :
+    $(P)$ : \frquote{$\forall A\in\R, \exists N\in\Z,\forall n\geq N : u_n<A$}.\\
+    On dit que la suite $u$ diverge vers $-\infty$ et on note $\lim{n\to+\infty}=-\infty$.
+}
+
+\theoreme{}{
+    Soit $u$ une suite : $\lim{n\to+\infty}u_n=-\infty \equival \lim{n\to+\infty}-(u_n)=+\infty$
+}
+
+\theoreme{de comparaison}{
+    Soient $u$ et $v$ deux suites.\\
+    Si $\exists N\in\Z, \forall n\geq N : u_n\leq v_n$ et $\lim{n\to+\infty}v_n=-\infty$ alors $\lim{n\to+\infty}u_n=-\infty$.
+
+}
+
+\theoreme{}{
+    Soit $u$ une suite. Si $u$ est décroissante et non minorée alors $\lim{n\to+\infty}u_n=-\infty$.
+}
+
+\theoreme{somme et produit}{
+    Soient $u$ et $v$ deux suites.
+    \begin{enumerate}[(i)]
+        \item Si $\lim{n\to+\infty}u_n=-\infty$ et $\lim{n\to+\infty}v_n=-\infty$ alors $\lim{n\to+\infty}u_n+v_n=-\infty$
+        \item $\forall k\in\R^{*+}$ : Si $\lim{n\to+\infty}u_n=-\infty$ alors $\lim{n\to+\infty}k\x u_n=-\infty$
+        \item Si $\lim{n\to+\infty}u_n=-\infty$ et $\lim{n\to+\infty}v_n=-\infty$ alors $\lim{n\to+\infty}u_n\x v_n=+\infty$
+        \item Si $\lim{n\to+\infty}u_n=+\infty$ et $\lim{n\to+\infty}v_n=-\infty$ alors $\lim{n\to+\infty}u_n\x v_n=-\infty$
+    \end{enumerate}
+}
+
+\newpage
+
+\theoreme{de la limite de l'inverse}{
+    Soit $u$ une suite à termes strictement négatifs.
+    \begin{enumerate}[(i)]
+        \item Si $\lim{n\to+\infty}u_n=-\infty$ alors $\lim{n\to+\infty}\dfrac{1}{u_n}=0$
+        \item Si $\lim{n\to+\infty}u_n=0$ alors $\lim{n\to+\infty}\dfrac{1}{u_n}=-\infty$
+    \end{enumerate}
+}
+
+
+
+\renewcommand{\arraystretch}{3}
+\newcolumntype{C}{>{\centering\arraybackslash}p{2.75cm}}
+
+\begin{tabular}{|C|C!{\vrule width 1.25pt}C|C|C|}
+    \hline
+    $\lim{n\to+\infty}u_n=$ & $\lim{n\to+\infty}v_n=$     & $\lim{n\to+\infty}u_n+v_n=$ & $\lim{n\to+\infty}u_n\x v_n=$  & $\lim{n\to+\infty}\dfrac{u_n}{v_n}=$ \\
+    \hline
+    $L\not=0$               & $0$                         & $L$                         & $0$                            & Forme indéterminée                   \\
+    \hline
+    $0$                     & $0$                         & $0$                         & $0$                            & Forme indéterminée                   \\
+    \hline
+    $L\not=0$               & $\pm\infty$                 & $\pm\infty$                 & $\pm\infty$ (règle des signes) & $0$                                  \\
+    \hline
+    $0$                     & $\pm\infty$                 & $\pm\infty$                 & Forme indéterminée             & $0$                                  \\
+    \hline
+    $+\infty$               & $+\infty$                   & $+\infty$                   & $+\infty$                      & Forme indéterminée                   \\
+    \hline
+    $+\infty$               & $0$ avec $\forall n, v_n>0$ & $+\infty$                   & Forme indéterminée             & $+\infty$                            \\
+    \hline
+    $+\infty$               & $-\infty$                   & Forme indéterminée          & $-\infty$                      & Forme indéterminée                   \\
+    \hline
+    $-\infty$               & $-\infty$                   & $-\infty$                   & $+\infty$                      & Forme indéterminée                   \\
+    \hline
+    $-\infty$               & $0$ avec $\forall n, v_n>0$ & $-\infty$                   & Forme indéterminée             & $-\infty$                            \\
+    \hline
+\end{tabular}
+
+\vspace{10pt}
+
+\remarque{Dans le cas où il existe plusieurs exemples donnant des limites différentes, on parle de forme indéterminée}
+
+\newpage
+
+\section{Compléments sur les limites de fonctions}
+
+\subsection{Limite infinie d'une fonction en $+\infty$}
+
+\definitions{}{
+    \begin{itemize}
+        \item $\lim{x\to+\infty}f(x)=+\infty$ signifie \frquote{$\forall A\in\R, \exists B\in\R, \forall x\geq B : f(x)>A$}
+        \item $\lim{x\to+\infty}f(x)=-\infty$ signifie \frquote{$\forall A\in\R, \exists B\in\R, \forall x\geq B : f(x)<A$}
+    \end{itemize}
+}
+
+
+\theoreme{de comparaison}{
+    Soient $f$ et $g$ deux fonctions.\\
+    Si $\exists A\in\R, \forall x>A, f(x)\leq g(x)$
+    \begin{enumerate}[(i)]
+        \item et si $\lim{x\to+\infty}f(x)=+\infty$ alors $\lim{x\to+\infty}g(x)=+\infty$
+        \item et si $\lim{x\to+\infty}g(x)=-\infty$ alors $\lim{x\to+\infty}f(x)=-\infty$
+    \end{enumerate}
+}
+
+\remarque{On admet que les règles à propos des opérations sur les limites infinies de suite (tableau page précédente) reste
+    valable pour les limites infinies de fonctions.}
+
+\subsection{Limites d'une fonction en $-\infty$}
+
+\definitions{}{
+    \begin{itemize}
+        \item $\lim{x\to-\infty}f(x)=l$ signifie \frquote{$\forall \varepsilon\in\R^{*+}, \exists A\in\R, \forall x<A : l-\varepsilon<f(x)<l+\varepsilon$}
+        \item $\lim{x\to-\infty}f(x)=+\infty$ signifie \frquote{$\forall A\in\R, \exists B\in\R, \forall x\leq B : f(x)>A$}
+        \item $\lim{x\to-\infty}f(x)=-\infty$ signifie \frquote{$\forall A\in\R, \exists B\in\R, \forall x\leq B : f(x)<A$}
+    \end{itemize}
+}
+
+\theoreme{des limites de référence en $-\infty$}{
+    Pour tout entier $p\geq1$ :
+    \begin{enumerate}[(i)]
+        \item $\lim{x\to-\infty}\dfrac{1}{x^p}=0$
+        \item Si $p$ est pair alors $\lim{x\to-\infty}x^p=+\infty$
+        \item Si $p$ est impair alors $\lim{x\to-\infty}x^p=-\infty$
+    \end{enumerate}
+}
+
+\remarque{On admet que tous les théorème de comparaison (ex: théorème des gendarmes) ainsi que toutes les règles à propos
+    des opérations restent valables pour les limites quand $x$ tend vers $-\infty$.}
+
+\subsection{Limite à gauche et à droite d'une fonction en un réel}
+
+On considère un réel $a$ et un intervalle $I$ contenant $a$, ainsi qu'une fonction $f$ définie partout sur $I$ sauf en $a$.
+Quand $x$ tend vers $a$, la limite de $f(x)$ peut être différente si $x<a$ et si $x>a$.
+
+\definitions{}{
+    \\On peut étudier la limite d'une fonction en un réel $a$ :
+    \begin{itemize}
+        \item par valeurs inférieures à ce réel. On parle de limite à gauche en $a$ et on note $\lim{x\to a^-}$
+        \item par valeurs supérieures à ce réel. On parle de limite à droite en $a$ et on note $\lim{x\to a^+}$
+    \end{itemize}
+}
+
+\newpage
+
+\subsection{Limites de fonctions composées}
+
+Dans le théorème qui suit, les lettre $a$, $b$ et $c$ peuvent désigner soit des nombres réels, soit $-\infty$, soit $+\infty$.
+
+\theoreme{de composition des limites}{
+    Soit $I$ un intervalle dont l'une des bornes est $a$. Soit $u$ une fonction définie sur $I$.
+    Soient $f$ et $g$ deux fonctions telles que $\forall x\in I :f(x)=g(u(x))$.\\
+    Si $\lim{x\to a}u(x)=b$ et $\lim{x\to b}g(x)=c$ alors $\lim{x\to a}f(x)=c$.
+}
+
+\section{Limites de fonctions exponentielle et logarithme népérien}
+
+\subsection{Fonction exponentielle}
+
+\theoreme{}{
+    \vspace*{-10pt}
+    \begin{enumerate}[(i)]
+        \item $\lim{x\to+\infty}e^x=+\infty$
+        \item $\lim{x\to-\infty}e^x=0$
+    \end{enumerate}
+}
+
+\theoreme{des croissances comparées}{
+    \vspace*{-10pt}
+    \begin{enumerate}[(i)]
+        \item $\lim{x\to+\infty}\dfrac{e^x}{x}=+\infty$
+        \item $\lim{x\to-\infty}x\x e^x=0$
+    \end{enumerate}
+}
+
+\remarques{
+    \begin{itemize}
+        \item Ce sont des formes indéterminée.
+        \item On peut généraliser ce théorème à n'importe quelle puissance de $x$ :\\
+              $\forall n\in\llbracket1;+\infty\rrbracket : \lim{x\to+\infty}\dfrac{e^x}{x^n}=+\infty$ et $\lim{x\to-\infty}x^n\x e^x=0$
+    \end{itemize}
+}
+
+\subsection{Fonction logarithme népérien}
+
+\theoreme{}{
+    \vspace*{-10pt}
+    \begin{enumerate}[(i)]
+        \item $\lim{x\to+\infty}\ln(x)=+\infty$
+        \item $\lim{x\to0}\ln(x)=-\infty$
+    \end{enumerate}
+}
+
+\theoreme{des croissances comparées}{
+    \vspace*{-10pt}
+    \begin{enumerate}[(i)]
+        \item $\lim{x\to+\infty}\dfrac{\ln(x)}{x}=0$
+        \item $\lim{x\to-\infty}x\x \ln(x)=0$
+    \end{enumerate}
+}
+
+\remarques{
+    \begin{itemize}
+        \item Ce sont des formes indéterminée.
+        \item On peut généraliser ce théorème à n'importe quelle puissance de $x$ :\\$\forall n\in\llbracket1;+\infty\rrbracket : \lim{x\to+\infty}\dfrac{\ln(x)}{x^n}=0$
+                  et $\lim{x\to-\infty}x^n\x \ln(x)=0$
+        \item L'ordre de vitesse de croissance des fonctions est le suivant : $\ln(x)$, $\sqrt{x}$, $x$, $x^2$, $x^3$, \dots, $x^n$, $e^x$.
+    \end{itemize}
+}
+
+
+
+\end{document}

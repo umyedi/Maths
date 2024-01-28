@@ -1,0 +1,102 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Géométrie dans l'espace}
+\newcommand{\DocumentTheme}{Géométrie}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Droites, plans et vecteurs de l'espace}
+
+\subsection{Droites et plans}
+
+\textbf{Axiomes :}
+\begin{itemize}
+    \item Par deux points distincts de l'espace passe une unique droite.
+    \item Par trois points non alignés de l'espace passe un unique plan.
+    \item L'intersection de deux plans distincts est soit une droite, soit l'ensemble vide.
+    \item Si une droite a au moins deux points d'intersections avec un plan, alors elle est incluse dans ce plan.
+\end{itemize}
+
+\definitions{}{
+    \vspace{-10pt}
+    \begin{itemize}
+        \item Des points de l'espace sont dits coplanaires s'il existe un plan les contenant tous.
+        \item Des droites de l'espace sont dites coplanaires s'il existe un plan les contenant toutes.
+        \item Deux droites de l'espace sont dites sécantes si elles ont un unique point d'intersection.
+    \end{itemize}
+}
+
+\exemple{}{Dans le cube $ABCDEFGH$ ci-contre, les droites $(AB)$ et $(ED)$ ne sont ni sécantes ni parallèles : elles
+    sont coplanaires.}
+
+\subsection{Décomposition d'un vecteur et repérage dans un plan}
+
+\theoreme{/ Définition}{
+    Dans un plan, soient $A$, $B$ et $C$ trois points non-alignés.
+    \begin{enumerate}[(i)]
+        \item Pour tout vecteur $\vec{u}$ du plan, il existe un unique couple de réels $(x,y)$ tel que $\vec{u}=x\Vec{AB}+y\Vec{AC}$.
+        \begin{itemize}
+            \item On dit que $\vec{u}$ est écrit sous la forme d'une combinaison linéaire de $\Vec{AB}$ et de $\Vec{AC}$.
+            \item Les réels $x$ et $y$ sont appelés les coordonnées de $\vec{u}$ dans la base $(\Vec{AB},\Vec{AC})$. 
+        \end{itemize}      
+        \item Pour tout point $M$ du plan; il existe un unique couple de réels $(x,y)$ tel que $\Vec{AM}=x\Vec{AB}+y\Vec{AC}$.
+        \begin{itemize}
+            \item Les réels $x$ et $y$ sont appelés les coordonnées de $M$ dans le repère $(A, \Vec{AB}, \Vec{AC})$.
+        \end{itemize}
+    \end{enumerate}
+}
+
+\subsection{Vecteurs dans l'espace}
+
+Soient $A$, $B$, $C$ et $D$ quatre points de l'espace. On dit que les vecteurs $\Vec{AB}$ et $\Vec{CD}$ sont égaux si
+les points $A$, $B$, $C$ et $D$ sont coplanaires et si $ABDC$ est un parallèlogramme. On note $\Vec{AB}=\Vec{CD}$.\newline
+
+Un vecteur de l'espace est caractérisé par sa direction, son sens et sa norme.\\
+On définit (de la même façon que dans un plan) les sommes de vecteurs et la multiplication d'un vecteur par un réel. Les
+mêmes règles de calcul restent valables dans l'espace. Par exemple, la relation de Chasles : Pour tous points $A$, $B$
+et $C$ de l'espace $\Vec{AB}+\Vec{BC}=\Vec{AC}$.\newline
+
+La notion de colinéarité des vecteurs se généralise aussi à l'espace : 
+\begin{itemize}
+    \item Deux vecteurs de l'espace $\vec{u}$ et $\vec{v}$ sont dits colinéaires s'il existe un réel $k$ tel que
+    $\vec{u}=k\vec{v}$.\newline
+    \item Si $A$ et $B$ sont deux points et si les vecteurs $\Vec{AB}$ et $\vec{u}$ sont colinéaires, on dit alors que
+    $\vec{u}$ dirige la droite $(AB)$, ou encore que $\vec{u}$ est un vecteur directeur de la droite $(AB)$.
+\end{itemize}
+
+\theoreme{}{
+    Deux droites de l'espace sont parallèles si et seulement si elles sont dirigées par des vecteurs colinéaires.
+}
+
+\section{Repérage dans l'espace}
+
+\subsection{Bases et repère dans l'espace}
+
+\theoreme{/ Définition}{
+    Soient $A$, $B$, $C$ et $D$ quatre points non coplanaires de l'espace :
+    \begin{enumerate}[(i)]
+        \item Pour tout vecteur de l'espace $\vec{u}$, il existe trois réels $x$, $y$ et $z$ tels que $\vec{u}=x\Vec{AB}+x\Vec{AC}+x\Vec{AD}$.
+        \begin{itemize}
+            \item Le triplet $(x,y,z)$ est unique et $x$, $y$, $z$ sont appelés coordonnées du vecteur $\vec{u}$ dans la
+            base $(\Vec{AB},\Vec{AC},\Vec{AD})$.
+            \item On note $\vec{u}\Vcoord{x}{y}{z}$.
+        \end{itemize}
+        \item Pour tout point de l'espace $M$, il existe des nombres réels $(x,y,z)$ tels que $\Vec{AM}=x\Vec{AB}+y\Vec{AC}+z\Vec{AD}$.
+        \begin{itemize}
+            \item Le triplet $(x,y,z)$ est unique et $x$, $y$, $z$ sont appelés coordonnées du point $M$ dans le repère
+            $(A,\Vec{AB},\Vec{AC},\Vec{AD})$.
+            \item On note $M\Vcoord{x}{y}{z}$.
+        \end{itemize}
+    \end{enumerate}
+}
+
+
+
+
+
+\end{document}

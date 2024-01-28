@@ -239,8 +239,12 @@
 \newcommand{\equival}{\Leftrightarrow}
 
 % Vecteurs
+\renewcommand{\Vec}[1]{\overrightarrow{#1}}
 \newcommand*{\norme}[1]{\left\lVert\vv{#1}\right\rVert}
 \newcommand{\ps}[2]{\ensuremath{\vv{#1}.\vv{#2}}}
+
+\newcommand{\vcoord}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\Vcoord}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
 
 % ========== Tableaux ==========
 \newcommand{\boldhline}{\hline\noalign{\vskip 0pt}\hline}

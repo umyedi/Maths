@@ -11,7 +11,7 @@
 \usepackage{fancyhdr}         % Import to custom the page footer
 \usepackage{mdframed}         % Imports styles
 \usepackage{enumerate}        % Imports styles for enumerate
-\usepackage{multicol}         
+\usepackage{multicol}
 \usepackage{xcolor}           % Couleurs
 \usepackage{tikz}             % Package général pour les graphiques
 \usepackage{pgfplots}         % Compléments pour les graphiques
@@ -94,18 +94,24 @@
 }
 
 % Définition de la commande '\definition'
-\newcommand{\definition}[2]{
+\newcommand{\definition}[2]{%
     \begin{mdframed}[style=DefinitionStyle]
-        \textbf{Définition : #1}\\
-        #2
+        \ifstrempty{#1}{% Teste si le premier argument est vide
+            \textbf{Définition :}\ % Si vide, n'affiche pas de titre de théorème
+        }{%
+            \textbf{Définition #1 :}\ % Si non vide, affiche le titre avec le premier argument
+        }\\#2
     \end{mdframed}
 }
 
 % Définition de la commande '\definitions'
-\newcommand{\definitions}[2]{
+\newcommand{\definitions}[2]{%
     \begin{mdframed}[style=DefinitionStyle]
-        \textbf{Définitions : #1}
-        #2
+        \ifstrempty{#1}{% Teste si le premier argument est vide
+            \textbf{Définitions :}\ % Si vide, n'affiche pas de titre de théorème
+        }{%
+            \textbf{Définitions #1 :}\ % Si non vide, affiche le titre avec le premier argument
+        }\\#2
     \end{mdframed}
 }
 
@@ -123,41 +129,55 @@
 \newcounter{propriete}
 
 % Définition de la commande '\propriete'
-\newcommand{\propriete}[2]{
-    \refstepcounter{propriete}
-    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
-        \textbf{Propriété \thepropriete\ :\space#1}\\
-        #2
+\newcommand{\propriete}[2]{%
+    \refstepcounter{propriete}% Incrémente le compteur de théorème
+    \begin{mdframed}[style=ProprieteStyle]
+        \ifstrempty{#1}{% Teste si le premier argument est vide
+            \textbf{\thepropriete. Propriété :}\ % Si vide, n'affiche pas de titre de théorème
+        }{%
+            \textbf{\thepropriete. Propriété #1 :}\ % Si non vide, affiche le titre avec le premier argument
+        }\\#2
     \end{mdframed}
 }
 
 % Définition de la commande 'proprietes'
-\newcommand{\proprietes}[2]{
-    \refstepcounter{propriete}
-    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
-        \textbf{Propriétés \thepropriete\ :\space#1}\\
-        #2
+\newcommand{\proprietes}[2]{%
+    \refstepcounter{propriete}% Incrémente le compteur de théorème
+    \begin{mdframed}[style=ProprieteStyle]
+        \ifstrempty{#1}{% Teste si le premier argument est vide
+            \textbf{\thepropriete. Propriétés :}\ % Si vide, n'affiche pas de titre de théorème
+        }{%
+            \textbf{\thepropriete. Propriétés #1 :}\ % Si non vide, affiche le titre avec le premier argument
+        }\\#2
     \end{mdframed}
 }
+
+
 
 % Création d'un compteur pour les théorèmes
 \newcounter{theoreme}
 
 % Définition de la commande '\theoreme'
-\newcommand{\theoreme}[2]{
-    \refstepcounter{theoreme}
-    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
-        \textbf{\thetheoreme.\space Théorème #1 :}\\
-        #2
+\newcommand{\theoreme}[2]{%
+    \refstepcounter{theoreme}% Incrémente le compteur de théorème
+    \begin{mdframed}[style=ProprieteStyle]
+        \ifstrempty{#1}{% Teste si le premier argument est vide
+            \textbf{\thetheoreme. Théorème :}\ % Si vide, n'affiche pas de titre de théorème
+        }{%
+            \textbf{\thetheoreme. Théorème #1 :}\ % Si non vide, affiche le titre avec le premier argument
+        }\\#2
     \end{mdframed}
 }
 
 % Définition de la commande '\theoremes'
-\newcommand{\theoremes}[2]{
-    \refstepcounter{theoreme}
-    \begin{mdframed}[style=ProprieteStyle] % ou un style différent si vous en avez créé un
-        \textbf{\thetheoreme.\space Théorème #1 :}\\
-        #2
+\newcommand{\theoremes}[2]{%
+    \refstepcounter{theoreme}% Incrémente le compteur de théorème
+    \begin{mdframed}[style=ProprieteStyle]
+        \ifstrempty{#1}{% Teste si le premier argument est vide
+            \textbf{\thetheoreme. Théorèmes :}\ % Si vide, n'affiche pas de titre de théorème
+        }{%
+            \textbf{\thetheoreme. Théorèmes #1 :}\ % Si non vide, affiche le titre avec le premier argument
+        }\\#2
     \end{mdframed}
 }
 

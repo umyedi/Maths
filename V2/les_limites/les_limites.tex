@@ -4,7 +4,7 @@
 \newcommand{\DocumentTheme}{Analyse}
 \newcommand{\DocumentType}{Cours}
 
-\input{../../model/settings_cours.tex}
+\input{../../utils.tex}
 
 \begin{document}
 
@@ -73,25 +73,25 @@
 \definition{}{
     Soit $u$ une suite. Soit $l$ un réel.\\
     On dit que la suite $u$ tend vers $l$ quand $n$ tend vers $+\infty$ lorsque la proposition $(P)$ suivante est vérifiée :
-    $(P)$: \frquote{$\forall\varepsilon\in\R^+_*, \exists N\in\N, \forall n\in\N, n\geq N : l-\varepsilon<u_n<l+\varepsilon$}\\
+    $(P)$: \frquote{$\forall\varepsilon\in\R^+_*, \exists N\in\N, \forall n\geq N : l-\varepsilon<u_n<l+\varepsilon$}\\
     On dit que la suite $u$ converge vers $l$ et on note : $\lim{n\to+\infty}u_n=l$
 }
 
 \theoreme{}{
     Soient $u$ et $v$ deux suites. Soient $l$ et $l'$ deux réels.\\
-    Si $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ et $l<l'$ alors $\exists N\in\N, \forall n\in\N, n\geq N : u_n < v_n$
+    Si $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ et $l<l'$ alors $\exists N\in\N, \forall n\geq N : u_n < v_n$
 }
 
 \remarque{Ce théorème a pour corollaire que la limite d'une suite est unique si elle existe.}
 
 \theoreme{de comparaison des limites}{
     Soient $u$ et $v$ deux suites. Soient $l$ et $l'$ deux réels.\\
-    Si $\exists N\in\N, \forall n\in\N, n\geq N : u_n\leq v_n$ et $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ alors $l\leq l'$.
+    Si $\exists N\in\N, \forall n\geq N : u_n\leq v_n$ et $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ alors $l\leq l'$.
 }
 
 \theoreme{des gendarmes}{
     Soient $u$, $v$ et $w$ trois suites. Soient $l$ un réel.\\
-    Si $\exists N\in\N, \forall n\in\N, n \geq N : u_n\leq v_n \leq w_n$ et $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}w_n=l$
+    Si $\exists N\in\N, \forall n\geq N : u_n\leq v_n \leq w_n$ et $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}w_n=l$
     alors $\lim{n\to+\infty}v_n=l$
 }
 
@@ -102,7 +102,7 @@
     \vspace{-10pt}
     \begin{enumerate}[(i)]
         \item $\lim{n\to+\infty}\dfrac{1}{\sqrt{n}}=0$
-        \item $\forall p\in\N, p\geq1 : \lim{n\to+\infty}\dfrac{1}{n^p}=0$
+        \item $\forall p\in\N^* : \lim{n\to+\infty}\dfrac{1}{n^p}=0$
     \end{enumerate}
 }
 
@@ -120,7 +120,7 @@
     Si $\lim{n\to+\infty}u_n=l$ et $\lim{n\to+\infty}v_n=l'$ alors:
     \begin{enumerate}[(i)]
         \item $\lim{n\to+\infty}u_n\x v_n=l\x l'$
-        \item Si $l'\not=0$ et $\exists N\in\N, \forall n\in\N, n\geq N :v_n\not=0$ alors $\lim{n\to+\infty}\dfrac{u_n}{v_n} = \dfrac{l}{l'}$
+        \item Si $l'\not=0$ et $\exists N\in\N, \forall n\geq N :v_n\not=0$ alors $\lim{n\to+\infty}\dfrac{u_n}{v_n} = \dfrac{l}{l'}$
     \end{enumerate}
 }
 
@@ -136,13 +136,13 @@
 
 \definition{}{
     On dit que la suite $u$ tend vers $+\infty$ quand $n$ tend vers $+\infty$ lorsque la propostion $(P)$ suivante est vérifiée :
-    $(P)$ : \frquote{$\forall A\in\R, \exists N\in\N,\forall n\in\N, n\geq N : u_n>A$}.\\
+    $(P)$ : \frquote{$\forall A\in\R, \exists N\in\N,\forall n\geq N : u_n>A$}.\\
     On dit que la suite $u$ diverge vers $+\infty$ et on note $\lim{n\to+\infty}u_n=+\infty$.
 }
 
 \theoreme{de comparaison}{
     Soient $u$ et $v$ deux suites.\\
-    Si $\exists N\in\N, \forall n\in\N, n\geq N : u_n\geq v_n$ et $\lim{n\to+\infty}v_n=+\infty$ alors $\lim{n\to+\infty}u_n=+\infty$.
+    Si $\exists N\in\N, \forall n\geq N : u_n\geq v_n$ et $\lim{n\to+\infty}v_n=+\infty$ alors $\lim{n\to+\infty}u_n=+\infty$.
 }
 
 \theoreme{des suites croissantes}{
@@ -201,7 +201,7 @@
 
 \definition{}{
     On dit que la suite $u$ tend vers $-\infty$ quand $n$ tend vers $+\infty$ lorsque la propostion $(P)$ suivante est vérifiée :
-    $(P)$ : \frquote{$\forall A\in\R, \exists N\in\N,\forall n\in\N, n\geq N : u_n<A$}.\\
+    $(P)$ : \frquote{$\forall A\in\R, \exists N\in\N,\forall n\geq N : u_n<A$}.\\
     On dit que la suite $u$ diverge vers $-\infty$ et on note $\lim{n\to+\infty}u_n=-\infty$.
 }
 
@@ -211,7 +211,7 @@
 
 \theoreme{de comparaison}{
     Soient $u$ et $v$ deux suites.\\
-    Si $\exists N\in\N, \forall n\in\N, n\geq N : u_n\leq v_n$ et $\lim{n\to+\infty}v_n=-\infty$ alors $\lim{n\to+\infty}u_n=-\infty$.
+    Si $\exists N\in\N, \forall n\geq N : u_n\leq v_n$ et $\lim{n\to+\infty}v_n=-\infty$ alors $\lim{n\to+\infty}u_n=-\infty$.
 
 }
 

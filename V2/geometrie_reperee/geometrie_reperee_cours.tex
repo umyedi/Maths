@@ -1,0 +1,190 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Titre du document}
+\newcommand{\DocumentTheme}{Thème}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{I. Équation cartésienne d'une droite et vecteur normal}
+
+\definition{}{
+  Soit $d$ une droite de vecteur directeur $\vec{u}$. \\
+  Un vecteur normal à la droite $(d)$ est un vecteur non nul orthogonal au vecteur $\vec{u}$.
+}
+
+\textbf{Schéma :}
+
+\begin{tikzpicture}
+  % Points
+  \coordinate (A) at (2,0.5);
+  \coordinate (M) at (6,6/4);
+
+  % Droite (d)
+  \draw[thick] (0,0) -- (8,2) node[pos=1, above left] {$d$};
+
+  % Points marked with cross
+  \draw[green] (A) ++(-0.1,-0.1) -- ++(0.2,0.2);
+  \draw[green] (A) ++(-0.1,0.1) -- ++(0.2,-0.2);
+  \node[green, below left] at (A) {$A$};
+
+  \draw[green] (M) ++(-0.1,-0.1) -- ++(0.2,0.2);
+  \draw[green] (M) ++(-0.1,0.1) -- ++(0.2,-0.2);
+  \node[green, above left] at (M) {$M$};
+
+  % Vecteur u et n
+  \draw[thick, red, ->] (4,0.5) -- (5,0.75) node[midway, below] {$\vec{u}$};
+  \draw[thick, blue, ->] (3.75,1.25) -- (3.5,2.25) node[midway, left] {$\vec{n}$};
+
+  % Texte
+  \node at (9,1) {$\blue{\vec{n}}$ est un vecteur normal};
+  \node at (8.20,0.5) {à la droite $(d)$};
+\end{tikzpicture}
+
+\propriete{}{
+  Soient $a$, $b$ et $c$ trois réels tels que $(a,b)\not=(0,0)$. \\
+  Dans un repère orthonormé, le vecteur $\vec{n}\vcoord{a}{b}$ est normal à la droite $(d)$ si et seulement si la droite
+  admet une équation cartésienne de la forme $ax+by+c=0$ avec $c$ un réel à déterminer.
+}
+
+
+\exemple{}{
+  On cherche à déterminer une équation cartésienne de la droite $(d)$ passant par le point $A(5;-1)$ et de vecteur normal $\displaystyle \vec{n} \vcoord{2}{-3}$.
+  \begin{equation*}
+    \begin{split}
+      M(x;y)\in (d) & \equival \Vec{AM} \vcoord{x-5}{y+1} \text{ et } \vec{n} \vcoord{2}{-3} \text{ sont orthogonaux}\\
+      & \equival \Vec{AM}\pdt\vec{n} = 0 \\
+      & \equival 2(x-5)-3(y+1)=0 \\
+      & \equival 2x-10-3y-3=0 \\
+      & \equival 2x-3y-13=0
+    \end{split}
+  \end{equation*}
+  Donc une équation cartésienne de $(d)$ est $2x-3y-13=0$.
+}
+
+\section{II. Équation cartésienne d'un cercle}
+
+\definition{}{
+  On appelle cercle de centre $\Omega$ et de rayon $r>0$ l'ensemble des points $M$ du plan qui vérifie $\Omega M=r$.
+}
+
+
+\propriete{de l'équation d'un cercle connaissant son centre et son rayon}{
+  Le plan est muni d'un repère orthonormé $(O,I,J)$. Soit $C$ le cercle de centre $\Omega(x_0;y_0)$ et de rayon $R$.
+  Une équation du cercle $C$ est $(x-x_0)^2+(y-y_0)^2=R^2$.
+}
+
+\newpage
+
+\exemple{}{
+  \begin{minipage}{0.3\textwidth}
+    \begin{tikzpicture}[scale=0.8]
+      \draw[help lines, gray!30, step=1] (-2,-1) grid (6,7);
+      \draw[thick, color=red] (2,3) circle [radius=3];
+      \draw[thick,->] (-2,0) -- (6,0) node[above left] {$x$};
+      \draw[thick,->] (0,-1) -- (0,7) node[below left] {$y$};
+      \draw[thick] (1,0.1) -- (1,-0.1) node[below] {$I$};
+      \draw[thick] (0.1,1) -- (-0.1,1) node[left] {$J$};
+      \draw[green,thick] (2,3) -- (5,3) node[midway, above] {$3$};
+      \draw[thin] (-0.05,-0.05) -- (0.05,0.05) node[below left] {$O$};
+      \draw[thin] (-0.05,0.05) -- (0.05,-0.05);
+      \coordinate (A) at (2,3);
+      \draw[ultra thin, line width=0.4pt] (A) ++(-0.05,-0.05) -- ++(0.1,0.1) (A) ++(-0.05,0.05) -- ++(0.1,-0.1) node[anchor=east] {\small$A$};
+    \end{tikzpicture}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.6\textwidth}
+    On cherche à déterminer l'équation du cercle de centre $A(2;3)$ et de rayon $3$.
+    \begin{equation*}
+      \begin{split}
+        M(x;y)\in C&\equival AM = 3 \\
+        & \equival AM^2=9 \text{ avec } AM=\sqrt{(x-2)^2+(y-3)^2} \\
+        & \equival (x-2)^2+(y-3)^2=9 \\
+        & \equival x^2-4x+4+y^2-6x+9=9 \\
+        & \equival x^2+y^2-4x-6x+4=0 \\
+      \end{split}
+    \end{equation*}
+    Une équation cartésienne du cercle de centre $A(2;3)$ et de rayon $3$ est $(x-2)^2+(y-3)^2=9$ ou $x^2+y^2-4x-6x+4=0$. ~\\ ~\\
+  \end{minipage}
+}
+
+\begin{minipage}{0.8\textwidth}
+  \propriete{de l'équation d'un cercle connaissant son diamètre}{
+      Soit $C$ le cercle de diamètre $[AB]$. \\
+      Un point $M(x;y)$ appartient au cercle $C$ si et seulement si $\Vec{MA}\pdt\Vec{MB}=0$.
+      Une équation cartésienne du cercle $C$ est donc $(x-x_A)(x-x_B)+(y-y_A)(y-y_B)=0$.
+  }
+\end{minipage}
+\hfill
+\begin{minipage}{0.17\textwidth}
+  \begin{tikzpicture}[scale=0.5,>=stealth]
+
+    % Définir les coordonnées des points A et B
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+
+    % Calculer le milieu du segment AB et le rayon du cercle
+    \coordinate (M) at ($(A)!0.5!(B)$);
+    \pgfmathsetmacro{\radius}{0.485*sqrt(17)}
+
+    % Dessiner un arc de cercle pour représenter le lieu des points possibles pour le point C
+    \draw[black, thick] (M) circle (\radius);
+
+    % Choisir un angle pour positionner C sur l'arc de cercle
+    \pgfmathsetmacro{\angle}{120}
+    \coordinate (C) at ($(M)+(\angle:\radius)$);
+
+    % Dessinez les vecteurs AB et AC
+    \draw[red, thick] (A) -- (B) node[midway,anchor=north east] {};
+    \draw[green, thick] (A) -- (C) node[midway,anchor=south east] {};
+    \draw[green, thick] (C) -- (B) node[midway,anchor=south west] {};
+
+    % % Ajouter une marque d'angle droit en M
+    \draw[green, thick] (0.92, 1.575) -- (1.06, 1.5) -- (1.15, 1.65);
+
+    % Marquer les points A, B et M avec des croix plus petites et plus épaisses
+    \draw[ultra thin, line width=0.4pt] (A) ++(-0.05,-0.05) -- ++(0.1,0.1) (A) ++(-0.05,0.05) -- ++(0.1,-0.1) node[anchor=east] {\small$A$};
+    \draw[ultra thin, line width=0.4pt] (B) ++(-0.05,-0.05) -- ++(0.1,0.1) (B) ++(-0.05,0.05) -- ++(0.1,-0.1) node[anchor=south west] {\small$B$};
+    \draw[ultra thin, line width=0.4pt] (C) ++(-0.05,-0.05) -- ++(0.1,0.1) (C) ++(-0.05,0.05) -- ++(0.1,-0.1) node[anchor=south east] {\small$M$};
+  \end{tikzpicture}
+\end{minipage}
+
+\section{III. Équation cartésienne d'une parabole}
+
+\definition{}{
+  Soit $a$, $b$ et $c$ trois réels tels que $a\not=0$. \\
+  Soit $f$ une fonction polynôme du second degré définie par $f(x)=ax^2+bx+c$. \\
+  La courbe représentative de la fonction $f$ qui a pour équation $y=ax^2+bx+c$ est une parabole.
+}
+
+
+\propriete{}{
+  Cette courbe représentative admet pour axe de symétrie de la droite d'équation $\displaystyle x=\frac{-b}{2a}$ et pour sommet le point $\displaystyle S\left(\frac{-b}{2a};f\left(\frac{-b}{2a}\right)\right)$.
+}
+
+\exemple{}{
+  On cherche à déterminer le sommet et l'axe de symétrie de la parabole d'équation $y=-x^2+2x-5$. \\
+  \begin{minipage}{0.5\textwidth}
+    Axe de symétrie : \\
+    On a $a=-1$, $b=2$ et $c=-5$. \\
+    On calcule $\displaystyle x=\frac{-b}{2a}=\frac{-2}{2(-1)}=1$. \\
+    Donc l'axe de symétrie de la parabole est $x=1$. \\
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.5\textwidth}
+    Sommet : \\
+    Donc le sommet a pour abscisse $1$. \\
+    Son ordonnée est $y=-1^2+2\times1-5=-4$. \\
+    Donc $S\left(1;-4\right)$
+    \vspace*{20pt}
+  \end{minipage}
+}
+
+
+
+\end{document}
+% ----- FIN DU DOCUMENT -----

@@ -95,8 +95,69 @@ La notion de colinéarité des vecteurs se généralise aussi à l'espace :
     \end{enumerate}
 }
 
+\theoreme{}{
+    Dans une base de l'espace :
+    \begin{enumerate}[(i)]
+        \item Pour tout vecteurs $\vec{u}$ et $\vec{v}$, si $\vec{u}\Vcoord{x}{y}{z}$ et $\vec{v}\Vcoord{x'}{y'}{z'}$
+        alors $\vec{u}+\vec{v}\Vcoord{x+x'}{y+y'}{z+z'}$.
+        \item Pour tout réel $k$ et pour tout vecteur $\vec{u}$, si $\vec{u}\Vcoord{x}{y}{z}$ alors $k\vec{u}\Vcoord{kx}{ky}{kz}$.
+    \end{enumerate}
+}
 
+\theoreme{}{
+    Dans un repère de l'espace : pour tous points $A$ et $B$, si $A(x_A,y_A,z_A)$ et $B(x_B,y_B,z_B)$ alors $\Vec{AB}\Vcoord{x_B-x_A}{y_B-y_A}{z_B-z_A}$.
+}
 
+\subsection{Représentation paramétrique d'une droite}
+
+\theoreme{/ Définition}{
+    Soient $A$ un point et $\vec{u}$ un vecteur de l'espace.
+    On note $(d)$ la droite dirigée par $\vec{u}$ et passant par $A$.\\
+    \begin{enumerate}[(i)]
+        \item Dans un repère de l'espace, pour tout point $M(x,y,z)$ : $M\in(d)\equival\exists k\in\R, \Vec{AM}=k\vec{u}$.
+        \item Si de plus on note $A(x_A,y_A,z_A)$ et $\vec{u}\Vcoord{x_{\vec{u}}}{y_{\vec{u}}}{z_{\vec{u}}}$ alors $M\in(d)\equival\exists k\in\R, \Sys{x=x_A+kx_{\vec{u}}}{y=y_A+ky_{\vec{u}}}{z=z_A+kz_{\vec{u}}}$
+    \end{enumerate}
+    Ce système d'équations est appelé une représentation paramétrique de la droite $(d)$. On appelle $k$ le paramètre.
+}
+
+\remarque{Il existe une infinité de représentations paramétriques d'une même droite.}
+
+\newpage
+
+\exemple{}{
+    Soient $A(0;4;0)$ et $B(1;4;2)$. On calcule $\Vec{AB}\Vcoord{1-0}{4-4}{2-0}\equival\Vec{AB}\Vcoord{1}{0}{2}$.
+
+    Une représentation paramétrique de la droite $(AB):\Sys{x=0+k}{y=4+0k}{z=0+2k}\equival\Sys{x=k}{y=4}{z=2k}$
+
+}
+
+\section{Position relative d'une droite et d'un plan}
+
+\definitions{}{
+    \begin{itemize}
+        \item Une droite $(d)$ est parallèle à un plan $(P)$ s'il existe une droite $(d')$ incluse dans $(P)$ et
+        parallèle à $(d)$.
+        \item Une droite $(d)$ est strictement parallèle à $(P)$ si elle est parallèle à $(P)$ et non incluse dans $(P)$.
+        \item Une droite est sécante à un plan $(P)$ si elle a un unique point d'intersection avec $(P)$.
+        \item Un vecteur $\vec{u}$ est directeur d'un plan $(P)$ s'il existe une droite $(d)$ incluse dans $(P)$ et
+        dirigée par $\vec{u}$.
+    \end{itemize}
+}
+
+\theoreme{}{
+    Pour tous points $A$, $B$, $C$ et $D$ de l'espace : $A$, $B$, $C$ et $D$ sont coplanaires $\equival \exists k\in\R,\exists k'\in\R : \Vec{AD}=k\Vec{AB}+k'\Vec{AC}$.
+}
+
+\definitions{}{
+    Trois vecteurs $\vec{u}$, $\vec{v}$, et $\vec{w}$ sont dits coplanaires s'il existe deux réels $k$ et $k'$ tels que $\vec{w}=k\vec{u}+k'\vec{v}$
+}
+
+\remarque{Si $\vec{w}=k\vec{u}+k'\vec{v}$, on dit aussi que $\vec{w}$ est une combinaison linéaire de $\vec{u}$ et de $\vec{v}$}.
+
+\theoreme{}{
+    Soit $(d)$ une droite et soit $(P)$ un plan. On suppose que $\vec{u}$ est un vecteur directeur de $(d)$ et que $(\vec{v},\vec{w})$
+    est un couple de vecteurs directeurs non colinéaires de $(P)$ alors on a : $(d)$ est parallèle à $(P) \equival\vec{u}$, $\vec{v}$ et $\vec{w}$ sont coplanaires.
+}
 
 
 \end{document}

@@ -15,6 +15,9 @@ tous.
 -   Le dossier `DM` contient le code Python utilisés dans mes Devoirs Maison de Maths Expertes.
 -   Le fichier `utils.tex` contient toutes les fonctions ainsi que les packages utilisées dans les autres fichier LaTex.
 
+TODO :
+- Vérifier dans V2 : géométrie dans l'espace et géométrie repérée.
+
 ## Contributions
 
 Les contributions sont les bienvenues ! Si vous souhaitez ajouter des chapitres, corriger des erreurs ou améliorer les

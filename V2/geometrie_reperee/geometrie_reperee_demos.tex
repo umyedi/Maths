@@ -1,0 +1,86 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Géométrie repérée}
+\newcommand{\DocumentTheme}{Géométrie}
+\newcommand{\DocumentType}{Démonstrations}
+
+\input{../../utils.tex}
+
+% ----- DEBUT DU DOCUMENT -----
+\begin{document}
+
+% Style et numérotation
+\maketitle
+
+\demonstration{(Propriété 1)}{
+  Soit $(d)$ la droite passant par un point $A(x_A;y_A)$ et dont on connait le vecteur normal $\vec{n}\vcoord{a}{b}$.
+  \vspace{-10pt}
+  \begin{align*}
+    M(x;y)\in (d) & \equival \Vec{AM}\vcoord{x-x_A}{y-y_A} \text{ et } \vec{n}\vcoord{a}{b} \text{ sont orthogonaux} \\
+                  & \equival \Vec{AM}\pdt\vec{n} = 0                                                                 \\
+                  & \equival a(x-x_A)+b(y-y_B)=0                                                                     \\
+                  & \equival ax+bx\underbrace{-ax_A-by_A}_{=c}=0
+  \end{align*}
+}
+
+\demonstration{(Propriété 2)}{
+  \vspace{-10pt}
+  \begin{align*}
+    \text{Soit } M(x;y) \in C & \equival\Omega M=R                     &  &                                                     \\
+                              & \equival\Omega M^2=R^2                 &  & \textit{ avec } \Omega M=\sqrt{(x-x_0)^2+(y-y_0)^2} \\
+                              & \equival\Omega (x-x_0)^2+(y-y_0)^2=R^2 &  &
+  \end{align*}
+}
+
+\demonstration{(Propriété 3)}{
+  \vspace{-10pt}
+  \begin{align*}
+    M(x;y)\in C & \equival\text{le triangle $MAB$ est rectangle en $M$} &  &                                                                                       \\
+                & \equival\Vec{AM}\pdt\Vec{BM}=0                        &  & \text{ avec } \Vec{AM}\vcoord{x-x_A}{y-y_A} \text{ et } \Vec{BM}\vcoord{x-x_B}{y-y_B} \\
+                & \equival (x-x_A)(x-x_B)+(y-y_A)(y-y_B)=0              &  &
+  \end{align*}
+
+}
+
+
+\demonstration{(Propriété 4)}{
+  \begin{itemize}
+    \item On va montrer que pour tout point $A$ appartenant à $P$ et distinct de son sommet, il existe un point $B$ distinct de $A$ appartenant à $P$ et ayant la même ordonnée que $A$. \\
+          Soient deux points $A(x_A;y_A)$ et $B(x_B;y_B)$ appartenant à $P$.\\
+
+          On a donc $y_A=ax{_A}^2+bx_A+c$ et $y_B=ax{_B}^2+bx_B+c$.
+          \begin{equation*}
+            \begin{split}
+              y_A=y_B&\equival ax{_A}^2+bx_A+c = ax{_B}^2+bx_B+c \\
+              &\equival a(x{_A}^2-x{_B}^2) + b(x_A-x_B)=0 \\
+              &\equival (x{_A}-x{_B})\left[ a(x_A-x_B) +b \right]=0 \\
+              &\equival (x{_A}-x{_B})=0 \text{ ou }  a(x_A-x_B) +b=0 \\
+              &\equival (x{_A}=x{_B}) \text{ ou }  x_A+x_B=\frac{-b}{a}
+            \end{split}
+          \end{equation*}
+          Donc, si un point $A(x_A;y_A)$ distinct du sommet de la parabole appartient à $P$, le point $ B\left(-\dfrac{b}{a}-x_A;y_A\right)$ appartient à $P$, est distinct de $A$ et a la même ordonnée que $A$. \\
+          La courbe admet donc bien deux points distincts d'ordonnée $y_A$.
+
+\newpage
+
+    \item On va déterminer les coordonnées du milieur $I$ de $[AB]$. \\
+          Les points $A$ et $B$ ont la même ordonnée donc $ y_I=\dfrac{y_A+y_B}{2}=\dfrac{2y_A}{2}=y_A$. \\
+          De plus, d'après ce qui précède, $ x_A+x_B=-\dfrac{b}{a}$, donc $\dfrac{x_A+x_B}{2}=-\dfrac{b}{2a}$, et donc $ x_I=\dfrac{x_A+x_B}{2}=-\dfrac{b}{2a}$. \\
+          On en déduit donc que $ I\left(-\dfrac{b}{2a};y_A\right)$.
+
+    \item Soit $\Delta$ la droite d'équation $ x=-\dfrac{b}{2a}$. Les points $A$ et $B$ ont la même ordonnée, donc le vecteur $\Vec{AB}$ a pour coordonnées $\vcoord{x_B-x_A}{0}$.
+          Un vecteur directeur de $\Delta$ est $\vec{j}\vcoord{0}{1}$. Or $\Vec{AB}\pdt\vec{j}=(x_B-x_A)\times0+0\times1=0$.
+          Les vecteurs sont donc orthogonaux, donc la droite $\Delta$ est orthogonale au segment $[AB]$.
+          De plus, le point $I$, milieur de $[AB]$, appartient à $\Delta$. Donc $\Delta$ est la médiatrice du segment $[AB]$.
+          $B$ est donc le symétrique de $A$ par rapport à $\Delta$.
+
+    \item Si $A$ est le point de la courbe d'abscisse $-\dfrac{b}{2a}$, alors $A$ appartient à $\Delta$, c'est le sommet de la parabole.
+          Donc $A$ invariant par symétrie par rapport à $\Delta$. On a alors $x_A=x_B$. \\
+          Tout point de la parabole admet ainsi un symétrique par rapport à $\Delta$, ce qui signifie que $\Delta$ est axe de symétrie de la parabole.
+  \end{itemize}
+}
+
+
+
+\end{document}
+% ----- FIN DU DOCUMENT -----

@@ -4,44 +4,44 @@
 \newcommand{\DocumentTheme}{Algebre}
 \newcommand{\DocumentType}{Démonstrations}
 
-\input{../../model/settings_cours.tex}
+\input{../../utils.tex}
 
 \begin{document}
 
 \maketitle % Generates the title
 
-\demonstration{Théorème 1}{
+\demonstration{(Théorème 1)}{
     Soient $a$, $b$ et $c$ des réels tel que $a\not=0$.
-    \begin{alignat*}{2}
-         & \text{Pour tout $x$ réel, on a } & f(x) & = ax^2+bx+c                                                                                                                                      \\
-         &                                  &      & = a\left[x^2+\frac{b}{a}x\right]+c                                                                                                               \\
-         &                                  &      & = a\left[x^2+\frac{2b}{2a}x + \green{\left(\frac{b}{2a}\right)^2-\left(\frac{b}{2a}\right)^2}\right]+c \quad\text{IR n°1 : } a^2+2ab+b^2=(a+b)^2 \\
-         &                                  &      & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a^2}\right]+c                                                                                 \\
-         &                                  &      & = a\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a}+c                                                                                                \\
-         &                                  &      & = a(x-\alpha)+\beta \text{ avec $\alpha=\frac{-b}{2a}$ et $\beta=\frac{-b^2}{4a}+c=f(\alpha)$}
-    \end{alignat*}
+    \begin{align*}
+        \text{Pour tout $x$ réel, on a }  f(x) & = ax^2+bx+c                                                                                                                                     \\
+                                               & = a\left[x^2+\frac{b}{a}x\right]+c                                                                     &  &                                     \\
+                                               & = a\left[x^2+\frac{2b}{2a}x + \green{\left(\frac{b}{2a}\right)^2-\left(\frac{b}{2a}\right)^2}\right]+c &  & \textit{(Idendité Remarquable n°1)} \\
+                                               & = a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a^2}\right]+c                                       &  &                                     \\
+                                               & = a\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a}+c                                                      &  &                                     \\
+                                               & = a(x-\alpha)+\beta \text{ avec $\alpha=\frac{-b}{2a}$ et $\beta=\frac{-b^2}{4a}+c=f(\alpha)$}         &  &
+    \end{align*}
 }
 
-\demonstration{Propriété 1}{
+\demonstration{(Propriété 1)}{
     \begin{enumerate}[(i)]
         \item 1$^{\text{er}}$ cas : $a>0$
               \begin{itemize}
                   \item Soient $x_1$ et $x_2$ deux réels de l'intervalle $]-\infty;\alpha[$ tels que $x_1<x_2<\alpha$.
                                     \begin{align*}
-                                        x_1-\alpha            & <  x_2-\alpha < 0                                                                    \\
-                                        (x_1-\alpha)^2        & >  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont négatifs} \\
-                                        a(x_1-\alpha)^2       & > a(x_2-\alpha)^2 \text{ car } a>0                                                   \\
-                                        a(x_1-\alpha)^2+\beta & > a(x_2-\alpha)^2+\beta                                                              \\
-                                        f(x_1)                & > f(x_2)
+                                        x_1-\alpha            & <  x_2-\alpha < 0       &  &                                                          \\
+                                        (x_1-\alpha)^2        & >  (x_2-\alpha)^2       &  & \textit{ car $x_1-\alpha$ et $x_2-\alpha$ sont négatifs} \\
+                                        a(x_1-\alpha)^2       & > a(x_2-\alpha)^2       &  & \textit{ car } a>0                                       \\
+                                        a(x_1-\alpha)^2+\beta & > a(x_2-\alpha)^2+\beta &  &                                                          \\
+                                        f(x_1)                & > f(x_2)                &  &
                                     \end{align*}
                                     Donc $f$ est strictement décroissante sur $]-\infty;\alpha[$.
                   \item Soient $x_1$ et $x_2$ deux réels de l'intervalle $[\alpha;\infty[$ tels que $\alpha<x_1<x_2$.
                         \begin{align*}
-                            0\leq x_1-\alpha      & <  x_2-\alpha                                                                        \\
-                            (x_1-\alpha)^2        & <  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont positifs} \\
-                            a(x_1-\alpha)^2       & < a(x_2-\alpha)^2 \text{ car } a>0                                                   \\
-                            a(x_1-\alpha)^2+\beta & < a(x_2-\alpha)^2+\beta                                                              \\
-                            f(x_1)                & < f(x_2)
+                            0\leq x_1-\alpha      & <  x_2-\alpha           &  &                                                          \\
+                            (x_1-\alpha)^2        & <  (x_2-\alpha)^2       &  & \textit{ car $x_1-\alpha$ et $x_2-\alpha$ sont positifs} \\
+                            a(x_1-\alpha)^2       & < a(x_2-\alpha)^2       &  & \textit{ car } a>0                                       \\
+                            a(x_1-\alpha)^2+\beta & < a(x_2-\alpha)^2+\beta &  &                                                          \\
+                            f(x_1)                & < f(x_2)                &  &
                         \end{align*}
                         Donc $f$ est strictement croissante sur $[\alpha;\infty[$.
               \end{itemize}
@@ -51,20 +51,20 @@
               \begin{itemize}
                   \item Soient $x_1$ et $x_2$ deux réels de l'intervalle $]-\infty;\alpha[$ tels que $x_1<x_2<\alpha$.
                                     \begin{align*}
-                                        x_1-\alpha            & <  x_2-\alpha < 0                                                                    \\
-                                        (x_1-\alpha)^2        & >  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont positifs} \\
-                                        a(x_1-\alpha)^2       & < a(x_2-\alpha)^2 \text{ car } a<0                                                   \\
-                                        a(x_1-\alpha)^2+\beta & < a(x_2-\alpha)^2+\beta                                                              \\
-                                        f(x_1)                & < f(x_2)
+                                        x_1-\alpha            & <  x_2-\alpha < 0       &  &                                                          \\
+                                        (x_1-\alpha)^2        & >  (x_2-\alpha)^2       &  & \textit{ car $x_1-\alpha$ et $x_2-\alpha$ sont positifs} \\
+                                        a(x_1-\alpha)^2       & < a(x_2-\alpha)^2       &  & \textit{ car } a<0                                       \\
+                                        a(x_1-\alpha)^2+\beta & < a(x_2-\alpha)^2+\beta &  &                                                          \\
+                                        f(x_1)                & < f(x_2)                &  &
                                     \end{align*}
                                     Donc $f$ est strictement croissante sur $]-\infty;\alpha[$.
                   \item Soient $x_1$ et $x_2$ deux réels de l'intervalle $[\alpha;\infty[$ tels que $\alpha<x_1<x_2$.
                         \begin{align*}
-                            0\leq x_1-\alpha      & <  x_2-\alpha                                                                        \\
-                            (x_1-\alpha)^2        & <  (x_2-\alpha)^2 \text{ car }x_1-\alpha \text{ et }x_2-\alpha \text{ sont positifs} \\
-                            a(x_1-\alpha)^2       & > a(x_2-\alpha)^2 \text{ car } a<0                                                   \\
-                            a(x_1-\alpha)^2+\beta & > a(x_2-\alpha)^2+\beta                                                              \\
-                            f(x_1)                & > f(x_2)
+                            0\leq x_1-\alpha      & <  x_2-\alpha           &  &                                                          \\
+                            (x_1-\alpha)^2        & <  (x_2-\alpha)^2       &  & \textit{ car $x_1-\alpha$ et $x_2-\alpha$ sont positifs} \\
+                            a(x_1-\alpha)^2       & > a(x_2-\alpha)^2       &  & \textit{ car } a<0                                       \\
+                            a(x_1-\alpha)^2+\beta & > a(x_2-\alpha)^2+\beta &  &                                                          \\
+                            f(x_1)                & > f(x_2)                &  &
                         \end{align*}
                         Donc $f$ est strictement décroissante sur $[\alpha;\infty[$.
               \end{itemize}

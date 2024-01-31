@@ -1,3 +1,4 @@
+import itertools
 from random import randint
 from typing import List
 from math import sqrt
@@ -50,10 +51,8 @@ def square_matrix(matrix: List[List[int]]) -> List[List[int]]:
     n = len(matrix)
     p = len(matrix[0])
     squared_matrix = generate_matrix(n, p)
-    for i in range(n):
-        for j in range(p):
-            for k in range(p):
-                squared_matrix[i][j] += matrix[i][k] * matrix[k][j]
+    for i, j, k in itertools.product(range(n), range(p), range(p)):
+        squared_matrix[i][j] += matrix[i][k] * matrix[k][j]
     return squared_matrix
 
 

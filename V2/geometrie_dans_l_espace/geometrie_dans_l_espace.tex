@@ -28,78 +28,114 @@
         \item Des points de l'espace sont dits coplanaires s'il existe un plan les contenant tous.
         \item Des droites de l'espace sont dites coplanaires s'il existe un plan les contenant toutes.
         \item Deux droites de l'espace sont dites sécantes si elles ont un unique point d'intersection.
+        \item Deux droites de l'espace sont dites parallèles si elles sont coplanaires et non-sécantes.
     \end{itemize}
 }
 
-\exemple{}{Dans le cube $ABCDEFGH$ ci-contre, les droites $(AB)$ et $(ED)$ ne sont ni sécantes ni parallèles : elles
-    sont coplanaires.}
+\begin{minipage}[t]{0.4\textwidth}
+    \vspace{0pt}
+    \begin{tikzpicture}[scale=3]
+        % Définition des sommets du cube
+        \coordinate (A) at (0,0,1);
+        \coordinate (B) at (1,0,1);
+        \coordinate (C) at (1,0,0);
+        \coordinate (D) at (0,0,0);
+        \coordinate (E) at (0,1,0);
+        \coordinate (F) at (0,1,1);
+        \coordinate (G) at (1,1,1);
+        \coordinate (H) at (1,1,0);
+
+        % Dessin des arêtes du cube
+        \draw (A) -- (B) -- (G) -- (F) -- (A);
+        \draw (B) -- (C) -- (H) -- (G);
+        \draw (F) -- (E) -- (H) ;
+        \draw[dashed] (D) -- (A);
+        \draw[dashed] (D) -- (C);
+        \draw[dashed] (D) -- (E);
+
+        % Placement des noms des points
+        \node at (A) [left] {$A$};
+        \node at (B) [right] {$B$};
+        \node at (C) [right] {$C$};
+        \node at (D) [left] {$D$};
+        \node at (E) [left] {$E$};
+        \node at (F) [left] {$F$};
+        \node at (G) [right] {$G$};
+        \node at (H) [right] {$H$};
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.6\textwidth}
+    \vspace{5pt}
+    \exemple{}{Dans le cube $ABCDEFGH$ ci-contre, les droites $(AB)$ et $(ED)$ ne sont ni sécantes ni parallèles : elles
+        sont coplanaires.}
+\end{minipage}
 
 \subsection{Décomposition d'un vecteur et repérage dans un plan}
 
-\theoreme{/ Définition}{
-    Dans un plan, soient $A$, $B$ et $C$ trois points non-alignés.
+\theoremes{/ Définitions}{
+    Dans un plan, soient $A$, $B$ et $C$ trois points non alignés.
     \begin{enumerate}[(i)]
         \item Pour tout vecteur $\vec{u}$ du plan, il existe un unique couple de réels $(x,y)$ tel que $\vec{u}=x\Vec{AB}+y\Vec{AC}$.
-        \begin{itemize}
-            \item On dit que $\vec{u}$ est écrit sous la forme d'une combinaison linéaire de $\Vec{AB}$ et de $\Vec{AC}$.
-            \item Les réels $x$ et $y$ sont appelés les coordonnées de $\vec{u}$ dans la base $(\Vec{AB},\Vec{AC})$. 
-        \end{itemize}      
-        \item Pour tout point $M$ du plan; il existe un unique couple de réels $(x,y)$ tel que $\Vec{AM}=x\Vec{AB}+y\Vec{AC}$.
-        \begin{itemize}
-            \item Les réels $x$ et $y$ sont appelés les coordonnées de $M$ dans le repère $(A, \Vec{AB}, \Vec{AC})$.
-        \end{itemize}
+              \begin{itemize}
+                  \item On dit que $\vec{u}$ est écrit sous la forme d'une combinaison linéaire de $\Vec{AB}$ et $\Vec{AC}$.
+                  \item Les réels $x$ et $y$ sont appelés les coordonnées de $\vec{u}$ dans la base $(\Vec{AB},\Vec{AC})$.
+              \end{itemize}
+        \item Pour tout point $M$ du plan, il existe un unique couple de réels $(x,y)$ tel que $\Vec{AM}=x\Vec{AB}+y\Vec{AC}$.
+              \begin{itemize}
+                  \item Les réels $x$ et $y$ sont appelés les coordonnées de $M$ dans le repère $(A, \Vec{AB}, \Vec{AC})$.
+              \end{itemize}
     \end{enumerate}
 }
 
-\subsection{Vecteurs dans l'espace}
+\subsection{Vecteurs de l'espace}
 
 Soient $A$, $B$, $C$ et $D$ quatre points de l'espace. On dit que les vecteurs $\Vec{AB}$ et $\Vec{CD}$ sont égaux si
-les points $A$, $B$, $C$ et $D$ sont coplanaires et si $ABDC$ est un parallèlogramme. On note $\Vec{AB}=\Vec{CD}$.\newline
+les points $A$, $B$, $C$ et $D$ sont coplanaires et si $ABDC$ est un parallélogramme. On note $\Vec{AB}=\Vec{CD}$.\newline
 
 Un vecteur de l'espace est caractérisé par sa direction, son sens et sa norme.\\
 On définit (de la même façon que dans un plan) les sommes de vecteurs et la multiplication d'un vecteur par un réel. Les
-mêmes règles de calcul restent valables dans l'espace. Par exemple, la relation de Chasles : Pour tous points $A$, $B$
-et $C$ de l'espace $\Vec{AB}+\Vec{BC}=\Vec{AC}$.\newline
+mêmes règles de calcul restent valables dans l'espace.
 
-La notion de colinéarité des vecteurs se généralise aussi à l'espace : 
+La notion de colinéarité des vecteurs se généralise aussi à l'espace :
 \begin{itemize}
     \item Deux vecteurs de l'espace $\vec{u}$ et $\vec{v}$ sont dits colinéaires s'il existe un réel $k$ tel que
-    $\vec{u}=k\vec{v}$.\newline
-    \item Si $A$ et $B$ sont deux points et si les vecteurs $\Vec{AB}$ et $\vec{u}$ sont colinéaires, on dit alors que
-    $\vec{u}$ dirige la droite $(AB)$, ou encore que $\vec{u}$ est un vecteur directeur de la droite $(AB)$.
+          $\vec{u}=k\vec{v}$.
+    \item Si $A$ et $B$ sont deux points de l'espace et si les vecteurs $\Vec{AB}$ et $\vec{u}$ sont colinéaires, on dit alors que
+          $\vec{u}$ dirige la droite $(AB)$, ou encore que $\vec{u}$ est un vecteur directeur de la droite $(AB)$.
 \end{itemize}
 
-\theoreme{}{
+\theoreme{du parallélisme de deux droites}{
     Deux droites de l'espace sont parallèles si et seulement si elles sont dirigées par des vecteurs colinéaires.
 }
 
 \section{Repérage dans l'espace}
 
-\subsection{Bases et repère dans l'espace}
+\subsection{Bases et repères dans l'espace}
 
-\theoreme{/ Définition}{
+\theoremes{/ Définitions}{
     Soient $A$, $B$, $C$ et $D$ quatre points non coplanaires de l'espace :
     \begin{enumerate}[(i)]
-        \item Pour tout vecteur de l'espace $\vec{u}$, il existe trois réels $x$, $y$ et $z$ tels que $\vec{u}=x\Vec{AB}+x\Vec{AC}+x\Vec{AD}$.
-        \begin{itemize}
-            \item Le triplet $(x,y,z)$ est unique et $x$, $y$, $z$ sont appelés coordonnées du vecteur $\vec{u}$ dans la
-            base $(\Vec{AB},\Vec{AC},\Vec{AD})$.
-            \item On note $\vec{u}\Vcoord{x}{y}{z}$.
-        \end{itemize}
-        \item Pour tout point de l'espace $M$, il existe des nombres réels $(x,y,z)$ tels que $\Vec{AM}=x\Vec{AB}+y\Vec{AC}+z\Vec{AD}$.
-        \begin{itemize}
-            \item Le triplet $(x,y,z)$ est unique et $x$, $y$, $z$ sont appelés coordonnées du point $M$ dans le repère
-            $(A,\Vec{AB},\Vec{AC},\Vec{AD})$.
-            \item On note $M\Vcoord{x}{y}{z}$.
-        \end{itemize}
+        \item Pour tout vecteur de l'espace $\vec{u}$, il existe trois réels $x$, $y$ et $z$ tels que $\vec{u}=x\Vec{AB}+y\Vec{AC}+z\Vec{AD}$.
+              \begin{itemize}
+                  \item Le triplet $(x,y,z)$ est unique et $x$, $y$, $z$ sont appelés coordonnées du vecteur $\vec{u}$ dans la
+                        base $(\Vec{AB},\Vec{AC},\Vec{AD})$.
+                  \item On note $\vec{u}\Vcoord{x}{y}{z}$.
+              \end{itemize}
+        \item Pour tout point de l'espace $M$, il existe des réels $(x,y,z)$ tels que $\Vec{AM}=x\Vec{AB}+y\Vec{AC}+z\Vec{AD}$.
+              \begin{itemize}
+                  \item Le triplet $(x,y,z)$ est unique et $x$, $y$, $z$ sont appelés coordonnées du point $M$ dans le repère
+                        $(A,\Vec{AB},\Vec{AC},\Vec{AD})$.
+                  \item On note $M\Vcoord{x}{y}{z}$.
+              \end{itemize}
     \end{enumerate}
 }
 
-\theoreme{}{
+\theoremes{}{
     Dans une base de l'espace :
     \begin{enumerate}[(i)]
-        \item Pour tout vecteurs $\vec{u}$ et $\vec{v}$, si $\vec{u}\Vcoord{x}{y}{z}$ et $\vec{v}\Vcoord{x'}{y'}{z'}$
-        alors $\vec{u}+\vec{v}\Vcoord{x+x'}{y+y'}{z+z'}$.
+        \item Pour tous vecteurs $\vec{u}$ et $\vec{v}$, si $\vec{u}\Vcoord{x}{y}{z}$ et $\vec{v}\Vcoord{x'}{y'}{z'}$
+              alors $\vec{u}+\vec{v}\Vcoord{x+x'}{y+y'}{z+z'}$.
         \item Pour tout réel $k$ et pour tout vecteur $\vec{u}$, si $\vec{u}\Vcoord{x}{y}{z}$ alors $k\vec{u}\Vcoord{kx}{ky}{kz}$.
     \end{enumerate}
 }
@@ -108,9 +144,11 @@ La notion de colinéarité des vecteurs se généralise aussi à l'espace :
     Dans un repère de l'espace : pour tous points $A$ et $B$, si $A(x_A,y_A,z_A)$ et $B(x_B,y_B,z_B)$ alors $\Vec{AB}\Vcoord{x_B-x_A}{y_B-y_A}{z_B-z_A}$.
 }
 
+\newpage
+
 \subsection{Représentation paramétrique d'une droite}
 
-\theoreme{/ Définition}{
+\theoremes{/ Définitions}{
     Soient $A$ un point et $\vec{u}$ un vecteur de l'espace.
     On note $(d)$ la droite dirigée par $\vec{u}$ et passant par $A$.\\
     \begin{enumerate}[(i)]
@@ -120,27 +158,38 @@ La notion de colinéarité des vecteurs se généralise aussi à l'espace :
     Ce système d'équations est appelé une représentation paramétrique de la droite $(d)$. On appelle $k$ le paramètre.
 }
 
-\remarque{Il existe une infinité de représentations paramétriques d'une même droite.}
+\remarque{Il existe une infinité de représentations paramétriques d'une même droite.\\}
 
-\newpage
+\demonstration{}{
+    \begin{align*}
+        M\in(d) & \equival (AM) \text{ parallèle à } (d)                                                                \\
+                & \equival \Vec{AM}\text{ et }\vec{u}\text{ sont colinéaires}                                           \\
+                & \equival \exists k\in\R, \Vec{AM}=k\vec{u}                                                            \\
+                & \equival \exists k\in\R, \Vcoord{x-x_A}{y-y_A}{z-z_A}=k\Vcoord{x_{\vec{u}}}{y_{\vec{u}}}{z_{\vec{u}}} \\
+                & \equival \exists k\in\R, \Sys{x-x_A=kx_{\vec{u}}}{y-y_A=ky_{\vec{u}}}{z-z_A=kz_{\vec{u}}}             \\
+                & \equival \exists k\in\R, \Sys{x=x_A+kx_{\vec{u}}}{y=y_A+ky_{\vec{u}}}{z=_A+kz_{\vec{u}}}
+    \end{align*}
+}
+
 
 \exemple{}{
     Soient $A(0;4;0)$ et $B(1;4;2)$. On calcule $\Vec{AB}\Vcoord{1-0}{4-4}{2-0}\equival\Vec{AB}\Vcoord{1}{0}{2}$.
 
-    Une représentation paramétrique de la droite $(AB):\Sys{x=0+k}{y=4+0k}{z=0+2k}\equival\Sys{x=k}{y=4}{z=2k}$
+    Une représentation paramétrique de la droite $(AB):\Sys{x=0+1k}{y=4+0k}{z=0+2k}\equival\Sys{x=k}{y=4}{z=2k}$
 
 }
 
 \section{Position relative d'une droite et d'un plan}
 
 \definitions{}{
+    \vspace{-10pt}
     \begin{itemize}
         \item Une droite $(d)$ est parallèle à un plan $(P)$ s'il existe une droite $(d')$ incluse dans $(P)$ et
-        parallèle à $(d)$.
+              parallèle à $(d)$.
         \item Une droite $(d)$ est strictement parallèle à $(P)$ si elle est parallèle à $(P)$ et non incluse dans $(P)$.
         \item Une droite est sécante à un plan $(P)$ si elle a un unique point d'intersection avec $(P)$.
         \item Un vecteur $\vec{u}$ est directeur d'un plan $(P)$ s'il existe une droite $(d)$ incluse dans $(P)$ et
-        dirigée par $\vec{u}$.
+              dirigée par $\vec{u}$.
     \end{itemize}
 }
 
@@ -152,12 +201,101 @@ La notion de colinéarité des vecteurs se généralise aussi à l'espace :
     Trois vecteurs $\vec{u}$, $\vec{v}$, et $\vec{w}$ sont dits coplanaires s'il existe deux réels $k$ et $k'$ tels que $\vec{w}=k\vec{u}+k'\vec{v}$
 }
 
-\remarque{Si $\vec{w}=k\vec{u}+k'\vec{v}$, on dit aussi que $\vec{w}$ est une combinaison linéaire de $\vec{u}$ et de $\vec{v}$}.
+\remarque{Si $\vec{w}=k\vec{u}+k'\vec{v}$, on dit aussi que $\vec{w}$ est une combinaison linéaire de $\vec{u}$ et $\vec{v}$}.
 
 \theoreme{}{
     Soit $(d)$ une droite et soit $(P)$ un plan. On suppose que $\vec{u}$ est un vecteur directeur de $(d)$ et que $(\vec{v},\vec{w})$
-    est un couple de vecteurs directeurs non colinéaires de $(P)$ alors on a : $(d)$ est parallèle à $(P) \equival\vec{u}$, $\vec{v}$ et $\vec{w}$ sont coplanaires.
+    est un couple de vecteurs directeurs non colinéaires de $(P)$ alors on a :\\
+    $(d)$ est parallèle à $(P) \equival\vec{u}$, $\vec{v}$ et $\vec{w}$ sont coplanaires.
 }
 
+\section{Produit scalaire dans l'espace}
+
+\definition{}{
+    Soient $\vec{u}$ et $\vec{v}$ deux vecteurs de l'espace.
+    On pose $\vec{u}\pdt\vec{v}=\dfrac{1}{2}\left(\norme{\vec{u}}^2+\norme{\vec{v}}^2-\norme{\vec{v}-\vec{u}}^2\right)$
+}
+
+\theoremes{}{
+    Pour tous vecteurs $\vec{u}$ et $\vec{v}$ de l'espace :
+    \begin{enumerate}[(i)]
+        \item $\vec{u}$ et $\vec{v}$ sont orthogonaux $\equival$ $\vec{u}\pdt\vec{v}=0$
+        \item $\vec{u}\pdt\vec{v}=\norme{\vec{u}}\times\norme{\vec{v}}\times\cos{(\widehat{\vec{u},\vec{v}})}$
+        \item Si $\vec{u}$ et $\vec{v}$ sont colinéaires
+              \begin{enumerate}[(a)]
+                  \item et de même sens, alors $\vec{u}\pdt\vec{v}=\norme{\vec{u}}\times\norme{\vec{v}}$
+                  \item et de sens opposés, alors $\vec{u}\pdt\vec{v}=-\norme{\vec{u}}\times\norme{\vec{v}}$
+              \end{enumerate}
+        \item $\vec{u}\pdt\vec{v}=\vec{v}\pdt\vec{u}$
+        \item $\forall k\in\R: (k\vec{u})\pdt\vec{v} = \vec{u}\pdt(k\vec{v})=k(\vec{u}\pdt\vec{v})$
+    \end{enumerate}
+}
+
+\theoreme{}{
+    Pour tous points $A$, $B$ et $C$ de l'espace : si $H$ est le projeté orthogonal de $B$ sur $(AC)$ alors
+    $\Vec{AB}\pdt\Vec{AC}=\Vec{AH}\pdt\Vec{AC}$.
+}
+
+\theoreme{}{
+    Pour tous vecteurs $\vec{u}$, $\vec{v}$ et $\vec{w}$ de l'espace : $\vec{u}\pdt(\vec{v}+\vec{w})=\vec{u}\pdt\vec{v}+\vec{u}\pdt\vec{w}$.
+}
+
+\definition{}{
+    On appelle repère orthonormé de l'espace, la donnée d'un point $O$ et de trois vecteurs
+    $\vec{i}$, $\vec{j}$ et $\vec{k}$ avec :
+    \begin{itemize}
+        \item $\vec{i}$, $\vec{j}$ et $\vec{k}$ orthogonaux deux à deux,
+        \item $\norme{\vec{i}}=\norme{\vec{j}}=\norme{\vec{k}}=1$
+    \end{itemize}
+}
+
+\remarque{On dit que les vecteurs $\vec{i}$, $\vec{j}$ et $\vec{k}$ sont des vecteurs unitaires.}
+
+\theoreme{}{
+    Dans un repère orthonormé de l'espace $(O,\vec{i},\vec{j},\vec{k})$ : si $\vec{u}\Vcoord{x}{y}{z}$ et
+    $\vec{u}\Vcoord{x'}{y'}{z'}$ alors $\vec{u}\pdt\vec{v}=xx'+yy'+zz'$
+}
+
+\newpage
+
+\demonstration{}{
+    On suppose $\vec{u}\Vcoord{x}{y}{z}$, c'est à dire $\vec{u}=x\vec{i}+y\vec{j}+z\vec{k}$.
+
+    \begin{align*}
+        \text{On calcule } \vec{u}\pdt\vec{i} & =(x\vec{i}+y\vec{j}+z\vec{k})\pdt\vec{i}                                                                \\
+                                              & = x(\vec{i}\pdt\vec{i})+y\underbrace{(\vec{j}\pdt\vec{i})}_{=0}+z\underbrace{(\vec{k}\pdt\vec{i})}_{=0} \\
+                                              & = x\times\norme{\vec{i}}^2                                                                              \\
+                                              & = x
+    \end{align*}
+
+    De façon analogue, $\vec{u}\pdt\vec{j}=y$ et $\vec{u}\pdt\vec{k}=z$.
+
+    On suppose $\vec{v}\Vcoord{x'}{y'}{z'}$, c'est à dire $\vec{v}=x'\vec{i}+y'\vec{j}+z'\vec{k}$.
+
+    \begin{align*}
+        \text{On calcule } \vec{u}\pdt\vec{v} & =\vec{u}\pdt(x'\vec{i}+y'\vec{j}+z'\vec{k})                                \\
+                                              & = \vec{u}\pdt(x'\vec{i}) + \vec{u}\pdt(y'\vec{j}) + \vec{u}\pdt(z'\vec{k}) \\
+                                              & = x'(\vec{u}\pdt\vec{i})+y'(\vec{u}\pdt\vec{j})+z'(\vec{u}\pdt\vec{k})     \\
+                                              & = x'x+y'y+z'z
+    \end{align*}
+
+}
+
+\corrolaire{}{
+    Dans un repère orthonormé de l'espace : si $\vec{u}\Vcoord{x}{y}{z}$ alors $\norme{\vec{u}}=\sqrt{x^2+y^2+z^2}$.
+}
+
+\demonstration{}{
+    \vspace{-10pt}
+    \begin{align*}
+        \text{On a }\norme{\vec{u}}^2 & = \norme{u}\times\norme{u}                                               \\
+                                      & = \vec{u}\pdt\vec{u}       &  & \textit{d'après le théorème 9.(iii).(a)} \\
+                                      & = xx+yy+zz                 &  & \textit{d'après le théorème 12}
+    \end{align*}
+
+    Donc $\norme{\vec{u}}^2=x^2+y^2+z^2$ donc $\norme{\vec{u}}=\sqrt{x^2+y^2+z^2}$.\\
+}
+
+\remarque{Si $A(x_A,y_A,z_A)$ et $B(x_B,y_B,z_B)$ alors on déduit $AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}$.}
 
 \end{document}

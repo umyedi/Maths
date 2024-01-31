@@ -182,6 +182,16 @@
     \end{mdframed}
 }
 
+\newcommand{\corrolaire}[2]{%
+    \begin{mdframed}[style=ProprieteStyle]
+        \ifstrempty{#1}{% Teste si le premier argument est vide
+            \textbf{Corrolaire :}\ % Si vide, n'affiche pas de titre de théorème
+        }{%
+            \textbf{Corrolaire #1 :}\ % Si non vide, affiche le titre avec le premier argument
+        }\\#2
+    \end{mdframed}
+}
+
 % ========== Exemple(s) ==========
 
 % Définition de la commande 'exemple'
@@ -241,9 +251,8 @@
 
 % Vecteurs
 \renewcommand{\Vec}[1]{\overrightarrow{#1}}
-\newcommand*{\norme}[1]{\left\lVert\vv{#1}\right\rVert}
+\newcommand*{\norme}[1]{\|#1\|}
 \newcommand{\pdt}{\mathbin{\vcenter{\hbox{\scalebox{0.6}{\textbullet}}}}}
-
 \newcommand{\vcoord}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 \newcommand{\Vcoord}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
 

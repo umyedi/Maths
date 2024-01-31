@@ -1,0 +1,59 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Géométrie dans l'espace}
+\newcommand{\DocumentTheme}{Géométrie}
+\newcommand{\DocumentType}{Démonstrations}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+    
+\demonstration{de la représentation paramétrique d'une droite (Théorème 6)}{
+    \vspace{-20pt}
+    \begin{align*}
+        M\in(d) & \equival (AM) \text{ parallèle à } (d)                                                                \\
+                & \equival \Vec{AM}\text{ et }\vec{u}\text{ sont colinéaires}                                           \\
+                & \equival \exists k\in\R, \Vec{AM}=k\vec{u}                                                            \\
+                & \equival \exists k\in\R, \Vcoord{x-x_A}{y-y_A}{z-z_A}=k\Vcoord{x_{\vec{u}}}{y_{\vec{u}}}{z_{\vec{u}}} \\
+                & \equival \exists k\in\R, \Sys{x-x_A=kx_{\vec{u}}}{y-y_A=ky_{\vec{u}}}{z-z_A=kz_{\vec{u}}}             \\
+                & \equival \exists k\in\R, \Sys{x=x_A+kx_{\vec{u}}}{y=y_A+ky_{\vec{u}}}{z=_A+kz_{\vec{u}}}
+    \end{align*}
+}
+
+\demonstration{des coordonnées du produit scalaire (Théorème 12)}{
+    On suppose $\vec{u}\Vcoord{x}{y}{z}$, c'est à dire $\vec{u}=x\vec{i}+y\vec{j}+z\vec{k}$.
+
+    \begin{align*}
+        \text{On calcule } \vec{u}\pdt\vec{i} & =(x\vec{i}+y\vec{j}+z\vec{k})\pdt\vec{i}                                                                \\
+                                              & = x(\vec{i}\pdt\vec{i})+y\underbrace{(\vec{j}\pdt\vec{i})}_{=0}+z\underbrace{(\vec{k}\pdt\vec{i})}_{=0} \\
+                                              & = x\times\norme{\vec{i}}^2                                                                              \\
+                                              & = x
+    \end{align*}
+
+    De façon analogue, $\vec{u}\pdt\vec{j}=y$ et $\vec{u}\pdt\vec{k}=z$.
+
+    On suppose $\vec{v}\Vcoord{x'}{y'}{z'}$, c'est à dire $\vec{v}=x'\vec{i}+y'\vec{j}+z'\vec{k}$.
+
+    \begin{align*}
+        \text{On calcule } \vec{u}\pdt\vec{v} & =\vec{u}\pdt(x'\vec{i}+y'\vec{j}+z'\vec{k})                                \\
+                                              & = \vec{u}\pdt(x'\vec{i}) + \vec{u}\pdt(y'\vec{j}) + \vec{u}\pdt(z'\vec{k}) \\
+                                              & = x'(\vec{u}\pdt\vec{i})+y'(\vec{u}\pdt\vec{j})+z'(\vec{u}\pdt\vec{k})     \\
+                                              & = x'x+y'y+z'z
+    \end{align*}
+
+}
+
+\demonstration{du calcul de la norme d'un vecteur (Corrolaire du Théorème 12)}{
+    \vspace{-20pt}
+    \begin{align*}
+        \text{On a }\norme{\vec{u}}^2 & = \norme{u}\times\norme{u}                                               \\
+                                      & = \vec{u}\pdt\vec{u}       &  & \textit{d'après le Théorème 9.iii.a} \\
+                                      & = xx+yy+zz                 &  & \textit{d'après le Théorème 12}
+    \end{align*}
+
+    Donc $\norme{\vec{u}}^2=x^2+y^2+z^2$ donc $\norme{\vec{u}}=\sqrt{x^2+y^2+z^2}$.\\
+}
+
+\end{document}

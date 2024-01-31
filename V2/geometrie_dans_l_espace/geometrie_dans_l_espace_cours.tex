@@ -32,9 +32,9 @@
     \end{itemize}
 }
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
     \vspace{0pt}
-    \begin{tikzpicture}[scale=3]
+    \begin{tikzpicture}[scale=2]
         % Définition des sommets du cube
         \coordinate (A) at (0,0,1);
         \coordinate (B) at (1,0,1);
@@ -46,12 +46,12 @@
         \coordinate (H) at (1,1,0);
 
         % Dessin des arêtes du cube
-        \draw (A) -- (B) -- (G) -- (F) -- (A);
-        \draw (B) -- (C) -- (H) -- (G);
-        \draw (F) -- (E) -- (H) ;
-        \draw[dashed] (D) -- (A);
-        \draw[dashed] (D) -- (C);
-        \draw[dashed] (D) -- (E);
+        \draw[thick] (A) -- (B) -- (G) -- (F) -- (A);
+        \draw[thick] (B) -- (C) -- (H) -- (G);
+        \draw[thick] (F) -- (E) -- (H) ;
+        \draw[dashed, thick] (D) -- (A);
+        \draw[dashed, thick] (D) -- (C);
+        \draw[dashed, thick] (D) -- (E);
 
         % Placement des noms des points
         \node at (A) [left] {$A$};
@@ -64,11 +64,10 @@
         \node at (H) [right] {$H$};
     \end{tikzpicture}
 \end{minipage}%
-\hfill
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.7\textwidth}
     \vspace{5pt}
     \exemple{}{Dans le cube $ABCDEFGH$ ci-contre, les droites $(AB)$ et $(ED)$ ne sont ni sécantes ni parallèles : elles
-        sont coplanaires.}
+        sont non coplanaires.}
 \end{minipage}
 
 \subsection{Décomposition d'un vecteur et repérage dans un plan}
@@ -160,18 +159,6 @@ La notion de colinéarité des vecteurs se généralise aussi à l'espace :
 
 \remarque{Il existe une infinité de représentations paramétriques d'une même droite.\\}
 
-\demonstration{}{
-    \begin{align*}
-        M\in(d) & \equival (AM) \text{ parallèle à } (d)                                                                \\
-                & \equival \Vec{AM}\text{ et }\vec{u}\text{ sont colinéaires}                                           \\
-                & \equival \exists k\in\R, \Vec{AM}=k\vec{u}                                                            \\
-                & \equival \exists k\in\R, \Vcoord{x-x_A}{y-y_A}{z-z_A}=k\Vcoord{x_{\vec{u}}}{y_{\vec{u}}}{z_{\vec{u}}} \\
-                & \equival \exists k\in\R, \Sys{x-x_A=kx_{\vec{u}}}{y-y_A=ky_{\vec{u}}}{z-z_A=kz_{\vec{u}}}             \\
-                & \equival \exists k\in\R, \Sys{x=x_A+kx_{\vec{u}}}{y=y_A+ky_{\vec{u}}}{z=_A+kz_{\vec{u}}}
-    \end{align*}
-}
-
-
 \exemple{}{
     Soient $A(0;4;0)$ et $B(1;4;2)$. On calcule $\Vec{AB}\Vcoord{1-0}{4-4}{2-0}\equival\Vec{AB}\Vcoord{1}{0}{2}$.
 
@@ -208,6 +195,8 @@ La notion de colinéarité des vecteurs se généralise aussi à l'espace :
     est un couple de vecteurs directeurs non colinéaires de $(P)$ alors on a :\\
     $(d)$ est parallèle à $(P) \equival\vec{u}$, $\vec{v}$ et $\vec{w}$ sont coplanaires.
 }
+
+\newpage
 
 \section{Produit scalaire dans l'espace}
 
@@ -256,44 +245,8 @@ La notion de colinéarité des vecteurs se généralise aussi à l'espace :
     $\vec{u}\Vcoord{x'}{y'}{z'}$ alors $\vec{u}\pdt\vec{v}=xx'+yy'+zz'$
 }
 
-\newpage
-
-\demonstration{}{
-    On suppose $\vec{u}\Vcoord{x}{y}{z}$, c'est à dire $\vec{u}=x\vec{i}+y\vec{j}+z\vec{k}$.
-
-    \begin{align*}
-        \text{On calcule } \vec{u}\pdt\vec{i} & =(x\vec{i}+y\vec{j}+z\vec{k})\pdt\vec{i}                                                                \\
-                                              & = x(\vec{i}\pdt\vec{i})+y\underbrace{(\vec{j}\pdt\vec{i})}_{=0}+z\underbrace{(\vec{k}\pdt\vec{i})}_{=0} \\
-                                              & = x\times\norme{\vec{i}}^2                                                                              \\
-                                              & = x
-    \end{align*}
-
-    De façon analogue, $\vec{u}\pdt\vec{j}=y$ et $\vec{u}\pdt\vec{k}=z$.
-
-    On suppose $\vec{v}\Vcoord{x'}{y'}{z'}$, c'est à dire $\vec{v}=x'\vec{i}+y'\vec{j}+z'\vec{k}$.
-
-    \begin{align*}
-        \text{On calcule } \vec{u}\pdt\vec{v} & =\vec{u}\pdt(x'\vec{i}+y'\vec{j}+z'\vec{k})                                \\
-                                              & = \vec{u}\pdt(x'\vec{i}) + \vec{u}\pdt(y'\vec{j}) + \vec{u}\pdt(z'\vec{k}) \\
-                                              & = x'(\vec{u}\pdt\vec{i})+y'(\vec{u}\pdt\vec{j})+z'(\vec{u}\pdt\vec{k})     \\
-                                              & = x'x+y'y+z'z
-    \end{align*}
-
-}
-
 \corrolaire{}{
     Dans un repère orthonormé de l'espace : si $\vec{u}\Vcoord{x}{y}{z}$ alors $\norme{\vec{u}}=\sqrt{x^2+y^2+z^2}$.
-}
-
-\demonstration{}{
-    \vspace{-10pt}
-    \begin{align*}
-        \text{On a }\norme{\vec{u}}^2 & = \norme{u}\times\norme{u}                                               \\
-                                      & = \vec{u}\pdt\vec{u}       &  & \textit{d'après le théorème 9.(iii).(a)} \\
-                                      & = xx+yy+zz                 &  & \textit{d'après le théorème 12}
-    \end{align*}
-
-    Donc $\norme{\vec{u}}^2=x^2+y^2+z^2$ donc $\norme{\vec{u}}=\sqrt{x^2+y^2+z^2}$.\\
 }
 
 \remarque{Si $A(x_A,y_A,z_A)$ et $B(x_B,y_B,z_B)$ alors on déduit $AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}$.}

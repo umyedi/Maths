@@ -225,7 +225,11 @@
 % ========== Démonstration ==========
 
 \newcommand{\demonstration}[2]{
-    \textbf{Démonstration :} #1
+    \ifstrempty{#1}{% Teste si le premier argument est vide
+        \textbf{Démonstration :}\ % Si vide, n'affiche pas de titre de théorème
+    }{%
+        \textbf{Démonstration #1 :}\ % Si non vide, affiche le titre avec le premier argument
+    }
     \begin{quote}
         #2
     \end{quote}

@@ -15,101 +15,158 @@
 \subsection{Fonction continue en un réel}
 
 \definitions{}{
-    Soient $a$ un réel, $I$ un intervalle contenant $a$ et $f$ une fonction définie sur $I$.
-    On dit que $f$ est continue en $a$ si les limites à droite et à gauche, quand $x$ tend vers $a$, de $f(x)$ existent
-    et sont toutes égales à $f(a)$, autrement dit, si $\lim{x\to a^+}f(x)=\lim{x\to a^-}f(x)=f(a)$.\\
-    Dans le cas contraire, on dit que $f$ admet une discontinuité en $a$.
+	Soient $a$ un réel, $I$ un intervalle contenant $a$ et $f$ une fonction définie sur $I$.
+	On dit que $f$ est continue en $a$ si les limites à droite et à gauche, quand $x$ tend vers $a$, de $f(x)$ existent
+	et sont toutes égales à $f(a)$, autrement dit, si $\lim{x\to a^+}f(x)=\lim{x\to a^-}f(x)=f(a)$.\\
+	Dans le cas contraire, on dit que $f$ admet une discontinuité en $a$.
 }
 
 \remarque{Pour indiquer que les limites à droite et à gauche, quand $x$ tend vers $a$, de $f(x)$ existent et sont égales
-    à $f(a)$, on écrira simplement $\lim{x\to a}f(x)=f(a)$.}
+	à $f(a)$, on écrira simplement $\lim{x\to a}f(x)=f(a)$.}
 
 \exemple{}{
-    \begin{enumerate}[(1)]
-        \item La fonction valeur absolue est définie pour tout réel $x$ par $\|x\|=
-                  \begin{cases}
-                      x  & \text{si } x\geq0 \\
-                      -x & \text{si } x<0
-                  \end{cases}$
+	\begin{enumerate}[(1)]
+		\item La fonction valeur absolue est définie pour tout réel $x$ par $\|x\|=
+			      \begin{cases}
+				      x  & \text{si } x\geq0 \\
+				      -x & \text{si } x<0
+			      \end{cases}$
 
-              Quand $x$ tend vers $0$ :
-              \begin{itemize}
-                  \item la limite à droite est $\lim{x\to0^+}\|x\|=\lim{x\to0}x=0$,
-                  \item la limite à gauche est $\lim{x\to0^-}\|x\|=\lim{x\to0}-x=0$.
-                  \item De plus, l'image de $0$ est $\|0\|=0$.\\
-              \end{itemize}
-              La fonction valeur absolue est donc continue en $0$.
-        \item La partie entière d'un réel $x$ est par définition l'unique entier relatif $n$ tel que $n\leq x<n+1$. On
-        la note $E(x)$. Pour tout entier relatif $a$, la fonction partie entière admet une discontinuité en $a$. \\
-        Démontrons par exemple que la fonction partie entière n'est pas continue en $a=2$.
-        \begin{itemize}
-            \item Si $1\leq x<2$ alors $E(x)=1$ dont la limite à gauche, quand $x$ tend vers $2$, de la fonction partie 
-            entière est $\lim{x\to2^-}=1$.
-            \item Si $2\leq x<3$ alors $E(x)=2$ dont la limite à droite, quand $x$ tend vers $2$, de la fonction partie 
-            entière est $\lim{x\to2^+}=2$.
-        \end{itemize}
-        La limite à gauche et la limité à droite sont différentes : cette fonction n'est donc pas continue en $2$. La
-        démonstration serait identique pour n'importe quel entier relatif.
-    \end{enumerate}
+		      Quand $x$ tend vers $0$ :
+		      \begin{itemize}
+			      \item la limite à droite est $\lim{x\to0^+}\|x\|=\lim{x\to0}x=0$,
+			      \item la limite à gauche est $\lim{x\to0^-}\|x\|=\lim{x\to0}-x=0$.
+			      \item De plus, l'image de $0$ est $\|0\|=0$.\\
+		      \end{itemize}
+		      La fonction valeur absolue est donc continue en $0$.
+		\item La partie entière d'un réel $x$ est par définition l'unique entier relatif $n$ tel que $n\leq x<n+1$. On
+		      la note $E(x)$. Pour tout entier relatif $a$, la fonction partie entière admet une discontinuité en $a$. \\
+		      Démontrons par exemple que la fonction partie entière n'est pas continue en $a=2$.
+		      \begin{itemize}
+			      \item Si $1\leq x<2$ alors $E(x)=1$ dont la limite à gauche, quand $x$ tend vers $2$, de la fonction partie
+			            entière est $\lim{x\to2^-}=1$.
+			      \item Si $2\leq x<3$ alors $E(x)=2$ dont la limite à droite, quand $x$ tend vers $2$, de la fonction partie
+			            entière est $\lim{x\to2^+}=2$.
+		      \end{itemize}
+		      La limite à gauche et la limité à droite sont différentes : cette fonction n'est donc pas continue en $2$. La
+		      démonstration serait identique pour n'importe quel entier relatif.
+	\end{enumerate}
 }
 
 \subsection{Fonction continue sur un intervalle}
 
 \definitions{}{
-    Soient $I$ un intervalle et $f$ une fonction définie sur $I$. On dit que $f$ est continue sur $I$ si pour tout réel
-    $a$ appartenant à $I$, $f$ est continue en $a$.
+	Soient $I$ un intervalle et $f$ une fonction définie sur $I$. On dit que $f$ est continue sur $I$ si pour tout réel
+	$a$ appartenant à $I$, $f$ est continue en $a$.
 }
 
 \theoreme{(continuité des fonctions usuelles)}{
-    \vspace{-10pt}
-    \begin{enumerate}
-        \item Les fonctions affines, polynômes, racine carrée, valeur absolue, cosinus, sinus, exponentielles  et
-        logarithmes, sont continues sur chaque intervalle où elles sont définies.
-        \item Toute fonction construite à partir des précédentes par somme, produit, quotient ou composition, est
-        continue sur chaque intervalle où elle est définie.
-    \end{enumerate}
+	\vspace{-10pt}
+	\begin{enumerate}
+		\item Les fonctions affines, polynômes, racine carrée, valeur absolue, cosinus, sinus, exponentielles  et
+		      logarithmes, sont continues sur chaque intervalle où elles sont définies.
+		\item Toute fonction construite à partir des précédentes par somme, produit, quotient ou composition, est
+		      continue sur chaque intervalle où elle est définie.
+	\end{enumerate}
 }
 
 \newpage
 
 \exemple{}{
-    \begin{itemize}
-        \item La fonction $f$ définie pour tout réel $x$ par $f(x)=e^{3x-5}$, est continue sur $\R$ car elle est obtenue
-        par la composition d'une fonction affine et de la fonction exponentielle.
-        \item La fonction $f$ définie pour tout réel $x$ par $g(x)=\dfrac{\sqrt{x}}{x^2-1}$ est continue sur $]0;1[$ et
-        sur $]1;+\infty[$ car elle est obtenue par quotient de la fonction racine carrée et d'une fonction polynôme.
-    \end{itemize}
+	\begin{itemize}
+		\item La fonction $f$ définie pour tout réel $x$ par $f(x)=e^{3x-5}$, est continue sur $\R$ car elle est obtenue
+		      par la composition d'une fonction affine et de la fonction exponentielle.
+		\item La fonction $f$ définie pour tout réel $x$ par $g(x)=\dfrac{\sqrt{x}}{x^2-1}$ est continue sur $]0;1[$ et
+		      sur $]1;+\infty[$ car elle est obtenue par quotient de la fonction racine carrée et d'une fonction polynôme.
+	\end{itemize}
 }
 
 \theoreme{(continuité des fonctions dérivables)}{
-    Soient $I$ un intervalle et $f$ une fonction définie sur $I$. Si $f$ est dérivable sur $I$ alors $f$ est continue
-    sur $I$.
+	Soient $I$ un intervalle et $f$ une fonction définie sur $I$. Si $f$ est dérivable sur $I$ alors $f$ est continue
+	sur $I$.
 }
 
 \section{Théorème des valeurs intermédiaires}
 
 \theoreme{des valeurs intermédiaires (TVI)}{
-    Soit $f$ une fonction définie sur un intervalle $I$. Soient $a$ et $b$ deux réels dans $I$. Pour tout $k$ réel, si
-    $f$ est continue sur $I$ et si $f(a)<k<f(b)$ alors il existe au moins un réel $c$ dans l'intervalle $[a;b]$ tel que
-    $f(x)=k$.
-}
-
-\corrolaire{de la bijection}{
-    Soit $f$ une fonction définie sur un intervalle $I$. Soient $a$ et $b$ deux réels dans $I$. Il existe un réel $k$
-    tel que si $f$ est continue et strictement croissante et $f(a)<k<f(b)$ alors il existe un unique réel $c$ dans
-    l'intervalle $[a;b]$ tel que $f(c)=k$.
+	Soit $f$ une fonction définie sur un intervalle $I$. Soient $a$ et $b$ deux réels dans $I$. Pour tout $k$ réel, si
+	$f$ est continue sur $I$ et si $f(a)<k<f(b)$ alors il existe au moins un réel $c$ dans l'intervalle $[a;b]$ tel que
+	$f(x)=k$.
 }
 
 \definitions{}{
-    Soient $I$ et $J$ deux intervalles. Soit $f:I\mapsto J$. On dit que $f$ est une bijection de $I$ dans $J$ si tout
-    réel de $J$ admet un unique antécédent dans $I$.
+	Soient $I$ et $J$ deux intervalles. Soit $f:I\mapsto J$. On dit que $f$ est une bijection de $I$ dans $J$ si tout
+	réel de $J$ admet un unique antécédent dans $I$.
 }
 
 \exemple{}{
-    \begin{itemize}
-        \item Une fonction affine non constante est une bijection de $\R$ dans $\R$.
-        \item La fonction exponentielle est une bijection de $\R$ dans $]0;+\infty[$.
-    \end{itemize}
+	\begin{itemize}
+		\item Une fonction affine non constante est une bijection de $\R$ dans $\R$.
+		\item La fonction exponentielle est une bijection de $\R$ dans $]0;+\infty[$.
+	\end{itemize}
 }
+
+\theoreme{de la bijection (corrolaire)}{
+	Soit $f$ une fonction définie sur un intervalle $I$. Soient $a$ et $b$ deux réels dans $I$. Il existe un réel $k$
+	tel que si $f$ est continue et strictement croissante et $f(a)<k<f(b)$ alors il existe un unique réel $c$ dans
+	l'intervalle $[a;b]$ tel que $f(c)=k$.
+}
+
+\remarque{Le théorème de la bijection est également valable pour une fonction strictement décroissante.}
+
+\exemple{démontrons l'existence d'une solution pour l'équation $\cos(x)=x$}{
+
+Comme $-1\leq\cos(x)\leq1$, les solutions éventuelles sont à chercher dans l'intervalle $[-1;1]$.
+
+Si $\dfrac{-\pi}{2}<x<0$, alors $\cos(x)>0$ et donc $\cos(x)\not=x$ ce qui veut dire qu'on peut réduire l'intervalle
+de recherche à $[0;1]$.
+
+Étudions la fonction $f(x)=\cos(x)-x$ sur $[0;1]$ : $f'(x)=-\sin(x)-1<0$ car $\forall x\in[0;1]: \sin(x)>0$ donc $f$
+est strictement décroissante sur $[0;1]$. De plus, $f$ est continue car c'est une somme de fonctions de référence.
+
+Aussi, $f(0)=1>0$ et $f(1)=\cos(1)-1<0$ car $\cos(1)<0$
+
+Conclusion : d'après le théorème de la bijection, l'équation $f(x)=0$ admet donc une unique solution dans
+l'intervalle $]0;1[$. Donc $\cos(x)=x$ admet une unique solution réelle.
+}
+
+\section{Limite d'une suite par récurrence}
+
+\theoreme{}{
+	Soit $f$ une fonction définie sur un intervalle $I$. Soit $a\in I$. Si $f$ est continue en $a$, alors pour toute
+	suite $u_n$ convergeant vers $a$, la suite $(f(u_n))$ converge vers $a$.
+}
+
+\theoreme{du point fixe}{
+	Soif $f$ une fonction définie sur $I$. Soit $u_n$ la suite définie par récurrence telle que pour tout $n\in\N :
+		u_n\in I$ et $u_{n+1}=f(u_n)$. Si $u_n$ converge vers un réel $l$, et $f$ est continue en $l$ alors $f(l)=l$.
+}
+
+\exemple{
+	Soit $(u_n):
+		\begin{cases}
+			u_n=0 \\
+			\forall n\in\N : u_{n+1}=\sqrt{\dfrac{u_n}{2}+1}
+		\end{cases}$
+}{
+	On peut prouver que $u_n$ est croissante et majorée par $2$ donc $u_n$ converge vers un réel $l$.
+
+	La fonction $f(x)=\sqrt(\dfrac{x}{2}+1)$ étant continue sur l'intervalle où elle est définie, d'après le théorème du
+	point fixe :
+	\begin{align*}
+		f(l)=l & \Leftrightarrow l=\sqrt{\dfrac{l}{2}+1} \\
+		       & \Leftrightarrow l^2=\dfrac{l}{2}+1 \qquad \text{avec } l>0 \\
+		       & \Leftrightarrow 2l^2-l-2=0  \qquad \text{avec } l>0\\
+               & \text{ On calcule} \quad \Delta=17>0 \quad \text{donc} \quad x_1=\dfrac{1-\sqrt{17}}{4}<0 \quad;\quad  x_2=\dfrac{1+\sqrt{17}}{4}>0 \\
+               & \Leftrightarrow l=x_2=\dfrac{1+\sqrt{17}}{4}
+	\end{align*}
+
+    Conclusion $\ds\lim{n\to+\infty}u_n=\frac{1+\sqrt{17}}{4}$.
+}
+
+
+
+
+
 
 \end{document}

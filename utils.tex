@@ -21,6 +21,9 @@
 \usepackage{makecell}         % Retour à la ligne dans une case d'un tabular
 \usepackage{stmaryrd}         % Intervalles entières : \llbracket et \rrbracket
 \usepackage{cancel}           % Permet de barrer des termes
+\usepackage{forest}           % Permet de créer des arbres pondérés
+\usepackage{tabularx}         % Permet de générer des tableaux (ex: cours fonction dérivées et application)
+\usepackage{multirow}         % Permet de faire plusieurs lignes dans des cases de talbeaux
 
 
 \pgfplotsset{compat=newest}   % Active les dernières fonctionnalités de pgfplots
@@ -221,7 +224,10 @@
 
 % Définition de la commande 'remarques'
 \newcommand{\remarques}[1]{
-    \textbf{Remarques :} #1
+    \textbf{Remarques :}
+    \begin{quote}
+        #1
+    \end{quote}
 }
 
 % ========== Démonstration ==========

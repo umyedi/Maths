@@ -1,0 +1,238 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Fonction exponentielle et logarithme népérien}
+\newcommand{\DocumentTheme}{Analyse}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Généralités sur la fonction exponentielle}
+
+\definition{}{
+	Il existe une unique fonction $f$ dérivable sur $\R$ telle que $f'=f$ et $f(0)=1$. Cette fonction est
+	appelée fonction exponentielle et se note $\exp$. Ainsi, pour tout réel $x$, on a $\exp'(x)=\exp(x)$ et $\exp(0)=1$.
+}
+
+\subsection{Propriétés algébriques}
+
+\propriete{(lemme)}{
+	Pour tout réel $x$, on a $\exp(x)\not=0$.
+}
+
+\proprietes{}{
+	Pour tous réels $x$ et $y$, on a :
+	\begin{enumerate}[(i)]
+		\item $\exp(x+y)=\exp(x)\times\exp(y)$ \quad (appelé relation fonctionnelle)
+		\item $\exp(-x)=\dfrac{1}{\exp(x)}$
+		\item $\exp(x-y)=\dfrac{\exp(x)}{\exp(y)}$
+		\item $\exp(nx)=\exp(x)^n$
+	\end{enumerate}
+}
+
+\subsection{La notation de l'exponentielle}
+
+\definition{}{
+	L'image de $1$ par la fonction $\exp$ est le nombre noté $e$, appelé constante d'Euler. Ainsi, $\exp(1)=e$.
+}
+
+\remarques{
+	\begin{itemize}
+		\item La fonction $\exp$ possède les mêmes propriété algébriques que les fonctions puissances. On notera
+		      donc $\exp(x)=e^x$.
+		\item $e \approx 2,71828182845904\dots$
+	\end{itemize}
+}
+
+\proprietes{}{
+	Pour tous réels $x$ et $y$, on a :
+	\vspace{-10pt}
+	\begin{multicols}{2}
+		\begin{enumerate}[(i)]
+			\item $e^{x+y}=e^x\times e^y$
+			\item $e^{-x}=\dfrac{1}{e^x}$
+			\item $e^{x-y}=\dfrac{e^x}{e^y}$
+			\item $(e^x)^n=e^{nx}$
+		\end{enumerate}
+	\end{multicols}
+	\vspace{5pt}
+}
+
+\newpage
+
+\section{Étude et applications de la fonction exponentielle}
+
+\subsection{Signe et variations de la fonction exponentielle}
+
+\propriete{}{
+	La fonction $\exp$ est strictement positive sur $\R$. Autrement dit : pour tout nombre réel $x$, $e^x>0$.
+}
+
+\propriete{}{
+	La fonction $\exp$ est strictement croissante sur $\R$.
+}
+
+\subsection{Fonctions définies avec l'exponentielle}
+
+\propriete{}{
+Soit $a\in\R$. Soit la fonction $f(x)=e^{ax}$.
+\begin{enumerate}[(i)]
+	\item Pour $a>0$, la fonction $f$ est strictement croissante sur $\R$.
+	\item Pour $a<0$, la fonction $f$ est strictement décroissante sur $\R$.
+\end{enumerate}
+}
+
+\propriete{}{
+Soient $a$ et $b$ deux réels. La fonction $f$ définie sur $\R$ par $f(x)=e^{ax+b}$ est dérivable sur $\R$ et pour
+tout réel $x$, $f'(x)=a\times e^{ax+b}$.
+}
+
+\subsection{Équations et inéquations}
+
+\propriete{}{
+	Pour tous réels $a$ et $b$, on a :
+	\begin{enumerate}[(i)]
+		\item $e^a=e^b \Leftrightarrow a=b$
+		\item $e^a<e^b \Leftrightarrow a<b$
+		\item $e^a\leq e^b \Leftrightarrow a\leq b$
+	\end{enumerate}
+}
+
+
+\section{Généralités sur la fonction logarithme népérien}
+
+\propriete{(lemme)}{
+	Pour tout réel $a>0$, il existe un unique réel $b$ tel que $a=e^b$.
+}
+
+\subsection{Définition et notation}
+
+\definition{}{
+	On appelle logarithme népérien d'un réel $a>0$, le nombre réel $b$ tel que $e^b=a$. On le note $\ln(a)=b$.
+}
+
+\remarques{
+	\begin{itemize}
+		\item $\ln(0)$ n'existe pas. En effet, $e^x\not=0$ pour tout $x\in\mathbb{R}$
+		\item Pour tout entier $n\geq 2$, $\ln(n)$ n'est pas rationel.
+	\end{itemize}
+}
+
+\exemples{}{
+	\begin{itemize}
+		\item $\ln(1) = 0$ (car $e^0=1$)
+		\item $\ln(e) = 1$ (car $e^1=e$)
+	\end{itemize}
+}
+
+\newpage
+
+\subsection{Propriétés algébriques}
+
+\propriete{}{
+	Pour tout réel $x>0$, $y>0$ et pour tout entier relatif $n$ :
+	\begin{enumerate}[(i)]
+		\item $e^{\ln(x)}=x$
+		\item $\ln(e^x)=x$
+		\item $\ln(xy) = \ln(x) + \ln(y)$
+		\item $\ln(\frac{x}{y}) = \ln(x) - \ln(y)$
+		\item $\ln(x^n)=n\ln(x)$
+	\end{enumerate}
+}
+
+\section{Propriétés graphiques}
+
+\subsection{Symétrie des courbes représentatives}
+
+\begin{minipage}{0.5\textwidth}
+	Dans un repère orthonormé, on note $d$ la droite d'équation $x=y$.\\
+	La symétrie axiale par rapport à la droite $d$ a pour effet d'échanger les abscisses et les ordonnées, c'est à dire
+	qu'elle transforme tout point de coordonnées $(x;y)$ en un point de coordonnées $(x;y)$. \\
+
+	\theoreme{}{
+		Les courbes représentatives de la fonction $\exp$ et $\ln$ sont symétriques l'une de l'autre par rapport à la
+		droite $d$.
+	}
+
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+	\begin{tikzpicture}
+		\begin{axis}[
+				axis lines = middle,
+				axis equal,
+				samples=200,
+				xlabel = $x$,
+				ylabel = {$y$},
+				xmin=-3.5, xmax=5.5,
+				ymin=-2, ymax=4,
+				xtick = {-3, -2,...,5},
+				ytick = {-3, -2,...,5},
+				grid = both,
+				minor tick num = 1,
+				major grid style = {lightgray},
+				minor grid style = {lightgray!25}
+			]
+			\addplot[red, thick] {exp(x)};
+			\addplot[blue, thick] {ln(x)};
+			\addplot[green, thick] {x};
+		\end{axis}
+		\node at (1,2.6) {$\red{\exp(x)}$};
+		\node at (4.6,4.8) {$\green{y=x}$};
+		\node at (3.5,1) {$\blue{\ln(x)}$};
+	\end{tikzpicture}
+\end{minipage}
+
+\subsection{Dérivation de la fonction logarithme}
+
+\propriete{}{
+	Si pour tout réel $x>0$, $f(x)=\ln(x)$ alors $f$ est dérivable, et pour tout $x>0$ : $f'(x)=\dfrac{1}{x}$
+}
+
+\proprietes{(corrolaires)}{
+	\vspace{-10pt}
+	\begin{itemize}
+		\item La fonction $\ln(x)$ est strictement croissante sur $]0;+\infty[$.
+		\item Pour tous réels $a$ et $b$ strictements positifs, $\ln(a)<\ln(b)\Leftrightarrow a<b$.
+	\end{itemize}
+}
+
+\section{Compléments sur le logarithme décimal}
+
+Soit $n$ un entier et en posant $x=10^n$, on a $\ln(x)=n\times\ln(10)$ donc $n=\dfrac{\ln(x)}{\ln(10)}$.
+
+Le nombre $n$ est appelé le logarithme décimal de $x$ noté $\log_10(x)$ ou plus simplement $\log(x)$. On peut
+généraliser cette définition pour tout réel strictement positif :
+
+\definition{}{
+	Pour tout réel $a>0$, on définit le logarithme décimal de a par $\log(a)=\dfrac{\ln(a)}{\ln(10)}$.
+}
+
+\newpage
+
+\proprietes{}{
+	Pour tous réels $x>0$, $y>0$ et pour tout entier relatif $n$, on a :
+	\vspace{-10pt}
+	\begin{multicols}{2}
+		\begin{enumerate}[(i)]
+			\item $\log(10^n)=n$
+			\item $\log(x \times y)=\log(x)+\log(y)$
+			\item $\log\left(\dfrac{x}{y}\right)=\log(x)-\log(y)$
+			\item $\log(x^n)=n\times\log(n)$
+		\end{enumerate}
+	\end{multicols}
+	\vspace{5pt}
+	}
+
+\remarque{Tout nombre réel $x$ peut s'écrire sous la forme $x=a\times10^n$ avec $a\in[1;10[$ (c'est ce qu'on appelle
+l'écriture scientifique de $x$). Dans ce cas, l'entier $n$ est égal à la partie entière de $\log(x)$.}
+
+\exemple{}{
+	Soit $x=123,4=1,234\times10^2$. La partie entière de $\log(x)$ est égal à $2$, c'est à dire que $2\leq\log(x)<3$.
+}
+
+
+\end{document}

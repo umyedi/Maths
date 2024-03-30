@@ -1,0 +1,96 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Convexité}
+\newcommand{\DocumentTheme}{Analyse}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Définition}
+
+\theoreme{}{
+	Soit $f$ une fonction dérivable deux fois sur un intervalle $I$. Si la fonction dérivée $f'$ est croissante sur $I$
+	alors la courbe $f$ se situe au dessus de toutes ses tangentes sur $I$.
+}
+
+\definition{}{
+	Une fonction deux fois dérivable sur un intervalle $I$ est dite convexe si elle vérifie les trois proposition
+	suivantes.
+}
+
+\theoreme{}{
+	Pour toute fonction $f$ dérivable deux fois sur un intervalle $I$, alors les trois propositions suivantes sont
+	équivalentes :
+	\begin{enumerate}[(i)]
+		\item La fonction dérivée $f$ est croissante sur $I$.
+		\item La courbe de $f$ se situe au dessus de toutes ses tangentes sur $I$.
+		\item La dérivée seconde $f''$ est positive sur $I$.
+	\end{enumerate}
+}
+
+\exemples{}{
+	\begin{itemize}
+		\item La fonction carrée : $\forall x\in\R : f(x)=x^2 \quad;\quad f'(x)=2x \quad;\quad f''(x)=2>0$ \\
+		      La dérivée seconde $f''$ est positive sur $\R$ donc $f$ est convexe sur $\R$.
+		\item La fonction exponentielle : $\forall x\in\R: f(x)=e^x \quad;\quad f'(x)=e^x \quad;\quad f''(x)=e^x>0$ \\
+		      La dérivée seconde $f''$ est positive sur $\R$ donc $f$ est convexe sur $\R$.
+		\item La fonction inverse : $\forall x\in\R^*: f(x)=\dfrac{1}{x} \quad;\quad f'(x)=\dfrac{-1}{x^2} \quad;\quad f''(x)=\dfrac{2}{x^3}>0$ \\
+		      Pour tout $x>0$, $f''>0$ donc $f$ est convexe sur $\R$.
+
+	\end{itemize}
+}
+
+\definition{}{
+	Une fonction deux fois dérivable sur un intervalle $I$ est dite concave si elle vérifie les trois proposition
+	suivantes.
+}
+
+\theoreme{}{
+	Pour toute fonction $f$ dérivable deux fois sur un intervalle $I$, alors les trois propositions suivantes sont
+	équivalentes :
+	\begin{enumerate}[(i)]
+		\item La fonction dérivée $f$ est décroissante sur $I$.
+		\item La courbe de $f$ se situe en dessous de toutes ses tangentes sur $I$.
+		\item La dérivée seconde $f''$ est négative sur $I$.
+	\end{enumerate}
+}
+
+\exemples{}{
+	\begin{itemize}
+		\item La fonction inverse est concave sur $]-\infty;0[$ car $f''(x)=\dfrac{2}{x^3}<0$ pour tout $x<0$
+		\item La fonction racine carrée : $\forall x\in\R^*_+, f(x)=\sqrt{x} \quad;\quad f'(x)=\dfrac{1}{2\sqrt{x}} \quad;\quad f''(x)=\dfrac{-\frac{1}{\sqrt{x}}}{(2\sqrt{x})^2}<0$ \\
+		      La dérivée seconde $f''$ est négative sur $\R^*_+$ donc $f$ est concave sur $\R^*_+$.
+		\item La fonction logarithme népérien : $\forall x\in\R^*_+ : f(x)=\ln(x) \quad;\quad f'(x)=\dfrac{1}{x} \quad;\quad \dfrac{-1}{x^2}<0$
+		      La dérivée seconde $f''$ est négative sur $\R^*_+$ donc $f$ est concave sur $\R^*_+$.
+	\end{itemize}
+}
+
+\definition{}{
+	Soit $f$ une fonction deux fois dérivable sur un intervalle $I$. Soit $a\in I$. On dit que le point de corrdonnées
+	$(a;f(a))$ est un point d'inflexion de la courbe de $f$ si $f''$ change de signe en s'annulant en $a$.
+}
+
+\remarque{Le point d'inflexion est un point où la courbe de $f$ traverse sa tangente.}
+
+\exemple{}{
+	La fonction cube : $\forall x\in\R : f(x)=x^3  \quad;\quad f'(x)=3x^2  \quad;\quad f''(x)=6x$
+
+	Ici, $f''$ change de signe en s'annulant en $x=0$, donc le point $(0,0)$ est un point d'inflexion de la courbe $f$.
+
+	Conclusion : $f$ est
+	$\begin{cases}
+		\text{concave sur }  ]-\infty;0] & \\
+		\text{convexe sur } ]0;+\infty[  &
+	\end{cases}$
+
+}
+
+\remarque{Les points d'inflexion correspondent à l'endroit où la convexité de la courbe change (passe de concave à
+convexe ou l'inverse)}
+
+
+\end{document}

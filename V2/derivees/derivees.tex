@@ -1,0 +1,208 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Fonctions dérivées et applications}
+\newcommand{\DocumentTheme}{Analyse}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+% \renewcommand{\arraystretch}{1}
+\newcolumntype{C}{>{\centering\arraybackslash}p{5cm}}
+
+\begin{document}
+
+\maketitle
+
+\section{Fonctions dérivées}
+
+\definition{}{
+	Soit $f$ une fonction définie sur un intervalle $I$. Si, pour tout réel $a$ de $I$, le nombre dérivé $f'(a)$ existe,
+	on dit que la fonction $f$ est dérivable sur $I$. On appelle fonction dérivée de $f$ sur $I$ la fonction qui, a tout
+	réel $x\in I$ associe le réel $f'(x)$. On la note $f'$.
+}
+
+\subsection{Dérivées des fonctions usuelles}
+
+\begin{tabular}{|l|l|l|}
+	\hline
+	                           &                                                              &                                                       \\
+	\textbf{Nom}               & \textbf{Fonction}                                            & \textbf{Dérivée}                                      \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction constante         & $\forall x\in\R: \quad f(x)=k \quad (k\in\R)$                & $\forall x\in\R : \quad  f'(x)=0$                     \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction affine            & $\forall x\in\R: \quad f(x)=ax+b \quad$ ($a$ et $b$ réels)   & $\forall x\in\R : \quad  f'(x)=a$                    \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction puissance         & $\forall x\in\R: \quad f(x)=x^n \quad (n\in\N^*)$            & $\forall x\in\R : \quad  f'(x)=nx^{n-1}$              \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction inverse           & $\forall x\in\R^*: \quad f(x)=\dfrac{1}{x}$                    & $\forall x\in\R^* : \quad  f'(x)=\dfrac{-1}{x^2}$       \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction puissance inverse & $\forall x\in\R^*: \quad f(x)=\dfrac{1}{x^n} \quad (n\in\N^*)$ & $\forall x\in\R^* : \quad  f'(x)=\dfrac{-n}{x^{n+1}}$   \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction racine carrée     & $\forall x\in\R^*_+: \quad f(x)=\sqrt{x}$                      & $\forall x\in\R^*_+ : \quad  f'(x)=\dfrac{-1}{2\sqrt{x}}$ \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction cosinus           & $\forall x\in\R: \quad f(x)=\cos(x)$                         & $\forall x\in\R : \quad  f'(x)=-\sin(x)$              \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction sinus             & $\forall x\in\R: \quad f(x)=\sin(x)$                         & $\forall x\in\R : \quad  f'(x)=\cos(x)$               \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction exponentielle     & $\forall x\in\R: \quad f(x)=e^x$                             & $\forall x\in\R : \quad  f'(x)=e^x$                   \\
+	                           &                                                              &                                                       \\
+	\hline
+	                           &                                                              &                                                       \\
+	Fonction logarithme        & $\forall x\in\R^*_+: \quad f(x)=\ln(x)$                      & $\forall x\in\R^* : \quad  f'(x)=\dfrac{1}{x}$        \\
+	                           &                                                              &                                                       \\
+	\hline
+\end{tabular}
+
+\newpage
+
+\section{Opérations sur les fonctions dérivables}
+
+\propriete{}{
+	Soient $u$ et $v$ deux fonctions dérivables sur un intervalle $I$, et $k$ un nombre réel.
+	
+	\vspace{10pt}
+	\begin{tabular}{|C|C|}
+		\hline
+		                                        &                                          \\
+		\textbf{Fonction}                       & \textbf{Dérivée}                         \\
+		                                        &                                          \\
+		\hline
+		                                        &                                          \\
+		Somme $u+v$                             & $u'+v'$                                  \\
+		                                        &                                          \\
+		\hline
+		                                        &                                          \\
+		Produit par un réel $k \times u$        & $k \times u'$                            \\
+		                                        &                                          \\
+		\hline
+		                                        &                                          \\
+		Produit $u \times v$                    & $u' \times v + u \times v'$              \\
+		                                        &                                          \\
+		\hline
+		                                        &                                          \\
+		Quotient $\dfrac{u}{v} \quad (v\not=0)$ & $\dfrac{u' \times v - u \times v'}{v^2}$ \\
+		                                        &                                          \\
+		\hline
+		                                        &                                          \\
+		Inverse $\dfrac{1}{u} \quad (u\not=0)$  & $\dfrac{-u'}{u^2}$                       \\
+		                                        &                                          \\
+		\hline
+	\end{tabular}
+}
+
+\section{Dérivée d'une fonction composée}
+
+\definition{}{
+	Soient $u$ et $v$ deux fonctions dérivable respectivement sur les intervalles $I$ et $J$ tel que pour tout $x$ dans
+	$I$, $u(x)\in J$. Pour tout réel $x$ dans $I$, on note $v \circ u(x)=v(u(x))$. La fonction $v \circ u$ ainsi définie
+	est appelé la composée de $u$ par $v$.
+}
+
+\propriete{}{
+	Soient les fonction $u$ et $v$ telles que $v \circ u$ est dérivable sur un intervalle $I$. Pour tout réel $x$ dans
+	$I$, $(v \circ u)'(x)= u'(x) \times v'(u(x))$.
+}
+
+\remarque{On peut aussi noter $(v \circ u)'= u' \times (v' \circ u)$}.
+
+\section{Applications de la dérivation}
+
+\subsection{Étude des variations d'une fonction}
+
+\theoreme{}{
+	Soit $f$ une fonction dérivable sur un intervalle $I$, de fonction dérivée $f'$.
+	\begin{itemize}
+		\item Si $f$ est croissante sur $I$, alors $f'$ est positive sur $I$.
+		\item Si $f$ est décroissante sur $I$, alors $f'$ est négative sur $I$.
+		\item Si $f$ est constante sur $I$, alors $f'$ est nulle sur $I$.
+	\end{itemize}
+}
+
+\newpage
+
+\theoreme{(réciproque)}{
+	Soit $f$ une fonction dérivable sur un intervalle $I$, de fonction dérivée $f'$.
+	\begin{itemize}
+		\item Si $f'$ est strictement positive sur $I$, sauf pour un nombre fini de réel où elle s'annule, alors $f$ est strictement croissante sur $I$.
+		\item Si $f'$ est strictement négative sur $I$, sauf pour un nombre fini de réel où elle s'annule, alors $f$ est strictement décroissante sur $I$.
+		\item Si $f'$ est nulle sur $I$, alors $f$ est constante sur $I$.
+	\end{itemize}
+}
+
+\subsection{Étude des extrema d'une fonction}
+
+\definition{}{
+	Soit $f$ une fonction définie sur un intervalle $I$ et $c$ un réel de $I$ et qui n'est pas une borne de $I$.
+	\begin{itemize}
+		\item Dire que $f(c)$ est un maximum local de $f$ signifie qu'il existe deux réels $a$ et $b$ dans $I$ tels que $c\in]a;b[$ et que pour tout réel $x\in]a;b[$, $f(x) \leq f(c)$.
+		\item Dire que $f(c)$ est un minimum local de $f$ signifie qu'il existe deux réels $a$ et $b$ dans $I$ tels que $c\in]a;b[$ et que pour tout réel $x\in]a;b[$, $f(x) \geq f(c)$.
+		\item Un extremum local est un minimum ou un maximum local.
+	\end{itemize}
+}
+
+\begin{minipage}{0.4\textwidth}
+	\begin{tikzpicture}
+		\begin{axis}[
+				axis lines=middle,
+				xmin=-3, xmax=6,
+				ymin=-2, ymax=4,
+				xtick=\empty,
+				ytick=\empty,
+				smooth,
+				clip=false
+			]
+			\addplot+[mark=none, smooth, thick, red, domain=-1:5] {2*sin(0.8*deg(x))+0.8};
+
+			% Calculate the maximum local value of the function
+			\pgfmathsetmacro{\xmax}{(3*pi)/4}
+			\pgfmathsetmacro{\ymax}{2*sin(0.8*\xmax*180/pi)+0.8}
+
+			% Draw double horizontal arrow
+			\draw[dashed, thin, blue] (axis cs:0, 2.8) -- (axis cs:2,2.8);
+			\draw[dashed, thin, blue] (axis cs:2, 0) -- (axis cs:2,2.8);
+			\draw [<->, green, thick] (axis cs: 1, 2.8) -- (axis cs: 3, 2.8);
+			\draw [|-|, green, thick] (axis cs: 1, 0) -- (axis cs: 3, 0);
+
+			\node[label={-90:$\green{a}$}] at (axis cs:1, 0) {};
+			\node[label={-90:$\green{b}$}] at (axis cs:3, 0.1) {};
+			\node[label={-90:$\blue{c}$}] at (axis cs:2, 0.1) {};
+			\node[label={-120:$\blue{f(c)}$}] at (axis cs:0.2, 3.5) {};
+
+		\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+\hspace{0.05\textwidth}
+\begin{minipage}{0.55\textwidth}
+	\theoreme{(condition nécessaire sur l'existence d'un extremum local)}{
+		Soit $f$ une fonction dérivable sur un intervalle ouvert $I$ et $a$ un réel de $I$. Si $f$ présente un extremum
+		local en $a$ alors $f'(a)=0$.
+	}
+	\remarque{La réciproque est fausse. En effet, pour $f:x\mapsto x^3$ on a $f:x\mapsto 3x^2$ donc $f'(0)=0$ mais $f$
+		n'admet pas d'extremum local en $O$.}
+\end{minipage}
+
+\theoreme{(condition suffisante sur l'existence d'un extremum local)}{
+	Soit $f$ une fonction dérivable sur un intervalle ouvert $I$, de dérivée $f'$ et $a\in I$. Si la dérivée $f'$
+	s'annule en $a$ en changeant de signe en $a$, alors la fonction $f$ admet un extremum local en $a$.
+
+}
+
+\end{document}

@@ -353,12 +353,12 @@ On calcule $S = 1+2+2^2+2^3+\dots+2^{10} = \dfrac{1-2^{11}}{1-2} = 2047$
 
 \definition{}{
 	Soit $u$ une suite.
-	\begin{enumerate}[(i)]
+	\begin{itemize}
 		\item On dit que $u$ est minorée s'il existe un réel $m$ tel que pour tout $n\in\N, u_n\geq m$.
 		      On dit que $m$ est un minorant de la suite.
 		\item On dit que $u$ est majorée s'il existe un réel $M$ tel que pour tout $n\in\N, u_n\leq m$.
 		      On dit que $M$ est un majorant de la suite.
-	\end{enumerate}
+	\end{itemize}
 }
 
 \remarques{
@@ -400,8 +400,8 @@ On calcule $S = 1+2+2^2+2^3+\dots+2^{10} = \dfrac{1-2^{11}}{1-2} = 2047$
 }
 
 
-\propriete{}{
-	Soit $P(n)$ un prédicat de $n$. On suppose que $P(n)$ est héréditaire.Deux cas sont alors possibles :
+\theoreme{(principe de récurrence)}{
+	Soit $P(n)$ un prédicat de $n$. On suppose que $P(n)$ est héréditaire. Deux cas sont alors possibles :
 	\begin{enumerate}[(i)]
 		\item $P(n)$ est fausse pour tout $n\in\N$.
 		\item il existe un entier $n_0$ tel que $P(n)$ soit vraie pour tout entier $n\geq n_0$.
@@ -412,7 +412,7 @@ On calcule $S = 1+2+2^2+2^3+\dots+2^{10} = \dfrac{1-2^{11}}{1-2} = 2047$
 	trouver un entier $n_0$ pour lequelle $P(n_0)$ est vraie. Le principe de récurrence permet alors de conclure que pour
 	tout entier naturel $n\geq n_0$, $P(n)$ est vraie.}
 
-\exemple{d'une démonstration par récurrence}{
+\exemple{démonstration par récurrence}{
 	Soit la suite
 	$\left\{
 		\begin{array}{l}
@@ -438,7 +438,7 @@ On calcule $S = 1+2+2^2+2^3+\dots+2^{10} = \dfrac{1-2^{11}}{1-2} = 2047$
 		      \end{flalign*}
 		\item \underline{Conclusion :}\\
 		      Par principe de récurrence, comme $P$ est héréditaire et vraie au rang $0$, on déduit que pour tout $n\geq0$, $P(n)$ est vraie.\\
-		      Autrement dit, pour tout $n\geq0$, $u_n\leq3$.
+		      Autrement dit, pour tout $n\in\N$, $u_n\leq3$.
 	\end{itemize}
 }
 

@@ -1,23 +1,80 @@
 \documentclass[10pt]{article}
 
 \newcommand{\DocumentTitle}{Probabilités et variables aléatoires}
-\newcommand{\DocumentTheme}{Proba. et Stat.}
+\newcommand{\DocumentTheme}{Probabilités}
 \newcommand{\DocumentType}{Cours}
 
 \input{../../utils.tex}
+
+\renewcommand{\arraystretch}{1.6} % Increase cell height in tables
 
 \begin{document}
 
 \maketitle
 
-\section{Vocabulaire et notations}
+\section{Vocabulaire et notations ensemblistes}
 
-\subsection{Univers et évènement}
+\subsection{Modes de générations des ensembles}
 
 \definition{}{
-	On appelle univers l'ensemble des issues possibles d'une expérience aléatoire. On le note souvent $\Omega$. On appelle
-	évènement un sous-ensemble de l'univers $\Omega$, c'est à dire un ensemble d'issues.
+	Lorsqu'on définit un ensemble en extension, on écrit la liste complête de ses éléments entre deux accolades. L'ordre
+	et les répétitions ne sont pas pris en compte.
 }
+
+\exemple{}{
+	La notation $\{1; 2; 3\}$ désigne le même ensemble que la notation $\{1; 3; 2\}$ ou encore de la notation
+	$\{1; 2; 2; 3\}$.
+}
+
+\definition{}{
+	Soit $E$ un ensemble. Lorsqu'on définit un sous-ensemble $F$ de $E$ en compréhension, on donne une proposition
+	$P(x)$ qui caractérise les éléments de $F$. L'ensemble des éléments de $E$ qui vérifient $P(x)$ est noté
+	$\{x\in E / P(x)\}$.
+}
+
+\remarque{On peut aussi utiliser les notations $\{x\in E | P(x)\}$ et $\{x\in E ; P(x)\}$.}
+
+
+\exemples{}{
+	\begin{itemize}
+		\item Soit $E=\{1; 2; 3; 4; 5\}$. La notation $\{x\in E/x\text{ est impair}\}$ désigne l'ensemble $\{1; 3; 5\}$.
+		\item On définit en compréhension l'intervalle $[2, 5]$ par $\{ x\in\R /2\leq x \leq 5 \}$.
+		\item En compréhension, l'ensemble des multiples de $3$ se note $\{ n\in\Z / \exists k\in\N, n=3k\}$.
+	\end{itemize}
+}
+
+\subsection{Couples et produits cartésiens}
+
+\definition{}{
+	Soient $x$ et $y$ deux objets (nombres, points\dots). On définit un nouveau type d'objet, que l'on note $(x,y)$ et
+	que l'on appelle le couple $(x,y)$.
+}
+
+\remarque{Deux couples $(x,y)$ et $(a,b)$ sont égaux si $x=a$ et $y=b$. Attention à ne pas confondre le couple $(1,2)$
+	avec l'ensemble $\{1;2\}$ qui lui, est égal à l'ensemble $\{ 2;1 \}$.}
+
+\definition{}{
+	Soient $E$ et $F$ deux ensembles. On appelle produit cartésien de $E$ et $F$ l'ensemble des couples $(x,y)$ avec
+	$x\in E$ et $y\in F$. On le note $E\times F$.
+}
+
+\remarques{
+	\begin{itemize}
+		\item $E\times E = E^2$, $E\times E\times E = E^3$\dots
+		\item La notion de produit cartésien peut aussi s'étendre à plus de deux ensembles. Par exemple, si $E$, $F$ et
+		      $G$ sont trois ensembles, le produit cartésien $E\times F\times G$ est l'ensemble des triplets $(x, y, z)$ avec
+		      $x\in E$, $y\in F$ et $z\in G$.
+	\end{itemize}
+}
+
+\exemples{}{
+	\begin{itemize}
+		\item Soient $E=\{1;2\}$ et $F=\{ 7;8;9 \}$. On a alors $E\times F = \{(1,7);(1,8);(1,9);(2,7);(2,8);(2,9)\}$.
+		\item Soit $E=\{1;2\}$. On a alors $E^3 = \{(1,1,1);(1,1,2);(1,2,1);(2,1,1);(1,2,2);(2,1,2);(2,2,1);(2,2,2)\}$
+	\end{itemize}
+}
+
+\newpage
 
 \subsection{Inclusion}
 
@@ -82,7 +139,7 @@
 	\hline
 	$A \subset B$          & $A$ inclus dans $B$        & $A$ implique $B$           \\
 	\hline
-	$A \cup B$             & réunion de $A$ et $B$      & $A$ ou $B$                 \\
+	$A \cup B$             & réunion de $A$ et $B$      & $A$ ou (inclusif) $B$      \\
 	\hline
 	$A \cap B$             & intersection de $A$ et $B$ & $A$ et $B$                 \\
 	\hline
@@ -92,33 +149,313 @@
 	\hline
 \end{tabular}
 
-\subsection{Modes de générations des ensembles}
+\newpage
 
-\definition{}{
-	Lorsqu'on définit un ensemble en extension, on écrit la liste complête de ses éléments entre deux accolades. L'ordre
-	et les répétitions ne sont pas pris en compte.
-}
+\section{Probabilité conditionnelle et Indépendance}
 
-\exemple{}{
-	La notation $\{1; 2; 3\}$ désigne le même ensemble que la notation $\{1; 3; 2\}$ ou encore de la notation
-	$\{1; 2; 2; 3\}$.
-}
+\subsection{Univers et évènement}
 
-\definition{}{
-	Soit $E$ un ensemble. Lorsqu'on définit un sous-ensemble $F$ de $E$ en compréhension, on donne une proposition $P(x)$
-	qui caractérise les éléments de $F$.L'ensemble des éléments de $E$ qui vérifient $P(x)$ est noté
-	$\{x\in E / P(x)\}$.
-}
-
-\exemple{}{
+\definitions{}{
+	\vspace{-10pt}
 	\begin{itemize}
-		\item Soit $E=\{1; 2; 3; 4; 5\}$. La notation $\{x\in E / x \text{ est impair}\}$ désigne l'ensemble
-		      $\{1; 3; 5\}$.
-		\item On définit en compréhension l'intervalle $[2, 5]$ par
-		      $\{ x\in\R /2\leq x \leq 5 \}$.
-		\item En compréhension, l'ensemble des multiples de $3$ se note
-		      $\{ n\in\Z /{ il existe un entier} k \text{ tel que } n=3k\}$
+		\item On appelle univers l'ensemble des issues possibles d'une expérience aléatoire. On le note souvent $\Omega$.
+		\item On appelle évènement un sous-ensemble de l'univers $\Omega$, c'est à dire un ensemble d'issues.
 	\end{itemize}
+}
+
+\subsection{Probabilité d'un évènement}
+
+\definition{}{
+	Soient $\Omega$ un unviers muni d'une loi de probabilité et $A$ un évènement non vide. On appelle probabilité de $A$
+	la somme des probabilités des issues appartenant à $A$. On la note $P(A)$.
+}
+
+\remarque{On peut également utiliser la notation $P(A)$.}
+
+\subsection{Équiprobabilité}
+
+\definition{}{
+	Soient $A$ et $B$ deux évènements d'un univers $\Omega$ tels que $P(A)\not= 0$. La probabilité de $B$ sachant que
+	$A$ est réalisé (ou de $B$ sachant $A$) est le nombre, noté $p_A(B)$ défini par $p_A(B)=\dfrac{P(A\cap B)}{P(A)}$.
+}
+
+\propriete{}{
+	La probabilité $p_A(B)$ vérifie bien $0\leq p_A(B)\leq1$ et $p_A(B)+p_A(\bar B)=1$.
+}
+
+\subsection{Probabilité de l'intersection}
+
+\propriete{}{
+	Si $A$ et $B$ sont deux évènements avec $P(A)\not=0$ alors $P(A\cap B)=p_A(B)\times P(A)$.
+}
+
+\remarques{
+	\begin{itemize}
+		\item Si $P(B)\not=0$ alors on a aussi $P(A\cap B)=p_B(A)\times P(B)$.
+		\item Dans toutes les formules, les rôles de $A$ et $B$ peuvent être inversés.
+	\end{itemize}
+}
+
+\subsection{Représentation à l'aide d'un arbre pondéré}
+
+\begin{forest}
+	for tree={
+	grow'=east,
+	align=center,
+	edge={thick},
+	l sep+=2cm,
+	s sep+=0.2cm
+	}
+	[
+	[$A$, edge label={node[midway,above left]{$P(A)$}}
+				[$B$, edge label={node[midway,above]{$p_A(B)$}}]
+				[$\bar B$, edge label={node[midway,below]{$p_A(\bar B)$}}]
+		]
+		[$\bar A$, edge label={node[midway,below left]{$P(\bar A)$}}
+				[$B$, edge label={node[midway,above]{$p_{\bar A}(B)$}}]
+				[$\bar B$, edge label={node[midway,below]{$p_{\bar A}(\bar B)$}}]
+		]
+	]
+\end{forest}
+
+\proprietes{}{
+	\vspace{-10pt}
+	\begin{enumerate}[(i)]
+		\item La somme des probabilités inscrites sur les branches partant d'un même nœud est égale à $1$.
+		\item La probabilité d'un chemin est le produit des probabilités inscrites sur ses branches.
+	\end{enumerate}
+}
+
+\subsection{Partition d'un univers}
+
+\definition{}{
+	Soit $\Omega$ un univers muni d'une loi de probabilité
+	\begin{itemize}
+		\item On dit que deux évènements $A_1$ et $A_2$ forment une partition de $\Omega$ si $A_1\cap A_2=\emptyset$ et
+		      $A_1\cup A_2=\Omega$.
+		\item Plus généralement, on dit que des évènements forment une partition de $\Omega$ s'ils sont deux à deux
+		      incompatibles de leur réunion est l'univers tout entier.
+	\end{itemize}
+}
+
+\subsection{Formule des probabilités totales}
+
+\theoreme{}{
+	Soit $A_1,A_2,\dots,A_n$ un système complet d'évènements de l'univers $\Omega$. Alors la probabilité d'un évènement
+	quelconque $B$ est donné par :
+	\begin{equation*}
+		\begin{split}
+			P(B) & = P(B\cap A_1)+P(B\cap A_2)+\dots+P(B\cap A_n)                                \\
+			     & = P(A_1)\times p_{A_1}(B)+P(A_2)\times p_{A_2}(B)+...+P(A_n)\times p_{A_n}(B)
+		\end{split}
+	\end{equation*}
+}
+
+\propriete{}{
+	La probabilité d'un évènement correspondant à plusieurs chemins est la sommes des probabilités de ces chemins.
+}
+
+\subsection{Indépendance de deux évènements}
+
+\definition{}{
+	On dit que deux évènements $A$ et $B$ sont indépendants lorsque $P(A\cap B)=P(A)\times P(B)$.
+}
+
+\propriete{}{
+	On suppose que $P(A)\not=0$. $A$ et $B$ sont indépendants si et seulement si $p_A(B)=P(B)$.
+}
+
+\propriete{}{
+	Si $A$ et $B$ sont deux évènements indépendants, alors $\bar A$ et $B$ le sont aussi.
+}
+
+
+\subsection{Succession de deux épreuves indépendantes}
+
+\definition{}{
+	Soit $n$ un entier naturel. On dit qu'une expérience aléatoire est la succession des $n$ épreuves indépendante si
+	l'univers qui lui est associé est un produit cartésien $\Omega_1\times\Omega_2\times\dots\times\Omega_n$ muni d'une
+	loi de probabilité vérifiant que la probabilité d'une issue $(x_1,x_2,\dots,x_n)$ est égal au produit des
+	probabilités de ses composantes $x_i$.
+}
+
+\remarque{Autrement dit, c'est lorsque deux expériences aléatoires se succèdent et que les résultats de la première
+	n'ont aucune influence sur les résultats de la seconde.}
+
+
+\exemple{}{
+On lance deux pièces à pile ou face. On suppose que la première pièce est déséquilibrée de sorte que « pile »
+apparait deux fois plus souvent que « face ». La deuxième pièce est supposée bien équilibrée.
+
+Le premier lancer est modélisé par $\Omega_1={P_1,F_1}$ muni de la loi $P(P_1)=\dfrac{2}{3}$ et
+$P(F_1)=\dfrac{1}{2}$.
+
+Le deuxième lancer est modélisé par $\Omega_2={P_2,F_2}$ muni de la loi $P(P_2)=\dfrac{1}{2}$ et
+$P(F_2)=\dfrac{1}{2}$.
+
+La succession des deux lancers peut être alors modélisé par l'univers : $\Omega=\Omega_1\times\Omega_2$
+$=\{P_1,F_1\}\times\{P_2,F_2\}=\{(P_1,P_2);(P_1,F_2);(F_1,P_2);(F_1,F_2)\}$ muni de la loi suivante :
+
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	Évènement   & $(P_1,P_2)$                                & $(P_1,F_2)$                                & $(F_1,P_2)$                                & $(F_1,F_2)$                                \\
+	\hline
+	Probabilité & $\frac{2}{3}\times\frac{1}{2}=\frac{1}{3}$ & $\frac{2}{3}\times\frac{1}{2}=\frac{1}{3}$ & $\frac{1}{3}\times\frac{1}{2}=\frac{1}{6}$ & $\frac{1}{3}\times\frac{1}{2}=\frac{1}{6}$ \\
+	\hline
+\end{tabular}
+}
+
+
+\section{Variable aléatoire}
+
+\subsection{Variable aléatoire discrète}
+
+\definition{}{
+	Soit $\Omega=\{\omega_1;\omega_2;\dots;\omega_k\}$ l'univers associé à une expérience aléatoire. Une variable
+	aléatoire $X$ sur l'univers $\Omega$ est une fonction définie sur $\Omega$ et à valeurs dans $\R$. Définir une
+	variable aléatoire consiste à associer, à chaque issue $\omega_i$ de l'expérience aléatoire, un réel $x_i$. On note
+	alors $\left(X=x_i\right)$ l'évènement formé des issues qui ont pour image $x_i$ par $X$.
+}
+
+\definition{}{
+	Soit $\Omega$ un univers et $X$ une variable aléatoire réelle sur $\Omega$. Pour tout réel $k$ :
+	\begin{itemize}
+		\item on note $(X\leq k)$ l'ensemble des issues dont l'image par $X$ est inférieur ou égal à k
+		\item on note $(X\geq k)$ l'ensemble des issues dont l'image par $X$ est supérieur ou égal à k
+	\end{itemize}
+}
+
+\subsection{Loi de probabilité}
+
+\definition{}{
+	Soit $X$ une variable aléatoire qui prend les valeurs $\{x_1;x_2;\dots;x_k\}$. Donner la loi de probabilité de $X$,
+	c'est donner la valeur $P(X=x_i)$, pour tout $i$ avec $1\leq i\leq k$.
+
+	Les résultats sont généralement présentés sous forme d'un tableau :
+
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		Valeurs $x_i$ de $X$   & $x_1$      & $x_2$      & \quad\text{ }\dots\quad\text{ } & $x_k$      \\
+		\hline
+		Probabilité $P(X=x_i)$ & $P(X=x_1)$ & $P(X=x_2)$ & \quad\text{ }\dots\quad\text{ } & $P(X=x_k)$ \\
+		\hline
+	\end{tabular}
+}
+
+\remarque{La somme des probabilités $P(X=x_i)$, pour $i$ allant de $1$ à $k$, est égal à $1$.}
+
+\subsection{Vocabulaire}
+
+Soit $X$ une variable aléatoire qui prend en valeurs ${x_1;x_2;\dots;x_k}$ et dont la loi de probabilité est donnée par
+le tableau suivant :
+
+\begin{center}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		Valeurs $x_i$ de $X$   & $x_1$ & $x_2$ & \quad\text{ }\dots\quad\text{ } & $x_k$ \\
+		\hline
+		Probabilité $P(X=x_i)$ & $p_1$ & $p_2$ & \quad\text{ }\dots\quad\text{ } & $p_k$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\definition{}{
+	L'espérance de la variable aléatoire $X$ est le réel noté $E(X)$ définie par : $\ds E(X)=\sum_{i=1}^{k}x_ip_i$
+}
+
+\remarque{L'espérance d'une variable aléatoire représente la valeur moyenne prise par $X$.}
+
+\definition{}{
+La variance de la variable aléatoire $X$ est le réel noté $V(X)$ définie par :
+$\ds V(X)=\sum_{i=1}^{k}(x_i-E(X))^2\times p_i$
+	}
+
+	\remarque{La variance d'une variable aléatoire $X$ se calcule aussi avec : $V(X)=\sum_{i=1}^{k} p_i (x_i)^2-E(X)^2$.}
+
+	\definition{}{
+		L'écart-type $\sigma(X)$ est défini comme la racine carrée de la variance : $\sigma(X)=\sqrt{V(X)}$.
+	}
+
+	\remarque{Par analogie avec les statistiques, de la même façon que $E(X)$ représente une moyenne, $V(X)$ et $\sigma(X)$
+		sont des indicateurs de dispersion des valeurs de $X$ autour de $E(X)$. Plus la variance et l'écart-type sont
+		grands,	plus les valeurs sont dispersés autour de la moyenne (espérance)}
+
+	\exemple{}{
+		On calcule l'espérance de $X$ :
+		$\ds E(X)=2\times\frac{1}{6}+1\times\frac{1}{6}-1\times\frac{2}{3}=-\frac{1}{6}\approx-0,17$. \\
+		Sur un grand nombre de parties, le gain moyen par partie pour le joueur est $-0,17$. \\Donc le jeu n'est pas favorable au joueur. \\
+
+		On calcule la variance et l'écart-type :
+		\begin{itemize}
+			\item $\ds V(X)=\left[2-\left(-\frac{1}{6}\right)\right]^2\times \frac{1}{6}+\left[1-\left(-\frac{1}{6}\right)\right]^2\times \frac{1}{6}+\left[-1-\left(-\frac{1}{6}\right)\right]^2\times \frac{2}{3}=\frac{53}{36}\approx1,47$
+			\item $\ds \sigma(X)=\sqrt{\frac{53}{36}}\approx1,21$
+		\end{itemize}
+	}
+
+	\section{La loi binomiale}
+
+	\definitions{}{
+		\vspace{-10pt}
+		\begin{itemize}
+			\item On appelle épreuve de Bernoulli tout expérience aléatoire modélisée par un univers à deux issues. On note
+			      cet univers $\Omega=\{S;E\}$.
+			\item Si de plus, l'univers est muni d'une loi de probabilité qui à l'issue $S$ associe la probabilité $p$, on
+			      parle alors d'une épreuves de Bernoulli de paramètre $p$.
+		\end{itemize}
+	}
+
+	\exemple{}{
+		On lance un dé à six faces. On note $S$ l'issue « obtenir la face 6 » et $E$ l'issue « ne pas obtenir la face 6 ».
+
+		On associe à $S$ la probabilité $\dfrac{1}{6}$ et à $E$ l'issue $\dfrac{5}{6}$. On a ainsi défini une épreuve de
+		Bernoulli de paramètre $\dfrac{1}{6}$
+	}
+
+	\remarques{
+		\begin{itemize}
+			\item Les notations $S$ et $E$ font référence respectivements aux mots « succès » et « échec ».
+			\item Dans une épreuve de Bernoulli de paramètre $p$, la probabilité de l'issue $E$ est égal à $1-p$.
+		\end{itemize}
+	}
+
+	\definition{}{
+		Soit $n$ un entier naturel non nul et $p$ un réel compris entre $0$ et $1$. On appelle « schéma de Bernoulli de
+		paramètres $n$ et $p$ » la succession de $n$ épreuves de Bernoulli de paramètre $p$ identiques et indépendantes.
+	}
+
+	\remarque{L'univers associé à un schéma de Bernoulli de paramètre $n$ et $p$ est $\Omega^n=\{S;E\}^n$.}
+
+	\exemple{}{
+		On lance trois fois un dé à six faces bien équilibré. On modélise chacun des lancers de la manière décrite dans
+		l'exemple précédent.
+
+		On a alors défini un schéma de Bernoulli de paramètres $n=3$ et $p=\dfrac{1}{6}$.
+
+		L'univers associé est le produit cartésien $\Omega^3=\{S;E\}^3$. Représenter la situation par un arbre peut aider à
+		énumérer toutes les issues $\Omega^3=\{(S,S,S);(S,S,E);(S,E,S);(S,E,E);(E,S,S);$
+		$(E,S,E);(E,E,S);(E,E,E)\}$.
+	}
+
+	\definition{}{
+	Soit $n$ un entier naturel non nul et $p$ un réel compris entre $0$ et $1$. On considère un schéma de Bernoulli de
+	paramètres $(n,p)$ et on note $\Omega={S;E}$. On définit une variable aléatoire $X$ sur $\Omega^n$ en associant à
+	chaque issue le nombre d'apparition de $S$. La loi de probabilité de $X$ est appelée « loi binomiale de paramètres
+$n$ et $p$ ».
+}
+
+\exemple{}{
+	D'après l'exemple précédent, on définit une variable aléatoire $X$ sur $\Omega^3$ en associant à chaque issue le
+	nombre d'apparitions de $S$ (ici, le nombre d'apparitions de « pile »). La loi de probabilité de $X$ suivante est la
+	loi binomiale de paramètres $n=3$ et $p=\dfrac{1}{2}$.
+
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		Valeurs $x_i$ de $X$   & $0$            & $1$            & $2$            & $3$            \\
+		\hline
+		Probabilité $P(X=x_i)$ & $\frac{1}{8}$ & $\frac{3}{8}$ & $\frac{3}{8}$ & $\frac{1}{8}$ \\
+		\hline
+	\end{tabular}
 }
 
 

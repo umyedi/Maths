@@ -1,0 +1,395 @@
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{ae}
+\usepackage{aecompl}
+\usepackage{zefonts}
+\usepackage{multicol}
+\usepackage{array, multirow, tabularx}
+\usepackage{makecell}
+\usepackage{graphicx}
+\usepackage{picins}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{eurosym}
+\usepackage{ulem} %permet de barrer sdu texte avec \sout{} , hachurer avec \xout , souligner avec vaguelette \uwave
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{yhmath} %arc de cercle avec $\wideparen{AB}$
+\usepackage[np]{numprint} %espacement grands nombres
+\usepackage{fdsymbol} % symbole calculatrice casio
+\usepackage{enumerate}
+\usepackage{fancybox} % shadowbox etc...
+\usepackage{pifont}
+\usepackage{tabularx} 
+\usepackage{boxedminipage}
+\usepackage[thmmarks,framed]{ntheorem}   %fonction  \newtheorem améliorée incompatible avec amsthm
+\usepackage{framed}
+\usepackage{titlesec}
+\usepackage{colortbl} %charge xcolor , à mettre avant tikz sinon conflit...
+\usepackage{pgfkeys} % repères avec tikz
+\usepackage{tikz}
+\usepackage{tkz-tab} %tableaux de variation
+\usepackage{esvect} %vecteurs
+\usepackage{pgf} %exporter figures geogebra
+\usepackage{mathrsfs} %exporter figures geogebra
+\usepackage{slashbox} %sépare une cellule en 2 dans un tableau \backslashbox{Texte dessous}{Texte dessus}
+\usepackage{diagbox} %\diagbox{}{}
+\usetikzlibrary{arrows} %exporter figures geogebra
+\usepackage[french,frenchkw,algoruled]{algorithm2e} %algo 
+%\usepackage{algorithm} %algo style algobox
+% \usepackage{algpseudocode}% algo style algobox
+% \input algtolatex %algo style algobox - nécessite le fichier algolatex.
+\usepackage{calrsfs} % plus belles majuscules avec \mathcal
+% \usepackage{sesamanuel} % pour les commandes spéciales du manuel 2de
+% \usepackage{sesamanuelTIKZ} % pour les commandes spéciales de la figure
+%\usepackage{stmaryrd} %double crochet avec \llbracket et rrbracket$
+\usepackage{qrcode} %qrcode cliquable \qrcode[height=taille]{adresse}
+\usepackage{hyperref} %lien hypertexte \href{adresse}{texte}
+%\usepackage[xcas]{pro-graphes} %graphe and co
+%\usepackage{dijkstra}
+\usepackage{tcolorbox} %cadres plus jolis
+\usepackage{karnaugh-map} %permet de tracer des tableaux de Karnaugh
+%\usepackage{graphicx}
+\usepackage[export]{adjustbox} % Alignement vertical images avec b,t,c \includegraphics[scale=1,valign=t]{Image.png}
+\usepackage{fancyvrb} % verbatim amélioré \begin{Verbatim}[frame=single,label=,numbers=left] etc [frame=single/leftline/topline/bottomline/lines] framerule=1mm framesep=5mm rulecolor=\color{red} fillcolor=\color{yellow}
+\usepackage[load-configurations = abbreviations]{siunitx}
+%\sisetup{locale = FR,detect-all,inter-unit-product= \cdot} %norme SI pour les nombres et unités 
+%\SI{25000}{mm} \SI{6.022e23}{\per\mol}  \SI{300}{\watt\per\square\meter} \SI{300}{W / m^2} \SI[per-mode=symbol]{210}{\km\per\hour}
+% unité seule \si{\newton\meter} nombre seul \num{24415.15625}
+
+\usepackage{witharrows} %permet de mattre des flèches entre lignes d'équations \begin{WithArrows}@ \Arrow{@}\\@\end{WithArrows}
+
+\usepackage{xlop} % pose les oprétaions "à la main" \opadd{@}{@}; opsub ; opmul ; opdiv (eucl) ; opidiv
+%\usepackage{minted}{Python} % permet d'écrire en Python avec \begin{minted}{Python}@\end{minted}
+\usepackage{stmaryrd} % crochets intervalles entiers \llbracket ; \rrbracket ; parall \sslash ; contradiction \lightning
+
+\usepackage{mathtools}
+
+%%%%%%%Compteurs%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcounter{defcompt}   %Défintion d'un compteur
+% \newcounter{exocompt}
+% \newcounter{theocompt}
+% \newcounter{propcompt}
+% \newcounter{regcompt}
+\newcounter{numexos}
+
+\setcounter{numexos}{0} %initialisation du compteur
+
+
+
+
+
+% Nouvelles commandes
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882} %gris geogebra
+
+\newcommand{\paral}{~\mathbin{\!/\mkern-5mu/\!}~} % symbole parallèle
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\U}{\mathbb{U}}
+
+\newcommand{\rel}{\mathcal{R}} % relation binaire
+
+\newcommand{\e}{\text{e}} % exponentielle en lettre droite dans $$ 
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+\newcolumntype{G}[1]{>{\raggedright\arraybackslash }X{#1}}
+\newcolumntype{D}[1]{>{\raggedleft\arraybackslash }X{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash }X{#1}}
+
+
+\newcommand{\exe}{\textbf{Exemple : }}
+\newcommand{\exes}{\textbf{Exemples : }}
+\newcommand{\rema}{\textbf{Remarque : }}
+\newcommand{\rems}{\textbf{Remarques : }}
+\newcommand{\rap}{\textbf{Rappel : }}
+\newcommand{\raps}{\textbf{Rappels : }}
+\newcommand{\dem}{\textbf{Démonstration : }}
+\newcommand{\dems}{\textbf{Démonstrations : }}
+\newcommand{\csq}{\textbf{Conséquence : }}
+
+
+
+
+
+
+
+\newcommand{\Ex}[1]{{\sc{Exercice #1:}}}
+\newcommand{\defi}[1]{\begin{leftbar}
+\textbf{Définition :} {#1}
+ \end{leftbar}}
+\newcommand{\defis}[1]{\begin{leftbar}
+\textbf{Définitions :} {#1}
+ \end{leftbar}}
+ 
+\newcommand{\prop}[1]{\begin{framed}
+\textbf{Propriété :} {#1}
+ \end{framed}} 
+ 
+\newcommand{\props}[1]{\begin{framed}
+\textbf{Propriétés :} {#1}
+ \end{framed}} 
+ 
+\newcommand{\theo}[1]{\begin{framed}
+\textbf{Théorème :} {#1}
+ \end{framed}} 
+\newcommand{\theos}[1]{\begin{framed}
+\textbf{Théorèmes :} {#1}
+ \end{framed}}  
+ 
+\newcommand{\reg}[1]{\begin{framed}
+\textbf{Règle :} {#1}
+ \end{framed}} 
+\newcommand{\regs}[1]{\begin{framed}
+\textbf{Règles :} {#1}
+ \end{framed}}  
+ 
+\newcommand{\propdef}[1]{\begin{framed}
+\textbf{Propriété - Définition :} {#1}
+ \end{framed}} 
+\newcommand{\propsdef}[1]{\begin{framed}
+\textbf{Propriétés - Définition :} {#1}
+ \end{framed}}  
+ 
+ 
+ \newcommand{\csqs}[1]{\begin{framed}
+ \textbf{Conséquences :} {#1}
+ \end{framed}} 
+ 
+\newcommand{\cor}[1]{\begin{framed}
+\textbf{Corollaire :} {#1}
+ \end{framed}}     
+     
+     
+%\newcommand{\cadre}[2]{
+%\begin{tcolorbox}[colback=red!5!white,
+%                  colframe=red!75!black,
+%                  title={#1}]
+%{#2}
+%\end{tcolorbox}  }
+
+\newcommand{\cadre}[3]{
+\begin{tcolorbox}[colback=#1!5!white,
+                  colframe=#1!75!black,
+                  title={#2}]
+{#3}
+\end{tcolorbox}  }
+
+
+
+
+\newcommand*{\Coord}[3]{% 
+\ensuremath{\vv{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}} % coordonnées de vecteurs.
+    
+\newcommand{\fonction}[5]{\begin{tabular}[t]{cccc}
+$#1 :$ & $#2$ & $\longrightarrow$ & $#3$ \\
+ & $#4$ & $\longmapsto$ & $#5$
+\end{tabular}}
+    
+\newcommand{\att}{{\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax \quad}}    % symbole attention
+
+\newcommand{\exo}{%Création d'une macro ayant un paramètre
+\addtocounter{numexos}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexos
+{\sc{Exercice\,\thenumexos\,:}}\,%la valeur du compteur appelée par \thenumeexos
+}
+
+\newcommand{\bint}{\displaystyle \int\limits} %signe intégral plus grand
+
+\newcommand{\bsum}{\displaystyle \sum} %signe somme plus grand
+
+\newcommand{\bprod}{\displaystyle \prod\limits} %signe produit plus grand
+
+\newcommand*{\norme}[1]{\left\lVert\vv{#1}\right\rVert}  %norme de vecteur
+
+\newcommand{\ps}[2]{\ensuremath{\vv{#1}.\vv{#2}}} %produit scalaire
+
+\newcommand{\x}{\times} %produit
+
+\newcommand{\modulo}{\text{ modulo }} 
+
+\renewcommand{\Im}[1]{\text{Im} (#1)}
+
+\renewcommand{\Re}[1]{\text{Re} (#1)}
+
+\newcommand{\modu}[3]{{#1} \equiv {#2} ~ [{#3}]}
+
+
+\newcommand*{\sep}[1]{
+\dotfill
+\vspace*{-0.3cm}
+\begin{center}
+\textbf{#1}
+\end{center}
+\vspace*{-0.5cm}
+\dotfill}
+
+
+%Flèches avec commentaire : exemple $\xRightarrow[test1]{test1}$
+%\makeatletter
+%\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+%\makeatother
+%
+%\makeatletter
+%\newcommand{\xLeftarrow}[2][]{\ext@arrow 0359\Leftarrowfill@{#1}{#2}}
+%\makeatother
+%
+%\makeatletter
+%\newcommand{\xLeftrightarrow}[2][]{\ext@arrow 0359\Leftrightarrowfill@{#1}{#2}}
+%\makeatother
+
+
+% Renouvellement commandes
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\thesection}{\Roman{section} )  \hspace{-4mm}}
+\renewcommand{\thesubsection}{\quad \arabic{subsection}\hspace{-0.9mm} ) \hspace{-5mm}}
+\renewcommand{\thesubsubsection}{\qquad \alph{subsubsection}\hspace{0.5mm} ) \hspace{-5mm}}
+
+
+% Présentation générale
+
+\newcommand{\titre}[1]{\begin{center} \Large \sc \fbox{{#1}}\end{center}}
+
+\newcommand{\entete}[1]{\begin{center} \large \underline{#1} \end{center}}
+
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+%\newcommand{\DS}[3]{\begin{tabular}{|L{6cm}|C{5cm}|C{6cm}|}
+%\hline 
+%Nom : & Devoir Surveillé #1 & Classe \quad :\quad #2 \\ 
+%Prénom : &  & #3 \\ 
+%\hline 
+%\end{tabular} }
+
+\newcommand{\DS}[3]{\begin{tabularx}{1 \linewidth}{|G|M|M|}
+\hline 
+Nom : & Devoir Surveillé #1 & Classe \quad :\quad #2 \\ 
+Prénom : &  & #3 \\ 
+\hline 
+\end{tabularx} }
+
+\newcommand{\DSBTS}[4]{\begin{tabularx}{1 \linewidth}{|G|M|M|}
+\hline 
+Nom : & Devoir Surveillé #2 & Classe \quad :\quad #3 \\ 
+Prénom : & #1 & #4 \\ 
+\hline 
+\end{tabularx} }
+
+\newcommand{\DM}[3]{\begin{tabular}{|L{6.1cm}|C{5.6cm}|C{6.1cm}|}
+\hline 
+Nom : & Devoir à la maison~ #1 & Classe \quad :\quad #2 \\ 
+Prénom : &  & Pour le #3 \\ 
+\hline 
+\end{tabular} }
+
+\newcommand{\ct}[3]{\begin{tabular}{|L{6.1cm}|C{5.6cm}|C{6.1cm}|}
+\hline 
+Nom : & Contrôle~ #1 & Classe \quad :\quad #2 \\ 
+Prénom : &  & #3 \\ 
+\hline 
+\end{tabular} }
+
+% Repères automatisés avec Tikz 
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+% Valeurs par défaut : -3, 3, -3, 3
+\tikzset{
+xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+% Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}
+{\draw[help lines] (\xmin,\ymin) grid (\xmax,\ymax);}
+% Commande \axes
+\newcommand {\axes} {
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->] (0,\ymin) -- (0,\ymax);
+}
+% Commande qui limite l’affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}
+{\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+
+% Exemple 
+%\begin{center}
+%\begin{tikzpicture} [xmin=@,xmax=@,ymin=@,ymax=@]
+%\grille \axes \fenetre
+%\draw plot[smooth] (\x,@);
+%\end{tikzpicture}
+%\end{center}
+
+%%%%%%%\newtheorem{}{×}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\theoremseparator{\hspace{0.8mm} :}
+%{\theoremseparator{~:}
+%\newtheorem*{rem}{Remarque}
+%\newtheorem*{rems}{Remarques}
+%\newframedtheorem{theo}[theocompt]{Théorème}
+%\newtheorem{prop}[propcompt]{Propriété}
+%\newtheorem{regle}[regcompt]{Règle}
+%\newtheorem{defi}[defcompt]{Définition}
+%\newtheorem*{voc}{Vocabulaire}}
+
+
+%algo
+%VARIABLES : 
+%\Variables
+%Début et fin de bloc :
+%\DebutAlgo 
+%\FinAlgo 
+%\DebutPour
+%\FinPour
+%\DebutTantQue
+%\FinTantQue
+%\DebutSi
+%\FinSi
+%\DebutSinon
+%\FinSinon
+%SI...ALORS :
+%\Si{(...)}
+%SINON :
+%\Sinon
+%POUR ... ALLANT_DE ... A ...
+%\Pour{...}{...}{...}
+%TANT_QUE(...)
+%\Tantque{(...)}
+%Pour toutes les autres instructions (y compris les déclarations de variable)
+%\Ligne ...
+
+
+% Mise en page
+\usepackage[left=1cm, right=1cm, top=1cm , bottom=1cm]{geometry}
+\pagestyle{empty} % pas de numéro de page
+\renewcommand{\arraystretch}{1.5} %hauteur des lignes dans un tableau
+\setlength{\parindent}{0pt} % pas de retrait de paragraphe
+
+%\usepackage[left=1cm, right=1cm, top=-0.5cm , bottom=1cm,includeheadfoot]{geometry}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+
+%\renewcommand{\headrulewidth}{1pt}
+%\fancyhead[C]{\textbf{page \thepage}} 
+%\fancyhead[L]{\leftmark}
+%\fancyhead[R]{machin}
+
+%\renewcommand{\footrulewidth}{1pt}
+%\fancyfoot[C]{\textbf{page \thepage}} 
+%\fancyfoot[L]{truc}
+%\fancyfoot[R]{\leftmark}
+
+% \tikz[baseline=(letter.base)]\node[draw,circle,inner sep=1pt] (letter) {B} %lettre entourée

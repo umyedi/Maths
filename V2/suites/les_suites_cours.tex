@@ -1,0 +1,450 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Les suites}
+\newcommand{\DocumentTheme}{Algèbre}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+
+% Sections et sous-sections
+\section{Généralités}
+\subsection{Introduction}
+
+\definitions{}{
+	Une suite numérique $u$ est une fonction $u:n \mapsto u(n)$ définie pour tout entier naturel $n$ (ou tout entier
+	naturel $n \geq k$, $k$ étant un entier naturel).
+	\begin{itemize}
+		\item  $u(n)$ ou $u_n$ s'appelle le terme de rang $n$ (ou le terme général de la suite).
+		\item  $u$ désigne la suite elle-même, elle peut être noté aussi $(u_n)$.
+		\item  $n$ est l'indice (ou le rang).
+		\item  $u_{n-1}$ est le terme précédant $u_n$.
+		\item  $u_{n+1}$ est le terme suivant $u_n$.
+		\item  $u_0$ (ou parfois $u_1$) est le terme initial (ou le premier terme).
+	\end{itemize}
+}
+
+\subsection{Différents modes de génération d'une suite}
+
+
+\definition{}{
+	Une suite est définie de façon explicite lorsqu'on peut calculer n'importe quel terme de la suite directement en fonction de $n$.
+}
+
+
+\exemple{}{
+	Soit la suite $u$ définie par $u_n=12+2n$ pour tout entier naturel. On calcule ses premiers termes :
+
+	$u_0=12+2\times0=12 \qquad u_1=12+2\times1=14 \qquad u_2=12+2\times2=16$
+
+	$u_3=12+2\times3=18 \qquad u_4=12+2\times4=20 \qquad u_5=12+2\times5=22$
+}
+
+\definition{}{
+	Lorsqu'une suite est définie par la donnée de son premier terme et d'une relation qui permet de calculer chaque terme
+	en fonction du terme précédent, on dit que la suite est définie par récurrence. On donne l'expression de $u_{n+1}$ en
+	fonction de $u_n$. Cette relation s'appelle relation (ou formule) de récurrence.
+}
+
+\exemple{}{
+
+	Soit $F$ la suite définie par
+	$ \begin{cases}
+			F_0 = 0                     & \\
+			F_1 = 1                     & \\
+			F_{n+1} = F_{n-1} + F_{n-2} &
+		\end{cases}
+	$ pour tout $n \geq 2$.
+
+	Cette suite s'appelle la suite de Fibonacci. Elle est définie par une relation de récurrence d'ordre 2, c'est à dire
+	que chaque terme de la suite est la somme des deux termes qui le précèdent. Ses premiers termes sont :
+
+	$F_2=1+0=1 \qquad F_3=1+1=2 \qquad F_4=2+1=3$
+
+	$F_5=3+2=5 \qquad F_6=5+3=8 \qquad F_7=8+5=13$
+}
+
+\subsection{Représentation graphique d'un suite}
+
+Une suite $u$ peut être représentée :
+\begin{itemize}
+	\item en plaçant les points de coordonnées $(n, u_n)$ dans un repère (on appelle cet ensemble nuage de points).
+	\item en plaçant les réels $u_0$, $u_1$, $u_2\dots$ sur une droite graduée.
+\end{itemize}
+
+\exemple{}{
+	On représente la suite $u$ définie pour tout entier naturel $n$ par $u_n=n^2-4n+2$.\\
+	On a  $u_0=2$, $u_1=-1$, $u_2=-2$, $u_3=-1$ et $u_4=2$. \\
+
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+					axis lines=middle,
+					xlabel={$n$},
+					ylabel={$u_n$},
+					xmin=-0.5,
+					xmax=4.5,
+					ymin=-2.5, ymax=2.5,
+					xtick={0,1,2,3,4},
+					ytick={-2,-1,0,1,2},
+					xlabel style={below right},
+					ylabel style={above left},
+					tick label style={font=\footnotesize},
+					grid=both,
+					major grid style={line width=.2pt,draw=gray!50},
+					minor tick num=0,
+					extra y ticks={0},
+					extra y tick style={grid=major}]
+				\addplot[mark=, mark size=2, only marks] coordinates {(0,2)};
+				\node[label={below right:$u_0$}] at (axis cs:0,2) {};
+				\addplot[mark=, mark size=2, only marks] coordinates {(1,-1)};
+				\node[label={below right:$u_1$}] at (axis cs:1,-1) {};
+				\addplot[mark=, mark size=2, only marks] coordinates {(2,-2)};
+				\node[label={above right:$u_2$}] at (axis cs:2,-2) {};
+				\addplot[mark=, mark size=2, only marks] coordinates {(3,-1)};
+				\node[label={below right:$u_3$}] at (axis cs:3,-1) {};
+				\addplot[mark=*, mark size=2, only marks] coordinates {(4,2)};
+				\node[label={below left:$u_4$}] at (axis cs:4,2) {};
+			\end{axis}
+		\end{tikzpicture}
+	\end{minipage}%
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw[->] (-4,0) -- (4,0);
+			\foreach \x in {-3,0,1,3}
+			\draw (\x cm,3pt) -- (\x cm,-3pt);
+			\foreach \x/\label in {-3/-3,-2/-2,0/0,1/1,3/3}
+			\node[anchor=north] at (\x cm,-3pt) {$\label$};
+			\draw[fill=black] (2,0) circle (2pt) node[above=3pt] {$u_0$};
+			\draw[fill=black] (-1,0) circle (2pt) node[above=3pt] {$u_1$};
+			\draw[fill=black] (-2,0) circle (2pt) node[above=3pt] {$u_2$};
+			\draw[fill=black] (-1,0) circle (2pt) node[below=3pt] {$u_3$};
+			\draw[fill=black] (2,0) circle (2pt) node[below=3pt] {$u_4$};
+		\end{tikzpicture}
+	\end{minipage}
+}
+
+
+\subsection{Sens de variation d'une suite}
+
+\definition{}{
+	Soit une suite $u$ définie sur $\N$.
+	\begin{itemize}
+		\item Dire que $u$ est strictement croissante signifie que pour tout $n\in\N$, on a $u_{n+1}>u_n$.
+		\item Dire que $u$ est strictement décroissante signifie que pour tout $n\in\N$, on a $u_{n+1}<u_n$.
+		\item Dire que $u$ est constante signifie que pour tout $n\in\N$, on a $u_{n+1}=u_n$.
+	\end{itemize}
+}
+
+\remarques{
+	\begin{itemize}
+		\item Lorsqu'une suite est croissante ou décroissantes, on dit qu'elle est monotone.
+		\item Pour étudier le sens de variation d'une suite, on peut :
+		      \begin{enumerate}
+			      \item calculer la différence $u_{n+1}-u_n$ et étudier son signe.
+			      \item pour une suite positive, calculer le quotient $\dfrac{u_{n+1}}{u_n}$ et étudier sa position par rapport à $1$.
+			      \item pour une suite définie de façon explicite par $u_n=f(n)$, utiliser le sens de variation de $f$. \\
+		      \end{enumerate}
+	\end{itemize}
+}
+
+\exemple{}{
+	Soit $u$ définie par $u_n=\dfrac{1}{3^n}$ pour tout $n\in\N$.
+
+	Pour tout $n\in\N$, $u_n>0$ donc on utilise la deuxième méthode.
+
+	On calcule $\dfrac{u_{n+1}}{u_n}
+		=\dfrac{\frac{1}{3^{n+1}}}{\frac{1}{3^n}}
+		=\dfrac{1}{3^{n+1}}\times\dfrac{3^n}{1}
+		=\dfrac{3^n}{3^{n+1}}
+		=\underbrace{\frac
+			{\overbrace{\cancel{3}\times\cancel{3}\times...\times\cancel{3}}^{n\text{ fois}}\times1}
+			{\cancel{3}\times\cancel{3}\times...\times\cancel{3}\times3}}_{n+1\text{ fois}}
+		=\dfrac{1}{3}$
+}
+
+\section{Suites arithmétiques et géométriques}
+
+\subsection{Suites arithmétiques}
+
+\definition{}{
+	On dit que la suite $u$ est arithmétique si, à partir de son premier terme, chaque terme est obtenu en ajoutant au
+	précédent un même nombre appelé raison. Pour tout $n\in\N$, $u_{n+1}=u_n+r$.
+}
+
+\remarque{Une suite est arithmétique si $u_{n+1}-u_n=r$ pour tout $n\in\N$.}
+
+\newpage
+
+\propriete{(formule explicite)}{
+	Soit $u$ une suite arithmétique de raison $r$. Alors, pour tout $n\in\N$, $u_n=u_0+nr$. Plus généralement, pour tout
+	entier $n$ et $p$ : $u_n=u_p+(n-p)r$
+}
+
+\propriete{(sens de variation)}{
+	Soit $u$ une suite arithmétique de raison $r$.
+	\begin{enumerate}[(i)]
+		\item Si $r>0$, la suite $u$ est strictement croissante.
+		\item Si $r<0$, la suite $u$ est strictement décroissante.
+		\item Si $r=0$, la suite $u$ est constante.
+	\end{enumerate}
+}
+
+\propriete{(représentation graphique)}{
+	La représentation graphique d'une suite arithmétique est un nuage de points situé sur une droite d'équation $y=u_0+xr$.
+}
+
+\exemple{}{
+	On représente la suite arithmétique de premier terme $u_0=1$ et de raison $r=2$ :\\ \\
+	\begin{minipage}[t]{0.4\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$n$},
+					ylabel={$u_n$},
+					axis lines=middle,
+					grid=both,
+					minor tick num=1,
+					enlargelimits={abs=0.3},
+					ymin=0,
+					ymax=11,
+					xmin=0,
+					xmax=5
+				]
+				\addplot+[ycomb, black, mark=*, mark size=1.5pt, only marks, samples at={0,1,2,3,4}] {1+2*x};
+			\end{axis}
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.4\textwidth}
+		\vspace{-100pt}
+		\begin{tikzpicture}
+			% Dessinez la droite graduée
+			\draw[line width=1pt, ->] (0,0) -- (7.5,0);
+
+			% Ajoutez les graduations
+			\foreach \x in {0, 2, 4, 6} {
+					\draw[line width=0.6pt] (\x, 0.1) -- (\x, -0.1);
+				}
+
+			% Ajoutez les étiquettes de graduation
+			\foreach \x/\n in {1/1,2/2,3/3,4/4,5/5,6/6,7/7} {
+					\node[below] at (\x, -0.15) {$\n$};
+				}
+
+			% Dessinez les points de la suite
+			\foreach \x in {1,3,5,7} {
+					\node[blue, fill, circle, inner sep=1pt] at (\x, 0) {};
+				}
+
+			% Ajoutez les étiquettes des points
+			\foreach \x/\n in {1/u_0,3/u_1,5/u_2,7/u_3} {
+					\node[blue, above] at (\x, 0) {$\n$};
+				}
+		\end{tikzpicture}
+	\end{minipage}
+}
+
+
+\propriete{(somme de termes consécutifs)}{
+	Soit $n$ un entier naturel non nul. La somme des $n$ premiers termes non nuls est $1+2+3+...+n=\dfrac{n(n+1)}{2}$.
+}
+
+\exemple{}{
+	On calcule $S = 1+2+3+\dots+999 = \dfrac{999(999+1)}{2} = 499500$
+}
+
+\subsection{Suites géométriques}
+
+\definition{}{
+	On dit que la suite $u$ est géométrique si, à partir de son premier terme, chaque terme est obtenu en multipliant le
+	précédent par un même nombre appelé raison. Pour tout $n\in\N$, $u_{n+1}=u_n\times q$.
+}
+
+\remarque{Une suite est géométrique si $\dfrac{u_{n+1}}{u_n}=q$ pour tout $n\in\N$.}
+
+
+\propriete{(formule explicite)}{
+	Soit $u$ une suite géométrique de raison $q$. Alors, pour tout $n\in\N$, $u_n=u_0\times q^n$. Plus généralement, pour
+	tout entier $n$ et $p$ : $u_n=u_p\times q^{n-p}.$
+}
+
+
+\propriete{(sens de variation)}{
+	Soit $u$ une suite géométrique de raison $q$ et de premier terme $u_0$ strictement positif.
+	\begin{enumerate}[(i)]
+		\item Si $q>1$, la suite $u$ est strictement croissante.
+		\item Si $q=1$, la suite $u$ est constante, égal à $u_0$.
+		\item Si $0<q<1$, la suite $u$ est strictement décroissante.
+		\item Si $q=0$, à partir du rang $1$ : la suite $u$ est constante et égale à $0$.
+		\item Si $q<0$, la suite $u$ n'est ni croissante ni décroissante.
+	\end{enumerate}
+}
+
+\propriete{(représentation graphique)}{
+	La représentation graphique d'une suite géométrique est un nuage de points situé sur la courbe d'une fonction exponentielle.
+}
+
+\exemple{}{
+
+	On représente la suite géométrique de premier terme $u_0=1$ et de raison $q=1,5$ :\\ \\
+	\begin{minipage}[t]{0.4\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$n$},
+					ylabel={$u_n$},
+					axis lines=middle,
+					grid=both,
+					minor tick num=1,
+					enlargelimits={abs=0.3},
+					ymin=0,
+					ymax=11,
+					xmin=0,
+					xmax=5
+				]
+				\addplot+[ycomb, blue, mark=*, mark size=1.5pt, only marks, samples at={0,1,2,3,4, 5}] {1*1.5^x};
+			\end{axis}
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.43\textwidth}
+		\vspace{-100pt}
+		\begin{tikzpicture}
+			% Dessinez la droite graduée
+			\draw[line width=1pt, ->] (0,0) -- (8,0);
+
+			% Ajoutez les graduations
+			\foreach \x in {0,1,...,7} {
+					\draw[line width=0.6pt] (\x, 0.1) -- (\x, -0.1);
+				}
+
+			% Ajoutez les étiquettes de graduation
+			\foreach \x/\n in {1/1,2/2,3/3,4/4,5/5,6/6,7/7} {
+					\node[below] at (\x, -0.15) {$\n$};
+				}
+
+			% Dessinez les points de la suite
+			\foreach \x in {1,1.5, 2.25, 3.375, 5.0625, 7.59375} {
+					\node[fill, blue, circle, inner sep=1pt] at (\x, 0) {};
+				}
+
+			% Ajoutez les étiquettes des points
+			\foreach \x/\n in {1/u_0, 1.5/u_1, 2.2/u_2, 3.375/u_3, 5.0625/u_4, 7.59375/u_5} {
+					\node[blue, above] at (\x, 0) {$\n$};
+				}
+		\end{tikzpicture}
+	\end{minipage}
+}
+
+\propriete{somme de termes consécutifs}{
+Soit $n$ un entier naturel non nul et $q$ un réel différent de $1$. Alors $1+q+q^2+...+q^n=\dfrac{1-q^{n+1}}{1-q}$.
+}
+
+\exemple{}{
+On calcule $S = 1+2+2^2+2^3+\dots+2^{10} = \dfrac{1-2^{11}}{1-2} = 2047$
+}
+
+\section{Suites minorées et majorées}
+
+\definition{}{
+	Soit $u$ une suite.
+	\begin{enumerate}[(i)]
+		\item On dit que $u$ est minorée s'il existe un réel $m$ tel que pour tout $n\in\N, u_n\geq m$.
+		      On dit que $m$ est un minorant de la suite.
+		\item On dit que $u$ est majorée s'il existe un réel $M$ tel que pour tout $n\in\N, u_n\leq m$.
+		      On dit que $M$ est un majorant de la suite.
+	\end{enumerate}
+}
+
+\remarques{
+	\begin{itemize}
+		\item Une suite croissante est nécesairement minorée par son terme initial : $\forall n\in\N, u_n\geq u_0$.
+		\item Une suite décroissante est nécesairement majorée par son terme initial : $\forall n\in\N, u_n\leq u_0$.
+	\end{itemize}
+}
+
+\exemples{}{
+	\begin{itemize}
+		\item On pose $\forall n\in\N^*, u_n=\frac{-1}{n}$. \\
+		      La suite $(u)$ est strictement croissante car $\forall n\in\N^*, n<n+1 \Rightarrow \frac{1}{n}>\frac{1}{n+1}\Rightarrow\frac{-1}{n}<\frac{-1}{n+1}$. \\
+		      Donc $(u)$ est majorée par $0$ : $\forall n\in\N^*, \frac{-1}{n}\leq0$.
+		\item On pose $u_n =
+			      \begin{cases}
+				      -n \text{ si $n$ pair} \\
+				      n \text{ si $n$ impair}
+			      \end{cases}$ pour tout $n\in\N$. La suite$(u)$ n'est ni minorée ni majorée.
+	\end{itemize}
+}
+
+\section{Propositions héréditaires et démonstrations par récurrence}
+
+\definition{}{
+	Soit $P(n)$ un prédicat de $n$. On dit que $P$ est héréditaires si la proposition
+	« $\forall n\in\N, \text{ } P(n)\Rightarrow P(n+1)$ » est vérifiée.
+}
+
+\exemple{}{
+	\begin{itemize}
+		\item Soit $P(n)$ : « $n^2>10$ » pour tout $n\in\N$. $P(0)$, $P(1)$, $P(2)$ et $P(3)$ sont fausses. \\
+		      Ensuite, $P(4)$, $P(5)$, etc sont vraies et ceci pour tout $n\geq4$ (preuve : $f(x)=x^2$ est croissante sur $[0;+\infty[$ et $f(4)=16$).\\
+		      Donc $P$ est héréditaires.
+		\item Soit $P(n)$ : « $\frac{6}{n+1}>1,1$ » pour tout $n\in\N$. $P(0)$, $P(1)$, $P(2)$ $P(3)$ et $P(4)$ sont vraies.\\
+		      Ensuite, $P(5)$, $P(6)$, etc sont fausses et ceci pour tout $n\geq5$ (preuve : si $n\geq5$, alors $n+1\geq6$ donc $\frac{6}{n+1}\leq\frac{6}{6}=1$).\\
+		      Donc $P$ n'est pas héréditaires car $P(4)$ est vraie mais $P(5)$ est fausse ce qui contredit « $P(n)\Rightarrow P(n+1)$ ».
+	\end{itemize}
+}
+
+
+\propriete{}{
+	Soit $P(n)$ un prédicat de $n$. On suppose que $P(n)$ est héréditaire.Deux cas sont alors possibles :
+	\begin{enumerate}[(i)]
+		\item $P(n)$ est fausse pour tout $n\in\N$.
+		\item il existe un entier $n_0$ tel que $P(n)$ soit vraie pour tout entier $n\geq n_0$.
+	\end{enumerate}
+}
+
+\remarque{Faire une « démonstration par récurrence » consiste à prouver qu'une proposition $P$ est héréditaire et
+	trouver un entier $n_0$ pour lequelle $P(n_0)$ est vraie. Le principe de récurrence permet alors de conclure que pour
+	tout entier naturel $n\geq n_0$, $P(n)$ est vraie.}
+
+\exemple{d'une démonstration par récurrence}{
+	Soit la suite
+	$\left\{
+		\begin{array}{l}
+			u_0 = 3 \\
+			u_n+1 = \frac{u_n}{2} + 1
+		\end{array}
+		\right. \text{.}$\\
+
+	Nommons $P(n)$ : « $u_n\leq3$ ».
+	\begin{itemize}
+		\item \underline{Initialisation :}\\
+		      $P(0)$ est vraie car $u_0=3$.
+		\item \underline{Hérédité :}\\
+		      Montrons que $P$ est héréditaire.\\
+		      Soit $n$ un entier naturel. Supposons $P(n)$ :
+		      \vspace{-4pt}
+		      \begin{flalign*}
+			       & \text{On a } u_n \leq 3                           \\
+			       & \text{donc } \frac{u_n}{2} \leq 1,5               \\
+			       & \text{donc } \frac{u_n}{2}+1 \leq 2,5             \\
+			       & \text{donc } \frac{u_n}{2}+1 \leq 2,5 \leq 3      \\
+			       & \text{donc } u_{n+1} \leq 3 \text{ donc $P(n+1)$}
+		      \end{flalign*}
+		\item \underline{Conclusion :}\\
+		      Par principe de récurrence, comme $P$ est héréditaire et vraie au rang $0$, on déduit que pour tout $n\geq0$, $P(n)$ est vraie.\\
+		      Autrement dit, pour tout $n\geq0$, $u_n\leq3$.
+	\end{itemize}
+}
+
+\remarque{En math, supposer $\not=$ admettre. Lorsqu'on suppose, on attribut temporairement la valeur de vérité « vrai »
+	à une proposition (on suppose souvent lors de démonstrations) tandis que lorsqu'on admet, on suppose de manière
+	définitive (ex : on admet des théorèmes lorsqu'ils sont trop complexes pour être démontrés).}
+
+
+\end{document}

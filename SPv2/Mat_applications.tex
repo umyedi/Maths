@@ -1,0 +1,198 @@
+\documentclass[10pt,a4paper]{article}
+
+
+
+\input{crs.sty}
+
+
+\begin{document}
+
+
+\titre{Matrices : quelques applications}
+
+\section{Résolution d'un système linéaire}
+
+
+\exe On considère le système $(S)$ suivant $\left\lbrace \begin{array}{l}5x+2y=16  \\ 4x+3y=17 \end{array} \right.$
+
+On pose $A=\begin{pmatrix} 5 & 2\\ 4 & 3 \end{pmatrix}, X=\begin{pmatrix} x\\ y \end{pmatrix}$ et $ B=\begin{pmatrix} 16\\ 
+17 \end{pmatrix}$.
+
+
+On a alors $A \x X = \begin{pmatrix} 5x+2y\\ 4x+3y \end{pmatrix}.$
+
+Ainsi le système peut s'écrire $AX=B$.
+
+
+\prop{Un système linéaire de la forme $\left\lbrace \begin{array}{l} a_{11}x_1+a_{12}x_2+ \dots  + a_{1n}x_n=b_1\\
+
+a_{21}x_1+a_{22}x_2+ \dots  + a_{2n}x_n=b_2\\
+ 
+ \dots \\
+
+a_{n1}x_1+a_{n2}x_2+ \dots  + a_{nn}x_n=b_n\\
+ 
+\end{array} \right.$
+
+est équivalent à l'équation $AX = B$ où $A = (a_{ij })$ est une matrice carrée d'ordre $n$, $X = (x_j)$ et $B = (b_j)$ sont deux matrices colonnes.
+
+Si $A$ est inversible, alors l'équation $AX = B$ admet pour unique solution $X = A^{-1}B$.
+
+}
+
+\dem $AX=B$ d'où $A^{-1}AX=A^{-1}B \iff I_n X=A^{-1}B \iff X = A^{-1}B$.
+
+\rema Dans le contexte de la propriété précédente, si $A$ n'est pas inversible alors le système correspondant possède une infinité de solutions ou aucune solution.
+
+\exes
+\begin{enumerate}[1.]
+\item Résoudre, à l'aide des matrices et sans utiliser sa calculatrice, le système $S_1 : \left\lbrace \begin{array}{l}5x+2y=16  \\ 4x+3y=17 \end{array} \right.$
+\item Résoudre, si possible, à l'aide des matrices et de sa calculatrice le système 
+$S_2 : \left\lbrace \begin{array}{l}x+y+z=125  \\ 2x+3y+z=136 \\ x+2y+3z=143 \end{array} \right.$
+\end{enumerate}
+
+\section{Suites de matrices}
+
+\defi{Soit $(U_n)$ une suite de matrices colonnes à $p$ lignes.
+
+La suite $(U_n)$ est définie par son premier terme (en général la matrice colonne $U_0$), et par la relation de récurrence $U_{n+1}=AU_n+C$, où $A$ est une matrice carrée d'ordre $p$, et $C$ une matrice colonne à $p$ lignes.
+
+Dans ce cas, l'état stable, s'il existe, est la matrice colonne à $p$ lignes $S$ qui vérifie $S=AS+C$.
+
+}
+
+\defi{Soit $U_n$ une suite de matrices colonnes à $p$ lignes. Soit $L$ une matrice colonne à $p$ lignes.
+
+La suite $(U_n)$ tend vers $L$ lorsque la limite quand $n$ tend vers $+\infty$ de chaque coefficient de $U_n$ est égale au coefficient de $L$ correspondant.}
+
+
+\prop{On considère une suite $(U_n)$ de matrices colonnes telle que $U_{n+1} = AU_n + B$ pour tout entier $n$.
+
+\begin{enumerate}[$(i)$]
+\item S'il existe une matrice $X$ telle que $AX + B = X$ alors la suite $(V_n)$ définie par $V_n = U_n - X$ vérifie :
+
+$V_{n+1} = AV_n$ pour tout entier $n$.
+
+Dans ce cas on a $U_n = A^n(U_0 - X) + X$ pour tout entier $n$.
+\item Si $(U_n)$ est une suite convergente, alors elle converge vers une matrice $U$ vérifiant $AU + B = U$.
+
+\end{enumerate}
+}
+
+
+\dem
+
+Soit une suite $(U_n)$ de matrices colonnes telles que $U_{n+1} = AU_n + B$ pour tout entier $n$.
+
+$(i)$ S'il existe une matrice $X$ telle que $AX + B = X$, posons $(V_n)$ définie par $V_n = U_n - X$.
+
+Alors $V_{n+1} = U_{n+1} - X = AU_n + B - (AX + B) = AU_n + B - AX - B = AU_n - AX = A(U_n - X) = AVn$.
+
+La suite $(V_n)$ est donc une suite géométrique de raison $A$, donc $V_n = A^nV_0$ pour tout entier $n$.
+
+(La démonstration de cette propriété peut se faire par récurrence).
+
+\newpage
+
+Or $V_0 = U_0 - X$ donc $V_n = A^n(U_0 - X)$ pour tout entier $n$.
+
+$V_n = U_n - X$ donc $U_n = V_n + X = A^n (U_0 - X) + X$ pour tout entier $n$.
+
+
+$(ii)$ Si $(U_n)$ est une suite convergente, soit $U$ sa limite.
+
+D'une part $\lim\limits_{n \rightarrow +\infty} U_{n+1}=\lim\limits_{n \rightarrow +\infty} U_{n}=U$.
+
+D'autre part $\lim\limits_{n \rightarrow +\infty} U_{n+1}=\lim\limits_{n \rightarrow +\infty} (Au_n+B)=
+A(\lim\limits_{n \rightarrow +\infty} U_n) +B=AU+B$.
+
+Donc $U$ vérifie bien $AU+B=U$.
+
+\medskip
+
+\exe 
+
+
+Soit $(a_n)$ et $(b_n)$ deux suites définies par : $a_0=10,b_0=20,a_{n+1}=0,9a_n-0,7b_n+4$ et $b_{n+1}=0,2b_n+3$
+
+On pose $U_n=\begin{pmatrix} a_n\\b_n \end{pmatrix}$.
+
+
+La suite $(U_n)$ est définie par son premier terme $U_0=\begin{pmatrix} 10\\20 \end{pmatrix}$ et par la relation de récurrence $U_{n+1}=AU_n+C$.
+
+
+\begin{enumerate}[a.]
+\item Donner les matrices $A$ et $C$.
+\item Déterminer, s'il existe, l'état stable $S$.
+\item On considère la suite $(V_n)$ vérifiant $V_n=U_n-S$. Montrer que $V_{n+1}=AV_n$.
+\item Montrer par récurrence que, pour tout entier $n$ on a $V_n=A^nV_0$.
+\item Montrer par récurrence que $A^n=\begin{pmatrix} 0,9^n & 0,2^n-0,9^n\\0 & 0,2 ^n \end{pmatrix}$.
+\item Déterminer une formule explicite pour $U_n$ en fonction de $A^n,U_0$ et $S$.
+
+Puis en déduire que $\left\lbrace \begin{array}{l} a_n=-20 \x 0,9^n + 16,25 \x 0,2^n + 13,75 \\ b_n= 16,25 \x 0,2^n + 3,75 \end{array} \right.$
+
+\item Montrer que, si la suite $(U_n)$ tend vers une matrice $L$, alors $L=S$.
+\item Montrer que la suite $(U_n)$ tend effectivement vers $S$.
+\end{enumerate}
+
+
+\section{Quelques transformations géométriques}
+
+\prop { On se place dans un repère $(O,\vv{i},\vv{j})$. Soient $A(x_A;y_A),B(x_B;y_B)$ et $\Coord{u}{x_{\vv{u}}}{y_{\vv{u}}}$.
+
+$B$ est l'image de $A$ par la translation de vecteur $\vv{u}$ si, et seulement si $\begin{pmatrix} x_B\\y_B \end{pmatrix}=
+\begin{pmatrix} x_A\\y_A \end{pmatrix} + \begin{pmatrix} x_{\vv{u}}\\y_{\vv{u}}\end{pmatrix} $.
+
+%\item $B$ est l'image de $A$ par la rotation de centre $O$ et d'angle $\theta$ si, et seulement si $\begin{pmatrix} x_B\\y_B \end{pmatrix}= \begin{pmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{pmatrix} \x \begin{pmatrix} x_A\\y_A \end{pmatrix}$.
+%
+%On appelle matrice de rotation de centre $O$ et d'angle $\theta$ la matrice \raisebox{-7.5mm}{\shadowbox{ $R_{(O;\theta)}=\begin{pmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{pmatrix}$}}
+%
+%\item $\vv{v}$ est l'image de $\vv{u}$ par la rotation de centre $O$ et d'angle $\theta$ si, et seulement si $\begin{pmatrix} x_{\vv{v}} \\ y_{\vv{v}} \end{pmatrix} = \begin{pmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{pmatrix} \x \begin{pmatrix} x_{\vv{u}}\\y_{\vv{u}}\end{pmatrix}$.
+
+%\end{enumerate}
+}
+
+
+
+
+\props{ On peut définir pour les transformations géométriques suivantes des matrices de transformation $T=\begin{pmatrix} a & b \\c & d  \end{pmatrix}$ qui à tout point $M(x;y)$ du plan, associe son point image $M'(x';y')$ tel que  $\begin{pmatrix} x'\\y' \end{pmatrix} = \begin{pmatrix} a & b \\ c & d  \end{pmatrix} \x \begin{pmatrix} x\\y \end{pmatrix}$.
+
+\begin{enumerate}[$(i)$]
+\item  Matrice de rotation de centre $O$ et d'angle $\theta$ : $R_{(O;\theta)}=\begin{pmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{pmatrix}$
+\item Matrice d'homothétie de centre $O$ et de rapport $k \in \R$ : $H_{(O;k)}=\begin{pmatrix} k &  0 \\ 0 & k \end{pmatrix}$.
+
+\item Matrice de la symétrie axiale par rapport à l'axe des abscisses : $S_{((Ox))}=\begin{pmatrix} 1 &  0 \\ 0 & -1 \end{pmatrix}$.
+
+\item Matrice de la symétrie axiale par rapport à l'axe des ordonnées : $S_{((Oy))}=\begin{pmatrix} -1 &  0 \\ 0 & 1 \end{pmatrix}$.
+
+\item Matrice de la symétrie centrale de centre O : $S_{0}=\begin{pmatrix} -1 &  0 \\ 0 & -1 \end{pmatrix}$.
+
+\end{enumerate}
+
+
+ 
+ 
+}
+
+
+
+\dem Admises.
+
+
+\medskip
+
+\exe Soit $\Coord{u}{-1}{3},A(-2;3)$ et $ \theta = \dfrac{\pi}{6}$. Déterminer par calcul matriciel :
+
+\begin{enumerate}[a.]
+\item Les coordonnées de $B$ image de $A$ par la translation de vecteur $\vv{u}$
+\item Les coordonnées de $C$ image de $B$ par la rotation de centre $O$ et d'angle $\theta$. 
+\item Les coordonnées de $D$ image de $C$ par l'homothétie de centre $O$ et rapport $k=2$.
+\item Les coordonnées de $E$ image de $D$ par la symétrie axiale par rapport à l'axe des ordonnées.
+\end{enumerate}
+
+\end{document}	
+
+
+
+
+

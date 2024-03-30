@@ -1,0 +1,344 @@
+\documentclass[10pt,a4paper]{article}
+
+\input{crs.sty}
+%\usepackage{qrcode}
+\begin{document}
+
+
+\titre{Les nombres complexes : point de vue géométrique}
+
+Dans tout le chapitre, on munit le plan d'un repère $(O,\vv{u},\vv{v})$ orthonormé direct .
+
+\section{Représentation dans le plan complexe}
+
+\subsection{Définitions}
+
+\begin{minipage}{0.6 \linewidth}
+\defis{À tout nombre complexe $z = a + ib$, avec $a$ et $b$ réels, on peut associer :
+
+\begin{enumerate}[\quad $\bullet$]
+\item L'unique point $M(a ; b)$. $M$ est appelé point image de $z$.
+\item L'unique vecteur $\Coord{w}{a}{b}$. $\vv{w}$ est appelé vecteur image de $z$.
+\end{enumerate}
+
+
+Réciproquement :
+
+\begin{enumerate}[\quad $\bullet$]
+\item À tout point $M(a ; b)$ avec $a$ et $b$ deux réels, on peut associer l'unique nombre complexe $z = a + ib$.
+
+Le nombre $z$ est appelé affixe du point $M$
+\item À tout vecteur vecteur $\Coord{w}{a}{b}$ avec $a$ et $b$ deux réels, on peut associer l'unique nombre complexe $z = a + ib$.
+
+Le nombre $z$ est appelé affixe du vecteur $\vv{w}$.
+\end{enumerate}
+}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+\includegraphics[width = 1 \linewidth]{cplx_rep_graph.png}
+\end{minipage}
+
+\medskip
+
+\rems
+\begin{enumerate}[$\bullet$]
+\item Les nombres réels sont les affixes des points de l'axe des abscisses aussi appelé : axe des réels.
+\item Les nombres imaginaires purs sont les affixes des points de l'axe des ordonnées aussi appelé : axe des imaginaires purs.
+\item Lorsqu'un point ou un vecteur est repéré par son affixe, le plan est appelé le plan complexe.
+\item L'affixe de $M$ est souvent noté $z_M$ et la donnée d'un point $M$ d'affixe $z_M$ est souvent notée $M(z_M)$.
+
+L'affixe de $\vv{w}$ est souvent noté $z_{\vv{w}}$, et la donnée d'un vecteur $w$ d'affixe $z_{\vv{w}}$ est souvent notée 
+$ \vv{w}(z_{\vv{w}})$ .
+
+\end{enumerate}
+
+\exes $A(1;2)$ avec $z_A=1+2i$. $z_{\vv{w}}=2-3i$ et $\Coord{w}{2}{-3}$.
+
+
+\subsection{Propriétés}
+
+Des propriétés connues de géométrie sur les vecteurs et points donnent les propriétés suivantes.
+
+\props { Soient $A(z_A)$ et $B(z_B)$ deux points du plan complexe. Soient $ \vv{w_1}(z_{\vv{w_1}})$ et $ \vv{w_2}(z_{\vv{w_2}})$  deux vecteurs du plan complexe. Soit $\lambda \in \R$.
+
+\vspace*{-0.4 cm}
+
+\begin{multicols}{2}
+\begin{enumerate}[$(i)$]
+\item $A=B \iff z_A=z_B$ . 
+\item $\vv{w_1}=\vv{w_2} \iff z_{\vv{w_1}}=z_{\vv{w_2}}$.
+\item $\vv{AB}$ a pour affixe $z_B-z_A$.
+\item Le milieu du segment $[AB]$ a pour affixe $\dfrac{z_A+z_B}{2}$.
+\item Le vecteur $\vv{w_1}+\vv{w_2}$ a pour affixe $z_1+z_2$.
+\item $\lambda \vv{w_1}$ a pour affixe $\lambda z_1$.
+\end{enumerate}
+\end{multicols}
+}
+
+\dem $(iii)$ On sait que $\Coord{AB}{x_B-x_A}{y_B-y_A}$ d'où pour les affixes :
+
+$z_{\vv{AB}}=(x_B-x_A)+i(y_B-y_A)=(x_B-iy_B) - (x_A-iy_A)=z_B-z_A$. \medskip
+
+\exe Soit $A(3 + 2i)$ et $B(5 - i)$. Alors le vecteur $\vv{AB}$ a pour affixe $z_{\vv{AB}} = 5 - i - (3 + 2i) = 2 - 3i$.
+
+\begin{minipage}{0.6 \linewidth}
+\subsection{Conjugué et opposé}
+
+Les points $M$ d'affixe $z$ et $M'$ d'affixe $\overline{z}$ sont symétriques par rapport à l'axe des réels.
+
+Les points $M$ d'affixe $z$ et $M''$ d'affixe $-z$ sont symétriques par rapport à l'origine du repère.
+\end{minipage}
+\begin{minipage}{0.35 \linewidth}
+\includegraphics[width = 0.9 \linewidth]{cplx_sym.png}
+\end{minipage}
+
+
+\begin{minipage}{0.6 \linewidth}
+
+\section{Module et argument d'un nombre complexe}
+
+
+\subsection{Module}
+
+\defi{Soit $M$ un point d'affixe $z$. Le module de $z$, noté $|z|$ est le réel positif défini par $|z| = OM$.
+
+Si $z = a + ib$ avec $a$ et $b$ deux réels. Alors $|z| = \sqrt{a^2 + b^2}$.
+}
+\end{minipage}
+\begin{minipage}{0.35 \linewidth}
+\includegraphics[width = 1 \linewidth]{cplx_mod}
+\end{minipage}
+
+\rema Si $z = z'$, alors $|z| = |z'|$. Mais la réciproque est fausse.
+
+Contre-exemple avec $z=1+i$ et $z'=1-i$. $|z|=|z'|=\sqrt{2}$ et $z \neq z'$.
+
+
+\props { Soit $z$ un nombre complexe. \vspace*{-0.3cm}
+\begin{multicols}{3}
+\begin{enumerate}[$(i)$]
+\item $|z|^2=z \overline{z}$
+\item $|\overline{z}|=|z|$
+\item $|-z|=|z|$
+\item $|z|=0 \iff z=0$
+\end{enumerate}
+\end{multicols}\vspace*{-0.3cm}
+}
+
+\dem
+
+\begin{enumerate}[$(i)$]
+\item $z \overline{z}=(a+ib)(a-ib)=a^2-(ib)^2=a^2-i^2b^2=a^2+b^2=|z|^2$
+\item $|\overline{z}|=\sqrt{a^2+(-b)^2}=\sqrt{a^2+b^2}=|z|$
+\item $|-z|=\sqrt{(-a)^2+(-b)^2}=\sqrt{a^2+b^2}=|z|$
+\item $|z|=0 \Rightarrow a^2+b^2=0 \iff a=b=0$. Sens réciproque évident.
+\end{enumerate}
+
+\medskip
+
+\rema Corollaire de (i) : \raisebox{-3.5mm}{\shadowbox{$|z|= \sqrt{z \overline{z}}$}}. (utile en pratique).
+
+\prop{Soit $A(z_A)$ et $B(z_B)$. On a $AB = |z_B - z_A| = |z_A - z_B|$. 
+}
+
+\dem On a $AB=\norme{AB}=|z_{\vv{AB}}|=|z_B-z_A|$.
+
+\props{Soient $z$ et $z'$ deux nombres complexes non nuls et entier naturel non nul.
+
+\begin{multicols}{3}
+\begin{enumerate}[$(i)$]
+\item Produit : $|zz'|=|z||z'|$
+\item Puissance : $|z^n|=|z|^n$  
+\item Inverse : $\left| \dfrac{1}{z} \right|=\dfrac{1}{|z|}$
+\item Quotient : $\left| \dfrac{z}{z'} \right|=\dfrac{|z|}{|z'|}$ 
+\end{enumerate}
+\end{multicols}
+
+}
+
+
+
+\dem
+
+$\bullet$ Module d'un produit :$|zz'|^2=zz' \x \overline{zz'}= zz' \overline{z} \overline{z'}=z \overline{z} \x z'\overline{z'} = |z|^2 |z'|^2=(|z||z'|)^2$.
+
+Or $|zz'| \in \R^+$ et $|z||z'| \in \R^+$ d'où $|zz'|=|z||z'|$
+
+$\bullet$  Module d'une puissance : On procède par récurrence.
+
+Initialisation : $|z^1|=|z|=|z|^1$. $P(1)$ est vraie.
+
+Hérédité : Supposons qu'il existe un entier $k$ tel que la propriété $P(k)$ soit vraie : $|z^k|=|z|^k$
+
+$|z^{k+1}|=|z^kz|=|z^k||z|=|z|^k|z|=|z|^{k+1}$
+
+Conclusion : La propriété est vraie pour $n=1$ et héréditaire à partir de ce rang.
+
+Donc elle est vraie pour tout entier naturel $n$, soit : $|z^n|=|z|^n$.
+
+$\bullet$  Module de l'inverse :  $z \x \dfrac{1}{z}=1$ d'où $\left|z \x \dfrac{1}{z} \right|=|1|=1$ puis
+$|z| \x \left| \dfrac{1}{z} \right| = 1 \iff \left| \dfrac{1}{z} \right| = \dfrac{1}{|z|}$.
+
+
+$\bullet$  Module du quotient : $ \dfrac{z}{z'}= z \x \dfrac{1}{z'}$. Donc $\left| \dfrac{z}{z'}\right|=\left|z \x \dfrac{1}{z'} \right|=|z| \x \left| \dfrac{1}{z'} \right| = |z| \x \dfrac{1}{|z'|}= \dfrac{|z|}{|z'|}$.
+
+\medskip
+
+\prop{\textbf{Inégalité triangulaire}
+
+Soient $z$ et $z'$ deux nombres complexes, on a $|z+z'| \leq |z|+|z'|$}
+
+\dem Voir fiche complément
+
+\subsection{Argument}
+
+\begin{minipage}{0.6 \linewidth}
+\defi{Soit un point $M$ d'affixe non nulle $z$.
+
+On appelle argument de $z$, noté $\arg(z)$ une mesure, en radians, de l'angle $(\vv{u};OM)$.
+
+}
+
+\rems
+\begin{enumerate}[$\bullet$]
+\item Un nombre complexe non nul possède une infinité d'arguments de la forme $\arg(z) + 2k \pi, k \in \Z$.
+
+On notera $\arg(z)$ modulo $2 \pi$ ou $\arg(z) [2\pi]$
+
+\item 0 n'a pas d'argument car dans ce cas l'angle $(\vv{u};OM)$ n'est pas défini.
+
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.35 \linewidth}
+\includegraphics[width = 1 \linewidth]{cplx_arg}
+\end{minipage}
+
+
+\exe Soit $z=3+3i$. On a $|z|=3 \sqrt{2}$ et $ \modu{\arg(z)}{\dfrac{\pi}{4}}{2\pi}$. On peut noter $\arg(z) = \dfrac{\pi}{4} [2\pi]$.
+
+$|i|=1; \arg(i)=\dfrac{\pi}{2} [2 \pi]$.
+
+\props { Soit $z$ un nombre complexe non nul. \vspace*{-0.3cm}
+\begin{multicols}{2}
+\begin{enumerate}[$(i)$]
+\item $z$ est un nombre réel $\iff \arg(z)=0 [\pi]$
+\item $z$ est un nombre imaginaire pur $\iff \arg(z)= \dfrac{\pi}{2} [\pi]$
+\item $\arg({\overline{z}})=-\arg(z) [2 \pi]$
+\item $\arg({-z})=\arg(z)+ \pi [2 \pi]$
+\end{enumerate}
+\end{multicols}\vspace*{-0.3cm}
+}
+
+
+
+
+\begin{minipage}{0.6 \linewidth}
+\section{Forme trigonométrique d'un nombre complexe}
+
+%\subsection{Définition}
+
+\prop{Soit $z=a+ib$ un nombre complexe non nul.
+
+On pose : $\theta = \arg(z)$.
+
+On a alors : $a=|z| \cos(\theta)$ et $b=|z| \sin(\theta)$.
+}
+\end{minipage}
+\begin{minipage}{0.35 \linewidth}
+\includegraphics[width = 1 \linewidth]{cplx_geo}
+\end{minipage}
+
+
+\dem Dans le triangle $OAM$ rectangle en $A$ on utilise la trigonométrie de collège.
+
+On a $\cos(\theta)=\dfrac{a}{|z|}$ et $\sin(\theta)=\dfrac{b}{|z|}$.
+
+\defi{On appelle forme trigonométrique d'un nombre complexe non nul l'écriture :
+
+$z=|z|(\cos(\theta)+i \sin(\theta))$ avec $\theta = \arg(z)$.}
+
+
+\prop{Deux nombres complexes non nuls sont égaux si, et seulement si, ils ont même module et même
+argument (modulo $2\pi$).}
+
+\dem 
+
+$\bullet$ Si $z=z'$ implication triviale.
+
+$\bullet$ Réciproque : Si $\left\lbrace \begin{array}{l} |z|=|z'| \\ \arg(z)=\theta=\arg(z')=\theta'[2\pi]  \end{array} \right.$
+Alors $z=|z|(\cos(\theta)+i \sin(\theta))=|z'|(\cos(\theta')+i \sin(\theta'))=z'$.
+
+
+
+\exe Écrire le nombre complexe $z= \dfrac{\sqrt{2}}{2}+i \dfrac{\sqrt{6}}{2}$ sous sa forme trigonométrique.
+
+\textit{Méthodologie :}
+
+$\bullet$ On commence par calculer le module de $z$
+
+$\bullet$ On calcule $\dfrac{z}{|z|}$ pour identifier la partie réelle de et sa partie imaginaire.
+
+$\bullet$ $|z|= \dots = \sqrt{2}$.
+
+$\bullet$ $\dfrac{z}{|z|}= \dots = \dfrac{1}{2} + i \dfrac{\sqrt{3}}{2}$.
+
+On cherche donc un argument tel que $\cos(\theta)=\dfrac{1}{2}$ et $\sin(\theta)=\dfrac{\sqrt{3}}{2}$.
+
+Parmi les valeurs remarquable on a $\cos(\dfrac{\pi}{3})=\dfrac{1}{2}$ et $\sin(\dfrac{\pi}{3})=\dfrac{\sqrt{3}}{2}$.
+
+D'où $\dfrac{z}{|z|} = \cos(\dfrac{\pi}{3}) + i \sin(\dfrac{\pi}{3})$ puis $z=\sqrt{2} \left(\cos(\dfrac{\pi}{3}) + i \sin(\dfrac{\pi}{3}))\right)$
+
+
+
+
+
+
+%\medskip
+%
+%\subsection{Propriétés}
+%
+%\props{Soient $z$ et $z'$ deux nombres complexes non nuls et entier naturel non nul.
+%
+%\renewcommand{\arraystretch}{2} 
+%
+%\begin{center}
+%\begin{tabularx}{0.8 \linewidth}{|M|M|M|}
+%\hline 
+% & Modules & Arguments \\ 
+%\hline 
+%Produit & $|zz'|=|z||z'|$ & $\arg(zz')=\arg(z)+arg(z')$ \\ 
+%\hline 
+%Puissance & $|z^n|=|z|^n$ & $\arg(z^n)=n \arg(z)$ \\ 
+%\hline 
+%Inverse & $\left| \dfrac{1}{z} \right|=\dfrac{1}{|z|}$ & $\arg\left(\dfrac{1}{z}\right)=-\arg(z)$ \\ 
+%\hline 
+%Quotient & $\left| \dfrac{z}{z'} \right|=\dfrac{|z|}{|z'|}$ & $\arg\left(\dfrac{z}{z'}\right)=\arg(z)-\arg(z')$ \\ 
+%\hline 
+%\end{tabularx} 
+%\end{center}
+%
+%}
+%
+
+%
+%
+%\section{Ensemble $\U$ des nombres complexes de module 1}
+%
+%\subsection{Cercle trigonométrique}
+%
+%
+%\subsection{Stabilité de $\U$}
+%
+%
+%
+
+
+
+\end{document}	
+
+
+
+
+
+
+

@@ -20,6 +20,8 @@
 \usepackage{lastpage}         % Pour avoir le total de page dans le footer
 \usepackage{makecell}         % Retour à la ligne dans une case d'un tabular
 \usepackage{stmaryrd}         % Intervalles entières : \llbracket et \rrbracket
+\usepackage{cancel}           % Permet de barrer des termes
+
 
 \pgfplotsset{compat=newest}   % Active les dernières fonctionnalités de pgfplots
 
@@ -237,6 +239,11 @@
 
 % ========== Notations ==========
 
+% Style
+\newcommand{\ds}{\displaystyle}
+\newcommand{\llb}{\llbracket}
+\newcommand{\rrb}{\rrbracket}
+
 % Ensembles
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
@@ -266,3 +273,30 @@
 
 % ========== Tableaux ==========
 \newcommand{\boldhline}{\hline\noalign{\vskip 0pt}\hline}
+
+% ========== Graphiques ==========
+
+% Triange de Pascal
+\newcommand{\binomial}[2]{\pgfmathparse{int((#1)!/((#2)!*((#1)-(#2))!))}\pgfmathresult}
+\newcommand{\Pascal}[1]{
+    \begin{tikzpicture}[scale=1, every node/.style={scale=1.2}]
+        \foreach \n in {0,...,#1} {
+            \foreach \k in {0,...,\n} {
+                \node at (\k-\n/2,-\n) {$\binomial{\n}{\k}$};
+                \draw (\k-\n/2,-\n) +(-0.5,-0.5) rectangle ++(0.5,0.5);
+            }
+        }
+    \end{tikzpicture}
+}
+
+\newcommand{\Pascalbinome}[1]{
+    \begin{tikzpicture}[scale=1, every node/.style={scale=0.9}]
+        \foreach \n in {0,...,#1} {
+            \foreach \k in {0,...,\n} {
+                \pgfmathtruncatemacro{\symk}{min(\k,\n-\k)}
+                \node at (\k-\n/2,-\n) {$\ds\binom{\n}{\symk}$};
+                \draw (\k-\n/2,-\n) +(-0.5,-0.5) rectangle ++(0.5,0.5);
+            }
+        }
+    \end{tikzpicture}
+}

@@ -1,0 +1,126 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Probabilités et variables aléatoires}
+\newcommand{\DocumentTheme}{Proba. et Stat.}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Vocabulaire et notations}
+
+\subsection{Univers et évènement}
+
+\definition{}{
+	On appelle univers l'ensemble des issues possibles d'une expérience aléatoire. On le note souvent $\Omega$. On appelle
+	évènement un sous-ensemble de l'univers $\Omega$, c'est à dire un ensemble d'issues.
+}
+
+\subsection{Inclusion}
+
+\definition{}{
+	Pour deux ensembles $A$ et $B$, on dit que $A$ est inclus dans $B$ (ou que $A$ est un sous-ensemble de $B$) lorsque
+	tous les éléments appartenant à $A$ appartiennent aussi à $B$. On le note $A \subset B$.
+}
+
+\exemple{}{
+	\begin{itemize}
+		\item $\{3;9\} \subset \{3;6;9\}$
+		\item $\{1\} \subset \{0;1;1;2;3;5\}$
+	\end{itemize}
+}
+
+\subsection{Intersection et réunion}
+
+
+\definition{}{
+	Soit $\Omega$ un ensemble et $A$, $B$ deux sous-ensembles de $\Omega$.
+	\begin{itemize}
+		\item On appelle l'intersection de $A$ et $B$ l'ensemble des éléments de $\Omega$ qui appartiennent à la fois à
+		      $A$ et à $B$. On la note $A \cup B$.
+		\item On appelle la réunion (ou l'union) de $A$ et $B$ l'ensemble des éléments de $\Omega$ qui appartiennent à au
+		      moins l'un des deux ensembles $A$ et $B$. On la note $A \cap B$.
+	\end{itemize}
+}
+
+\exemple{}{
+	\begin{itemize}
+		\item $ ]-\infty;3]\cap]2;+\infty[ \text{ $=$ } ]2;3]$
+		\item $ [1;3] \cup ]2;+\infty[ \text{ $=$ } [1;+\infty[ $
+	\end{itemize}
+}
+
+\subsection{Complémentaire}
+
+\definition{}{
+	Soit $\Omega$ un ensemble et $A$ un sous-ensemble de $\Omega$. On appelle complémentaire de $A$ dans $\Omega$
+	l'ensemble des éléments de $\Omega$ qui n'appartiennent pas à $A$. On le note $\bar{A}$.
+}
+
+\exemple{}{
+	Soit $\Omega=\{ 1; 2; 3; 4; 5; 6 \}$ et $A=\{1; 3; 5; 6\}$. On a alors $\bar{A}=\{2; 4\}$
+}
+
+\subsection{Notations générales}
+
+\begin{tabular}{|c|c|c|}
+	\hline
+	Notation               & Vocabulaire ensembliste    & Vocabulaire probabiliste   \\
+	\hline
+	$\Omega$               & ensemble plein             & évènement certain          \\
+	\hline
+	$\emptyset$            & ensemble vide              & évènement impossible       \\
+	\hline
+	$\omega$               & élément de $\Omega$        & évènement élémentaire      \\
+	\hline
+	$A$                    & sous-ensemble de $\Omega$  & évènement                  \\
+	\hline
+	$\omega \in A$         & $\omega$ appartient à $A$  & $\omega$ réalise $A$       \\
+	\hline
+	$A \subset B$          & $A$ inclus dans $B$        & $A$ implique $B$           \\
+	\hline
+	$A \cup B$             & réunion de $A$ et $B$      & $A$ ou $B$                 \\
+	\hline
+	$A \cap B$             & intersection de $A$ et $B$ & $A$ et $B$                 \\
+	\hline
+	$\bar{A}$              & complémentaire de $A$      & évènement contraire de $A$ \\
+	\hline
+	$A \cap B = \emptyset$ & $A$ et $B$ disjoints       & $A$ et $B$ incompatibles   \\
+	\hline
+\end{tabular}
+
+\subsection{Modes de générations des ensembles}
+
+\definition{}{
+	Lorsqu'on définit un ensemble en extension, on écrit la liste complête de ses éléments entre deux accolades. L'ordre
+	et les répétitions ne sont pas pris en compte.
+}
+
+\exemple{}{
+	La notation $\{1; 2; 3\}$ désigne le même ensemble que la notation $\{1; 3; 2\}$ ou encore de la notation
+	$\{1; 2; 2; 3\}$.
+}
+
+\definition{}{
+	Soit $E$ un ensemble. Lorsqu'on définit un sous-ensemble $F$ de $E$ en compréhension, on donne une proposition $P(x)$
+	qui caractérise les éléments de $F$.L'ensemble des éléments de $E$ qui vérifient $P(x)$ est noté
+	$\{x\in E / P(x)\}$.
+}
+
+\exemple{}{
+	\begin{itemize}
+		\item Soit $E=\{1; 2; 3; 4; 5\}$. La notation $\{x\in E / x \text{ est impair}\}$ désigne l'ensemble
+		      $\{1; 3; 5\}$.
+		\item On définit en compréhension l'intervalle $[2, 5]$ par
+		      $\{ x\in\R /2\leq x \leq 5 \}$.
+		\item En compréhension, l'ensemble des multiples de $3$ se note
+		      $\{ n\in\Z /{ il existe un entier} k \text{ tel que } n=3k\}$
+	\end{itemize}
+}
+
+
+
+\end{document}

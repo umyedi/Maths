@@ -1,0 +1,173 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Dénombrement}
+\newcommand{\DocumentTheme}{Algèbre}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Vocabulaire et principes de base}
+
+\definition{}{
+	Soit $E$ un ensemble fini. On appelle cardinal de $E$ le nombre d'éléments appartenant à $E$. On note $Card(E)$.
+}
+
+\remarque{Il y existe différentes notations du cardinal : $Card(E)=n(E)=\#E=\left|E\right|=\bar{E}=\bar{\bar{E}}$}
+
+\vspace{10pt}
+
+\textbf{Axiomes (principe additif et multiplicatif) :}
+
+Soient $E$ et $F$ deux ensembles finis.
+
+\begin{itemize}
+	\item $Card(E\cup F) = Card(E)+Card(F)-Card(E\cap F)$
+	\item $Card(E\times F) = Card(E)\times Card(F)$
+\end{itemize}
+
+\vspace{10pt}
+
+\exemple{}{
+	$E=\{A, B\} \qquad F=\{1, 2, 3\}$ \\
+	$E\times F=\{(A,1), (A,2), (A,3), (B,1), (B,2), (B,3)\}$ \\
+	$Card(E\times F)=6 \qquad Card(E)\times Card(F)=6$
+}
+
+\definition{}{
+	Soit $E$ un ensemble fini. Soit un entier $n\geq2$.
+	On appelle n-uplet d'éléments de $E$ une liste ordonnée $(x_1,x_2,\dots,x_n)$ avec $x_1\in E, x_2\in E, \dots, x_n\in E$.
+	On note $E^n$ l'ensemble de tous les n-uplets d'éléments de $E$.
+}
+
+\exemple{}{
+	$E=\{A,B\} \quad  E^3=\{(A,A,A), (A,A,B), (A,B,A), (A,B,B), (B,A,A), (B,A,B), (B,B,A), (B,B,B)\}$
+}
+
+\theoreme{}{
+	Soit $n\in\N^*$. Soit $E$ un ensemble de cardinal $n$. Pour tout entier naturel $k\geq2$ :
+	$Card(E^k)=n^k$.
+}
+
+\remarque{On peut dire que le nombre de k-uplets de $E$ est $n^k$.}
+
+
+\section{Arrangements et permutations}
+
+\definition{}{
+	Soit $E$ un ensemble de cardinal $n\geq2$. Pour tout $k\in\llbracket1;n\rrbracket$, on appelle arrangement de $k$
+	éléments de $E$ tout k-uplet sans répétitions d'éléments de $E$.
+}
+
+\exemple{}{
+	Si $E=\{a,b,c,d\}$, alors $(a,d,c)$ est un arrangement de $3$ éléments de $E$.
+}
+
+\definition{}{
+	Soit $E$ un ensemble de cardinal $n$. Un arrangement des $n$ éléments de $E$ est appelé une permutation de $E$.
+}
+
+
+\exemple{}{
+	Si $E=\{a,b,c,d\}$, alors $(d,a,b,c)$ et $(a,b,c,d)$ sont deux permutation de $E$.
+}
+
+\newpage
+
+\theoremes{}{
+	Soit $E$ un ensemble de cardinal $n\geq2$.
+	\begin{enumerate}[(i)]
+		\item Pour tout $k\in\llbracket1;n\rrbracket$, le nombre d'arrangements de $k$ éléments de $E$ est égal à \\
+		      $n\times(n-1)\times\dots\times(n-k-1)=\dfrac{n!}{(n-k)!}$
+		\item Le nombre de permutations de $E$ est égal à $n!$
+	\end{enumerate}
+}
+
+\exemples{}{
+	On a $E=\{1,2,3,4,5,6,7,8\}$.
+	\begin{itemize}
+		\item Le nombre de permutations de $E$ est $8!=8\times7\times6\times5\times4\times3\times2\times1=40320$.
+		\item Le nombre d'arrangements de $3$ éléments de $E$ est $8\times7\times6=336.$
+	\end{itemize}
+}
+
+\section{Parties d'un ensemble, coefficients binomiaux}
+
+\definition{}{
+	Soit $E$ un ensemble. Tout ensemble $A$ qui est inclus dans $E$ est appelé une partie de $E$. L'ensemble des parties
+	de $E$ est noté $\mathcal{P}(E)$.
+}
+
+\remarque{Par convention, pour tout ensemble $E$ : $\varnothing \in E$ ($\varnothing$ est donc une partie de $E$).}
+
+
+\theoreme{}{
+	Soit $E$ un ensemble fini. Soit $n=Card(E)$. On a $Card(\mathcal{P}(E))=2^n$.
+}
+
+\exemple{}{
+	$E=\{a,b,c\} \qquad \mathcal{P}(E)=\{\varnothing,\{a\}, \{b\}, \{c\}, \{a,b\}, \{b,c\}, \{a,c\}, E\}$ \\
+	On a $Card(\mathcal{P}(E))=2^3=8$
+}
+
+\remarque{Un ensemble qui comprend exactement un élément est appelé un singleton.}
+
+\definition{}{
+	Soit $n\in\N^*$. Soit $k\in\llbracket0;n\rrbracket$. On note $\ds\binom{n}{k}$ le nombre de parties à $k$
+	éléments dans un ensemble à $n$ éléments.
+}
+
+\exemple{}{
+	$E=\{a,b,c\} \quad$ Il y a ici $3$ parties à deux éléments : $\{a,b\}, \{b,c\}$ et $\{a,c\}$. \\
+	On note donc $\ds\binom{2}{3}=3$.
+}
+
+\theoremes{}{
+	Soit $n\in\llb1;+\infty\llb$. Soit $k\in\llb0;n\rrb$.
+	\begin{enumerate}[(i)]
+		\item $\ds\binom{n}{0}=\binom{n}{n}=1$
+		\item $\ds\binom{n}{1}=n$
+		\item $\ds\binom{n}{k}=\binom{n}{n-k}$
+	\end{enumerate}
+}
+
+\theoreme{}{
+	$\ds\forall n\in\llb1;+\infty\llb,\forall k\in\llb0;n\rrb:\binom{n}{k}=\frac{n!}{k!(n-k)!}$
+}
+
+\exemple{}{
+	$\ds\binom{8}{3}=\frac{8!}{3!\times5!}=
+		\frac{
+			8 \times 7 \times \red{\cancel{6}} \times \green{\cancel{5} \times \cancel{4} \times \cancel{3} \times \cancel{2} \times \cancel{1}}
+		}{
+			\red{\cancel{3} \times \cancel{2} \times \cancel{1}} \times \green{\cancel{5} \times \cancel{4} \times \cancel{3} \times \cancel{2} \times \cancel{1}}
+		}
+		= 8\times7=56$
+}
+
+\theoreme{(Formule de Pascal)}{
+	$\ds\forall n\in\llb2;+\infty\llb, \forall k\in\llb1;n\rrb:\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}$
+}
+
+\exemple{}{
+	$\ds\binom{4}{2}=\binom{3}{2}+\binom{3}{1}=3+3=6$
+}
+
+\vspace{10pt}
+
+\textbf{Triangle de Pascal :}
+
+\vspace{10pt}
+
+\begin{minipage}{0.45\textwidth}
+	\Pascal{5}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\Pascalbinome{5}
+\end{minipage}
+
+\end{document}

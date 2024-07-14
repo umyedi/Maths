@@ -246,7 +246,7 @@
 	\begin{equation*}
 		\begin{split}
 			P(B) & = P(B\cap A_1)+P(B\cap A_2)+\dots+P(B\cap A_n)                                \\
-			     & = P(A_1)\times p_{A_1}(B)+P(A_2)\times p_{A_2}(B)+...+P(A_n)\times p_{A_n}(B)
+			& = P(A_1)\times p_{A_1}(B)+P(A_2)\times p_{A_2}(B)+...+P(A_n)\times p_{A_n}(B)
 		\end{split}
 	\end{equation*}
 }
@@ -345,7 +345,7 @@ $=\{P_1,F_1\}\times\{P_2,F_2\}=\{(P_1,P_2);(P_1,F_2);(F_1,P_2);(F_1,F_2)\}$ muni
 
 \remarque{La somme des probabilités $P(X=x_i)$, pour $i$ allant de $1$ à $k$, est égal à $1$.}
 
-\subsection{Vocabulaire}
+\subsection{Espérance, variance et écart-type}
 
 Soit $X$ une variable aléatoire qui prend en valeurs ${x_1;x_2;\dots;x_k}$ et dont la loi de probabilité est donnée par
 le tableau suivant :
@@ -368,8 +368,7 @@ le tableau suivant :
 
 \definition{}{
 La variance de la variable aléatoire $X$ est le réel noté $V(X)$ définie par :
-$\ds V(X)=\sum_{i=1}^{k}(x_i-E(X))^2\times p_i$
-	}
+$\ds V(X)=\sum_{i=1}^{k}(x_i-E(X))^2\times p_i$}
 
 	\remarque{La variance d'une variable aléatoire $X$ se calcule aussi avec : $V(X)=\sum_{i=1}^{k} p_i (x_i)^2-E(X)^2$.}
 
@@ -391,6 +390,33 @@ $\ds V(X)=\sum_{i=1}^{k}(x_i-E(X))^2\times p_i$
 			\item $\ds V(X)=\left[2-\left(-\frac{1}{6}\right)\right]^2\times \frac{1}{6}+\left[1-\left(-\frac{1}{6}\right)\right]^2\times \frac{1}{6}+\left[-1-\left(-\frac{1}{6}\right)\right]^2\times \frac{2}{3}=\frac{53}{36}\approx1,47$
 			\item $\ds \sigma(X)=\sqrt{\frac{53}{36}}\approx1,21$
 		\end{itemize}
+	}
+
+	\subsection{Somme de variables aléatoires}
+
+	\theoreme{(linéarité de l'espérance)}{
+		Pour toutes variables aléatoires $X$ et $Y$ :
+		\begin{enumerate}[(i)]
+			\item $E(X+Y)=E(X)+E(Y)$
+			\item Pour tout réel $a$ : $E(aX)=aE(X)$
+		\end{enumerate}
+	}
+
+	\theoreme{}{
+		Pour toute variable aléatoire :
+		\begin{enumerate}[(i)]
+			\item $V(X)=E(X^2)-(E(X))^2$ (formule de Koenig-Huygens)
+			\item Pour tous réel $a$ : $V(aX)=a^2V(X)$
+		\end{enumerate}
+	}
+
+	\definition{}{
+		On dit que deux variables aléatoires $X$ et $Y$ sont indépendantes lorsque pour tous réels $k$ et $l$, les
+		événements $(X=k)$ et $(Y=l)$ sont indépendants.
+	}
+
+	\theoreme{}{
+		Pour toutes variables aléatoires $X$ et $Y$, si $X$ et $Y$ sont indépendantes, alors $V(X+Y)=V(X)+V(Y)$.
 	}
 
 	\section{La loi binomiale}
@@ -451,7 +477,7 @@ $n$ et $p$ ».
 
 	\begin{tabular}{|l|c|c|c|c|}
 		\hline
-		Valeurs $x_i$ de $X$   & $0$            & $1$            & $2$            & $3$            \\
+		Valeurs $x_i$ de $X$   & $0$           & $1$           & $2$           & $3$           \\
 		\hline
 		Probabilité $P(X=x_i)$ & $\frac{1}{8}$ & $\frac{3}{8}$ & $\frac{3}{8}$ & $\frac{1}{8}$ \\
 		\hline

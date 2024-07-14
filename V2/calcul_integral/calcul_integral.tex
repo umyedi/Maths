@@ -1,0 +1,169 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Calcul intégral}
+\newcommand{\DocumentTheme}{Analyse}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{patterns} % Include the fillbetween library
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Itégrale d'une fonction positive}
+
+Dans tout le cours, on se place dans un repère orthonormé et on choisit comme unité d'aire (u.a.) l'aire d'un carrée de coté 1.
+
+\vspace{10pt}
+
+\begin{minipage}{0.4\textwidth}
+	% \vspace{10pt}
+	\begin{tikzpicture}[scale=.8]
+		\begin{axis}[
+				axis lines=middle,
+				xmin=-0.5,
+				xmax=1.5,
+				ymin=-0.5, ymax=1.5,
+				xtick={0,1},
+				ytick={0,1},
+				tick label style={font=\LARGE},
+				grid=both
+			]
+			\draw[pattern=north east lines, pattern color=red] (0,0) rectangle (1,1);
+		\end{axis}
+	\end{tikzpicture}
+
+\end{minipage}
+\hfill
+\begin{minipage}{0.6\textwidth}
+	On admettra les axiomes de l'aire suivants:
+	\begin{enumerate}[(i)]
+		\item Pour toute surface $S$, $\aire{S} \geq 0$.
+		\item Pour toutes surfaces $S_1$ et $S_2$, $S_1 \subset S_2 \Rightarrow \aire{S_1} \leq \aire{S_2}$.
+		\item Pour toutes surfaces $S_1$ et $S_2$, $\aire{S_1 \cup S_2} = \aire{S_1} + \aire{S_2} - \aire{S_1 \cap S_2}$.
+		\item Pour tout segment $S$, $\aire{S}=0$
+	\end{enumerate}
+
+\end{minipage}
+
+
+
+\definition{}{
+	Soit $f$  une fonction définie et positive sur un intervalle $I$. Soient $a$ et $b$ deux réels dans $I$ tels que
+	$a \leq b$. On appelle intégrale de $f$ entre $a$ et $b$ l'aire de la surface délimitée par l'axe des abscisses,
+	la courbe de $f$ et les droites vertiales d'équations $x=a$ et $x=b$.
+	On la note $\Int_{a}^{b} f$ ou $\Int_{a}^{b} f(x) ~ dx$.
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+			axis lines=middle,
+			xlabel={$x$},
+			ylabel={$y$},
+			xtick={0},
+			ytick={0},
+			domain=0:10,
+			samples=100,
+			xmin=-.5, xmax=10,
+			ymin=-.5, ymax=3,
+		]
+        
+		\addplot[name path=F, domain=4:8] {sqrt(x)};
+		\addplot[name path=A, domain=4:8] {0};
+        
+		\addplot[thick,pattern=north east lines,pattern color=green] fill between[of=F and A];
+        
+		\node at (axis cs:4, -0.2) {$\green a$};
+		\node at (axis cs:8, -0.2) {$\green b$};
+        
+        \draw[thick, green] (axis cs:4,0) -- (axis cs:4,2);
+        \draw[thick, green] (axis cs:8,0) -- (axis cs:8,2.83);
+        
+		\addplot[red, thick] {sqrt(x)};
+        
+	\end{axis}
+\end{tikzpicture}
+
+
+\remarque{En mathématiques, l'aire est représenté par un nombre tandis qu'une surface est représentée par une partie
+	d'un plan}
+
+\exemple{}{
+	-> AJOUTER SCHEMA
+}
+
+\theoreme{(relation de Chasles)}{
+	Soit $f$ une fonction définie et positive sur un intervalle $I$. Pour tous réels $a$, $b$, $c$ de l'intervalle $I$,
+	tels que $a \leq b \leq c$ : $\Int_{a}^{c} f(t) ~ dt = \Int_{a}^{b} f(t) ~ dt + \Int_{b}^{c} f(t) ~ dt$.
+}
+
+-> AJOUTER SCHEMA
+
+\theoreme{(croissance de l'intégrale)}{
+	Soit $f$ une fonction définie et positive sur un intervalle $I$. Soient $a$ et $b$ des réels dans $I$
+	tels que $a \leq b$. Si pour tout réels $x$ de l'intervalle $[a;b]$, $f(x) \leq g(x)$ alors
+	$\Int_{a}^{b} f(t) ~ dt \leq \Int_{a}^{b} g(t) ~ dt$.
+}
+
+\theoreme{(inégalités de la moyenne)}{
+	Soit $f$ une fonction définie et positive sur un intervalle $I$. Soient $a$ et $b$ des réels dans $I$ tels que
+	$a<b$. S'il existe deux réels $m$ et $M$ tels que pour tout $x$ dans $[a;b]$, $m \leq f(x) \leq M$ alors
+	$m(b-a) \leq \Int_{a}^{b} f \leq M(b-a)$
+}
+
+-> AJOUTER SCHEMA
+
+\newpage
+
+\corrolaire{}{
+	Soit $f$ une fonction définie et positive sur un intervalle $I$. Soient $a$ et $b$ des réels dans $I$ tels que
+	$a<b$. Si $f$ est croissante sur $I$, alors $f(a)(b-a) \leq \Int_{a}^{b} f(t) ~ dt \leq f(b)(b-a)$.
+}
+
+\section{Théorème fondamental de l'analyse et conséquences sur le calcul intégral}
+
+\theoreme{fondamental de l'analyse (TFA)}{
+Soit $f$ une fonction définie et positive sur un intervalle $I=[a;b]$. Si pour tout $x$ dans $I$,
+$F_a(x)=\Int_{a}^{x} f(t) ~ dt$ alors pour tout $x$ dans $I$, $F_a$ est dérivable en $x$ et $F_a'(x)=f(x)$.
+}
+
+\definition{}{
+	Soit $f$ une fonction définie sur $I$. On dit que $F$ est une primitive de $f$ sur $I$ si pour tout $x$ dans $I$,
+	$F$ est dérivable en $x$ et $F'(x)=f(x)$.
+}
+
+\corrolaire{}{
+Soit $f$ une fonction continue et positive sur un intervalle $I=[a;b]$. Si $F$ est une primitive de $f$ sur $I$,
+alors $\Int_{a}^{b} f(t) ~ dt = F(b) - F(a)$.
+}
+
+\theoreme{}{
+	Soient $F$ et $G$ deux fonctions définies sur un intervalle $I$. Si $F$ et $G$ sont deux primitives sur $I$ d'une
+	même fonction $f$ alors il existe $k$ réel tel que pour tout $x$ dans $I$, $G(x)=F(x)+k$.
+}
+
+-> AJOUTER SCHEMA
+
+\remarque{La conséquence de ce théorème est que pour deux primitives $F$ et $G$ d'une même fonction $f$, on aura pour
+	tous réels $a$ et $b$ : $G(b)-G(a) = F(b) - F(a)$. En effet, si $G(x)=F(x)+k$ alors
+	$G(b)-G(a) = (F(b)+k) - (F(a)+k) = F(b) - F(a)$}
+
+\exemple{}{
+	On pose $f(x)=x^2$. Une primitive de $f$ est $F(x)=\dfrac{x^3}{3}$.
+	\vspace{-10pt}
+	\begin{align*}
+		\text{On a donc } \Int_{2}^{3} t^2 ~ dt & = F(3) - F(2)                     \\
+		                                        & = \dfrac{3^3}{3} - \dfrac{2^3}{3} \\
+		                                        & = \dfrac{19}{3}                   \\
+	\end{align*}
+}
+
+
+\end{document}

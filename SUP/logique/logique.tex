@@ -1,0 +1,197 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Logique}
+\newcommand{\DocumentTheme}{Séminaire}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Notions de logique}
+
+\subsection{Assertion, prédicat et négation}
+
+\definition{(assertion)}{
+    Une assertion ou proposition est une phrase qui est ou bien vraie ou bien fausse. On dira que cette assertion a deux
+    valeurs de vérité.
+}
+
+\remarque{On appelle cette logique « logique du tiers exclu » puisqu'on exclu les phrases avec deux valeurs de vérité.}
+
+\exemples{}{
+    \begin{itemize}
+        \item « $2$ est un nombre impaire » $\rightarrow$ FAUX.
+        \item « $3$ est un nombre premier » $\rightarrow$ VRAI.
+        \item « $n$ est un entier pair » $\rightarrow$ PROBLEME : la valeur de vérité dépend de $n$.
+    \end{itemize}
+}
+
+\definition{(prédicat)}{
+    Une assertion prenant en compte un paramètre $n$ est appelé un prédicat. On le note $P(n)$.
+}
+
+\begin{minipage}{0.5\textwidth}
+    \definition{(négation)}{
+        Si $P$ est une assertion, on note $\neg P$ (ou non $P$) la négation de $P$.
+    }
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+    \[
+        \begin{array}{|c|c|}
+            \hline
+            P    & \neg P \\
+            \hline
+            Vrai & Faux   \\
+            \hline
+            Faux & Vrai   \\
+            \hline
+        \end{array}
+    \]
+\end{minipage}
+
+\vspace{10pt}
+
+\remarque{Au lieu d'écrire « $P$ est vraie », on écrit simplement « $P$ ».}
+
+\subsection{Connecteurs logiques}
+
+À partir de deux propostions, on peut en former une troisième. \\
+
+\begin{minipage}{0.7\textwidth}
+    \definitions{(conjonction et disjonction)}{
+        Soit $P$ et $Q$ deux propositions. Alors :
+        \begin{enumerate}[(i)]
+            \item la proposition $P \land Q$ est vraie ssi $P$ est vraie ET $Q$ est vraie.
+            \item la proposition $P \lor Q$ est vraie ssi l'une des deux proposition (ou les deux) est vraie.
+        \end{enumerate}
+    }
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\textwidth}
+    \[
+        \begin{array}{|c|c|c|c|}
+            \hline
+            P & Q & P \land Q & P \lor Q \\
+            \hline
+            V & V & V         & V        \\
+            \hline
+            V & F & F         & V        \\
+            \hline
+            F & V & F         & V        \\
+            \hline
+            F & F & F         & F        \\
+            \hline
+        \end{array}
+    \]
+\end{minipage}
+
+\vspace{10pt}
+
+\begin{minipage}{0.7\textwidth}
+    \definitions{(implication et équivalence)}{
+        Soient $P$ et $Q$ deux propositions.
+        \begin{enumerate}[(i)]
+            \item L'implication « $P\involve Q$ » (on lit « $P$ implication $Q$ ») est fausse lorsque $P$ est vraie et $Q$
+                  est fausse.
+            \item L'équivalence « $P\equival Q$ » (on lit « $P$ équivalence $Q$ ») est vraie lorsque $P$ et $Q$ ont la même
+                  valeur de vérité.
+        \end{enumerate}
+    }
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\textwidth}
+    \[
+        \begin{array}{|c|c|c|c|}
+            \hline
+            P & Q & P\involve Q & P\equival Q \\
+            \hline
+            V & V & V           & V           \\
+            \hline
+            V & F & F           & F           \\
+            \hline
+            F & V & V           & F           \\
+            \hline
+            F & F & V           & V           \\
+            \hline
+        \end{array}
+    \]
+\end{minipage}
+
+\newpage
+
+\exemples{}{
+    \begin{itemize}
+        \item « 2 est pair $\involve$ 3 est pair » $\rightarrow$ Faux
+        \item « 3 est pair $\involve$ 2 est pair » $\rightarrow$ Vrai
+    \end{itemize}
+}
+
+\definitions{(implique, équivaut)}{
+    Soient $P$ et $Q$ deux propositions.
+    \begin{enumerate}[(i)]
+        \item Lorsque $P\involve Q$ est vraie, on dit « $P$ implique $Q$ » ou « si $P$ alors $Q$ ».
+        \item Lorsque $P\equival Q$ est vraie, on dit « $P$ équivaut à $Q$ » ou « $P$ si et seulement si $Q$ ».
+    \end{enumerate}
+}
+
+\theoremes{}{
+    Soient $P$ et $Q$ deux propositions.
+    \begin{enumerate}[(i)]
+        \item $\neg(\neg P) \equival P$
+        \item $\neg(P\land Q) \equival \neg P \lor\neg Q$ (1$^\text{ère}$ loi de Morgan)
+        \item $\neg(P\lor Q) \equival \neg P \land\neg Q$ (2$^\text{eme}$ loi de Morgan)
+        \item $P\involve Q \equival \neg P \lor Q$
+        \item $\neg(P \involve Q) \equival P\land\neg Q$
+        \item $P\equival Q \equival (P\involve Q)\land(Q \involve P)$
+        \item $P\equival Q \equival \neg P \equival \neg Q$
+    \end{enumerate}
+}
+
+
+\definition{(réciproque et contraposée)}{
+    Soient $P$ et $Q$ deux propositions.
+    \begin{enumerate}[(i)]
+        \item La réciproque de l'implication $P\involve Q$ est l'implication $Q\involve P$.
+        \item La contraposée de l'implication $P\involve Q$ est l'implication $\neg Q\involve\neg P$.
+    \end{enumerate}
+}
+
+\exemple{Pythagore}{
+    \begin{itemize}
+        \item Théorème : si $ABC$ est un triangle rectangle en $A$ alors $AB^2+AC^2=BC^2$.
+        \item Réciproque :  si $AB^2+AC^2=BC^2$ alors $ABC$ est un triangle rectangle en $A$.
+        \item Contraposée : si $AB^2+AC^2\not=BC^2$ alors $ABC$ n'est un triangle rectangle en $A$.
+    \end{itemize}
+}
+
+\theoreme{}{
+    \vspace{-10pt}
+    \begin{itemize}
+        \item Une implication et sa contraposée sont équivalentes.
+        \item Deux propositions sont équivalentes si les implications dans les deux sens sont vraies.
+    \end{itemize}
+}
+
+\subsection{Quantificateurs}
+
+\definition{(universel et existenciel)}{
+    \vspace{-10pt}
+    \begin{enumerate}[(i)]
+        \item Le quantificateur universel « $\forall$ » se lit « pour tout ».
+        \item Le quantificateur existenciel « $\exists$ » se lit « il existe ».
+    \end{enumerate}
+}
+
+\remarques{
+    \begin{itemize}
+        \item « $\exists!$ » signifie « il existe un unique »
+        \item La négation de « $\forall$ » est « $\exists$ » et vice versa.
+        \item On peut intervertir les quantificateur de même nature.
+    \end{itemize}
+}
+
+\end{document}

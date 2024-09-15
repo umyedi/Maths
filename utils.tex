@@ -161,8 +161,6 @@
     \end{mdframed}
 }
 
-
-
 % Création d'un compteur pour les théorèmes
 \newcounter{theoreme}
 
@@ -245,6 +243,14 @@
         #2
     \end{quote}
 }
+% ========== Autres blocs ==========
+
+\newcommand{\newbloc}[2]{
+    \textbf{#1}
+    \begin{quote}
+        #2
+    \end{quote}
+}
 
 % ========== Notations ==========
 
@@ -269,6 +275,9 @@
 \newcommand{\x}{\times}
 \newcommand{\equival}{\Leftrightarrow}
 \newcommand{\involve}{\Rightarrow}
+
+% Ensembles
+\renewcommand{\bar}[1]{\overline{#1}}
 
 % Vecteurs
 \renewcommand{\Vec}[1]{\overrightarrow{#1}}
@@ -296,22 +305,22 @@
 \newcommand{\Pascal}[1]{
     \begin{tikzpicture}[scale=1, every node/.style={scale=1.2}]
         \foreach \n in {0,...,#1} {
-            \foreach \k in {0,...,\n} {
-                \node at (\k-\n/2,-\n) {$\binomial{\n}{\k}$};
-                \draw (\k-\n/2,-\n) +(-0.5,-0.5) rectangle ++(0.5,0.5);
+                \foreach \k in {0,...,\n} {
+                        \node at (\k-\n/2,-\n) {$\binomial{\n}{\k}$};
+                        \draw (\k-\n/2,-\n) +(-0.5,-0.5) rectangle ++(0.5,0.5);
+                    }
             }
-        }
     \end{tikzpicture}
 }
 
 \newcommand{\Pascalbinome}[1]{
     \begin{tikzpicture}[scale=1, every node/.style={scale=0.9}]
         \foreach \n in {0,...,#1} {
-            \foreach \k in {0,...,\n} {
-                \pgfmathtruncatemacro{\symk}{min(\k,\n-\k)}
-                \node at (\k-\n/2,-\n) {$\ds\binom{\n}{\symk}$};
-                \draw (\k-\n/2,-\n) +(-0.5,-0.5) rectangle ++(0.5,0.5);
+                \foreach \k in {0,...,\n} {
+                        \pgfmathtruncatemacro{\symk}{min(\k,\n-\k)}
+                        \node at (\k-\n/2,-\n) {$\ds\binom{\n}{\symk}$};
+                        \draw (\k-\n/2,-\n) +(-0.5,-0.5) rectangle ++(0.5,0.5);
+                    }
             }
-        }
     \end{tikzpicture}
 }

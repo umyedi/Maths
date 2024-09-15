@@ -1,0 +1,135 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Ensembles}
+\newcommand{\DocumentTheme}{Séminaire}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Généralités sur les ensembles}
+
+\begin{itemize}
+    \item Un ensemble est une collection d'éléments ou d'objets. Les élément (ou objets) peuvent être des nombres, des points, des
+          vecteurs... En général, un élément sera noté par une lettre minuscule et un ensemble par une lettre majuscule.
+    \item Soient $E$ un ensemble et $x$ un objet de $E$. 0n dit alors que $x$ est un élément de $E$ ou
+          $x$ appartient à $E$ et on écrit $x \in E$. Si $x$ n'est pas un élément de l'ensemble $E$, on écrit $x \not\in E$.
+    \item Un ensemble peut être écrit en extension (list exclusive de tous les éléments) ou en compréhension
+          (les éléments sont défini par une propriété).
+\end{itemize}
+
+\definition{(ensemble vide)}{
+    L'ensemble vide, noté $\emptyset$, est défini comme étant l'ensemble vérifiant $x\not\in E$ pour tout objet $x$.
+}
+
+
+\section{Inclusion, égalité et parties d'un ensemble}
+
+\definitions{}{
+    \vspace{-10pt}
+    \begin{itemize}
+        \item Soient $E$ et $F$ deux ensembles. On dit que $E$ est inclus dans $F$, noté $E \subset F$, si
+              $\forall x\in E, (x\in E \implies x\in F)$.
+        \item On dit que $E$ n'est pas inclus dans $F$, noté $E\not\subset F$, s'il existe au moins un élément de $E$ qui
+              n'appartient pas à $F$.
+    \end{itemize}
+}
+
+\proprietes{}{
+    Soient E, F et G trois ensembles, alors :
+    \begin{enumerate}[(i)]
+        \item $E\subset E$
+        \item $(E\subset F \land F\subset G) \implies E\subset G$ (transitivité)
+    \end{enumerate}
+}
+
+\definition{}{
+    Soient $E$ et $F$ deux ensembles. On dit que $E$ et $F$ sont égaux et on note
+    $E = F$ , lorsqu'ils sont constitués de mêmes éléments. Sinon, on dit qu'ils sont dis-
+    tincts, on note $E \not= F$.
+}
+
+\propriete{}{
+    Deux parties $A$ et $B$ d'un ensemble de $E$ sont égales si et seulement si $A\subset B\land B\subset A$.
+}
+
+\definition{}{
+    L'ensemble des parties de $E$ est l'ensemble dont les éléments sont les parties de $E$. On le note souvent
+    $\mathcal{P}(E)$.
+}
+
+\remarques{
+    \begin{itemize}
+        \item $\mathcal{P}(E)=\{A, A\subset E\}$\
+        \item $A\in\mathcal{P}(E) \equival A \subset E$
+    \end{itemize}
+}
+
+\newpage
+
+\section{Opérations sur les parties d'un ensemble}
+
+\definitions{(réunion, intersection, différence et complémentaire)}{
+    Soient $A$ et $B$ deux parties d'un ensemble $E$.
+    \begin{enumerate}[(i)]
+        \item La réunion de $A$ et de $B$ est l'ensemble des éléments de $E$ qui appartiennent à $A$ OU à $B$. On note
+              $A\cap B$.
+        \item L'intersection de $A$ et de $B$ est l'ensemble des éléments de $E$ qui appartiennent à $A$ ET à $B$. On note
+              $A\cup B$.
+        \item La différence de $A$ et de $B$ est l'ensemble des éléments de $E$ qui appartiennent à $A$ et qui
+              n'appartiennent pas à $B$. On note $A\setminus B$ ou $A-B$.
+        \item La partie complémentaire de $A$ dans $E$ est $E\setminus A$. On note $\bar{A}$ ou parfois $\complement_E^A$.
+    \end{enumerate}
+}
+
+
+\section{Règles de calcul}
+
+\subsection{Intersection}
+
+\propriete{(intersection)}{
+    Soient $A$, $B$ et $C$ trois parties de $E$. Alors :
+    \begin{enumerate}[(i)]
+        \item $A\cap B = B\cap A$ (commutativité)
+        \item $A\cap (B \cap C) = (A\cap B) \cap C$ (associativité)
+        \item $A\cap\emptyset = A$,  $A\cap A=A$ et $A\cap E=E$
+        \item $A\cap B=A\equival A\subset B$
+    \end{enumerate}
+}
+
+\subsection{Union}
+
+\propriete{(union)}{
+    Soient $A$ et $B$ deux parties de $E$. Alors :
+    \begin{enumerate}[(i)]
+        \item $A\cup B = B\cup A$ (commutativité)
+        \item $A\cup (B \cup C) = (A\cup B) \cup C$ (associativité)
+        \item $A\cup\emptyset = A$ et $A\cup A=A$
+        \item $A\cup B\equival A\subset B$
+    \end{enumerate}
+}
+
+\subsection{Intersection et union}
+
+\propriete{}{
+    Soient $A$, $B$ et $C$ trois parties de $E$. Alors :
+    \begin{enumerate}[(i)]
+        \item $\bar{\bar{A}}=A$
+        \item $\bar{(A\cap B)} \equival \bar{A}\cup\bar{B}$
+        \item $\bar{(A\cup B)} \equival \bar{A}\cap\bar{B}$
+        \item $A\cap(B\cup C) = (A\cap B)\cup(A\cap C)$
+        \item $A\cup(B\cap C) = (A\cup B)\cap(A\cup C)$
+    \end{enumerate}
+}
+
+\section{Produit cartésien}
+
+\definition{}{
+    Soient $E$ et $F$ deux ensembles. Le produit cartésien de $E$ par $F$, noté $E\times F$, est l'ensemble des couples
+    $(x,y)$ où $x\in E$ et $y\in F$.
+}
+
+\end{document}

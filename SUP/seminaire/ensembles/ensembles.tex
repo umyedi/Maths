@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 
-\newcommand{\DocumentTitle}{Ensembles}
+\newcommand{\DocumentTitle}{Ensembles et applications}
 \newcommand{\DocumentTheme}{Séminaire}
 \newcommand{\DocumentType}{Cours}
 
@@ -131,5 +131,194 @@
     Soient $E$ et $F$ deux ensembles. Le produit cartésien de $E$ par $F$, noté $E\times F$, est l'ensemble des couples
     $(x,y)$ où $x\in E$ et $y\in F$.
 }
+
+\newpage
+
+\section{Applications}
+
+\subsection{Définitions}
+
+\definition{}{
+    Soient $E$ et $F$ deux ensembles.
+    
+    \begin{itemize}
+       \item Une application (ou fonction) $f:E\rightarrow F$ est la donnée pour chaque élément $x\in E$ d'un unique
+       élément de $F$ noté $f(x)$.
+       \item Deux applications $f,g:E\rightarrow F$ sont égales si et seulement si : $\forall x\in E, f(x)=g(x)$.
+       On note alors $f=g$.
+       \item Le graphe de $f:E\rightarrow F$ est l'ensemble $\Gamma=\{(x, f(x)), x\in E\}\subset E\times F$
+    \end{itemize}
+}
+
+\subsection{Image direct, image réciproque}
+
+\definition{}{
+    Soient $A\subset E$, $B \subset F$ et $f:E\rightarrow F$.
+    \begin{itemize}
+       \item L'image directe de $A$ par $f$ est l'ensemble $$f(A)=\{f(x), x\in A\}$$
+       \item L'image réciproque de $B$ par $f$ est l'ensemble $$f^{-1}(B)=\{x\in E, f(x)\in B\}$$
+    \end{itemize}
+}
+
+\subsection{Antécédent}
+
+\definition{}{
+    Soit $y$ un élément fixé dans $F$. Tout élément $x\in E$ tel que $f(x)=y$ est un antécédent de $y$. L'ensemble des
+    antécédent de $y$ est $f^{-1}(\{y\})$.
+}
+
+\subsection{La loi rond}
+
+\definition{}{
+    Soient $E$, $F$, $G$ trois ensembles et $f:E\rightarrow F$, $g:F\rightarrow G$ deux applications. La composée de $f$
+    et $g$ notée $g\circ f$ est l'application de $E$ dans $G$ défini par $(g\circ f)(x)=g(f(x))$ où $x\in E$
+}
+
+\propriete{}{
+    Soient $E$, $F$, $G$, $H$ quatre ensembles et $f:E\rightarrow F$, $g:F\rightarrow G$, $h:G\rightarrow H$ trois
+    applications. Alors $(h\circ g)\circ f = h\circ (g\circ f)$.
+}
+
+\remarque{En général, $f\circ g \not= g\circ f$.}
+
+
+\section{Ensembles finis}
+
+\subsection{Injection, surjection et bijection}
+
+\definition{(injection, surjection et bijection)}{
+    Soient $E$ et $F$ deux ensembles et $f:E\rightarrow F$ une application.
+    \begin{itemize}
+       \item L'application $f$ est dite injective si : 
+       $$\forall(x,x')\in E^2 : f(x)=f(x') \Rightarrow x=x'$$
+       \item L'application $f$ est dite surjective si :
+       $$\forall y\in F, \exists x\in E : y=f(x)$$
+
+       \item L'application $f$ est dite bijective si elle est à la fois injective et surjective.
+    \end{itemize}
+}
+
+\newpage
+
+\remarques{
+    \begin{itemize}
+       \item L'injection assure l'unicité tandis que la surjection assure l'existence.
+       \item $f:E\rightarrow F$ injective $\equival \forall(x,x')\in E^2: x\not=x' \Rightarrow f(x)\not=f(x')$
+       \item $f:E\rightarrow F$ sujective $\equival f(E)=F$
+       \item $f:E\rightarrow F$ bijective $\equival \forall y\in F, \exists! x\in E: y=f(x)$
+    \end{itemize}
+}
+
+\definition{(ensemble fini, cardinal)}{
+    Soit $E$ un ensemble et $n\in\N^*$.
+    \begin{itemize}
+       \item L'ensemble $E$ est dit fini s'il est vide ou s'il existe une bijection de $\{1,2,3,\dots,n\}$ sur $E$.
+       \item L'entier $n$ est unique et s'appelle le cardinal de $E$. On le note $Card(E)$.
+    \end{itemize}
+}
+
+\remarque{Il y existe différentes notations du cardinal : $Card(E)=n(E)=\#E=\left|E\right|=\bar{E}=\bar{\bar{E}}$}
+
+\propriete{}{
+    Soient $E$ et $F$ deux ensembles finis et $f$ une application de $E$ dans $F$.
+    \begin{enumerate}[(i)]
+       \item Si $f$ est injective alors $Card(E) \leq Card(F)$.
+       \item Si $f$ est surjective alors $Card(E) \geq Card(F)$.
+       \item Si $f$ est bijective alors $Card(E) = Card(F)$.
+    \end{enumerate}
+}
+
+
+\propriete{}{
+    Soient $E$, $F$ deux ensembles finis et $f: E \rightarrow F$ une application. Si $Card(E)=Card(F)$ alors les
+    assertions suivantes sont équivalentes :
+    \begin{enumerate}[(i)]
+       \item $f$ est injective,
+       \item $f$ est surjective,
+       \item $f$ est bijective.
+    \end{enumerate}
+}
+
+\subsection{Nombre d'applications}
+
+\definition{}{
+    Soient $E$ et $F$ deux ensembles. L'ensemble des application de $E$ dans $F$ est noté $F^E$.
+}
+
+
+\propriete{}{
+    Soient $E$ et $F$ deux ensembles finis. Alors le nombre d'applications différentes de $E$ dans $F$ est
+    $Card(E)^{Card(F)}$.
+}
+
+\propriete{}{
+    Soient $E$ et $F$ deux ensembles finis avec $n=Card(E)$ et $p=Card(F)$. Alors le nombre d'injections de $E$ dans $F$
+    est $p\times (p-1) \times\dots\times (p - (n-1))$. 
+}
+
+\propriete{}{
+    Le nombre de bijections d'un ensemble $E$ de cardinal $n$ dans lui-même est $n!$.
+}
+
+
+\subsection{Parties d'un ensemble fini}
+
+\definition{}{
+    Soit $E$ un ensemble. Une partition de $E$ est une famille de parties $(A_i)_{i\in I}$ telle que :
+    \begin{itemize}
+       \item $\ds\bigcup_{i\in I} A_i=E$
+       \item $\forall(i,j)\in I^2 : i\not=j\Rightarrow A_i\cap A_j=\emptyset$
+    \end{itemize}
+}
+
+\propriete{}{
+    Soit $E$ un ensemble fini.
+    \begin{enumerate}[(i)]
+       \item Si $A$ est une partie de $E$ alors $A$ est fini et $Card(A)\leq Card(E)$
+       \item Si $A\subset E$ et $Card(A)=Card(E)$, alors $E=A$.
+    \end{enumerate}
+}
+
+\propriete{}{
+    Soit $E$ un ensemble fini.
+    \begin{enumerate}[(i)]
+       \item Soient $A\subset E$ et $B\subset E$ tels que $A\cap B=\emptyset$. Alors $$Card(A\cup B)=Card(A) + Card(B)$$.
+       \item Soient $A\subset E$ et $B\subset E$. Alors $$Card(A\cup B)=Card(A) + Card(B)-Card(A\cap B)$$.
+       \item Soit $A\subset E$. Alors $$Card(\bar{A}) = Card(E) - Card(A)$$.
+    \end{enumerate}
+}
+
+\propriete{}{
+    Soit $E$ un ensemble fini de cardinal $n$. Alors $Card(\part{E})=2^n$.
+}
+
+\section{Binôme de Newton}
+
+\definition{}{
+    Soit $n\in\N^*$. On note $\ds n! = 1\times2\times\dots\times n = \prod_{k=1}^{n} k$ appelé factorielle de $n$.
+    \\ Par convention, $0! = 1$.
+}
+
+\definition{}{
+    Soient $n$ et $p$ deux entiers tels que $0\leq p\leq n$. On défini le symbole $\ds\binom{n}{k}$ par
+    $$\ds\binom{n}{k}=\frac{n!}{k!(n-k)!}$$
+}
+
+\remarque{La notation du binôme peut aussi s'écrire $\ds C_n^k$.}
+
+\propriete{}{
+    \vspace{-10pt}
+    \begin{enumerate}[(i)]
+       \item $\ds \binom{n}{0} = \binom{n}{n} = 1$
+       \item $\ds \binom{n}{k} = \binom{n}{n-k}$ (relation de Pascal)
+       \item $\ds \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}$
+    \end{enumerate}
+}
+
+\theoreme{(formule du binôme de Newton)}{
+    Soient $a$ et $b$ deux nombres réels. Pour tout entier naturel $n$, on a :
+    $$\ds (a+b)^n=\sum_{k=0}^{n} \binom{n}{k}a^k\times b^{n-k} = \sum_{k=0}^{n} \binom{n}{k}a^{n-k}\times b^k$$
+}
+
 
 \end{document}

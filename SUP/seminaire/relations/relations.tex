@@ -1,0 +1,137 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Relations}
+\newcommand{\DocumentTheme}{Sénminaire}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+\section{Quelques définitions}
+
+\definition{(relation)}{
+    Soient $E$ et $F$ des ensembles non vides. Soit $\rel$ une partie de $E\times F$. On considère tous les couples
+    $(a,b)$ de $E\times F$ tels que $(a,b)\in\rel$. On note $a\rel b\equival (a,b)\in\rel$ et on appelle $\rel$
+    correspondance de $E$ vers $F$.
+}
+
+\definition{(relation binaire)}{
+    On appelle relation binaire toute correspondance de $E$ sur lui-même.
+}
+
+\exemple{}{
+    Dans $\part{E}$ : $(A,B)\in\part{E}, A\rel B\equival A\subset B$
+}
+
+\section{Relation d'équivalence}
+
+\definition{(réflexivité)}{
+    Soit $E$ un ensemble et $\rel$ une relation binaire. La relation $\rel$ est dit réflexive si :
+    $$\forall x\in E, x\rel x$$
+}
+
+\exemples{}{
+    \begin{itemize}
+       \item Dans $\part{E}$ : $\forall A\in\part{E}, A\subset A \rightarrow$ Relation réflexive
+       \item Soit $(x,y)\in\R^2, x\rel y\equival x<y \rightarrow$ Relation non réflexive
+    \end{itemize}
+}
+
+\remarque{Soit $\rel$ une relation réflexive sur $E$ ($\rel\subset E\times E$). Alors $\rel$ est réflexive
+$\equival \forall x\in E, (x,y)\in\rel$.}
+
+\definition{(symétrie)}{
+    La relation $\rel$ est dite symétrique si : $$\forall (x,y)\in E^2, x\rel y \Rightarrow y\rel x$$
+}
+
+\exemples{}{ 
+    \begin{itemize}
+       \item Soit $E$ l'ensemble des droites du plan. Alors $(d, d')\in E^2, d \rel d' \equival d \perp d'$ est une
+       relation symétrique.
+       \item L'inclusion n'est pas symétrique.
+    \end{itemize}
+}
+
+\definition{(transitivité)}{
+    Soient $(x,y,z)\in E^3$. La relation $\rel$ est transitive si :
+    $$\forall(x,y,z)\in E^3, (x \rel y)\land(y \rel z)\Rightarrow x \rel z$$
+}
+
+\exemple{}{
+    \begin{itemize}
+       \item L'inclusion est transitive.
+       \item $d \sslash d'$ est transitif.
+       \item $d\perp d'$ n'est pas transitif.
+    \end{itemize}
+}
+
+\definition{(équivalence)}{
+    Soit $E$ un ensemble non vide et $\rel$ une relation binaire. On dit que $\rel$ est une relation d'équivalence si :
+    \begin{itemize}
+       \item $\rel$ est réflexive,
+       \item $\rel$ est symétrique,
+       \item et $\rel$ est transitive.
+    \end{itemize}
+}
+
+\definition{(antisymétrique)}{
+    Soit $E$ un ensemble non vide et $\rel$ une relation binaire. La relation $\rel$ est dite antisymétrique si :
+    $$\forall(x,y)\in E^2, (x \rel y)\land(y \rel x)\Rightarrow x=y$$
+}
+
+\exemple{}{
+    L'inclusion est une relation antisymétrique (si $A \subset B$ et $B \subset A$, alors $A=B$).
+}
+
+\section{Relation d'ordre}
+
+\definition{(ordre total, ordre partiel)}{
+    On dit que la relation d'ordre $\rel$ est une relation d'ordre total si :
+    $$\forall(x,y)\in E^2, (x\rel y)\lor(y \rel x)$$
+    Sinon, on dit que l'ordre est partiel.
+}
+
+\definition{(diagramme de Hasse)}{
+    Soit $\rel$ une relation d'ordre sur un ensemble fini $E$. Le diagramme de Hasse de $\rel$ est le graphe dont les
+    sommets sont les éléments de $E$ et dont les arcs (ou arêtes) satisfont la propriété suivante. \\
+    Il existe un arc de $x$ à $y$ si et seulement si :
+    \begin{itemize}
+       \item $x\leq y$
+       \item et $\exists z\in E, x\leq y\leq z \Rightarrow x=z \lor y=y$.
+    \end{itemize}
+}
+
+\exemple{}{
+    \begin{tikzpicture}
+        \node (empty) at (0,0) {$\emptyset$};
+        \node [below left of=empty] (one) {$\{1\}$};
+        \node [below of=empty] (two) {$\{2\}$};
+        \node [below right of=empty] (three) {$\{3\}$};
+        \node [below left of=one] (onetwo) {$\{1,2\}$};
+        \node [below of=two] (onethree) {$\{1,3\}$};
+        \node [below right of=three] (twothree) {$\{2,3\}$};
+        \node [below of=onethree] (onetwothree) {$\{1,2,3\}$};
+    
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (empty) -> (one);
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (empty) -> (two);
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (empty) -> (three);
+
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (one) -> (onetwo);
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (one) -> (onethree);
+
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (two) -> (onetwo);
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (two) -> (twothree);
+
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (three) -> (onethree);
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (three) -> (twothree);
+
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (onetwo) -> (onetwothree);
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (onethree) -> (onetwothree);
+        \draw [black, thick, shorten <=-3pt, shorten >=-3pt, -{latex}] (twothree) -> (onetwothree);
+    \end{tikzpicture}
+}
+
+\end{document}

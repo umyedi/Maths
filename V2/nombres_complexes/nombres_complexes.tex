@@ -1,0 +1,157 @@
+\documentclass[10pt]{article}
+
+\newcommand{\DocumentTitle}{Nombres complexes}
+\newcommand{\DocumentTheme}{Algèbre}
+\newcommand{\DocumentType}{Cours}
+
+\input{../../utils.tex}
+
+\begin{document}
+
+\maketitle
+
+% Content of the document
+
+
+\section{Ensemble des nombres complexes}
+
+\subsection{Notion de nombre complexe}
+
+\propriete{}{
+    Il existe un ensemble des nombres complexes (noté $\C$) qui possède les propriétés suiante :
+    \begin{enumerate}[(i)]
+       \item $\R\subset\C$
+       \item L'addition et la multiplication des réels se prolongent aux nombres complexes et les règles de calcul sont
+             les mêmes.
+       \item Il existe un nombre complexe $i$ tel que $i^2=-1$.
+       \item Tout nombre complexe $z$ s'écrit $z=a+ib$ avec $a$ et $b$ des réels.
+    \end{enumerate}
+}
+
+\definitions{(nombre complexe)}{
+    L'écriture $z=a+ib$ d'un nombre complexe avec $(a,b)\in\R^2$ est appelé forme algébrique (ou cartésienne) de $z$
+    avec :
+    \begin{itemize}
+       \item $a$ la partie réelle de $z$ noté $a=\Re(z)$.
+       \item $b$ la partie imaginaire de $z$ noté $a=\Im(z)$.
+    \end{itemize}
+    }
+
+\remarques{
+    Soit $z$ un nombre complexe.
+    \begin{itemize}
+       \item On a $z=\Re(z) + i\times\Im(z)$
+       \item Si $\Re(z)=0$, on dit que $z$ est imaginaire pur. On note $i\R$ l'ensemble des imaginaires purs.
+       \item Si $\Im(z)=0$, $z$ est réel.
+    \end{itemize}
+}
+
+\theoreme{}{
+    Soient $z=a+ib$ et $z'=a'+ib'$ deux nombres complexes avec $a$, $b$, $a'$ et $b'$ des réels. Alors : 
+    $z=z' \equival \sys{a=a'}{b=b'}$.
+}
+
+\corrolaire{}{
+    Tout nombre complexe $z$ s'écrit de manière unique $z=a+ib$ avec $(a,b)\in\R^2$.
+}
+
+\proprietes{(conséquence)}{
+    Soient $z=a+ib$ et $z'=a'+ib'$ deux nombres complexes avec $a$, $b$, $a'$ et $b'$ des réels. Alors :
+    \begin{enumerate}[(i)]
+       \item $z\not= z' \equival a\not=a' \lor b\not=b'$
+       \item $z=0 \equival a=0 \land b=0$
+       \item $z\not=0 \equival a\not=0 \lor b\not=0$
+    \end{enumerate}
+}
+
+\newpage
+
+\subsection{Opérations sur les nombres complexes}
+
+\proprietes{(addition et multiplication)}{
+    Soient $z=a+ib$ et $z'=a'+ib'$ deux nombres complexes avec $a$, $b$, $a'$ et $b'$ des réels. Alors :
+    \begin{enumerate}[(i)]
+       \item $z+z' = (a+a') + i(b+b')$
+       \item $z\times z' = (aa'-bb')+ i(ab'-a'b)$
+    \end{enumerate}
+}
+
+\definition{(opposé)}{
+    Pour tout nombre complexe $z=a+ib$ avec $(a,b)\in\R^2$, il existe un unique nombre complexe $z'$ tel que $z+z'=0$.
+    On appelle $z'$ l'opposé de $z$ et on le note $-z=(-a)+i(-b)$. 
+}
+
+\definition{(soustraction)}{
+    Soient $z=a+ib$ et $z'=a'+ib'$ deux nombres complexes avec $a$, $b$, $a'$ et $b'$ des réels. Alors $z-z'$ est défini
+    par $z+(-z')$ et on a $z-z'=(a-a')+i(b-b')$.
+}
+
+\definition{(inverse)}{
+    Pour tout nombre complexe $z=a+ib$ avec $a$, $b$ des réels et $z\not=0$, il existe un unique nombre complexe $z'$
+    tel que $z\times z'=1$. On appelle $z'$ inverse de $z$ et on le note
+    $\dfrac{1}{z}=\dfrac{a}{a^2+b^2}+i\times\dfrac{b}{a^2+b^2}$.   
+}
+
+\definition{(quotient)}{
+    Soient $z$ et $z'$ deux nombres complexes tels que $z'\not=0$. Alors $\dfrac{z}{z'}$ est défini par
+    $\dfrac{z}{z'}=z\times \dfrac{1}{z'}$.
+}
+
+\section{Conjugué d'un nombre complexe}
+
+\definition{}{
+    Soit $z$ un nombre complexe tel que $z=a+ib$ avec $(a,b)\in\R^2$. Alors le conjugué de $z$, noté $\bar{z}$, est le
+    nombre complexe défini par $\bar{z}=a-ib$.
+}
+
+\proprietes{}{
+    Pour tout nombre complexe $z$, on a : \\
+
+    \begin{minipage}{0.22\textwidth}
+        \begin{enumerate}[(i)]
+           \item $z+\bar{z} = 2\Re(z)$
+           \item $z-\bar{z} = 2i\Im(z)$
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{enumerate}[(i)]
+            \setcounter{enumi}{2}
+            \item $z\in\R \equival z=\bar{z}$
+            \item $z\in i\R \equival z=-\bar{z}$
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \begin{enumerate}[(i)]
+            \setcounter{enumi}{4}
+            \item $\bar{\bar{z}}=z$
+            \item $z\bar{z}=\Re(z)^2+\Im(z)^2$
+        \end{enumerate}
+    \end{minipage}
+}
+
+\proprietes{(opérations et conjugué)}{
+    Pour tous nombres complexes $z$ et $z'$, on a :
+
+    \begin{minipage}{0.5\textwidth}
+        \begin{enumerate}[(i)]
+        \item $\bar{-z}=-\bar{z}$
+        \item $\bar{z+z'}=\bar{z}+\bar{z'}$
+        \item $\bar{z\times z'}=\bar{z}\times \bar{z'}$
+        \item $\forall n\in\N, \bar{(z^n)}=(\bar{z})^n$
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+        \setcounter{enumi}{4}
+        \begin{enumerate}[(i)]
+           \item Si $z\not=0$, $\bar{\left(\dfrac{1}{z}\right)}=\dfrac{1}{\bar{z}}$
+           \item Si $z\not=0$, $\bar{\left(\dfrac{z'}{z}\right)}=\dfrac{\bar{z'}}{\bar{z}}$
+
+        \end{enumerate}
+    \end{minipage}
+}
+
+
+\end{document}

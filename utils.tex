@@ -267,6 +267,10 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\part}[1]{\mathcal{P}({#1})}  % Ensemle des parties de E
+\newcommand{\rel}{\mathcal{R}} % Relation entre deux ensembles
+
 % Limites
 \let\oldlim\lim
 \renewcommand{\lim}[1]{\mathop{\displaystyle\oldlim}\limits_{#1}}
@@ -275,11 +279,6 @@
 \newcommand{\x}{\times}
 \newcommand{\equival}{\Leftrightarrow}
 \newcommand{\involve}{\Rightarrow}
-
-% Ensembles
-\renewcommand{\bar}[1]{\overline{#1}}
-\renewcommand{\part}[1]{\mathcal{P}({#1})}  % Ensemle des parties de E
-\newcommand{\rel}{\mathcal{R}} % Relation entre deux ensembles
 
 % Vecteurs
 \renewcommand{\Vec}[1]{\overrightarrow{#1}}
@@ -291,6 +290,11 @@
 % Fonctions
 \newcommand{\aire}[1]{\text{aire}\left( #1 \right)}
 \newcommand{\Int}{\ds\int}
+
+% Nombres complexes
+\renewcommand{\Re}{\text{Re}}
+\renewcommand{\Im}{\text{Im}}
+
 
 
 % ========== Systèmes ==========

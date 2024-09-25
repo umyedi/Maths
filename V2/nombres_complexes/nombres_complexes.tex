@@ -10,9 +10,6 @@
 
 \maketitle
 
-% Content of the document
-
-
 \section{Ensemble des nombres complexes}
 
 \subsection{Notion de nombre complexe}
@@ -153,5 +150,319 @@
     \end{minipage}
 }
 
+\newpage
+
+\section{Représentation dans le plan complexe}
+
+Dans toute la suite du chapitre, on munit le plan d'un repère $(O,\Vec{u},\Vec{v})$ orthonormé direct.
+
+\subsection{Définitions}
+
+\begin{minipage}{0.65\textwidth}
+    \definitions{}{
+        À tout nombre complexe $z = a + ib$, avec $a$ et $b$ réels, on peut associer :
+    
+        \begin{itemize}
+            \item L'unique point $M(a ; b)$ appelé point image de $z$.
+            \item L'unique vecteur $\Vec{w}=\vcoord{a}{b}$ appelé vecteur image de $z$.
+        \end{itemize}
+    
+        Réciproquement :
+    
+        \begin{itemize}
+            \item À tout point $M(a ; b)$ avec $a$ et $b$ deux réels, on peut associer l'unique nombre complexe $z = a + ib$
+            appelé affixe du point $M$.
+            \item À tout vecteur vecteur $\Vec{w}=\vcoord{a}{b}$ avec $a$ et $b$ deux réels, on peut associer l'unique nombre
+            complexe $z = a + ib$ appelé affixe du vecteur $\Vec{w}$.
+        \end{itemize}
+    }
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+
+    \begin{tikzpicture}
+        % Axes
+        \draw[->] (-1,0) -- (4,0) node[above] {Axes de réels};
+        \draw[->] (0,0) -- (1,0) node[below left] {$\Vec{u}$};
+        \draw[->] (0,-1) -- (0,4) node[right] {Axe des imaginaires purs};
+        \draw[->] (0,0) -- (0,1) node[below left] {$\Vec{v}$};
+        
+        % Point M(a,b)
+        \coordinate (M) at (2,3);
+        \fill (M) circle (2pt) node[above right] {$M(a+ib)$};
+        
+        % Vector from O(0,0) to M(a,b)
+        \draw[->, thick] (0,0) -- (M) node[midway, above, sloped] {$\Vec{w}(a+ib)$};
+    
+        % Origin point O(0,0)
+        \fill (0,0) circle (2pt) node[below left] {$O$};
+        
+        % Dotted lines to show coordinates of M
+        \draw[dashed] (M) -- (2,0) node[below] {$a$};
+        \draw[dashed] (M) -- (0,3) node[left] {$b$};
+    \end{tikzpicture}
+\end{minipage}
+
+\vspace{10pt}
+
+\remarques{
+    \begin{itemize}
+        \item Les nombres réels sont les affixes des points de l'axe des abscisses aussi appelé : axe des réels.
+        \item Les nombres imaginaires purs sont les affixes des points de l'axe des ordonnées aussi appelé : axe des imaginaires purs.
+        \item Lorsqu'un point ou un vecteur est repéré par son affixe, le plan est appelé le plan complexe.
+        \item L'affixe de $M$ est souvent noté $z_M$ et la donnée d'un point $M$ d'affixe $z_M$ est souvent notée $M(z_M)$.
+        \item L'affixe de $\Vec{w}$ est souvent noté $z_{\Vec{w}}$, et la donnée d'un vecteur $w$ d'affixe $z_{\Vec{w}}$ est souvent notée 
+        $ \Vec{w}(z_{\Vec{w}})$ .
+        
+    \end{itemize}
+}
+
+\subsection{Propriétés}
+
+Des propriétés connues de géométrie sur les vecteurs et points donnent les propriétés suivantes.
+
+\proprietes{}{
+    Soient $A(z_A)$ et $B(z_B)$ deux points du plan complexe. Soient $ \Vec{w_1}(z_{\Vec{w_1}})$ et
+    $\Vec{w_2}(z_{\Vec{w_2}})$  deux vecteurs du plan complexe. Soit $\lambda\in\R$. \\
+
+    \begin{minipage}{0.4\textwidth}
+        \begin{enumerate}[(i)]
+            \item $A=B \equival z_A=z_B$ . 
+            \item $\Vec{w_1}=\Vec{w_2} \equival z_{\Vec{w_1}}=z_{\Vec{w_2}}$.
+            \item $\Vec{AB}$ a pour affixe $z_B-z_A$.
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.6\textwidth}
+        \begin{enumerate}[(i)]
+            \setcounter{enumi}{3}
+            \item Le milieu du segment $[AB]$ a pour affixe $\dfrac{z_A+z_B}{2}$.
+            \item Le vecteur $\Vec{w_1}+\Vec{w_2}$ a pour affixe $z_1+z_2$.
+            \item $\lambda \Vec{w_1}$ a pour affixe $\lambda z_1$.
+        \end{enumerate}
+    \end{minipage} 
+}
+
+\subsection{Conjugué et opposé}
+
+\propriete{}{
+    \vspace{-10pt}
+    \begin{enumerate}[(i)]
+       \item Les points $M$ d'affixe $z$ et $M'$ d'affixe $\bar{z}$ sont symétriques par rapport à l'axe des réels.
+       \item Les points $M$ d'affixe $z$ et $M''$ d'affixe $-z$ sont symétriques par rapport à l'origine du repère.
+    \end{enumerate}
+}
+
+\newpage
+
+\section{Module et argument d'un nombre complexe}
+
+\subsection{Module}
+
+\definition{}{
+    Soit $M$ un point d'affixe $z$. Le module de $z$, noté $|z|$ est le réel positif défini par $|z| = OM$.
+    Si $z = a + ib$ avec $a$ et $b$ deux réels. Alors $|z| = \sqrt{a^2 + b^2}$.
+}
+
+\remarque{Si $z = z'$, alors $|z| = |z'|$. Mais la réciproque est fausse. Contre-exemple avec $z=1+i$ et $z'=1-i$.
+$|z| = |z'|=\sqrt{2}$ et $z \not= z'$.}
+
+\proprietes{}{
+    Soit $z$ un nombre complexe. \\
+    \begin{minipage}{0.3\textwidth}
+        \begin{enumerate}[(i)]
+           \item $|z|^2=z \bar{z}$
+            \item $|\bar{z}|=|z|$
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.7\textwidth}
+        \begin{enumerate}[(i)]
+            \setcounter{enumi}{2}
+           \item $|-z|=|z|$
+            \item $|z|=0 \equival z=0$
+        \end{enumerate}
+    \end{minipage}
+}
+
+\remarque{corrolaire de (i) : $|z|= \sqrt{z \overline{z}}$ (utile en pratique).}
+
+\propriete{}{
+    Soit $A(z_A)$ et $B(z_B)$. On a $AB = |z_B - z_A| = |z_A - z_B|$
+}
+
+\proprietes{}{
+    \vspace{-10pt}
+    \begin{minipage}{0.4\textwidth}
+        \begin{enumerate}[(i)]
+            \item Produit : $|zz'|=|z||z'|$
+            \item Puissance : $|z^n|=|z|^n$  
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.6\textwidth}
+        \begin{enumerate}[(i)]
+            \setcounter{enumi}{2}
+            \item Inverse : $\left| \dfrac{1}{z} \right|=\dfrac{1}{|z|}$
+            \item Quotient : $\left| \dfrac{z}{z'} \right|=\dfrac{|z|}{|z'|}$ 
+        \end{enumerate}
+    \end{minipage}
+    \vspace{10pt}
+}
+
+\propriete{(inégalité triangulaire)}{
+    Soient $z$ et $z'$ deux nombres complexes, on a $|z+z'| \leq |z|+|z'|$
+}
+
+\subsection{Argument}
+
+\definition{}{
+    Soit un point $M$ d'affixe non nulle $z$.
+    On appelle argument de $z$, noté $\arg(z)$ une mesure, en radians, de l'angle $(\Vec{u};OM)$.
+}
+
+\remarques{
+    \begin{itemize}
+        \item Un nombre complexe non nul possède une infinité d'arguments de la forme $\arg(z) [2\pi]$.
+        
+        \item 0 n'a pas d'argument car dans ce cas l'angle $(\Vec{u};OM)$ n'est pas défini. 
+    \end{itemize}
+}
+
+\propriete{}{
+    Soit $z$ un nombre complexe non nul. \\
+
+    \begin{minipage}{0.4\textwidth}
+        \begin{enumerate}[(i)]
+            \item $z\in\R \equival \arg(z)=0 \mod{\pi}$
+            \item $z\in i\R \equival \arg(z)= \dfrac{\pi}{2} \mod{\pi}$
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.6\textwidth}
+        \begin{enumerate}[(i)]
+            \setcounter{enumi}{2}
+            \item $\arg({\bar{z}})=-\arg(z) \mod{2 \pi}$
+            \item $\arg({-z})=\arg(z)+ \pi \mod{2 \pi}$
+        \end{enumerate}
+    \end{minipage}
+}
+
+\newpage
+
+\section{Forme trigonométrique d'un nombre complexe}
+
+\subsection{Définition}
+
+
+\propriete{}{
+    Soit $z=a+ib$ un nombre complexe non nul. On pose : $\theta = \arg(z)$. \\
+    On a alors : $a=|z| \cos(\theta)$ et $b=|z| \sin(\theta)$.
+}
+
+\definition{}{
+    On appelle forme trigonométrique d'un nombre complexe non nul l'écriture :
+    $z=|z|(\cos(\theta)+i \sin(\theta))$ avec $\theta = \arg(z)$.
+}
+
+\propriete{}{
+    Deux nombres complexes non nuls sont égaux si, et seulement si, ils ont même module et même argument (modulo $2\pi$).
+}
+
+\subsection{Relations trigonométrique et propriétés des arguments}
+
+\propriete{(formule d'addition)}{
+    Pour tous réel $a$ et $b$, \\
+
+    \begin{minipage}{0.5\textwidth}
+        \begin{enumerate}[(i)]
+            \item $\cos(a-b)=\cos(a)\cos(b) + \sin(a)\sin(b)$ 
+            \item $\cos(a+b)=\cos(a)\cos(b) - \sin(a)\sin(b)$ 
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+        \begin{enumerate}[(i)]
+            \setcounter{enumi}{2}
+            \item $\sin(a-b)=\sin(a)\cos(b) - \cos(a)\sin(b)$ 
+            \item $\sin(a+b)=\sin(a)\cos(b) + \cos(a)\sin(b)$ 
+        \end{enumerate}
+    \end{minipage}
+}
+
+\propriete{(formule de duplication)}{
+    Pour tous réel $a$,
+    \begin{enumerate}[(i)]
+       \item $\cos(2a) = \cos^2(a) - \sin^2(a) = 1 - 2\sin^2(a) = 2\cos^2(a) - 1$
+       \item $\sin(2a)=2\sin(a)\cos(a)$
+    \end{enumerate}
+}
+
+\propriete{(argument et opérations)}{
+    Soient $z$ et $z'$ deux nombres complexes non nuls et $n$ un entier naturel non nul.
+    \begin{enumerate}[(i)]
+       \item $\arg(zz') = \arg(z)+\arg(z') \mod{2\pi}$
+       \item $\arg(z^n) = n\arg(z) \mod{2\pi}$
+       \item $\arg\left(\dfrac{1}{z}\right) = -\arg(z) \mod{2\pi}$
+       \item $\arg\left(\dfrac{z}{z'}\right) = \arg(z) - \arg(z') \mod{2\pi}$
+    \end{enumerate}
+}
+
+\remarques{
+    A l'aide des arguments, on peut gérer différentes situations em géométrie, par exemple, avec $A$, $B$, $C$ et $D$
+    quatre points d'affixes respectives $a$, $b$, $c$ et $d$ :
+    \begin{itemize}
+       \item Situation d'alignement : \\
+        $A$, $B$ et $C$ alignés $\equival \arg (b-a) = \arg (c-a) \mod{\pi}$
+       \item Situation de parallèlisme : \\
+        $(AB) \sslash (CD) \equival \arg (b-a) = \arg (d-c) \mod{\pi}$
+       \item Situation de perpendicularité : \\
+        $(AB) \perp (CD) \equival \arg (b-a) = \arg (d-c) + \dfrac{\pi}{2} \mod{\pi}$
+    \end{itemize}
+}
+
+\newpage
+
+\section{Forme exponentielle}
+
+\subsection{Définition}
+
+\theoreme{(fonction exponentielle complexe)}{
+    Soit $f$ la fonction défini sur $\R$ par $f(\theta)=\cos\theta+i\sin\theta$.
+    \begin{itemize}
+       \item Pour tous réels $\theta$ et $\theta'$ on a $f(\theta+\theta')=f(\theta)\times f(\theta')$.
+       De plus, $f(0)=1$.
+       \item Par analogie avec la fonction exponentielle dans $\R$, on pose $f(\theta)=e^{i\theta}$, soit
+       $e^{i\theta}=\cos\theta+i\sin\theta$.
+       \item On a $|e^{i\theta}|=1$
+    \end{itemize}
+}
+
+\remarque{On peut écrire $e^{i\pi}-1=0$. Cette relation possède la particularité de relier les grandes branches des
+mathématiques : l'analyse (avec la fonction $e$), l'algèbre (avec le nombre $i$) et la géométrie (avec le nombre $\pi$)}
+
+\definition{}{
+    Tout nombre complexe $z$ non nul de module $r$ et d'argument $\theta$ s'écrit sous sa forme exponentielle
+    $z=re^{i\theta}$.
+}
+
+\proprietes{}{
+    Pour tous nombres réels $\theta$ et $\theta'$, on a :
+    \begin{enumerate}[(i)]
+       \item $e^{i\theta}e^{i\theta'}=e^{i(\theta+\theta')}$
+       \item $\dfrac{1}{e^{i\theta}} = e^{-i\theta}$
+       \item $\dfrac{e^{i\theta}}{e^{i\theta'}} = e^{i(\theta-\theta')}$
+       \item $\bar{e^{i\theta}} = e^{-i\theta}$
+    \end{enumerate}
+}
+
+\propriete{(formule de Moivre)}{
+    $\forall\theta\in\R,\forall n\in\Z : \left(e^{i\theta}\right)^n = e^{in\theta}$ c'est à dire
+    $(\cos\theta+i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$
+}
+
+\propriete{(formule d'Euler)}{
+    $\forall\theta\in\R : \sys{\cos\theta=\dfrac{e^{i\theta}+e^{-i\theta}}{2}}{\sin\theta=\dfrac{e^{i\theta}-e^{-i\theta}}{2}}$
+}
 
 \end{document}

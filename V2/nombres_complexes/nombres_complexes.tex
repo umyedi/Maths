@@ -152,6 +152,38 @@
 
 \newpage
 
+\section{Équations du second degré à coefficients réels}
+
+\propriete{}{
+    On considère l'équation $z^2=a$ avec $a$ un réel.
+    \begin{enumerate}[(i)]
+       \item Si $a>0$, alors l'équation admet deux solutions réelles : $\sqrt a$ et $-\sqrt a$.
+       \item Si $a<0$, alors l'équation admet deux solutions réelles : $i\sqrt {-a}$ et $-i\sqrt {-a}$.
+    \end{enumerate}
+}
+
+\proprietes{(solutions)}{
+    On considère l'équation $az^2+bz+c=0$ avec $a$, $b$, $c$ trois réels et $a\not=0$. Soit $\Delta=b^2-4ac$ le
+    discriminant de cette équation.
+    \begin{enumerate}[(i)]
+       \item Si $\Delta>0$, alors l'équation admet deux solutions réelles distinctes : 
+       $$z_1=\dfrac{-b-\sqrt \Delta}{2a} \text{ et } z_2=\dfrac{-b+\sqrt \Delta}{2a}$$
+       \item Si $\Delta=0$, alors l'équation admet une unique solution réelle :
+       $$z_0=\dfrac{-b}{2a}$$.
+       \item Si $\Delta<0$, alors l'équation admet deux solutions complexes conjuguées :
+       $$z_1=\dfrac{-b-i\sqrt {-\Delta}}{2a} \text{ et } z_2=\dfrac{-b+i\sqrt {-\Delta}}{2a}$$
+    \end{enumerate}
+}
+
+\proprietes{(factorisation)}{
+    On considère l'équation $az^2+bz+c=0$ avec $a$, $b$, $c$ trois réels et $a\not=0$. Soit $\Delta=b^2-4ac$ le
+    discriminant de cette équation.
+    \begin{enumerate}[(i)]
+       \item Si $\Delta\not=0$, alors on a $az^2+bz+c=a(z-z_1)(z-z_2)$.
+       \item Si $\Delta=0$, alors on a $az^2+bz+c=a(z-z_0)^2$.
+    \end{enumerate}
+}
+
 \section{Représentation dans le plan complexe}
 
 Dans toute la suite du chapitre, on munit le plan d'un repère $(O,\Vec{u},\Vec{v})$ orthonormé direct.
@@ -203,7 +235,7 @@ Dans toute la suite du chapitre, on munit le plan d'un repère $(O,\Vec{u},\Vec{
     \end{tikzpicture}
 \end{minipage}
 
-\vspace{10pt}
+\newpage
 
 \remarques{
     \begin{itemize}
@@ -253,8 +285,6 @@ Des propriétés connues de géométrie sur les vecteurs et points donnent les p
     \end{enumerate}
 }
 
-\newpage
-
 \section{Module et argument d'un nombre complexe}
 
 \subsection{Module}
@@ -290,6 +320,8 @@ $|z| = |z'|=\sqrt{2}$ et $z \not= z'$.}
 \propriete{}{
     Soit $A(z_A)$ et $B(z_B)$. On a $AB = |z_B - z_A| = |z_A - z_B|$
 }
+
+\newpage
 
 \proprietes{}{
     \vspace{-10pt}
@@ -347,8 +379,6 @@ $|z| = |z'|=\sqrt{2}$ et $z \not= z'$.}
         \end{enumerate}
     \end{minipage}
 }
-
-\newpage
 
 \section{Forme trigonométrique d'un nombre complexe}
 
@@ -420,8 +450,6 @@ $|z| = |z'|=\sqrt{2}$ et $z \not= z'$.}
         $(AB) \perp (CD) \equival \arg (b-a) = \arg (d-c) + \dfrac{\pi}{2} \mod{\pi}$
     \end{itemize}
 }
-
-\newpage
 
 \section{Forme exponentielle}
 
